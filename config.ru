@@ -5,6 +5,7 @@ require 'sinatra'
 set :run => false
 set :environment => ENV['environment'] || :development
 set :app_file => 'sdoc-site.rb'
+load 'sdoc-site.rb'
 
 configure :production do
   require app_file
@@ -14,8 +15,8 @@ configure :development do
   set :reload => true
 end
 
-log = ::File.new("sinatra.log", "a")
-$stdout.reopen(log)
-$stderr.reopen(log)
+# log = ::File.new("sinatra.log", "a")
+# $stdout.reopen(log)
+# $stderr.reopen(log)
 
 run Sinatra::Application

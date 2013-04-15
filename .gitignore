@@ -8,3 +8,5 @@ versions.yaml
 public/index.html
 sinatra.log
 .rake_tasks~
+/tmp
+/bin

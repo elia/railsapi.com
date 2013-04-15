@@ -2,7 +2,8 @@
 rdoc/
 rdoc.zip
 rails/
-public/doc/
+public/doc/*
+!public/doc/.keep
 versions.yaml
 public/index.html
 sinatra.log

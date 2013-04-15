@@ -1,0 +1,12 @@
+.DS_Store
+rdoc/
+rdoc.zip
+rails/
+public/doc/*
+!public/doc/.keep
+versions.yaml
+public/index.html
+sinatra.log
+.rake_tasks~
+/tmp
+/bin

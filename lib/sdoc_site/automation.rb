@@ -32,15 +32,21 @@ class SDocSite::Automation
 
       debug_msg "Working with #{auto.short_name}"
       build = @builds_map[auto.short_name]
+      p [:builds_map, @builds_map]
       versions_to_build = []
       debug_msg " fetching available verions"
+      debug_msg " (build #{build ? 'found' : 'not found'})"
+
       if build
         max_build_version = build.versions.max
+        p [:build_versions, build.versions]
+        p [:max_build_version, max_build_version]
         versions_to_build += auto.available_versions.select{|v| v > max_build_version}
       else
         n = (auto.respond_to? :versions_to_build) ? auto.versions_to_build : 1
-        versions_to_build << auto.available_versions.last
-        # versions_to_build += auto.available_versions.sort[-n..-1]
+        # versions_to_build << auto.available_versions.sort.first
+        # p versions_to_build
+        versions_to_build += auto.available_versions.sort[-n..-1]
       end
 
       if versions_to_build.size > 0
@@ -295,7 +301,7 @@ protected
     require "sdoc_site/automation/eventmachine"
     @automations = []
     @automations << Automation::Ruby.new(self)
-    @automations << Automation::Rails.new(self)
+    # @automations << Automation::Rails.new(self)
     # @automations << Automation::Authlogic.new(self)
     # @automations << Automation::Awss3.new(self)
     # @automations << Automation::Eventmachine.new(self)

@@ -13,7 +13,7 @@ protected
     options << '--line-numbers'
     options << '--charset' << 'utf-8'
     options << '--title' << 'Authlogic'
-    options << '-T' << 'sdoc'
+    options << '-f' << 'sdoc'
     options << '--main' << 'README.rdoc'
 
     file_list = Rake::FileList.new

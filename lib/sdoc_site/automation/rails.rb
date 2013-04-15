@@ -13,7 +13,6 @@ protected
     options << '--line-numbers'
     options << '--charset' << 'utf-8'
     options << "--title" << "Ruby on Rails"
-    # options << '-T' << 'sdoc'
     options << '-f' << 'sdoc'
     options << '--main' << 'README'
 

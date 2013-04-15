@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>URI::Parser</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            URI::Parser 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/uri/common_rb.html">lib/uri/common.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>class that Parses String&#39;s into URI&#39;s</p>
+
+<p>It contains a <a href="../Hash.html">Hash</a> set of patterns and
+Regexp&#39;s that match and validate.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-convert_to_uri">convert_to_uri</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-escape">escape</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-extract">extract</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-initialize_pattern">initialize_pattern</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_regexp">initialize_regexp</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-inspect">inspect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>J</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-join">join</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-make_regexp">make_regexp</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-parse">parse</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-split">split</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-unescape">unescape</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="REGEXP.html">
+              URI::REGEXP
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>pattern</td>
+            <td class='attr-desc'><p>The <a href="../Hash.html">Hash</a> of patterns.</p>
+
+<p>see also <a
+href="Parser.html#method-i-initialize_pattern">#initialize_pattern</a></p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>regexp</td>
+            <td class='attr-desc'><p>The <a href="../Hash.html">Hash</a> of <a href="../Regexp.html">Regexp</a></p>
+
+<p>see also <a
+href="Parser.html#method-i-initialize_regexp">#initialize_regexp</a></p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(opts = {})
+            
+            <a href="../../classes/URI/Parser.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h2 id="method-c-new-label-Synopsis">Synopsis</h2>
+
+<pre>URI::Parser.new([opts])</pre>
+
+<h2 id="method-c-new-label-Args">Args</h2>
+
+<p>The constructor accepts a hash as options for parser. Keys of options are
+pattern names of <a href="../URI.html">URI</a> components and values of
+options are pattern strings. The constructor generetes set of regexps for
+parsing URIs.</p>
+
+<p>You can use the following keys:</p>
+
+<pre>* :ESCAPED (URI::PATTERN::ESCAPED in default)
+* :UNRESERVED (URI::PATTERN::UNRESERVED in default)
+* :DOMLABEL (URI::PATTERN::DOMLABEL in default)
+* :TOPLABEL (URI::PATTERN::TOPLABEL in default)
+* :HOSTNAME (URI::PATTERN::HOSTNAME in default)</pre>
+
+<h2 id="method-c-new-label-Examples">Examples</h2>
+
+<pre class="ruby"><span class="ruby-identifier">p</span> = <span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-constant">ESCAPED</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;(?:%[a-fA-F0-9]{2}|%u[a-fA-F0-9]{4})&quot;</span>)
+<span class="ruby-identifier">u</span> = <span class="ruby-identifier">p</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;http://example.jp/%uABCD&quot;</span>) <span class="ruby-comment">#=&gt; #&lt;URI::HTTP:0xb78cf4f8 URL:http://example.jp/%uABCD&gt;</span>
+<span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">u</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-comment">#=&gt; raises URI::InvalidURIError</span>
+
+<span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;http://examle.com/ABCD&quot;</span>
+<span class="ruby-identifier">u1</span> = <span class="ruby-identifier">p</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">s</span>) <span class="ruby-comment">#=&gt; #&lt;URI::HTTP:0xb78c3220 URL:http://example.com/ABCD&gt;</span>
+<span class="ruby-identifier">u2</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">s</span>) <span class="ruby-comment">#=&gt; #&lt;URI::HTTP:0xb78b6d54 URL:http://example.com/ABCD&gt;</span>
+<span class="ruby-identifier">u1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">u2</span> <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-identifier">u1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">u2</span>) <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/uri/common.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-ivar">@pattern</span> = <span class="ruby-identifier">initialize_pattern</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-ivar">@pattern</span>.<span class="ruby-identifier">each_value</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">freeze</span>}
+  <span class="ruby-ivar">@pattern</span>.<span class="ruby-identifier">freeze</span>
+
+  <span class="ruby-ivar">@regexp</span> = <span class="ruby-identifier">initialize_regexp</span>(<span class="ruby-ivar">@pattern</span>)
+  <span class="ruby-ivar">@regexp</span>.<span class="ruby-identifier">each_value</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">freeze</span>}
+  <span class="ruby-ivar">@regexp</span>.<span class="ruby-identifier">freeze</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-escape">
+            
+              <b>escape( str )
+escape( str, unsafe )
+</b>
+            
+            <a href="../../classes/URI/Parser.html#method-i-escape" name="method-i-escape" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h2 id="method-i-escape-label-Args">Args</h2>
+<dl class="rdoc-list note-list"><dt>str
+<dd>
+<p>String to make safe</p>
+</dd><dt>unsafe
+<dd>
+<p><a href="../Regexp.html">Regexp</a> to apply. Defaults to <a
+href="http://:UNSAFE">self.regexp</a></p>
+</dd></dl>
+
+<h2 id="method-i-escape-label-Description">Description</h2>
+
+<p>constructs a safe String from <code>str</code>, removing unsafe characters,
+replacing them with codes.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-escape_source')" id="l_method-i-escape_source">show</a>
+                
+              </p>
+              <div id="method-i-escape_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/uri/common.rb, line 299</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">escape</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">unsafe</span> = <span class="ruby-ivar">@regexp</span>[<span class="ruby-value">:UNSAFE</span>])
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">unsafe</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Regexp</span>)
+    <span class="ruby-comment"># perhaps unsafe is String object</span>
+    <span class="ruby-identifier">unsafe</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;[#{Regexp.quote(unsafe)}]&quot;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">unsafe</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">us</span> = <span class="ruby-node">$&amp;</span>
+    <span class="ruby-identifier">tmp</span> = <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-identifier">us</span>.<span class="ruby-identifier">each_byte</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">uc</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">tmp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&#39;%%%02X&#39;</span>, <span class="ruby-identifier">uc</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">tmp</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">US_ASCII</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extract">
+            
+              <b>extract( str )
+extract( str, schemes )
+extract( str, schemes ) {|item| block }
+</b>
+            
+            <a href="../../classes/URI/Parser.html#method-i-extract" name="method-i-extract" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h2 id="method-i-extract-label-Args">Args</h2>
+<dl class="rdoc-list note-list"><dt>str
+<dd>
+<p>String to search</p>
+</dd><dt>schemes
+<dd>
+<p>Patterns to apply to <code>str</code></p>
+</dd></dl>
+
+<h2 id="method-i-extract-label-Description">Description</h2>
+
+<p>Attempts to parse and merge a set of URIs If no <code>block</code> given ,
+then returns the result, else it calls <code>block</code> for each element
+in result.</p>
+
+<p>see also <a href="Parser.html#method-i-make_regexp">#make_regexp</a></p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extract_source')" id="l_method-i-extract_source">show</a>
+                
+              </p>
+              <div id="method-i-extract_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/uri/common.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extract</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">schemes</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">str</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-identifier">make_regexp</span>(<span class="ruby-identifier">schemes</span>)) { <span class="ruby-keyword">yield</span> <span class="ruby-node">$&amp;</span> }
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">result</span> = []
+    <span class="ruby-identifier">str</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-identifier">make_regexp</span>(<span class="ruby-identifier">schemes</span>)) { <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-node">$&amp;</span> }
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inspect">
+            
+              <b>inspect</b>()
+            
+            <a href="../../classes/URI/Parser.html#method-i-inspect" name="method-i-inspect" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-inspect_source')" id="l_method-i-inspect_source">show</a>
+                
+              </p>
+              <div id="method-i-inspect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/uri/common.rb, line 335</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">inspect</span>
+  <span class="ruby-identifier">@@to_s</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">call</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-join">
+            
+              <b>join</b>(*uris)
+            
+            <a href="../../classes/URI/Parser.html#method-i-join" name="method-i-join" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h2 id="method-i-join-label-Args">Args</h2>
+<dl class="rdoc-list note-list"><dt>uris
+<dd>
+<p>an Array of Strings</p>
+</dd></dl>
+
+<h2 id="method-i-join-label-Description">Description</h2>
+
+<p>Attempts to parse and merge a set of URIs</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-join_source')" id="l_method-i-join_source">show</a>
+                
+              </p>
+              <div id="method-i-join_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/uri/common.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">join</span>(*<span class="ruby-identifier">uris</span>)
+  <span class="ruby-identifier">uris</span>[<span class="ruby-number">0</span>] = <span class="ruby-identifier">convert_to_uri</span>(<span class="ruby-identifier">uris</span>[<span class="ruby-number">0</span>])
+  <span class="ruby-identifier">uris</span>.<span class="ruby-identifier">inject</span> <span class="ruby-value">:merge</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-make_regexp">
+            
+              <b>make_regexp</b>(schemes = nil)
+            
+            <a href="../../classes/URI/Parser.html#method-i-make_regexp" name="method-i-make_regexp" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>returns <a href="../Regexp.html">Regexp</a> that is default <a
+href="http://:ABS_URI_REF">self.regexp</a>, unless <code>schemes</code> is
+provided. Then it is a <a
+href="../Regexp.html#method-c-union">Regexp.union</a> with <a
+href="http://:X_ABS_URI">self.pattern</a></p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-make_regexp_source')" id="l_method-i-make_regexp_source">show</a>
+                
+              </p>
+              <div id="method-i-make_regexp_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/uri/common.rb, line 274</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">make_regexp</span>(<span class="ruby-identifier">schemes</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">schemes</span>
+    <span class="ruby-ivar">@regexp</span>[<span class="ruby-value">:ABS_URI_REF</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">/(?=#{Regexp.union(*schemes)}:)#{@pattern[:X_ABS_URI]}/</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-parse">
+            
+              <b>parse</b>(uri)
+            
+            <a href="../../classes/URI/Parser.html#method-i-parse" name="method-i-parse" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h2 id="method-i-parse-label-Args">Args</h2>
+<dl class="rdoc-list note-list"><dt>uri
+<dd>
+<p>String</p>
+</dd></dl>
+
+<h2 id="method-i-parse-label-Description">Description</h2>
+
+<p>parses <code>uri</code> and constructs either matching <a
+href="../URI.html">URI</a> scheme object (<a href="FTP.html">FTP</a>, <a
+href="HTTP.html">HTTP</a>, <a href="HTTPS.html">HTTPS</a>, <a
+href="LDAP.html">LDAP</a>, <a href="LDAPS.html">LDAPS</a>, or <a
+href="MailTo.html">MailTo</a>) or <a href="Generic.html">URI::Generic</a></p>
+
+<h2 id="method-i-parse-label-Usage">Usage</h2>
+
+<pre class="ruby"><span class="ruby-identifier">p</span> = <span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">p</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;ldap://ldap.example.com/dc=example?user=john&quot;</span>)
+<span class="ruby-comment">#=&gt; #&lt;URI::LDAP:0x00000000b9e7e8 URL:ldap://ldap.example.com/dc=example?user=john&gt;</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-parse_source')" id="l_method-i-parse_source">show</a>
+                
+              </p>
+              <div id="method-i-parse_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/uri/common.rb, line 209</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">parse</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-identifier">scheme</span>, <span class="ruby-identifier">userinfo</span>, <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>,
+    <span class="ruby-identifier">registry</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">opaque</span>, <span class="ruby-identifier">query</span>, <span class="ruby-identifier">fragment</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">split</span>(<span class="ruby-identifier">uri</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">scheme</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">URI</span>.<span class="ruby-identifier">scheme_list</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">scheme</span>.<span class="ruby-identifier">upcase</span>)
+    <span class="ruby-constant">URI</span>.<span class="ruby-identifier">scheme_list</span>[<span class="ruby-identifier">scheme</span>.<span class="ruby-identifier">upcase</span>].<span class="ruby-identifier">new</span>(<span class="ruby-identifier">scheme</span>, <span class="ruby-identifier">userinfo</span>, <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>,
+                                       <span class="ruby-identifier">registry</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">opaque</span>, <span class="ruby-identifier">query</span>,
+                                       <span class="ruby-identifier">fragment</span>, <span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Generic</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">scheme</span>, <span class="ruby-identifier">userinfo</span>, <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>,
+                <span class="ruby-identifier">registry</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">opaque</span>, <span class="ruby-identifier">query</span>,
+                <span class="ruby-identifier">fragment</span>, <span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-split">
+            
+              <b>split</b>(uri)
+            
+            <a href="../../classes/URI/Parser.html#method-i-split" name="method-i-split" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns a split <a href="../URI.html">URI</a> against <a
+href="http://:ABS_URI">regexp</a></p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-split_source')" id="l_method-i-split_source">show</a>
+                
+              </p>
+              <div id="method-i-split_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/uri/common.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">split</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">uri</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-comment"># null uri</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-ivar">@regexp</span>[<span class="ruby-value">:ABS_URI</span>]
+    <span class="ruby-identifier">scheme</span>, <span class="ruby-identifier">opaque</span>, <span class="ruby-identifier">userinfo</span>, <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>,
+      <span class="ruby-identifier">registry</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">query</span>, <span class="ruby-identifier">fragment</span> = <span class="ruby-identifier">$~</span>[<span class="ruby-number">1</span><span class="ruby-operator">..</span><span class="ruby-number">-1</span>]
+
+    <span class="ruby-comment"># URI-reference = [ absoluteURI | relativeURI ] [ &quot;#&quot; fragment ]</span>
+
+    <span class="ruby-comment"># absoluteURI   = scheme &quot;:&quot; ( hier_part | opaque_part )</span>
+    <span class="ruby-comment"># hier_part     = ( net_path | abs_path ) [ &quot;?&quot; query ]</span>
+    <span class="ruby-comment"># opaque_part   = uric_no_slash *uric</span>
+
+    <span class="ruby-comment"># abs_path      = &quot;/&quot;  path_segments</span>
+    <span class="ruby-comment"># net_path      = &quot;//&quot; authority [ abs_path ]</span>
+
+    <span class="ruby-comment"># authority     = server | reg_name</span>
+    <span class="ruby-comment"># server        = [ [ userinfo &quot;@&quot; ] hostport ]</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">scheme</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidURIError</span>,
+        <span class="ruby-node">&quot;bad URI(absolute but no scheme): #{uri}&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">opaque</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">path</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">host</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">registry</span>))
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidURIError</span>,
+        <span class="ruby-node">&quot;bad URI(absolute but no path): #{uri}&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-ivar">@regexp</span>[<span class="ruby-value">:REL_URI</span>]
+    <span class="ruby-identifier">scheme</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">opaque</span> = <span class="ruby-keyword">nil</span>
+
+    <span class="ruby-identifier">userinfo</span>, <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>, <span class="ruby-identifier">registry</span>,
+      <span class="ruby-identifier">rel_segment</span>, <span class="ruby-identifier">abs_path</span>, <span class="ruby-identifier">query</span>, <span class="ruby-identifier">fragment</span> = <span class="ruby-identifier">$~</span>[<span class="ruby-number">1</span><span class="ruby-operator">..</span><span class="ruby-number">-1</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">rel_segment</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">abs_path</span>
+      <span class="ruby-identifier">path</span> = <span class="ruby-identifier">rel_segment</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">abs_path</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">rel_segment</span>
+      <span class="ruby-identifier">path</span> = <span class="ruby-identifier">rel_segment</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">abs_path</span>
+      <span class="ruby-identifier">path</span> = <span class="ruby-identifier">abs_path</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># URI-reference = [ absoluteURI | relativeURI ] [ &quot;#&quot; fragment ]</span>
+
+    <span class="ruby-comment"># relativeURI   = ( net_path | abs_path | rel_path ) [ &quot;?&quot; query ]</span>
+
+    <span class="ruby-comment"># net_path      = &quot;//&quot; authority [ abs_path ]</span>
+    <span class="ruby-comment"># abs_path      = &quot;/&quot;  path_segments</span>
+    <span class="ruby-comment"># rel_path      = rel_segment [ abs_path ]</span>
+
+    <span class="ruby-comment"># authority     = server | reg_name</span>
+    <span class="ruby-comment"># server        = [ [ userinfo &quot;@&quot; ] hostport ]</span>
+
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidURIError</span>, <span class="ruby-node">&quot;bad URI(is not URI?): #{uri}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">path</span> = <span class="ruby-string">&#39;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">opaque</span> <span class="ruby-comment"># (see RFC2396 Section 5.2)</span>
+  <span class="ruby-identifier">ret</span> = [
+    <span class="ruby-identifier">scheme</span>,
+    <span class="ruby-identifier">userinfo</span>, <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>,         <span class="ruby-comment"># X</span>
+    <span class="ruby-identifier">registry</span>,                     <span class="ruby-comment"># X</span>
+    <span class="ruby-identifier">path</span>,                         <span class="ruby-comment"># Y</span>
+    <span class="ruby-identifier">opaque</span>,                       <span class="ruby-comment"># Y</span>
+    <span class="ruby-identifier">query</span>,
+    <span class="ruby-identifier">fragment</span>
+  ]
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">ret</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-unescape">
+            
+              <b>unescape( str )
+unescape( str, unsafe )
+</b>
+            
+            <a href="../../classes/URI/Parser.html#method-i-unescape" name="method-i-unescape" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h2 id="method-i-unescape-label-Args">Args</h2>
+<dl class="rdoc-list note-list"><dt>str
+<dd>
+<p>String to remove escapes from</p>
+</dd><dt>unsafe
+<dd>
+<p><a href="../Regexp.html">Regexp</a> to apply. Defaults to <a
+href="http://:ESCAPED">self.regexp</a></p>
+</dd></dl>
+
+<h2 id="method-i-unescape-label-Description">Description</h2>
+
+<p>Removes escapes from <code>str</code></p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-unescape_source')" id="l_method-i-unescape_source">show</a>
+                
+              </p>
+              <div id="method-i-unescape_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/uri/common.rb, line 330</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">unescape</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">escaped</span> = <span class="ruby-ivar">@regexp</span>[<span class="ruby-value">:ESCAPED</span>])
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">escaped</span>) { [<span class="ruby-node">$&amp;</span>[<span class="ruby-number">1</span>, <span class="ruby-number">2</span>].<span class="ruby-identifier">hex</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C&#39;</span>) }.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-identifier">str</span>.<span class="ruby-identifier">encoding</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-convert_to_uri">
+            
+              <b>convert_to_uri</b>(uri)
+            
+            <a href="../../classes/URI/Parser.html#method-i-convert_to_uri" name="method-i-convert_to_uri" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-convert_to_uri_source')" id="l_method-i-convert_to_uri_source">show</a>
+                
+              </p>
+              <div id="method-i-convert_to_uri_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/uri/common.rb, line 531</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">convert_to_uri</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Generic</span>)
+    <span class="ruby-identifier">uri</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">uri</span> = <span class="ruby-constant">String</span>.<span class="ruby-identifier">try_convert</span>(<span class="ruby-identifier">uri</span>)
+    <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+      <span class="ruby-string">&quot;bad argument (expected URI object or URI string)&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_pattern">
+            
+              <b>initialize_pattern</b>(opts = {})
+            
+            <a href="../../classes/URI/Parser.html#method-i-initialize_pattern" name="method-i-initialize_pattern" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Constructs the default <a href="../Hash.html">Hash</a> of patterns</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_pattern_source')" id="l_method-i-initialize_pattern_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_pattern_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/uri/common.rb, line 342</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_pattern</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-identifier">ret</span> = {}
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:ESCAPED</span>] = <span class="ruby-identifier">escaped</span> = (<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:ESCAPED</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">PATTERN</span><span class="ruby-operator">::</span><span class="ruby-constant">ESCAPED</span>)
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:UNRESERVED</span>] = <span class="ruby-identifier">unreserved</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:UNRESERVED</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">PATTERN</span><span class="ruby-operator">::</span><span class="ruby-constant">UNRESERVED</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:RESERVED</span>] = <span class="ruby-identifier">reserved</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:RESERVED</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">PATTERN</span><span class="ruby-operator">::</span><span class="ruby-constant">RESERVED</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:DOMLABEL</span>] = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:DOMLABEL</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">PATTERN</span><span class="ruby-operator">::</span><span class="ruby-constant">DOMLABEL</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:TOPLABEL</span>] = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:TOPLABEL</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">PATTERN</span><span class="ruby-operator">::</span><span class="ruby-constant">TOPLABEL</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:HOSTNAME</span>] = <span class="ruby-identifier">hostname</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:HOSTNAME</span>)
+
+  <span class="ruby-comment"># RFC 2396 (URI Generic Syntax)</span>
+  <span class="ruby-comment"># RFC 2732 (IPv6 Literal Addresses in URL&#39;s)</span>
+  <span class="ruby-comment"># RFC 2373 (IPv6 Addressing Architecture)</span>
+
+  <span class="ruby-comment"># uric          = reserved | unreserved | escaped</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:URIC</span>] = <span class="ruby-identifier">uric</span> = <span class="ruby-node">&quot;(?:[#{unreserved}#{reserved}]|#{escaped})&quot;</span>
+  <span class="ruby-comment"># uric_no_slash = unreserved | escaped | &quot;;&quot; | &quot;?&quot; | &quot;:&quot; | &quot;@&quot; |</span>
+  <span class="ruby-comment">#                 &quot;&amp;&quot; | &quot;=&quot; | &quot;+&quot; | &quot;$&quot; | &quot;,&quot;</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:URIC_NO_SLASH</span>] = <span class="ruby-identifier">uric_no_slash</span> = <span class="ruby-node">&quot;(?:[#{unreserved};?:@&amp;=+$,]|#{escaped})&quot;</span>
+  <span class="ruby-comment"># query         = *uric</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:QUERY</span>] = <span class="ruby-identifier">query</span> = <span class="ruby-node">&quot;#{uric}*&quot;</span>
+  <span class="ruby-comment"># fragment      = *uric</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:FRAGMENT</span>] = <span class="ruby-identifier">fragment</span> = <span class="ruby-node">&quot;#{uric}*&quot;</span>
+
+  <span class="ruby-comment"># hostname      = *( domainlabel &quot;.&quot; ) toplabel [ &quot;.&quot; ]</span>
+  <span class="ruby-comment"># reg-name      = *( unreserved / pct-encoded / sub-delims ) # RFC3986</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">hostname</span>
+    <span class="ruby-identifier">ret</span>[<span class="ruby-value">:HOSTNAME</span>] = <span class="ruby-identifier">hostname</span> = <span class="ruby-string">&quot;(?:[a-zA-Z0-9\\-.]|%\\h\\h)+&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># RFC 2373, APPENDIX B:</span>
+  <span class="ruby-comment"># IPv6address = hexpart [ &quot;:&quot; IPv4address ]</span>
+  <span class="ruby-comment"># IPv4address   = 1*3DIGIT &quot;.&quot; 1*3DIGIT &quot;.&quot; 1*3DIGIT &quot;.&quot; 1*3DIGIT</span>
+  <span class="ruby-comment"># hexpart = hexseq | hexseq &quot;::&quot; [ hexseq ] | &quot;::&quot; [ hexseq ]</span>
+  <span class="ruby-comment"># hexseq  = hex4 *( &quot;:&quot; hex4)</span>
+  <span class="ruby-comment"># hex4    = 1*4HEXDIG</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># XXX: This definition has a flaw. &quot;::&quot; + IPv4address must be</span>
+  <span class="ruby-comment"># allowed too.  Here is a replacement.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># IPv4address = 1*3DIGIT &quot;.&quot; 1*3DIGIT &quot;.&quot; 1*3DIGIT &quot;.&quot; 1*3DIGIT</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:IPV4ADDR</span>] = <span class="ruby-identifier">ipv4addr</span> = <span class="ruby-string">&quot;\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}&quot;</span>
+  <span class="ruby-comment"># hex4     = 1*4HEXDIG</span>
+  <span class="ruby-identifier">hex4</span> = <span class="ruby-node">&quot;[#{PATTERN::HEX}]{1,4}&quot;</span>
+  <span class="ruby-comment"># lastpart = hex4 | IPv4address</span>
+  <span class="ruby-identifier">lastpart</span> = <span class="ruby-node">&quot;(?:#{hex4}|#{ipv4addr})&quot;</span>
+  <span class="ruby-comment"># hexseq1  = *( hex4 &quot;:&quot; ) hex4</span>
+  <span class="ruby-identifier">hexseq1</span> = <span class="ruby-node">&quot;(?:#{hex4}:)*#{hex4}&quot;</span>
+  <span class="ruby-comment"># hexseq2  = *( hex4 &quot;:&quot; ) lastpart</span>
+  <span class="ruby-identifier">hexseq2</span> = <span class="ruby-node">&quot;(?:#{hex4}:)*#{lastpart}&quot;</span>
+  <span class="ruby-comment"># IPv6address = hexseq2 | [ hexseq1 ] &quot;::&quot; [ hexseq2 ]</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:IPV6ADDR</span>] = <span class="ruby-identifier">ipv6addr</span> = <span class="ruby-node">&quot;(?:#{hexseq2}|(?:#{hexseq1})?::(?:#{hexseq2})?)&quot;</span>
+
+  <span class="ruby-comment"># IPv6prefix  = ( hexseq1 | [ hexseq1 ] &quot;::&quot; [ hexseq1 ] ) &quot;/&quot; 1*2DIGIT</span>
+  <span class="ruby-comment"># unused</span>
+
+  <span class="ruby-comment"># ipv6reference = &quot;[&quot; IPv6address &quot;]&quot; (RFC 2732)</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:IPV6REF</span>] = <span class="ruby-identifier">ipv6ref</span> = <span class="ruby-node">&quot;\\[#{ipv6addr}\\]&quot;</span>
+
+  <span class="ruby-comment"># host          = hostname | IPv4address</span>
+  <span class="ruby-comment"># host          = hostname | IPv4address | IPv6reference (RFC 2732)</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:HOST</span>] = <span class="ruby-identifier">host</span> = <span class="ruby-node">&quot;(?:#{hostname}|#{ipv4addr}|#{ipv6ref})&quot;</span>
+  <span class="ruby-comment"># port          = *digit</span>
+  <span class="ruby-identifier">port</span> = <span class="ruby-string">&#39;\d*&#39;</span>
+  <span class="ruby-comment"># hostport      = host [ &quot;:&quot; port ]</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:HOSTPORT</span>] = <span class="ruby-identifier">hostport</span> = <span class="ruby-node">&quot;#{host}(?::#{port})?&quot;</span>
+
+  <span class="ruby-comment"># userinfo      = *( unreserved | escaped |</span>
+  <span class="ruby-comment">#                    &quot;;&quot; | &quot;:&quot; | &quot;&amp;&quot; | &quot;=&quot; | &quot;+&quot; | &quot;$&quot; | &quot;,&quot; )</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:USERINFO</span>] = <span class="ruby-identifier">userinfo</span> = <span class="ruby-node">&quot;(?:[#{unreserved};:&amp;=+$,]|#{escaped})*&quot;</span>
+
+  <span class="ruby-comment"># pchar         = unreserved | escaped |</span>
+  <span class="ruby-comment">#                 &quot;:&quot; | &quot;@&quot; | &quot;&amp;&quot; | &quot;=&quot; | &quot;+&quot; | &quot;$&quot; | &quot;,&quot;</span>
+  <span class="ruby-identifier">pchar</span> = <span class="ruby-node">&quot;(?:[#{unreserved}:@&amp;=+$,]|#{escaped})&quot;</span>
+  <span class="ruby-comment"># param         = *pchar</span>
+  <span class="ruby-identifier">param</span> = <span class="ruby-node">&quot;#{pchar}*&quot;</span>
+  <span class="ruby-comment"># segment       = *pchar *( &quot;;&quot; param )</span>
+  <span class="ruby-identifier">segment</span> = <span class="ruby-node">&quot;#{pchar}*(?:;#{param})*&quot;</span>
+  <span class="ruby-comment"># path_segments = segment *( &quot;/&quot; segment )</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:PATH_SEGMENTS</span>] = <span class="ruby-identifier">path_segments</span> = <span class="ruby-node">&quot;#{segment}(?:/#{segment})*&quot;</span>
+
+  <span class="ruby-comment"># server        = [ [ userinfo &quot;@&quot; ] hostport ]</span>
+  <span class="ruby-identifier">server</span> = <span class="ruby-node">&quot;(?:#{userinfo}@)?#{hostport}&quot;</span>
+  <span class="ruby-comment"># reg_name      = 1*( unreserved | escaped | &quot;$&quot; | &quot;,&quot; |</span>
+  <span class="ruby-comment">#                     &quot;;&quot; | &quot;:&quot; | &quot;@&quot; | &quot;&amp;&quot; | &quot;=&quot; | &quot;+&quot; )</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:REG_NAME</span>] = <span class="ruby-identifier">reg_name</span> = <span class="ruby-node">&quot;(?:[#{unreserved}$,;:@&amp;=+]|#{escaped})+&quot;</span>
+  <span class="ruby-comment"># authority     = server | reg_name</span>
+  <span class="ruby-identifier">authority</span> = <span class="ruby-node">&quot;(?:#{server}|#{reg_name})&quot;</span>
+
+  <span class="ruby-comment"># rel_segment   = 1*( unreserved | escaped |</span>
+  <span class="ruby-comment">#                     &quot;;&quot; | &quot;@&quot; | &quot;&amp;&quot; | &quot;=&quot; | &quot;+&quot; | &quot;$&quot; | &quot;,&quot; )</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:REL_SEGMENT</span>] = <span class="ruby-identifier">rel_segment</span> = <span class="ruby-node">&quot;(?:[#{unreserved};@&amp;=+$,]|#{escaped})+&quot;</span>
+
+  <span class="ruby-comment"># scheme        = alpha *( alpha | digit | &quot;+&quot; | &quot;-&quot; | &quot;.&quot; )</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:SCHEME</span>] = <span class="ruby-identifier">scheme</span> = <span class="ruby-node">&quot;[#{PATTERN::ALPHA}][\\-+.#{PATTERN::ALPHA}\\d]*&quot;</span>
+
+  <span class="ruby-comment"># abs_path      = &quot;/&quot;  path_segments</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:ABS_PATH</span>] = <span class="ruby-identifier">abs_path</span> = <span class="ruby-node">&quot;/#{path_segments}&quot;</span>
+  <span class="ruby-comment"># rel_path      = rel_segment [ abs_path ]</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:REL_PATH</span>] = <span class="ruby-identifier">rel_path</span> = <span class="ruby-node">&quot;#{rel_segment}(?:#{abs_path})?&quot;</span>
+  <span class="ruby-comment"># net_path      = &quot;//&quot; authority [ abs_path ]</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:NET_PATH</span>] = <span class="ruby-identifier">net_path</span> = <span class="ruby-node">&quot;//#{authority}(?:#{abs_path})?&quot;</span>
+
+  <span class="ruby-comment"># hier_part     = ( net_path | abs_path ) [ &quot;?&quot; query ]</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:HIER_PART</span>] = <span class="ruby-identifier">hier_part</span> = <span class="ruby-node">&quot;(?:#{net_path}|#{abs_path})(?:\\?(?:#{query}))?&quot;</span>
+  <span class="ruby-comment"># opaque_part   = uric_no_slash *uric</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:OPAQUE_PART</span>] = <span class="ruby-identifier">opaque_part</span> = <span class="ruby-node">&quot;#{uric_no_slash}#{uric}*&quot;</span>
+
+  <span class="ruby-comment"># absoluteURI   = scheme &quot;:&quot; ( hier_part | opaque_part )</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:ABS_URI</span>] = <span class="ruby-identifier">abs_uri</span> = <span class="ruby-node">&quot;#{scheme}:(?:#{hier_part}|#{opaque_part})&quot;</span>
+  <span class="ruby-comment"># relativeURI   = ( net_path | abs_path | rel_path ) [ &quot;?&quot; query ]</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:REL_URI</span>] = <span class="ruby-identifier">rel_uri</span> = <span class="ruby-node">&quot;(?:#{net_path}|#{abs_path}|#{rel_path})(?:\\?#{query})?&quot;</span>
+
+  <span class="ruby-comment"># URI-reference = [ absoluteURI | relativeURI ] [ &quot;#&quot; fragment ]</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:URI_REF</span>] = <span class="ruby-node">&quot;(?:#{abs_uri}|#{rel_uri})?(?:##{fragment})?&quot;</span>
+
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:X_ABS_URI</span>] = <span class="ruby-node">&quot;
+    (#{scheme}):                           (?# 1: scheme)
+    (?:
+       (#{opaque_part})                    (?# 2: opaque)
+    |
+       (?:(?:
+         //(?:
+             (?:(?:(#{userinfo})@)?        (?# 3: userinfo)
+               (?:(#{host})(?::(\\d*))?))? (?# 4: host, 5: port)
+           |
+             (#{reg_name})                 (?# 6: registry)
+           )
+         |
+         (?!//))                           (?# XXX: &#39;//&#39; is the mark for hostport)
+         (#{abs_path})?                    (?# 7: path)
+       )(?:\\?(#{query}))?                 (?# 8: query)
+    )
+    (?:\\#(#{fragment}))?                  (?# 9: fragment)
+  &quot;</span>
+
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:X_REL_URI</span>] = <span class="ruby-node">&quot;
+    (?:
+      (?:
+        //
+        (?:
+          (?:(#{userinfo})@)?       (?# 1: userinfo)
+            (#{host})?(?::(\\d*))?  (?# 2: host, 3: port)
+        |
+          (#{reg_name})             (?# 4: registry)
+        )
+      )
+    |
+      (#{rel_segment})              (?# 5: rel_segment)
+    )?
+    (#{abs_path})?                  (?# 6: abs_path)
+    (?:\\?(#{query}))?              (?# 7: query)
+    (?:\\#(#{fragment}))?           (?# 8: fragment)
+  &quot;</span>
+
+  <span class="ruby-identifier">ret</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_regexp">
+            
+              <b>initialize_regexp</b>(pattern)
+            
+            <a href="../../classes/URI/Parser.html#method-i-initialize_regexp" name="method-i-initialize_regexp" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Constructs the default <a href="../Hash.html">Hash</a> of Regexp&#39;s</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_regexp_source')" id="l_method-i-initialize_regexp_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_regexp_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/uri/common.rb, line 500</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_regexp</span>(<span class="ruby-identifier">pattern</span>)
+  <span class="ruby-identifier">ret</span> = {}
+
+  <span class="ruby-comment"># for URI::split</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:ABS_URI</span>] = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;\A\s*&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">pattern</span>[<span class="ruby-value">:X_ABS_URI</span>] <span class="ruby-operator">+</span> <span class="ruby-string">&#39;\s*\z&#39;</span>, <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">EXTENDED</span>)
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:REL_URI</span>] = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;\A\s*&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">pattern</span>[<span class="ruby-value">:X_REL_URI</span>] <span class="ruby-operator">+</span> <span class="ruby-string">&#39;\s*\z&#39;</span>, <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">EXTENDED</span>)
+
+  <span class="ruby-comment"># for URI::extract</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:URI_REF</span>]     = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pattern</span>[<span class="ruby-value">:URI_REF</span>])
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:ABS_URI_REF</span>] = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pattern</span>[<span class="ruby-value">:X_ABS_URI</span>], <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">EXTENDED</span>)
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:REL_URI_REF</span>] = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pattern</span>[<span class="ruby-value">:X_REL_URI</span>], <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">EXTENDED</span>)
+
+  <span class="ruby-comment"># for URI::escape/unescape</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:ESCAPED</span>] = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pattern</span>[<span class="ruby-value">:ESCAPED</span>])
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:UNSAFE</span>]  = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;[^#{pattern[:UNRESERVED]}#{pattern[:RESERVED]}]&quot;</span>)
+
+  <span class="ruby-comment"># for Generic#initialize</span>
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:SCHEME</span>]   = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;\\A#{pattern[:SCHEME]}\\z&quot;</span>)
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:USERINFO</span>] = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;\\A#{pattern[:USERINFO]}\\z&quot;</span>)
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:HOST</span>]     = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;\\A#{pattern[:HOST]}\\z&quot;</span>)
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:PORT</span>]     = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;\\A#{pattern[:PORT]}\\z&quot;</span>)
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:OPAQUE</span>]   = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;\\A#{pattern[:OPAQUE_PART]}\\z&quot;</span>)
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:REGISTRY</span>] = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;\\A#{pattern[:REG_NAME]}\\z&quot;</span>)
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:ABS_PATH</span>] = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;\\A#{pattern[:ABS_PATH]}\\z&quot;</span>)
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:REL_PATH</span>] = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;\\A#{pattern[:REL_PATH]}\\z&quot;</span>)
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:QUERY</span>]    = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;\\A#{pattern[:QUERY]}\\z&quot;</span>)
+  <span class="ruby-identifier">ret</span>[<span class="ruby-value">:FRAGMENT</span>] = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;\\A#{pattern[:FRAGMENT]}\\z&quot;</span>)
+
+  <span class="ruby-identifier">ret</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

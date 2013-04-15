@@ -1,0 +1,2699 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TkNamespace</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            TkNamespace 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="TkObject.html">TkObject</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/ext/tk/lib/tk/namespace_rb.html">ext/tk/lib/tk/namespace.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="TkNamespace/Ensemble.html">TkNamespace::Ensemble</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="TkNamespace/NsCode.html">TkNamespace::NsCode</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="TkNamespace/ScopeArgs.html">TkNamespace::ScopeArgs</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-__tk_call">__tk_call</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-__tk_call_with_enc">__tk_call_with_enc</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-__tk_call_without_enc">__tk_call_without_enc</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-children">children</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-children">children</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-code">code</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-code">code</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-current">current</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-current">current</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-current_namespace">current_namespace</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-current_path">current_path</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-current_path">current_path</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-delete">delete</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-delete">delete</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-ensemble_configinfo">ensemble_configinfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-ensemble_configure">ensemble_configure</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-ensemble_create">ensemble_create</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-ensemble_exist-3F">ensemble_exist?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-eval">eval</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-eval">eval</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-exist-3F">exist?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-exist-3F">exist?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-export">export</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-export">export</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-export_with_clear">export_with_clear</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-export_with_clear">export_with_clear</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-force_import">force_import</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-force_import">force_import</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-forget">forget</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-forget">forget</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-get_path">get_path</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-get_unknown_handler">get_unknown_handler</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-id2obj">id2obj</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-import">import</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-import">import</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-inscope">inscope</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-inscope">inscope</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-install_cmd">install_cmd</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-mutex">mutex</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-ns_tk_call">ns_tk_call</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-ns_tk_call_with_enc">ns_tk_call_with_enc</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-ns_tk_call_without_enc">ns_tk_call_without_enc</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-origin">origin</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-parent">parent</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-parent">parent</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>Q</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-qualifiers">qualifiers</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-set_path">set_path</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-set_path">set_path</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-set_unknown_handler">set_unknown_handler</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-tail">tail</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tk_call">tk_call</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tk_call_with_enc">tk_call_with_enc</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tk_call_without_enc">tk_call_without_enc</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-upvar">upvar</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-upvar">upvar</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-which">which</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-which_command">which_command</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-which_variable">which_variable</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">TkCommandNames</td>
+            <td>=</td>
+            <td class="attr-value">[
+&#39;namespace&#39;.freeze,
+].freeze</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">Tk_Namespace_ID_TBL</td>
+            <td>=</td>
+            <td class="attr-value">TkCore::INTERP.create_table</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">Tk_Namespace_ID</td>
+            <td>=</td>
+            <td class="attr-value">[&quot;ns&quot;.freeze, TkUtil.untrust(&quot;00000&quot;)]).instance_eval{
+@mutex = Mutex.new</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">Tk_NsCode_RetObjID_TBL</td>
+            <td>=</td>
+            <td class="attr-value">TkCore::INTERP.create_table</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-children">
+            
+              <b>children</b>(*args)
+            
+            <a href="../classes/TkNamespace.html#method-c-children" name="method-c-children" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-children_source')" id="l_method-c-children_source">show</a>
+                
+              </p>
+              <div id="method-c-children_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 291</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">children</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># args ::= [&lt;namespace&gt;] [&lt;pattern&gt;]</span>
+  <span class="ruby-comment"># &lt;pattern&gt; must be glob-style pattern</span>
+  <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;children&#39;</span>, *<span class="ruby-identifier">args</span>)).<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">ns</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># ns is fullname</span>
+    <span class="ruby-constant">Tk_Namespace_ID_TBL</span>.<span class="ruby-identifier">mutex</span>.<span class="ruby-identifier">synchronize</span>{
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">Tk_Namespace_ID_TBL</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">ns</span>)
+        <span class="ruby-constant">Tk_Namespace_ID_TBL</span>[<span class="ruby-identifier">ns</span>]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">ns</span>
+      <span class="ruby-keyword">end</span>
+    }
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-code">
+            
+              <b>code</b>(script = Proc.new)
+            
+            <a href="../classes/TkNamespace.html#method-c-code" name="method-c-code" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-code_source')" id="l_method-c-code_source">show</a>
+                
+              </p>
+              <div id="method-c-code_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 309</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">code</span>(<span class="ruby-identifier">script</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>)
+  <span class="ruby-constant">TkNamespace</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">code</span>(<span class="ruby-identifier">script</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-current">
+            
+              <b>current</b>()
+            
+            <a href="../classes/TkNamespace.html#method-c-current" name="method-c-current" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-current_source')" id="l_method-c-current_source">show</a>
+                
+              </p>
+              <div id="method-c-current_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 365</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">current</span>
+  <span class="ruby-identifier">ns</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">current_path</span>
+  <span class="ruby-constant">Tk_Namespace_ID_TBL</span>.<span class="ruby-identifier">mutex</span>.<span class="ruby-identifier">synchronize</span>{
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">Tk_Namespace_ID_TBL</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">ns</span>)
+      <span class="ruby-constant">Tk_Namespace_ID_TBL</span>[<span class="ruby-identifier">ns</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ns</span>
+    <span class="ruby-keyword">end</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-current_path">
+            
+              <b>current_path</b>()
+            
+            <a href="../classes/TkNamespace.html#method-c-current_path" name="method-c-current_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-current_path_source')" id="l_method-c-current_path_source">show</a>
+                
+              </p>
+              <div id="method-c-current_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 358</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">current_path</span>
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;current&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-delete">
+            
+              <b>delete</b>(*ns_list)
+            
+            <a href="../classes/TkNamespace.html#method-c-delete" name="method-c-delete" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-delete_source')" id="l_method-c-delete_source">show</a>
+                
+              </p>
+              <div id="method-c-delete_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 382</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">delete</span>(*<span class="ruby-identifier">ns_list</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;delete&#39;</span>, *<span class="ruby-identifier">ns_list</span>)
+  <span class="ruby-identifier">ns_list</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">ns</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Tk_Namespace_ID_TBL</span>.<span class="ruby-identifier">mutex</span>.<span class="ruby-identifier">synchronize</span>{
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">TkNamespace</span>)
+        <span class="ruby-constant">Tk_Namespace_ID_TBL</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">ns</span>.<span class="ruby-identifier">path</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">Tk_Namespace_ID_TBL</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">ns</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword">end</span>
+    }
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-ensemble_configinfo">
+            
+              <b>ensemble_configinfo</b>(cmd, slot = nil)
+            
+            <a href="../classes/TkNamespace.html#method-c-ensemble_configinfo" name="method-c-ensemble_configinfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-ensemble_configinfo_source')" id="l_method-c-ensemble_configinfo_source">show</a>
+                
+              </p>
+              <div id="method-c-ensemble_configinfo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 408</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">ensemble_configinfo</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">slot</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">slot</span>
+    <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;ensemble&#39;</span>, <span class="ruby-string">&#39;configure&#39;</span>, <span class="ruby-identifier">cmd</span>, <span class="ruby-string">&#39;-&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">slot</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">inf</span> = {}
+    <span class="ruby-constant">Hash</span>(*<span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;ensemble&#39;</span>, <span class="ruby-string">&#39;configure&#39;</span>, <span class="ruby-identifier">cmd</span>))).<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">inf</span>[<span class="ruby-identifier">k</span>[<span class="ruby-number">1</span><span class="ruby-operator">..</span><span class="ruby-number">-1</span>]] = <span class="ruby-identifier">v</span>}
+    <span class="ruby-identifier">inf</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-ensemble_configure">
+            
+              <b>ensemble_configure</b>(cmd, slot, value=None)
+            
+            <a href="../classes/TkNamespace.html#method-c-ensemble_configure" name="method-c-ensemble_configure" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-ensemble_configure_source')" id="l_method-c-ensemble_configure_source">show</a>
+                
+              </p>
+              <div id="method-c-ensemble_configure_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 401</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">ensemble_configure</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">slot</span>, <span class="ruby-identifier">value</span>=<span class="ruby-constant">None</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">slot</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;ensemble&#39;</span>, <span class="ruby-string">&#39;configure&#39;</span>, <span class="ruby-identifier">cmd</span>, *<span class="ruby-identifier">hash_kv</span>(<span class="ruby-identifier">slot</span>))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;ensemble&#39;</span>, <span class="ruby-string">&#39;configure&#39;</span>, <span class="ruby-identifier">cmd</span>, <span class="ruby-string">&#39;-&#39;</span><span class="ruby-operator">+</span><span class="ruby-identifier">slot</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-ensemble_create">
+            
+              <b>ensemble_create</b>(*keys)
+            
+            <a href="../classes/TkNamespace.html#method-c-ensemble_create" name="method-c-ensemble_create" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-ensemble_create_source')" id="l_method-c-ensemble_create_source">show</a>
+                
+              </p>
+              <div id="method-c-ensemble_create_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 398</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">ensemble_create</span>(*<span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;ensemble&#39;</span>, <span class="ruby-string">&#39;create&#39;</span>, *<span class="ruby-identifier">hash_kv</span>(<span class="ruby-identifier">keys</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-ensemble_exist-3F">
+            
+              <b>ensemble_exist?</b>(cmd)
+            
+            <a href="../classes/TkNamespace.html#method-c-ensemble_exist-3F" name="method-c-ensemble_exist-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-ensemble_exist-3F_source')" id="l_method-c-ensemble_exist-3F_source">show</a>
+                
+              </p>
+              <div id="method-c-ensemble_exist-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 417</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">ensemble_exist?</span>(<span class="ruby-identifier">cmd</span>)
+  <span class="ruby-identifier">bool</span>(<span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;ensemble&#39;</span>, <span class="ruby-string">&#39;exists&#39;</span>, <span class="ruby-identifier">cmd</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-eval">
+            
+              <b>eval</b>(namespace, cmd = Proc.new, *args)
+            
+            <a href="../classes/TkNamespace.html#method-c-eval" name="method-c-eval" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-eval_source')" id="l_method-c-eval_source">show</a>
+                
+              </p>
+              <div id="method-c-eval_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 421</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-identifier">namespace</span>, <span class="ruby-identifier">cmd</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>, *<span class="ruby-identifier">args</span>)
+  <span class="ruby-comment">#tk_call(&#39;namespace&#39;, &#39;eval&#39;, namespace, cmd, *args)</span>
+  <span class="ruby-constant">TkNamespace</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">namespace</span>).<span class="ruby-identifier">eval</span>(<span class="ruby-identifier">cmd</span>, *<span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-exist-3F">
+            
+              <b>exist?</b>(ns)
+            
+            <a href="../classes/TkNamespace.html#method-c-exist-3F" name="method-c-exist-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-exist-3F_source')" id="l_method-c-exist-3F_source">show</a>
+                
+              </p>
+              <div id="method-c-exist-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 443</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">ns</span>)
+  <span class="ruby-identifier">bool</span>(<span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;exists&#39;</span>, <span class="ruby-identifier">ns</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-export">
+            
+              <b>export</b>(*patterns)
+            
+            <a href="../classes/TkNamespace.html#method-c-export" name="method-c-export" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-export_source')" id="l_method-c-export_source">show</a>
+                
+              </p>
+              <div id="method-c-export_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 450</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">export</span>(*<span class="ruby-identifier">patterns</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;export&#39;</span>, *<span class="ruby-identifier">patterns</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-export_with_clear">
+            
+              <b>export_with_clear</b>(*patterns)
+            
+            <a href="../classes/TkNamespace.html#method-c-export_with_clear" name="method-c-export_with_clear" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-export_with_clear_source')" id="l_method-c-export_with_clear_source">show</a>
+                
+              </p>
+              <div id="method-c-export_with_clear_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 453</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">export_with_clear</span>(*<span class="ruby-identifier">patterns</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;export&#39;</span>, <span class="ruby-string">&#39;-clear&#39;</span>, *<span class="ruby-identifier">patterns</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-force_import">
+            
+              <b>force_import</b>(*patterns)
+            
+            <a href="../classes/TkNamespace.html#method-c-force_import" name="method-c-force_import" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-force_import_source')" id="l_method-c-force_import_source">show</a>
+                
+              </p>
+              <div id="method-c-force_import_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 473</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">force_import</span>(*<span class="ruby-identifier">patterns</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;import&#39;</span>, <span class="ruby-string">&#39;-force&#39;</span>, *<span class="ruby-identifier">patterns</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-forget">
+            
+              <b>forget</b>(*patterns)
+            
+            <a href="../classes/TkNamespace.html#method-c-forget" name="method-c-forget" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-forget_source')" id="l_method-c-forget_source">show</a>
+                
+              </p>
+              <div id="method-c-forget_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 463</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">forget</span>(*<span class="ruby-identifier">patterns</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;forget&#39;</span>, *<span class="ruby-identifier">patterns</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-get_path">
+            
+              <b>get_path</b>()
+            
+            <a href="../classes/TkNamespace.html#method-c-get_path" name="method-c-get_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-get_path_source')" id="l_method-c-get_path_source">show</a>
+                
+              </p>
+              <div id="method-c-get_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 508</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">get_path</span>
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;path&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-get_unknown_handler">
+            
+              <b>get_unknown_handler</b>()
+            
+            <a href="../classes/TkNamespace.html#method-c-get_unknown_handler" name="method-c-get_unknown_handler" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-get_unknown_handler_source')" id="l_method-c-get_unknown_handler_source">show</a>
+                
+              </p>
+              <div id="method-c-get_unknown_handler_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 533</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">get_unknown_handler</span>
+  <span class="ruby-identifier">tk_tcl2ruby</span>(<span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;unknown&#39;</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-id2obj">
+            
+              <b>id2obj</b>(id)
+            
+            <a href="../classes/TkNamespace.html#method-c-id2obj" name="method-c-id2obj" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-id2obj_source')" id="l_method-c-id2obj_source">show</a>
+                
+              </p>
+              <div id="method-c-id2obj_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">TkNamespace</span>.<span class="ruby-identifier">id2obj</span>(<span class="ruby-identifier">id</span>)
+  <span class="ruby-constant">Tk_Namespace_ID_TBL</span>.<span class="ruby-identifier">mutex</span>.<span class="ruby-identifier">synchronize</span>{
+    <span class="ruby-constant">Tk_Namespace_ID_TBL</span>[<span class="ruby-identifier">id</span>]<span class="ruby-operator">?</span> <span class="ruby-constant">Tk_Namespace_ID_TBL</span>[<span class="ruby-identifier">id</span>]<span class="ruby-operator">:</span> <span class="ruby-identifier">id</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-import">
+            
+              <b>import</b>(*patterns)
+            
+            <a href="../classes/TkNamespace.html#method-c-import" name="method-c-import" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-import_source')" id="l_method-c-import_source">show</a>
+                
+              </p>
+              <div id="method-c-import_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 470</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">import</span>(*<span class="ruby-identifier">patterns</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;import&#39;</span>, *<span class="ruby-identifier">patterns</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-inscope">
+            
+              <b>inscope</b>(namespace, script, *args)
+            
+            <a href="../classes/TkNamespace.html#method-c-inscope" name="method-c-inscope" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-inscope_source')" id="l_method-c-inscope_source">show</a>
+                
+              </p>
+              <div id="method-c-inscope_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 483</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">inscope</span>(<span class="ruby-identifier">namespace</span>, <span class="ruby-identifier">script</span>, *<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;inscope&#39;</span>, <span class="ruby-identifier">namespace</span>, <span class="ruby-identifier">script</span>, *<span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(name = nil, parent = nil)
+            
+            <a href="../classes/TkNamespace.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 245</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">name</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">parent</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">name</span>
+    <span class="ruby-constant">Tk_Namespace_ID</span>.<span class="ruby-identifier">mutex</span>.<span class="ruby-identifier">synchronize</span>{
+      <span class="ruby-comment"># name = Tk_Namespace_ID.join(&#39;&#39;)</span>
+      <span class="ruby-identifier">name</span> = <span class="ruby-constant">Tk_Namespace_ID</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">TkCore</span><span class="ruby-operator">::</span><span class="ruby-constant">INTERP</span>.<span class="ruby-identifier">_ip_id_</span>)
+      <span class="ruby-constant">Tk_Namespace_ID</span>[<span class="ruby-number">1</span>].<span class="ruby-identifier">succ!</span>
+    }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">__tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;current&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^::/</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^::/</span>
+        <span class="ruby-ivar">@fullname</span> = <span class="ruby-identifier">parent</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">name</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@fullname</span> = <span class="ruby-identifier">parent</span> <span class="ruby-operator">+</span><span class="ruby-string">&#39;::&#39;</span><span class="ruby-operator">+</span> <span class="ruby-identifier">name</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ancestor</span> = <span class="ruby-identifier">__tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;current&#39;</span>)
+      <span class="ruby-identifier">ancestor</span> = <span class="ruby-string">&#39;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ancestor</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;::&#39;</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^::/</span>
+        <span class="ruby-ivar">@fullname</span> = <span class="ruby-identifier">ancestor</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;::&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">parent</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">name</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@fullname</span> = <span class="ruby-identifier">ancestor</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;::&#39;</span><span class="ruby-operator">+</span> <span class="ruby-identifier">parent</span> <span class="ruby-operator">+</span><span class="ruby-string">&#39;::&#39;</span><span class="ruby-operator">+</span> <span class="ruby-identifier">name</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span> <span class="ruby-comment"># parent == nil</span>
+    <span class="ruby-identifier">ancestor</span> = <span class="ruby-identifier">__tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;current&#39;</span>)
+    <span class="ruby-identifier">ancestor</span> = <span class="ruby-string">&#39;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ancestor</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;::&#39;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^::/</span>
+      <span class="ruby-ivar">@fullname</span> = <span class="ruby-identifier">name</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@fullname</span> = <span class="ruby-identifier">ancestor</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;::&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">name</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@path</span> = <span class="ruby-ivar">@fullname</span>
+  <span class="ruby-ivar">@parent</span> = <span class="ruby-identifier">__tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;qualifiers&#39;</span>, <span class="ruby-ivar">@fullname</span>)
+  <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">__tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;tail&#39;</span>, <span class="ruby-ivar">@fullname</span>)
+
+  <span class="ruby-comment"># create namespace</span>
+  <span class="ruby-identifier">__tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;eval&#39;</span>, <span class="ruby-ivar">@fullname</span>, <span class="ruby-string">&#39;&#39;</span>)
+
+  <span class="ruby-constant">Tk_Namespace_ID_TBL</span>.<span class="ruby-identifier">mutex</span>.<span class="ruby-identifier">synchronize</span>{
+    <span class="ruby-constant">Tk_Namespace_ID_TBL</span>[<span class="ruby-ivar">@fullname</span>] = <span class="ruby-keyword">self</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-origin">
+            
+              <b>origin</b>(cmd)
+            
+            <a href="../classes/TkNamespace.html#method-c-origin" name="method-c-origin" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-origin_source')" id="l_method-c-origin_source">show</a>
+                
+              </p>
+              <div id="method-c-origin_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 490</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">origin</span>(<span class="ruby-identifier">cmd</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;origin&#39;</span>, <span class="ruby-identifier">cmd</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-parent">
+            
+              <b>parent</b>(namespace=None)
+            
+            <a href="../classes/TkNamespace.html#method-c-parent" name="method-c-parent" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-parent_source')" id="l_method-c-parent_source">show</a>
+                
+              </p>
+              <div id="method-c-parent_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 494</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">parent</span>(<span class="ruby-identifier">namespace</span>=<span class="ruby-constant">None</span>)
+  <span class="ruby-identifier">ns</span> = <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;parent&#39;</span>, <span class="ruby-identifier">namespace</span>)
+  <span class="ruby-constant">Tk_Namespace_ID_TBL</span>.<span class="ruby-identifier">mutex</span>.<span class="ruby-identifier">synchronize</span>{
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">Tk_Namespace_ID_TBL</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">ns</span>)
+      <span class="ruby-constant">Tk_Namespace_ID_TBL</span>[<span class="ruby-identifier">ns</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ns</span>
+    <span class="ruby-keyword">end</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-qualifiers">
+            
+              <b>qualifiers</b>(str)
+            
+            <a href="../classes/TkNamespace.html#method-c-qualifiers" name="method-c-qualifiers" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-qualifiers_source')" id="l_method-c-qualifiers_source">show</a>
+                
+              </p>
+              <div id="method-c-qualifiers_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 518</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">qualifiers</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;qualifiers&#39;</span>, <span class="ruby-identifier">str</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-set_path">
+            
+              <b>set_path</b>(*namespace_list)
+            
+            <a href="../classes/TkNamespace.html#method-c-set_path" name="method-c-set_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-set_path_source')" id="l_method-c-set_path_source">show</a>
+                
+              </p>
+              <div id="method-c-set_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 511</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">set_path</span>(*<span class="ruby-identifier">namespace_list</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;path&#39;</span>, <span class="ruby-identifier">array2tk_list</span>(<span class="ruby-identifier">namespace_list</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-set_unknown_handler">
+            
+              <b>set_unknown_handler</b>(cmd = Proc.new)
+            
+            <a href="../classes/TkNamespace.html#method-c-set_unknown_handler" name="method-c-set_unknown_handler" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-set_unknown_handler_source')" id="l_method-c-set_unknown_handler_source">show</a>
+                
+              </p>
+              <div id="method-c-set_unknown_handler_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 536</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">set_unknown_handler</span>(<span class="ruby-identifier">cmd</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;unknown&#39;</span>, <span class="ruby-identifier">cmd</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-tail">
+            
+              <b>tail</b>(str)
+            
+            <a href="../classes/TkNamespace.html#method-c-tail" name="method-c-tail" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-tail_source')" id="l_method-c-tail_source">show</a>
+                
+              </p>
+              <div id="method-c-tail_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 522</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">tail</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;tail&#39;</span>, <span class="ruby-identifier">str</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-upvar">
+            
+              <b>upvar</b>(namespace, *var_pairs)
+            
+            <a href="../classes/TkNamespace.html#method-c-upvar" name="method-c-upvar" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-upvar_source')" id="l_method-c-upvar_source">show</a>
+                
+              </p>
+              <div id="method-c-upvar_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 526</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">upvar</span>(<span class="ruby-identifier">namespace</span>, *<span class="ruby-identifier">var_pairs</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;upvar&#39;</span>, <span class="ruby-identifier">namespace</span>, *(<span class="ruby-identifier">var_pairs</span>.<span class="ruby-identifier">flatten</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-which">
+            
+              <b>which</b>(name)
+            
+            <a href="../classes/TkNamespace.html#method-c-which" name="method-c-which" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-which_source')" id="l_method-c-which_source">show</a>
+                
+              </p>
+              <div id="method-c-which_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 540</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">which</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;which&#39;</span>, <span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-which_command">
+            
+              <b>which_command</b>(name)
+            
+            <a href="../classes/TkNamespace.html#method-c-which_command" name="method-c-which_command" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-which_command_source')" id="l_method-c-which_command_source">show</a>
+                
+              </p>
+              <div id="method-c-which_command_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 543</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">which_command</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;which&#39;</span>, <span class="ruby-string">&#39;-command&#39;</span>, <span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-which_variable">
+            
+              <b>which_variable</b>(name)
+            
+            <a href="../classes/TkNamespace.html#method-c-which_variable" name="method-c-which_variable" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-which_variable_source')" id="l_method-c-which_variable_source">show</a>
+                
+              </p>
+              <div id="method-c-which_variable_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 546</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">which_variable</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;which&#39;</span>, <span class="ruby-string">&#39;-variable&#39;</span>, <span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-__tk_call">
+            
+              <b>__tk_call</b>(*args)
+            
+            <a href="../classes/TkNamespace.html#method-i-__tk_call" name="method-i-__tk_call" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-__tk_call_with_enc">
+            
+              <b>__tk_call_with_enc</b>(*args)
+            
+            <a href="../classes/TkNamespace.html#method-i-__tk_call_with_enc" name="method-i-__tk_call_with_enc" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-__tk_call_without_enc">
+            
+              <b>__tk_call_without_enc</b>(*args)
+            
+            <a href="../classes/TkNamespace.html#method-i-__tk_call_without_enc" name="method-i-__tk_call_without_enc" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-children">
+            
+              <b>children</b>(pattern=None)
+            
+            <a href="../classes/TkNamespace.html#method-i-children" name="method-i-children" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-children_source')" id="l_method-i-children_source">show</a>
+                
+              </p>
+              <div id="method-i-children_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 305</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">children</span>(<span class="ruby-identifier">pattern</span>=<span class="ruby-constant">None</span>)
+  <span class="ruby-constant">TkNamespace</span>.<span class="ruby-identifier">children</span>(<span class="ruby-ivar">@fullname</span>, <span class="ruby-identifier">pattern</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-code">
+            
+              <b>code</b>(script = Proc.new)
+            
+            <a href="../classes/TkNamespace.html#method-i-code" name="method-i-code" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>def code(script = <a href="Proc.html#method-c-new">Proc.new</a>)</p>
+
+<pre class="ruby"><span class="ruby-keyword">if</span> <span class="ruby-identifier">script</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+  <span class="ruby-identifier">cmd</span> = <span class="ruby-identifier">proc</span>{<span class="ruby-operator">|</span>*<span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-constant">ScopeArgs</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@fullname</span>,*<span class="ruby-identifier">args</span>).<span class="ruby-identifier">instance_eval</span>(<span class="ruby-identifier">script</span>)}
+<span class="ruby-keyword">elsif</span> <span class="ruby-identifier">script</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Proc</span>)
+  <span class="ruby-identifier">cmd</span> = <span class="ruby-identifier">proc</span>{<span class="ruby-operator">|</span>*<span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-constant">ScopeArgs</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@fullname</span>,*<span class="ruby-identifier">args</span>).<span class="ruby-identifier">instance_eval</span>(&amp;<span class="ruby-identifier">script</span>)}
+<span class="ruby-keyword">else</span>
+  <span class="ruby-identifier">fail</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;String or Proc is expected&quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">TkNamespace</span><span class="ruby-operator">::</span><span class="ruby-constant">NsCode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tk_call_without_enc</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;code&#39;</span>,
+                                            <span class="ruby-identifier">_get_eval_string</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-keyword">false</span>)))
+</pre>
+
+<p>end</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-code_source')" id="l_method-i-code_source">show</a>
+                
+              </p>
+              <div id="method-i-code_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 325</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">code</span>(<span class="ruby-identifier">script</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">script</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">cmd</span> = <span class="ruby-identifier">proc</span>{<span class="ruby-operator">|</span>*<span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">TkCore</span><span class="ruby-operator">::</span><span class="ruby-constant">WITH_RUBY_VM</span>  <span class="ruby-comment">### Ruby 1.9 !!!!</span>
+        <span class="ruby-identifier">obj</span> = <span class="ruby-constant">ScopeArgs</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@fullname</span>,*<span class="ruby-identifier">args</span>)
+        <span class="ruby-identifier">ret</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">instance_exec</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">script</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">ret</span> = <span class="ruby-constant">ScopeArgs</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@fullname</span>,*<span class="ruby-identifier">args</span>).<span class="ruby-identifier">instance_eval</span>(<span class="ruby-identifier">script</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">id</span> = <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">object_id</span>
+      <span class="ruby-constant">TkNamespace</span><span class="ruby-operator">::</span><span class="ruby-constant">Tk_NsCode_RetObjID_TBL</span>[<span class="ruby-identifier">id</span>] = <span class="ruby-identifier">ret</span>
+      <span class="ruby-identifier">id</span>
+    }
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">script</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Proc</span>)
+    <span class="ruby-identifier">cmd</span> = <span class="ruby-identifier">proc</span>{<span class="ruby-operator">|</span>*<span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">TkCore</span><span class="ruby-operator">::</span><span class="ruby-constant">WITH_RUBY_VM</span>  <span class="ruby-comment">### Ruby 1.9 !!!!</span>
+        <span class="ruby-identifier">obj</span> = <span class="ruby-constant">ScopeArgs</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@fullname</span>,*<span class="ruby-identifier">args</span>)
+        <span class="ruby-identifier">ret</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">instance_exec</span>(<span class="ruby-identifier">obj</span>, &amp;<span class="ruby-identifier">script</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">ret</span> = <span class="ruby-constant">ScopeArgs</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@fullname</span>,*<span class="ruby-identifier">args</span>).<span class="ruby-identifier">instance_eval</span>(&amp;<span class="ruby-identifier">script</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">id</span> = <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">object_id</span>
+      <span class="ruby-constant">TkNamespace</span><span class="ruby-operator">::</span><span class="ruby-constant">Tk_NsCode_RetObjID_TBL</span>[<span class="ruby-identifier">id</span>] = <span class="ruby-identifier">ret</span>
+      <span class="ruby-identifier">id</span>
+    }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">fail</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;String or Proc is expected&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">TkNamespace</span><span class="ruby-operator">::</span><span class="ruby-constant">NsCode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tk_call_without_enc</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;code&#39;</span>,
+                                              <span class="ruby-identifier">_get_eval_string</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-keyword">false</span>)),
+                          <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-current">
+            
+              <b>current</b>()
+            
+            <a href="../classes/TkNamespace.html#method-i-current" name="method-i-current" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-current_namespace">
+            
+              <b>current_namespace</b>()
+            
+            <a href="../classes/TkNamespace.html#method-i-current_namespace" name="method-i-current_namespace" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TkNamespace.html#method-i-current">current</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-current_namespace_source')" id="l_method-i-current_namespace_source">show</a>
+                
+              </p>
+              <div id="method-i-current_namespace_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 375</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">current_namespace</span>
+  <span class="ruby-comment"># ns_tk_call(&#39;namespace&#39;, &#39;current&#39;)</span>
+  <span class="ruby-comment"># @fullname</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-current_path">
+            
+              <b>current_path</b>()
+            
+            <a href="../classes/TkNamespace.html#method-i-current_path" name="method-i-current_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-current_path_source')" id="l_method-i-current_path_source">show</a>
+                
+              </p>
+              <div id="method-i-current_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 361</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">current_path</span>
+  <span class="ruby-ivar">@fullname</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-delete">
+            
+              <b>delete</b>()
+            
+            <a href="../classes/TkNamespace.html#method-i-delete" name="method-i-delete" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-delete_source')" id="l_method-i-delete_source">show</a>
+                
+              </p>
+              <div id="method-i-delete_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 394</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">delete</span>
+  <span class="ruby-constant">TkNamespece</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-ivar">@fullname</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-eval">
+            
+              <b>eval</b>(cmd = Proc.new, *args)
+            
+            <a href="../classes/TkNamespace.html#method-i-eval" name="method-i-eval" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>def eval(cmd = <a href="Proc.html#method-c-new">Proc.new</a>, *args)</p>
+
+<pre>#TkNamespace.eval(@fullname, cmd, *args)
+#ns_tk_call(cmd, *args)
+code_obj = code(cmd)
+ret = code_obj.call(*args)
+# uninstall_cmd(TkCore::INTERP._split_tklist(code_obj.path)[-1])
+uninstall_cmd(_fromUTF8(TkCore::INTERP._split_tklist(_toUTF8(code_obj.path))[-1]))
+tk_tcl2ruby(ret)</pre>
+
+<p>end</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-eval_source')" id="l_method-i-eval_source">show</a>
+                
+              </p>
+              <div id="method-i-eval_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 436</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">eval</span>(<span class="ruby-identifier">cmd</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>, *<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">code_obj</span> = <span class="ruby-identifier">code</span>(<span class="ruby-identifier">cmd</span>)
+  <span class="ruby-identifier">ret</span> = <span class="ruby-identifier">code_obj</span>.<span class="ruby-identifier">call</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">uninstall_cmd</span>(<span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-constant">TkCore</span><span class="ruby-operator">::</span><span class="ruby-constant">INTERP</span>.<span class="ruby-identifier">_split_tklist</span>(<span class="ruby-identifier">_toUTF8</span>(<span class="ruby-identifier">code_obj</span>.<span class="ruby-identifier">path</span>))[<span class="ruby-number">-1</span>]))
+  <span class="ruby-identifier">ret</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-exist-3F">
+            
+              <b>exist?</b>()
+            
+            <a href="../classes/TkNamespace.html#method-i-exist-3F" name="method-i-exist-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-exist-3F_source')" id="l_method-i-exist-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-exist-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 446</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">exist?</span>
+  <span class="ruby-constant">TkNamespece</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-ivar">@fullname</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-export">
+            
+              <b>export</b>()
+            
+            <a href="../classes/TkNamespace.html#method-i-export" name="method-i-export" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-export_source')" id="l_method-i-export_source">show</a>
+                
+              </p>
+              <div id="method-i-export_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 456</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">export</span>
+  <span class="ruby-constant">TkNamespace</span>.<span class="ruby-identifier">export</span>(<span class="ruby-ivar">@fullname</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-export_with_clear">
+            
+              <b>export_with_clear</b>()
+            
+            <a href="../classes/TkNamespace.html#method-i-export_with_clear" name="method-i-export_with_clear" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-export_with_clear_source')" id="l_method-i-export_with_clear_source">show</a>
+                
+              </p>
+              <div id="method-i-export_with_clear_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 459</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">export_with_clear</span>
+  <span class="ruby-constant">TkNamespace</span>.<span class="ruby-identifier">export_with_clear</span>(<span class="ruby-ivar">@fullname</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-force_import">
+            
+              <b>force_import</b>()
+            
+            <a href="../classes/TkNamespace.html#method-i-force_import" name="method-i-force_import" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-force_import_source')" id="l_method-i-force_import_source">show</a>
+                
+              </p>
+              <div id="method-i-force_import_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 479</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">force_import</span>
+  <span class="ruby-constant">TkNamespace</span>.<span class="ruby-identifier">force_import</span>(<span class="ruby-ivar">@fullname</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-forget">
+            
+              <b>forget</b>()
+            
+            <a href="../classes/TkNamespace.html#method-i-forget" name="method-i-forget" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-forget_source')" id="l_method-i-forget_source">show</a>
+                
+              </p>
+              <div id="method-i-forget_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 466</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">forget</span>
+  <span class="ruby-constant">TkNamespace</span>.<span class="ruby-identifier">forget</span>(<span class="ruby-ivar">@fullname</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-import">
+            
+              <b>import</b>()
+            
+            <a href="../classes/TkNamespace.html#method-i-import" name="method-i-import" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-import_source')" id="l_method-i-import_source">show</a>
+                
+              </p>
+              <div id="method-i-import_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 476</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">import</span>
+  <span class="ruby-constant">TkNamespace</span>.<span class="ruby-identifier">import</span>(<span class="ruby-ivar">@fullname</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inscope">
+            
+              <b>inscope</b>(script, *args)
+            
+            <a href="../classes/TkNamespace.html#method-i-inscope" name="method-i-inscope" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-inscope_source')" id="l_method-i-inscope_source">show</a>
+                
+              </p>
+              <div id="method-i-inscope_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 486</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">inscope</span>(<span class="ruby-identifier">script</span>, *<span class="ruby-identifier">args</span>)
+  <span class="ruby-constant">TkNamespace</span>.<span class="ruby-identifier">inscope</span>(<span class="ruby-ivar">@fullname</span>, <span class="ruby-identifier">script</span>, *<span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-install_cmd">
+            
+              <b>install_cmd</b>(cmd)
+            
+            <a href="../classes/TkNamespace.html#method-i-install_cmd" name="method-i-install_cmd" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-install_cmd_source')" id="l_method-i-install_cmd_source">show</a>
+                
+              </p>
+              <div id="method-i-install_cmd_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">install_cmd</span>(<span class="ruby-identifier">cmd</span>)
+  <span class="ruby-identifier">lst</span> = <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-keyword">super</span>(<span class="ruby-identifier">cmd</span>), <span class="ruby-keyword">false</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">lst</span>[<span class="ruby-number">1</span>] <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^::/</span>
+    <span class="ruby-identifier">lst</span>[<span class="ruby-number">1</span>] = <span class="ruby-ivar">@fullname</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">lst</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-number">1</span>, <span class="ruby-ivar">@fullname</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">TkCore</span><span class="ruby-operator">::</span><span class="ruby-constant">INTERP</span>.<span class="ruby-identifier">_merge_tklist</span>(*<span class="ruby-identifier">lst</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mutex">
+            
+              <b>mutex</b>()
+            
+            <a href="../classes/TkNamespace.html#method-i-mutex" name="method-i-mutex" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mutex_source')" id="l_method-i-mutex_source">show</a>
+                
+              </p>
+              <div id="method-i-mutex_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mutex</span>; <span class="ruby-ivar">@mutex</span>; <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ns_tk_call">
+            
+              <b>ns_tk_call</b>(*args)
+            
+            <a href="../classes/TkNamespace.html#method-i-ns_tk_call" name="method-i-ns_tk_call" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ns_tk_call_with_enc">
+            
+              <b>ns_tk_call_with_enc</b>(*args)
+            
+            <a href="../classes/TkNamespace.html#method-i-ns_tk_call_with_enc" name="method-i-ns_tk_call_with_enc" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ns_tk_call_without_enc">
+            
+              <b>ns_tk_call_without_enc</b>(*args)
+            
+            <a href="../classes/TkNamespace.html#method-i-ns_tk_call_without_enc" name="method-i-ns_tk_call_without_enc" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-parent">
+            
+              <b>parent</b>()
+            
+            <a href="../classes/TkNamespace.html#method-i-parent" name="method-i-parent" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-parent_source')" id="l_method-i-parent_source">show</a>
+                
+              </p>
+              <div id="method-i-parent_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 504</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">parent</span>
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;parent&#39;</span>, <span class="ruby-ivar">@fullname</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-set_path">
+            
+              <b>set_path</b>()
+            
+            <a href="../classes/TkNamespace.html#method-i-set_path" name="method-i-set_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-set_path_source')" id="l_method-i-set_path_source">show</a>
+                
+              </p>
+              <div id="method-i-set_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 514</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">set_path</span>
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;path&#39;</span>, <span class="ruby-ivar">@fullname</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tk_call">
+            
+              <b>tk_call</b>(*args)
+            
+            <a href="../classes/TkNamespace.html#method-i-tk_call" name="method-i-tk_call" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TkNamespace.html#method-i-__tk_call">__tk_call</a>, <a href="TkNamespace.html#method-i-ns_tk_call">ns_tk_call</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tk_call_source')" id="l_method-i-tk_call_source">show</a>
+                
+              </p>
+              <div id="method-i-tk_call_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tk_call</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-comment">#super(&#39;namespace&#39;, &#39;eval&#39;, @fullname, *args)</span>
+  <span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">s</span> = <span class="ruby-identifier">_get_eval_string</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-keyword">true</span>))<span class="ruby-operator">?</span> <span class="ruby-identifier">s</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>}
+  <span class="ruby-keyword">super</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;eval&#39;</span>, <span class="ruby-ivar">@fullname</span>,
+        <span class="ruby-constant">TkCore</span><span class="ruby-operator">::</span><span class="ruby-constant">INTERP</span>.<span class="ruby-identifier">_merge_tklist</span>(*<span class="ruby-identifier">args</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tk_call_with_enc">
+            
+              <b>tk_call_with_enc</b>(*args)
+            
+            <a href="../classes/TkNamespace.html#method-i-tk_call_with_enc" name="method-i-tk_call_with_enc" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TkNamespace.html#method-i-__tk_call_with_enc">__tk_call_with_enc</a>, <a href="TkNamespace.html#method-i-ns_tk_call_with_enc">ns_tk_call_with_enc</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tk_call_with_enc_source')" id="l_method-i-tk_call_with_enc_source">show</a>
+                
+              </p>
+              <div id="method-i-tk_call_with_enc_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tk_call_with_enc</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-comment">#super(&#39;namespace&#39;, &#39;eval&#39;, @fullname, *args)</span>
+  <span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">s</span> = <span class="ruby-identifier">_get_eval_string</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-keyword">true</span>))<span class="ruby-operator">?</span> <span class="ruby-identifier">s</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>}
+  <span class="ruby-keyword">super</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;eval&#39;</span>, <span class="ruby-ivar">@fullname</span>,
+        <span class="ruby-constant">TkCore</span><span class="ruby-operator">::</span><span class="ruby-constant">INTERP</span>.<span class="ruby-identifier">_merge_tklist</span>(*<span class="ruby-identifier">args</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tk_call_without_enc">
+            
+              <b>tk_call_without_enc</b>(*args)
+            
+            <a href="../classes/TkNamespace.html#method-i-tk_call_without_enc" name="method-i-tk_call_without_enc" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TkNamespace.html#method-i-__tk_call_without_enc">__tk_call_without_enc</a>, <a href="TkNamespace.html#method-i-ns_tk_call_without_enc">ns_tk_call_without_enc</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tk_call_without_enc_source')" id="l_method-i-tk_call_without_enc_source">show</a>
+                
+              </p>
+              <div id="method-i-tk_call_without_enc_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tk_call_without_enc</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-comment">#super(&#39;namespace&#39;, &#39;eval&#39;, @fullname, *args)</span>
+  <span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">s</span> = <span class="ruby-identifier">_get_eval_string</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-keyword">true</span>))<span class="ruby-operator">?</span> <span class="ruby-identifier">s</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>}
+  <span class="ruby-keyword">super</span>(<span class="ruby-string">&#39;namespace&#39;</span>, <span class="ruby-string">&#39;eval&#39;</span>, <span class="ruby-ivar">@fullname</span>,
+        <span class="ruby-constant">TkCore</span><span class="ruby-operator">::</span><span class="ruby-constant">INTERP</span>.<span class="ruby-identifier">_merge_tklist</span>(*<span class="ruby-identifier">args</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-upvar">
+            
+              <b>upvar</b>(*var_pairs)
+            
+            <a href="../classes/TkNamespace.html#method-i-upvar" name="method-i-upvar" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-upvar_source')" id="l_method-i-upvar_source">show</a>
+                
+              </p>
+              <div id="method-i-upvar_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/namespace.rb, line 529</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">upvar</span>(*<span class="ruby-identifier">var_pairs</span>)
+  <span class="ruby-constant">TkNamespace</span>.<span class="ruby-identifier">inscope</span>(<span class="ruby-ivar">@fullname</span>, *(<span class="ruby-identifier">var_pairs</span>.<span class="ruby-identifier">flatten</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

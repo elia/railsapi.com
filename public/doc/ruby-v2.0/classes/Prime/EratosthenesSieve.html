@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Prime::EratosthenesSieve</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Prime::EratosthenesSieve 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/prime_rb.html">lib/prime.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Internal use. An implementation of eratosthenes&#39;s sieve</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-extend_table">extend_table</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-indices">indices</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-next_to">next_to</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../Singleton.html">
+              Singleton
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">BITS_PER_ENTRY</td>
+            <td>=</td>
+            <td class="attr-value">16</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">NUMS_PER_ENTRY</td>
+            <td>=</td>
+            <td class="attr-value">BITS_PER_ENTRY * 2</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">ENTRIES_PER_TABLE</td>
+            <td>=</td>
+            <td class="attr-value">8</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">NUMS_PER_TABLE</td>
+            <td>=</td>
+            <td class="attr-value">NUMS_PER_ENTRY * ENTRIES_PER_TABLE</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">FILLED_ENTRY</td>
+            <td>=</td>
+            <td class="attr-value">(1 &lt;&lt; NUMS_PER_ENTRY) - 1</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-next_to">
+            
+              <b>next_to</b>(n)
+            
+            <a href="../../classes/Prime/EratosthenesSieve.html#method-i-next_to" name="method-i-next_to" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>returns the least odd prime number which is greater than <code>n</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-next_to_source')" id="l_method-i-next_to_source">show</a>
+                
+              </p>
+              <div id="method-i-next_to_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/prime.rb, line 441</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">next_to</span>(<span class="ruby-identifier">n</span>)
+  <span class="ruby-identifier">n</span> = (<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>).<span class="ruby-identifier">div</span>(<span class="ruby-number">2</span>)*<span class="ruby-number">2</span><span class="ruby-operator">+</span><span class="ruby-number">3</span> <span class="ruby-comment"># the next odd number to given n</span>
+  <span class="ruby-identifier">table_index</span>, <span class="ruby-identifier">integer_index</span>, <span class="ruby-identifier">bit_index</span> = <span class="ruby-identifier">indices</span>(<span class="ruby-identifier">n</span>)
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">extend_table</span> <span class="ruby-keyword">until</span> <span class="ruby-ivar">@tables</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">table_index</span>
+    <span class="ruby-keyword">for</span> <span class="ruby-identifier">j</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">integer_index</span><span class="ruby-operator">...</span><span class="ruby-constant">ENTRIES_PER_TABLE</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@tables</span>[<span class="ruby-identifier">table_index</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">zero?</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">k</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">bit_index</span><span class="ruby-operator">...</span><span class="ruby-constant">BITS_PER_ENTRY</span>
+          <span class="ruby-keyword">return</span> <span class="ruby-constant">NUMS_PER_TABLE</span>*<span class="ruby-identifier">table_index</span> <span class="ruby-operator">+</span> <span class="ruby-constant">NUMS_PER_ENTRY</span>*<span class="ruby-identifier">j</span> <span class="ruby-operator">+</span> <span class="ruby-number">2</span>*<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">1</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@tables</span>[<span class="ruby-identifier">table_index</span>][<span class="ruby-identifier">j</span>][<span class="ruby-identifier">k</span>].<span class="ruby-identifier">zero?</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">bit_index</span> = <span class="ruby-number">0</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">table_index</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span>; <span class="ruby-identifier">integer_index</span> = <span class="ruby-number">0</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-extend_table">
+            
+              <b>extend_table</b>()
+            
+            <a href="../../classes/Prime/EratosthenesSieve.html#method-i-extend_table" name="method-i-extend_table" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extend_table_source')" id="l_method-i-extend_table_source">show</a>
+                
+              </p>
+              <div id="method-i-extend_table_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/prime.rb, line 471</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extend_table</span>
+  <span class="ruby-identifier">lbound</span> = <span class="ruby-constant">NUMS_PER_TABLE</span> * <span class="ruby-ivar">@tables</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">ubound</span> = <span class="ruby-identifier">lbound</span> <span class="ruby-operator">+</span> <span class="ruby-constant">NUMS_PER_TABLE</span>
+  <span class="ruby-identifier">new_table</span> = [<span class="ruby-constant">FILLED_ENTRY</span>] * <span class="ruby-constant">ENTRIES_PER_TABLE</span> <span class="ruby-comment"># which represents primarity in lbound...ubound</span>
+  (<span class="ruby-number">3</span><span class="ruby-operator">..</span><span class="ruby-constant">Integer</span>(<span class="ruby-constant">Math</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-identifier">ubound</span>))).<span class="ruby-identifier">step</span>(<span class="ruby-number">2</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span>, <span class="ruby-identifier">k</span> = <span class="ruby-identifier">indices</span>(<span class="ruby-identifier">p</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tables</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>][<span class="ruby-identifier">k</span>].<span class="ruby-identifier">zero?</span>
+
+    <span class="ruby-identifier">start</span> = (<span class="ruby-identifier">lbound</span>.<span class="ruby-identifier">div</span>(<span class="ruby-identifier">p</span>)<span class="ruby-operator">+</span><span class="ruby-number">1</span>)*<span class="ruby-identifier">p</span>  <span class="ruby-comment"># least multiple of p which is &gt;= lbound</span>
+    <span class="ruby-identifier">start</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">p</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">start</span>.<span class="ruby-identifier">even?</span>
+    (<span class="ruby-identifier">start</span><span class="ruby-operator">...</span><span class="ruby-identifier">ubound</span>).<span class="ruby-identifier">step</span>(<span class="ruby-number">2</span>*<span class="ruby-identifier">p</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">_</span>, <span class="ruby-identifier">j</span>, <span class="ruby-identifier">k</span> = <span class="ruby-identifier">indices</span>(<span class="ruby-identifier">n</span>)
+      <span class="ruby-identifier">new_table</span>[<span class="ruby-identifier">j</span>] <span class="ruby-operator">&amp;=</span> <span class="ruby-constant">FILLED_ENTRY</span><span class="ruby-operator">^</span>(<span class="ruby-number">1</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">k</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@tables</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_table</span>.<span class="ruby-identifier">freeze</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-indices">
+            
+              <b>indices</b>(n)
+            
+            <a href="../../classes/Prime/EratosthenesSieve.html#method-i-indices" name="method-i-indices" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>for an odd number <code>n</code>, returns (i, j, k) such that @<a
+href="http://i">tables</a>[<a href="http://k">j]</a> represents primarity
+of the number</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-indices_source')" id="l_method-i-indices_source">show</a>
+                
+              </p>
+              <div id="method-i-indices_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/prime.rb, line 460</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">indices</span>(<span class="ruby-identifier">n</span>)
+  <span class="ruby-comment">#   binary digits of n: |0|1|2|3|4|5|6|7|8|9|10|11|....</span>
+  <span class="ruby-comment">#   indices:            |-|    k  |  j  |     i</span>
+  <span class="ruby-comment"># because of NUMS_PER_ENTRY, NUMS_PER_TABLE</span>
+
+  <span class="ruby-identifier">k</span> = (<span class="ruby-identifier">n</span> &amp; <span class="ruby-number">0b00011111</span>) <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-number">1</span>
+  <span class="ruby-identifier">j</span> = (<span class="ruby-identifier">n</span> &amp; <span class="ruby-number">0b11100000</span>) <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-number">5</span>
+  <span class="ruby-identifier">i</span> = <span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-number">8</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span>, <span class="ruby-identifier">k</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

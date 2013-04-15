@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSS::RootElementMixin</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            RSS::RootElementMixin 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/rss/rss_rb.html">lib/rss/rss.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-feed_info">feed_info</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-maker_target">maker_target</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-ns_declarations">ns_declarations</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-output_encoding-3D">output_encoding=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-same_feed_type-3F">same_feed_type?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-setup_maker">setup_maker</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-tag">tag</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-to_atom">to_atom</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-to_feed">to_feed</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-to_rss">to_rss</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-to_xml">to_xml</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>X</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-xmldecl">xmldecl</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="XMLStyleSheetMixin.html">
+              RSS::XMLStyleSheetMixin
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>encoding</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>feed_subtype</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>feed_type</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>feed_version</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>output_encoding</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>standalone</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>version</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(feed_version, version=nil, encoding=nil, standalone=nil)
+            
+            <a href="../../classes/RSS/RootElementMixin.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 1246</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">feed_version</span>, <span class="ruby-identifier">version</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">encoding</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">standalone</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">super</span>()
+  <span class="ruby-ivar">@feed_type</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@feed_subtype</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@feed_version</span> = <span class="ruby-identifier">feed_version</span>
+  <span class="ruby-ivar">@version</span> = <span class="ruby-identifier">version</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;1.0&#39;</span>
+  <span class="ruby-ivar">@encoding</span> = <span class="ruby-identifier">encoding</span>
+  <span class="ruby-ivar">@standalone</span> = <span class="ruby-identifier">standalone</span>
+  <span class="ruby-ivar">@output_encoding</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-feed_info">
+            
+              <b>feed_info</b>()
+            
+            <a href="../../classes/RSS/RootElementMixin.html#method-i-feed_info" name="method-i-feed_info" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-feed_info_source')" id="l_method-i-feed_info_source">show</a>
+                
+              </p>
+              <div id="method-i-feed_info_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 1257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">feed_info</span>
+  [<span class="ruby-ivar">@feed_type</span>, <span class="ruby-ivar">@feed_version</span>, <span class="ruby-ivar">@feed_subtype</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-output_encoding-3D">
+            
+              <b>output_encoding=</b>(enc)
+            
+            <a href="../../classes/RSS/RootElementMixin.html#method-i-output_encoding-3D" name="method-i-output_encoding-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-output_encoding-3D_source')" id="l_method-i-output_encoding-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-output_encoding-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 1261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">output_encoding=</span>(<span class="ruby-identifier">enc</span>)
+  <span class="ruby-ivar">@output_encoding</span> = <span class="ruby-identifier">enc</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">converter</span> = <span class="ruby-constant">Converter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@output_encoding</span>, <span class="ruby-ivar">@encoding</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-setup_maker">
+            
+              <b>setup_maker</b>(maker)
+            
+            <a href="../../classes/RSS/RootElementMixin.html#method-i-setup_maker" name="method-i-setup_maker" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-setup_maker_source')" id="l_method-i-setup_maker_source">show</a>
+                
+              </p>
+              <div id="method-i-setup_maker_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 1266</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">setup_maker</span>(<span class="ruby-identifier">maker</span>)
+  <span class="ruby-identifier">maker</span>.<span class="ruby-identifier">version</span> = <span class="ruby-identifier">version</span>
+  <span class="ruby-identifier">maker</span>.<span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">encoding</span>
+  <span class="ruby-identifier">maker</span>.<span class="ruby-identifier">standalone</span> = <span class="ruby-identifier">standalone</span>
+
+  <span class="ruby-identifier">xml_stylesheets</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xss</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">xss</span>.<span class="ruby-identifier">setup_maker</span>(<span class="ruby-identifier">maker</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_atom">
+            
+              <b>to_atom</b>(type, &amp;block)
+            
+            <a href="../../classes/RSS/RootElementMixin.html#method-i-to_atom" name="method-i-to_atom" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_atom_source')" id="l_method-i-to_atom_source">show</a>
+                
+              </p>
+              <div id="method-i-to_atom_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 1289</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_atom</span>(<span class="ruby-identifier">type</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">to_feed</span>(<span class="ruby-node">&quot;atom:#{type}&quot;</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_feed">
+            
+              <b>to_feed</b>(type, &amp;block)
+            
+            <a href="../../classes/RSS/RootElementMixin.html#method-i-to_feed" name="method-i-to_feed" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_feed_source')" id="l_method-i-to_feed_source">show</a>
+                
+              </p>
+              <div id="method-i-to_feed_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 1278</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_feed</span>(<span class="ruby-identifier">type</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-constant">Maker</span>.<span class="ruby-identifier">make</span>(<span class="ruby-identifier">type</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">maker</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">setup_maker</span>(<span class="ruby-identifier">maker</span>)
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">maker</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_rss">
+            
+              <b>to_rss</b>(type, &amp;block)
+            
+            <a href="../../classes/RSS/RootElementMixin.html#method-i-to_rss" name="method-i-to_rss" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_rss_source')" id="l_method-i-to_rss_source">show</a>
+                
+              </p>
+              <div id="method-i-to_rss_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 1285</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_rss</span>(<span class="ruby-identifier">type</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">to_feed</span>(<span class="ruby-node">&quot;rss#{type}&quot;</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_xml">
+            
+              <b>to_xml</b>(type=nil, &amp;block)
+            
+            <a href="../../classes/RSS/RootElementMixin.html#method-i-to_xml" name="method-i-to_xml" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_xml_source')" id="l_method-i-to_xml_source">show</a>
+                
+              </p>
+              <div id="method-i-to_xml_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 1293</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_xml</span>(<span class="ruby-identifier">type</span>=<span class="ruby-keyword">nil</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">same_feed_type?</span>(<span class="ruby-identifier">type</span>)
+    <span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">to_feed</span>(<span class="ruby-identifier">type</span>, &amp;<span class="ruby-identifier">block</span>).<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-maker_target">
+            
+              <b>maker_target</b>(target)
+            
+            <a href="../../classes/RSS/RootElementMixin.html#method-i-maker_target" name="method-i-maker_target" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-maker_target_source')" id="l_method-i-maker_target_source">show</a>
+                
+              </p>
+              <div id="method-i-maker_target_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 1338</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">maker_target</span>(<span class="ruby-identifier">target</span>)
+  <span class="ruby-identifier">target</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ns_declarations">
+            
+              <b>ns_declarations</b>()
+            
+            <a href="../../classes/RSS/RootElementMixin.html#method-i-ns_declarations" name="method-i-ns_declarations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-ns_declarations_source')" id="l_method-i-ns_declarations_source">show</a>
+                
+              </p>
+              <div id="method-i-ns_declarations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 1329</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">ns_declarations</span>
+  <span class="ruby-identifier">decls</span> = {}
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">NSPOOL</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">uri</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">prefix</span> = <span class="ruby-node">&quot;:#{prefix}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">prefix</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">decls</span>[<span class="ruby-node">&quot;xmlns#{prefix}&quot;</span>] = <span class="ruby-identifier">uri</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">decls</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-same_feed_type-3F">
+            
+              <b>same_feed_type?</b>(type)
+            
+            <a href="../../classes/RSS/RootElementMixin.html#method-i-same_feed_type-3F" name="method-i-same_feed_type-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-same_feed_type-3F_source')" id="l_method-i-same_feed_type-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-same_feed_type-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 1302</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">same_feed_type?</span>(<span class="ruby-identifier">type</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-regexp">/^(atom|rss)?(\d+\.\d+)?(?::(.+))?$/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">type</span>
+    <span class="ruby-identifier">feed_type</span> = (<span class="ruby-node">$1</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@feed_type</span>).<span class="ruby-identifier">downcase</span>
+    <span class="ruby-identifier">feed_version</span> = <span class="ruby-node">$2</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@feed_version</span>
+    <span class="ruby-identifier">feed_subtype</span> = <span class="ruby-node">$3</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@feed_subtype</span>
+    [<span class="ruby-identifier">feed_type</span>, <span class="ruby-identifier">feed_version</span>, <span class="ruby-identifier">feed_subtype</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">feed_info</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag">
+            
+              <b>tag</b>(indent, attrs={}, &amp;block)
+            
+            <a href="../../classes/RSS/RootElementMixin.html#method-i-tag" name="method-i-tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_source')" id="l_method-i-tag_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 1313</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag</span>(<span class="ruby-identifier">indent</span>, <span class="ruby-identifier">attrs</span>={}, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">rv</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">indent</span>, <span class="ruby-identifier">ns_declarations</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">attrs</span>), &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">rv</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">rv</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-node">&quot;#{xmldecl}#{xml_stylesheet_pi}#{rv}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-xmldecl">
+            
+              <b>xmldecl</b>()
+            
+            <a href="../../classes/RSS/RootElementMixin.html#method-i-xmldecl" name="method-i-xmldecl" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-xmldecl_source')" id="l_method-i-xmldecl_source">show</a>
+                
+              </p>
+              <div id="method-i-xmldecl_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 1319</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">xmldecl</span>
+  <span class="ruby-identifier">rv</span> = <span class="ruby-node">%Q[&lt;?xml version=&quot;#{@version}&quot;]</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@output_encoding</span> <span class="ruby-keyword">or</span> <span class="ruby-ivar">@encoding</span>
+    <span class="ruby-identifier">rv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">%Q[ encoding=&quot;#{@output_encoding or @encoding}&quot;]</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">%Q[ standalone=&quot;yes&quot;]</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@standalone</span>
+  <span class="ruby-identifier">rv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;?&gt;\n&quot;</span>
+  <span class="ruby-identifier">rv</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

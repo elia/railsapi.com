@@ -1,0 +1,1362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSS::BaseModel</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            RSS::BaseModel 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/rss/rss_rb.html">lib/rss/rss.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-boolean_writer">boolean_writer</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-content_writer">content_writer</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-convert_attr_reader">convert_attr_reader</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-csv_attr_reader">csv_attr_reader</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-csv_integer_writer">csv_integer_writer</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-csv_writer">csv_writer</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-date_writer">date_writer</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-def_children_accessor">def_children_accessor</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-inherit_convert_attr_reader">inherit_convert_attr_reader</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-install_date_element">install_date_element</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-install_element">install_element</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-install_have_attribute_element">install_have_attribute_element</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-install_have_child_element">install_have_child_element</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-install_have_children_element">install_have_children_element</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-install_text_element">install_text_element</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-integer_writer">integer_writer</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-positive_integer_writer">positive_integer_writer</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-text_type_writer">text_type_writer</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-uri_convert_attr_reader">uri_convert_attr_reader</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>Y</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-yes_clean_other_attr_reader">yes_clean_other_attr_reader</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-yes_clean_other_writer">yes_clean_other_writer</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-yes_other_attr_reader">yes_other_attr_reader</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-yes_other_writer">yes_other_writer</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Utils.html">
+              RSS::Utils
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-install_date_element">
+            
+              <b>install_date_element</b>(tag_name, uri, occurs, name=nil, type=nil, disp_name=nil)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-install_date_element" name="method-i-install_date_element" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-install_date_element_source')" id="l_method-i-install_date_element_source">show</a>
+                
+              </p>
+              <div id="method-i-install_date_element_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 271</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">install_date_element</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">occurs</span>, <span class="ruby-identifier">name</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">type</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">disp_name</span>=<span class="ruby-keyword">nil</span>)
+      <span class="ruby-identifier">name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">tag_name</span>
+      <span class="ruby-identifier">type</span> <span class="ruby-operator">||=</span> <span class="ruby-value">:w3cdtf</span>
+      <span class="ruby-identifier">disp_name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">name</span>
+      <span class="ruby-keyword">self</span><span class="ruby-operator">::</span><span class="ruby-constant">ELEMENTS</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">name</span>
+      <span class="ruby-identifier">add_need_initialize_variable</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">install_model</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">occurs</span>, <span class="ruby-identifier">name</span>)
+
+      <span class="ruby-comment"># accessor</span>
+      <span class="ruby-identifier">convert_attr_reader</span> <span class="ruby-identifier">name</span>
+      <span class="ruby-identifier">date_writer</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">disp_name</span>)
+
+      <span class="ruby-identifier">install_element</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span>, <span class="ruby-identifier">elem_name</span><span class="ruby-operator">|</span>
+        <span class="ruby-value">&lt;&lt;-EOC
+        if @#{n}
+          rv = &quot;\#{indent}&lt;#{elem_name}&gt;&quot;
+          value = html_escape(@#{n}.#{type})
+          if need_convert
+            rv &lt;&lt; convert(value)
+          else
+            rv &lt;&lt; value
+          end
+            rv &lt;&lt; &quot;&lt;/#{elem_name}&gt;&quot;
+          rv
+        else
+          &#39;&#39;
+        end
+EOC</span>
+      <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-install_have_attribute_element">
+            
+              <b>install_have_attribute_element</b>(tag_name, uri, occurs, name=nil, type=nil)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-install_have_attribute_element" name="method-i-install_have_attribute_element" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-install_have_child_element">
+            
+              <b>install_have_child_element</b>(tag_name, uri, occurs, name=nil, type=nil)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-install_have_child_element" name="method-i-install_have_child_element" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="BaseModel.html#method-i-install_have_attribute_element">install_have_attribute_element</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-install_have_child_element_source')" id="l_method-i-install_have_child_element_source">show</a>
+                
+              </p>
+              <div id="method-i-install_have_child_element_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 197</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">install_have_child_element</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">occurs</span>, <span class="ruby-identifier">name</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">type</span>=<span class="ruby-keyword">nil</span>)
+      <span class="ruby-identifier">name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">tag_name</span>
+      <span class="ruby-identifier">add_need_initialize_variable</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">install_model</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">occurs</span>, <span class="ruby-identifier">name</span>)
+
+      <span class="ruby-identifier">writer_type</span>, <span class="ruby-identifier">reader_type</span> = <span class="ruby-identifier">type</span>
+      <span class="ruby-identifier">def_corresponded_attr_writer</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">writer_type</span>
+      <span class="ruby-identifier">def_corresponded_attr_reader</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">reader_type</span>
+      <span class="ruby-identifier">install_element</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span>, <span class="ruby-identifier">elem_name</span><span class="ruby-operator">|</span>
+        <span class="ruby-value">&lt;&lt;-EOC
+        if @#{n}
+          &quot;\#{@#{n}.to_s(need_convert, indent)}&quot;
+        else
+          &#39;&#39;
+        end
+EOC</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-install_have_children_element">
+            
+              <b>install_have_children_element</b>(tag_name, uri, occurs, name=nil, plural_name=nil)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-install_have_children_element" name="method-i-install_have_children_element" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-install_have_children_element_source')" id="l_method-i-install_have_children_element_source">show</a>
+                
+              </p>
+              <div id="method-i-install_have_children_element_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 217</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">install_have_children_element</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">occurs</span>, <span class="ruby-identifier">name</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">plural_name</span>=<span class="ruby-keyword">nil</span>)
+      <span class="ruby-identifier">name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">tag_name</span>
+      <span class="ruby-identifier">plural_name</span> <span class="ruby-operator">||=</span> <span class="ruby-node">&quot;#{name}s&quot;</span>
+      <span class="ruby-identifier">add_have_children_element</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">plural_name</span>)
+      <span class="ruby-identifier">add_plural_form</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">plural_name</span>)
+      <span class="ruby-identifier">install_model</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">occurs</span>, <span class="ruby-identifier">plural_name</span>, <span class="ruby-keyword">true</span>)
+
+      <span class="ruby-identifier">def_children_accessor</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">plural_name</span>)
+      <span class="ruby-identifier">install_element</span>(<span class="ruby-identifier">name</span>, <span class="ruby-string">&quot;s&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span>, <span class="ruby-identifier">elem_name</span><span class="ruby-operator">|</span>
+        <span class="ruby-value">&lt;&lt;-EOC
+        rv = []
+        @#{n}.each do |x|
+          value = &quot;\#{x.to_s(need_convert, indent)}&quot;
+          rv &lt;&lt; value if /\\A\\s*\\z/ !~ value
+        end
+        rv.join(&quot;\n&quot;)
+EOC</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-install_text_element">
+            
+              <b>install_text_element</b>(tag_name, uri, occurs, name=nil, type=nil, disp_name=nil)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-install_text_element" name="method-i-install_text_element" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-install_text_element_source')" id="l_method-i-install_text_element_source">show</a>
+                
+              </p>
+              <div id="method-i-install_text_element_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 237</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">install_text_element</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">occurs</span>, <span class="ruby-identifier">name</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">type</span>=<span class="ruby-keyword">nil</span>,
+                             <span class="ruby-identifier">disp_name</span>=<span class="ruby-keyword">nil</span>)
+      <span class="ruby-identifier">name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">tag_name</span>
+      <span class="ruby-identifier">disp_name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">name</span>
+      <span class="ruby-keyword">self</span><span class="ruby-operator">::</span><span class="ruby-constant">ELEMENTS</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span><span class="ruby-operator">::</span><span class="ruby-constant">ELEMENTS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">add_need_initialize_variable</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">install_model</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">occurs</span>, <span class="ruby-identifier">name</span>)
+
+      <span class="ruby-identifier">def_corresponded_attr_writer</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">disp_name</span>)
+      <span class="ruby-identifier">def_corresponded_attr_reader</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span> <span class="ruby-operator">||</span> <span class="ruby-value">:convert</span>)
+      <span class="ruby-identifier">install_element</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span>, <span class="ruby-identifier">elem_name</span><span class="ruby-operator">|</span>
+        <span class="ruby-value">&lt;&lt;-EOC
+        if respond_to?(:#{n}_content)
+          content = #{n}_content
+        else
+          content = @#{n}
+        end
+        if content
+          rv = &quot;\#{indent}&lt;#{elem_name}&gt;&quot;
+          value = html_escape(content)
+          if need_convert
+            rv &lt;&lt; convert(value)
+          else
+            rv &lt;&lt; value
+          end
+            rv &lt;&lt; &quot;&lt;/#{elem_name}&gt;&quot;
+          rv
+        else
+          &#39;&#39;
+        end
+EOC</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-boolean_writer">
+            
+              <b>boolean_writer</b>(name, disp_name=name)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-boolean_writer" name="method-i-boolean_writer" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-boolean_writer_source')" id="l_method-i-boolean_writer_source">show</a>
+                
+              </p>
+              <div id="method-i-boolean_writer_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 496</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">boolean_writer</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">disp_name</span>=<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;      def #{name}=(new_value)
+        if new_value.nil?
+          @#{name} = new_value
+        else
+          if @do_validate and
+              ![true, false, &quot;true&quot;, &quot;false&quot;].include?(new_value)
+            raise NotAvailableValueError.new(&#39;#{disp_name}&#39;, new_value)
+          end
+          if [true, false].include?(new_value)
+            @#{name} = new_value
+          else
+            @#{name} = new_value == &quot;true&quot;
+          end
+        end
+      end
+&quot;</span>, *<span class="ruby-identifier">get_file_and_line_from_caller</span>(<span class="ruby-number">2</span>))
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-content_writer">
+            
+              <b>content_writer</b>(name, disp_name=name)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-content_writer" name="method-i-content_writer" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-content_writer_source')" id="l_method-i-content_writer_source">show</a>
+                
+              </p>
+              <div id="method-i-content_writer_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 528</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">content_writer</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">disp_name</span>=<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">klass_name</span> = <span class="ruby-node">&quot;self.class::#{Utils.to_class_name(name)}&quot;</span>
+      <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;      def #{name}=(new_value)
+        if new_value.is_a?(#{klass_name})
+          @#{name} = new_value
+        else
+          @#{name} = #{klass_name}.new
+          @#{name}.content = new_value
+        end
+      end
+&quot;</span>, *<span class="ruby-identifier">get_file_and_line_from_caller</span>(<span class="ruby-number">2</span>))
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-convert_attr_reader">
+            
+              <b>convert_attr_reader</b>(*attrs)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-convert_attr_reader" name="method-i-convert_attr_reader" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-convert_attr_reader_source')" id="l_method-i-convert_attr_reader_source">show</a>
+                
+              </p>
+              <div id="method-i-convert_attr_reader_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 358</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">convert_attr_reader</span>(*<span class="ruby-identifier">attrs</span>)
+      <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">attr</span> = <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">id2name</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>)
+        <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;        def #{attr}
+          convert(@#{attr})
+        end
+&quot;</span>, *<span class="ruby-identifier">get_file_and_line_from_caller</span>(<span class="ruby-number">2</span>))
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-csv_attr_reader">
+            
+              <b>csv_attr_reader</b>(*attrs)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-csv_attr_reader" name="method-i-csv_attr_reader" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-csv_attr_reader_source')" id="l_method-i-csv_attr_reader_source">show</a>
+                
+              </p>
+              <div id="method-i-csv_attr_reader_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 393</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">csv_attr_reader</span>(*<span class="ruby-identifier">attrs</span>)
+      <span class="ruby-identifier">separator</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+        <span class="ruby-identifier">options</span> = <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">pop</span>
+        <span class="ruby-identifier">separator</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:separator</span>]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">separator</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;, &quot;</span>
+      <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">attr</span> = <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">id2name</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>)
+        <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;          attr_reader(:#{attr})
+          def #{attr}_content
+            if @#{attr}.nil?
+              @#{attr}
+            else
+              @#{attr}.join(#{separator.dump})
+            end
+          end
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-csv_integer_writer">
+            
+              <b>csv_integer_writer</b>(name, disp_name=name)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-csv_integer_writer" name="method-i-csv_integer_writer" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-csv_integer_writer_source')" id="l_method-i-csv_integer_writer_source">show</a>
+                
+              </p>
+              <div id="method-i-csv_integer_writer_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 570</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">csv_integer_writer</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">disp_name</span>=<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;        def #{name}=(new_value)
+          @#{name} = Utils::CSV.parse(new_value) {|v| Integer(v)}
+        end
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>)
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-csv_writer">
+            
+              <b>csv_writer</b>(name, disp_name=name)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-csv_writer" name="method-i-csv_writer" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-csv_writer_source')" id="l_method-i-csv_writer_source">show</a>
+                
+              </p>
+              <div id="method-i-csv_writer_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 562</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">csv_writer</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">disp_name</span>=<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;        def #{name}=(new_value)
+          @#{name} = Utils::CSV.parse(new_value)
+        end
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>)
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-date_writer">
+            
+              <b>date_writer</b>(name, type, disp_name=name)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-date_writer" name="method-i-date_writer" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-date_writer_source')" id="l_method-i-date_writer_source">show</a>
+                
+              </p>
+              <div id="method-i-date_writer_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 415</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">date_writer</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">disp_name</span>=<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;      def #{name}=(new_value)
+        if new_value.nil?
+          @#{name} = new_value
+        elsif new_value.kind_of?(Time)
+          @#{name} = new_value.dup
+        else
+          if @do_validate
+            begin
+              @#{name} = Time.__send__(&#39;#{type}&#39;, new_value)
+            rescue ArgumentError
+              raise NotAvailableValueError.new(&#39;#{disp_name}&#39;, new_value)
+            end
+          else
+            @#{name} = nil
+            if /\\A\\s*\\z/ !~ new_value.to_s
+              begin
+                unless Date._parse(new_value, false).empty?
+                  @#{name} = Time.parse(new_value)
+                end
+              rescue ArgumentError
+              end
+            end
+          end
+        end
+
+        # Is it need?
+        if @#{name}
+          class &lt;&lt; @#{name}
+            undef_method(:to_s)
+            alias_method(:to_s, :#{type})
+          end
+        end
+
+      end
+&quot;</span>, *<span class="ruby-identifier">get_file_and_line_from_caller</span>(<span class="ruby-number">2</span>))
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-def_children_accessor">
+            
+              <b>def_children_accessor</b>(accessor_name, plural_name)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-def_children_accessor" name="method-i-def_children_accessor" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-def_children_accessor_source')" id="l_method-i-def_children_accessor_source">show</a>
+                
+              </p>
+              <div id="method-i-def_children_accessor_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 578</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">def_children_accessor</span>(<span class="ruby-identifier">accessor_name</span>, <span class="ruby-identifier">plural_name</span>)
+      <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;      def #{plural_name}
+        @#{accessor_name}
+      end
+
+      def #{accessor_name}(*args)
+        if args.empty?
+          @#{accessor_name}.first
+        else
+          @#{accessor_name}[*args]
+        end
+      end
+
+      def #{accessor_name}=(*args)
+        receiver = self.class.name
+        warn(&quot;Warning:\#{caller.first.sub(/:in `.*&#39;\z/, &#39;&#39;)}: &quot; \
+             &quot;Don&#39;t use `\#{receiver}\##{accessor_name} = XXX&#39;/&quot; \
+             &quot;`\#{receiver}\#set_#{accessor_name}(XXX)&#39;. &quot; \
+             &quot;Those APIs are not sense of Ruby. &quot; \
+             &quot;Use `\#{receiver}\##{plural_name} &lt;&lt; XXX&#39; instead of them.&quot;)
+        if args.size == 1
+          @#{accessor_name}.push(args[0])
+        else
+          @#{accessor_name}.__send__(&quot;[]=&quot;, *args)
+        end
+      end
+      alias_method(:set_#{accessor_name}, :#{accessor_name}=)
+&quot;</span>, *<span class="ruby-identifier">get_file_and_line_from_caller</span>(<span class="ruby-number">2</span>))
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inherit_convert_attr_reader">
+            
+              <b>inherit_convert_attr_reader</b>(*attrs)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-inherit_convert_attr_reader" name="method-i-inherit_convert_attr_reader" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-inherit_convert_attr_reader_source')" id="l_method-i-inherit_convert_attr_reader_source">show</a>
+                
+              </p>
+              <div id="method-i-inherit_convert_attr_reader_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 316</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">inherit_convert_attr_reader</span>(*<span class="ruby-identifier">attrs</span>)
+      <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">attr</span> = <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">id2name</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>)
+        <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;        def #{attr}_without_inherit
+          convert(@#{attr})
+        end
+
+        def #{attr}
+          if @#{attr}
+            #{attr}_without_inherit
+          elsif @parent
+            @parent.#{attr}
+          else
+            nil
+          end
+        end
+&quot;</span>, *<span class="ruby-identifier">get_file_and_line_from_caller</span>(<span class="ruby-number">2</span>))
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-install_element">
+            
+              <b>install_element</b>(name, postfix=&quot;&quot;)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-install_element" name="method-i-install_element" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-install_element_source')" id="l_method-i-install_element_source">show</a>
+                
+              </p>
+              <div id="method-i-install_element_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 304</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">install_element</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">postfix</span>=<span class="ruby-string">&quot;&quot;</span>)
+      <span class="ruby-identifier">elem_name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-string">&#39;_&#39;</span>, <span class="ruby-string">&#39;:&#39;</span>)
+      <span class="ruby-identifier">method_name</span> = <span class="ruby-node">&quot;#{name}_element#{postfix}&quot;</span>
+      <span class="ruby-identifier">add_to_element_method</span>(<span class="ruby-identifier">method_name</span>)
+      <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;      def #{method_name}(need_convert=true, indent=&#39;&#39;)
+        #{yield(name, elem_name)}
+      end
+      private :#{method_name}
+&quot;</span>, *<span class="ruby-identifier">get_file_and_line_from_caller</span>(<span class="ruby-number">2</span>))
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-integer_writer">
+            
+              <b>integer_writer</b>(name, disp_name=name)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-integer_writer" name="method-i-integer_writer" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-integer_writer_source')" id="l_method-i-integer_writer_source">show</a>
+                
+              </p>
+              <div id="method-i-integer_writer_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 454</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">integer_writer</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">disp_name</span>=<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;      def #{name}=(new_value)
+        if new_value.nil?
+          @#{name} = new_value
+        else
+          if @do_validate
+            begin
+              @#{name} = Integer(new_value)
+            rescue ArgumentError
+              raise NotAvailableValueError.new(&#39;#{disp_name}&#39;, new_value)
+            end
+          else
+            @#{name} = new_value.to_i
+          end
+        end
+      end
+&quot;</span>, *<span class="ruby-identifier">get_file_and_line_from_caller</span>(<span class="ruby-number">2</span>))
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-positive_integer_writer">
+            
+              <b>positive_integer_writer</b>(name, disp_name=name)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-positive_integer_writer" name="method-i-positive_integer_writer" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-positive_integer_writer_source')" id="l_method-i-positive_integer_writer_source">show</a>
+                
+              </p>
+              <div id="method-i-positive_integer_writer_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 474</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">positive_integer_writer</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">disp_name</span>=<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;      def #{name}=(new_value)
+        if new_value.nil?
+          @#{name} = new_value
+        else
+          if @do_validate
+            begin
+              tmp = Integer(new_value)
+              raise ArgumentError if tmp &lt;= 0
+              @#{name} = tmp
+            rescue ArgumentError
+              raise NotAvailableValueError.new(&#39;#{disp_name}&#39;, new_value)
+            end
+          else
+            @#{name} = new_value.to_i
+          end
+        end
+      end
+&quot;</span>, *<span class="ruby-identifier">get_file_and_line_from_caller</span>(<span class="ruby-number">2</span>))
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-text_type_writer">
+            
+              <b>text_type_writer</b>(name, disp_name=name)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-text_type_writer" name="method-i-text_type_writer" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-text_type_writer_source')" id="l_method-i-text_type_writer_source">show</a>
+                
+              </p>
+              <div id="method-i-text_type_writer_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 516</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">text_type_writer</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">disp_name</span>=<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;      def #{name}=(new_value)
+        if @do_validate and
+            ![&quot;text&quot;, &quot;html&quot;, &quot;xhtml&quot;, nil].include?(new_value)
+          raise NotAvailableValueError.new(&#39;#{disp_name}&#39;, new_value)
+        end
+        @#{name} = new_value
+      end
+&quot;</span>, *<span class="ruby-identifier">get_file_and_line_from_caller</span>(<span class="ruby-number">2</span>))
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-uri_convert_attr_reader">
+            
+              <b>uri_convert_attr_reader</b>(*attrs)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-uri_convert_attr_reader" name="method-i-uri_convert_attr_reader" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-uri_convert_attr_reader_source')" id="l_method-i-uri_convert_attr_reader_source">show</a>
+                
+              </p>
+              <div id="method-i-uri_convert_attr_reader_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 337</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">uri_convert_attr_reader</span>(*<span class="ruby-identifier">attrs</span>)
+      <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">attr</span> = <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">id2name</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>)
+        <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;        def #{attr}_without_base
+          convert(@#{attr})
+        end
+
+        def #{attr}
+          value = #{attr}_without_base
+          return nil if value.nil?
+          if /\\A[a-z][a-z0-9+.\\-]*:/i =~ value
+            value
+          else
+            &quot;\#{base}\#{value}&quot;
+          end
+        end
+&quot;</span>, *<span class="ruby-identifier">get_file_and_line_from_caller</span>(<span class="ruby-number">2</span>))
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-yes_clean_other_attr_reader">
+            
+              <b>yes_clean_other_attr_reader</b>(*attrs)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-yes_clean_other_attr_reader" name="method-i-yes_clean_other_attr_reader" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-yes_clean_other_attr_reader_source')" id="l_method-i-yes_clean_other_attr_reader_source">show</a>
+                
+              </p>
+              <div id="method-i-yes_clean_other_attr_reader_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 369</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">yes_clean_other_attr_reader</span>(*<span class="ruby-identifier">attrs</span>)
+      <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">attr</span> = <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">id2name</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>)
+        <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;          attr_reader(:#{attr})
+          def #{attr}?
+            YesCleanOther.parse(@#{attr})
+          end
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-yes_clean_other_writer">
+            
+              <b>yes_clean_other_writer</b>(name, disp_name=name)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-yes_clean_other_writer" name="method-i-yes_clean_other_writer" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-yes_clean_other_writer_source')" id="l_method-i-yes_clean_other_writer_source">show</a>
+                
+              </p>
+              <div id="method-i-yes_clean_other_writer_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 542</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">yes_clean_other_writer</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">disp_name</span>=<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;        def #{name}=(value)
+          value = (value ? &quot;yes&quot; : &quot;no&quot;) if [true, false].include?(value)
+          @#{name} = value
+        end
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>)
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-yes_other_attr_reader">
+            
+              <b>yes_other_attr_reader</b>(*attrs)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-yes_other_attr_reader" name="method-i-yes_other_attr_reader" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-yes_other_attr_reader_source')" id="l_method-i-yes_other_attr_reader_source">show</a>
+                
+              </p>
+              <div id="method-i-yes_other_attr_reader_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 381</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">yes_other_attr_reader</span>(*<span class="ruby-identifier">attrs</span>)
+      <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">attr</span> = <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">id2name</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>)
+        <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;          attr_reader(:#{attr})
+          def #{attr}?
+            Utils::YesOther.parse(@#{attr})
+          end
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-yes_other_writer">
+            
+              <b>yes_other_writer</b>(name, disp_name=name)
+            
+            <a href="../../classes/RSS/BaseModel.html#method-i-yes_other_writer" name="method-i-yes_other_writer" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-yes_other_writer_source')" id="l_method-i-yes_other_writer_source">show</a>
+                
+              </p>
+              <div id="method-i-yes_other_writer_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/rss.rb, line 551</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">yes_other_writer</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">disp_name</span>=<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;        def #{name}=(new_value)
+          if [true, false].include?(new_value)
+            new_value = new_value ? &quot;yes&quot; : &quot;no&quot;
+          end
+          @#{name} = new_value
+        end
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>)
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

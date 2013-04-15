@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>XMLRPC::Service::BasicInterface</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            XMLRPC::Service::BasicInterface 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/lib/xmlrpc/utils_rb.html">lib/xmlrpc/utils.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Base class for <a href="Interface.html">XMLRPC::Service::Interface</a>
+definitions, used by <a
+href="../BasicServer.html#method-i-add_handler">XMLRPC::BasicServer#add_handler</a></p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add_method">add_method</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-parse_sig">parse_sig</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>methods</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>prefix</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(prefix)
+            
+            <a href="../../../classes/XMLRPC/Service/BasicInterface.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/xmlrpc/utils.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">prefix</span>)
+  <span class="ruby-ivar">@prefix</span> = <span class="ruby-identifier">prefix</span>
+  <span class="ruby-ivar">@methods</span> = []
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add_method">
+            
+              <b>add_method</b>(sig, help=nil, meth_name=nil)
+            
+            <a href="../../../classes/XMLRPC/Service/BasicInterface.html#method-i-add_method" name="method-i-add_method" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_method_source')" id="l_method-i-add_method_source">show</a>
+                
+              </p>
+              <div id="method-i-add_method_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/xmlrpc/utils.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add_method</span>(<span class="ruby-identifier">sig</span>, <span class="ruby-identifier">help</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">meth_name</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">mname</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">sig</span> = [<span class="ruby-identifier">sig</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">sig</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">String</span>
+
+  <span class="ruby-identifier">sig</span> = <span class="ruby-identifier">sig</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">name</span>, <span class="ruby-identifier">si</span> = <span class="ruby-identifier">parse_sig</span>(<span class="ruby-identifier">s</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Wrong signatures!&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">mname</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">mname</span>
+    <span class="ruby-identifier">mname</span> = <span class="ruby-identifier">name</span>
+    <span class="ruby-identifier">si</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@methods</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">mname</span>, <span class="ruby-identifier">meth_name</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">mname</span>, <span class="ruby-identifier">sig</span>, <span class="ruby-identifier">help</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-parse_sig">
+            
+              <b>parse_sig</b>(sig)
+            
+            <a href="../../../classes/XMLRPC/Service/BasicInterface.html#method-i-parse_sig" name="method-i-parse_sig" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-parse_sig_source')" id="l_method-i-parse_sig_source">show</a>
+                
+              </p>
+              <div id="method-i-parse_sig_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/xmlrpc/utils.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">parse_sig</span>(<span class="ruby-identifier">sig</span>)
+  <span class="ruby-comment"># sig is a String</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">sig</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^\s*(\w+)\s+([^(]+)(\(([^)]*)\))?\s*$/</span>
+    <span class="ruby-identifier">params</span> = [<span class="ruby-node">$1</span>]
+    <span class="ruby-identifier">name</span>   = <span class="ruby-node">$2</span>.<span class="ruby-identifier">strip</span>
+    <span class="ruby-node">$4</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;,&quot;</span>).<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">params</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">strip</span>} <span class="ruby-keyword">if</span> <span class="ruby-node">$4</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">params</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Syntax error in signature&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

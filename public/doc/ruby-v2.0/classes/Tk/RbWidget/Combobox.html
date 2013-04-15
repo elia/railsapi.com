@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Tk::RbWidget::Combobox</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Tk::RbWidget::Combobox 
+            
+                <span class="parent">&lt; 
+                    
+                    TkEntry
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/ext/tk/sample/tkcombobox_rb.html">ext/tk/sample/tkcombobox.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-__methodcall_optkeys">__methodcall_optkeys</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_button_proc">_button_proc</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_init_bindings">_init_bindings</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_reset_width">_reset_width</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_set_entry_value">_set_entry_value</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_state_control">_state_control</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_textvariable_control">_textvariable_control</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add">add</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-initialize_composite">initialize_composite</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-list_index">list_index</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-remove">remove</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-scrollbar">scrollbar</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-see">see</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-values">values</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../../TkComposite.html">
+              TkComposite
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add">
+            
+              <b>add</b>(ent)
+            
+            <a href="../../../classes/Tk/RbWidget/Combobox.html#method-i-add" name="method-i-add" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_source')" id="l_method-i-add_source">show</a>
+                
+              </p>
+              <div id="method-i-add_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/sample/tkcombobox.rb, line 417</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add</span>(<span class="ruby-identifier">ent</span>)
+  <span class="ruby-identifier">ent</span> = <span class="ruby-identifier">ent</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@ent_list</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">ent</span>)
+    <span class="ruby-ivar">@ent_list</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ent</span>
+    <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-string">&#39;end&#39;</span>, <span class="ruby-identifier">ent</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">_reset_width</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-list_index">
+            
+              <b>list_index</b>(idx)
+            
+            <a href="../../../classes/Tk/RbWidget/Combobox.html#method-i-list_index" name="method-i-list_index" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-list_index_source')" id="l_method-i-list_index_source">show</a>
+                
+              </p>
+              <div id="method-i-list_index_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/sample/tkcombobox.rb, line 453</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">list_index</span>(<span class="ruby-identifier">idx</span>)
+  <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">idx</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-remove">
+            
+              <b>remove</b>(ent)
+            
+            <a href="../../../classes/Tk/RbWidget/Combobox.html#method-i-remove" name="method-i-remove" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-remove_source')" id="l_method-i-remove_source">show</a>
+                
+              </p>
+              <div id="method-i-remove_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/sample/tkcombobox.rb, line 427</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">remove</span>(<span class="ruby-identifier">ent</span>)
+  <span class="ruby-identifier">ent</span> = <span class="ruby-identifier">ent</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-ivar">@ent_list</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">ent</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span> = <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">get</span>(<span class="ruby-number">0</span>, <span class="ruby-string">&#39;end&#39;</span>).<span class="ruby-identifier">index</span>(<span class="ruby-identifier">ent</span>)
+    <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">idx</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">_reset_width</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-scrollbar">
+            
+              <b>scrollbar</b>(mode)
+            
+            <a href="../../../classes/Tk/RbWidget/Combobox.html#method-i-scrollbar" name="method-i-scrollbar" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-scrollbar_source')" id="l_method-i-scrollbar_source">show</a>
+                
+              </p>
+              <div id="method-i-scrollbar_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/sample/tkcombobox.rb, line 406</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">scrollbar</span>(<span class="ruby-identifier">mode</span>)
+  <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">scrollbar</span>(<span class="ruby-identifier">mode</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-see">
+            
+              <b>see</b>(idx)
+            
+            <a href="../../../classes/Tk/RbWidget/Combobox.html#method-i-see" name="method-i-see" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-see_source')" id="l_method-i-see_source">show</a>
+                
+              </p>
+              <div id="method-i-see_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/sample/tkcombobox.rb, line 449</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">see</span>(<span class="ruby-identifier">idx</span>)
+  <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">see</span>(<span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">idx</span>) <span class="ruby-operator">-</span> <span class="ruby-number">1</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-values">
+            
+              <b>values</b>(ary = nil)
+            
+            <a href="../../../classes/Tk/RbWidget/Combobox.html#method-i-values" name="method-i-values" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-values_source')" id="l_method-i-values_source">show</a>
+                
+              </p>
+              <div id="method-i-values_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/sample/tkcombobox.rb, line 437</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">values</span>(<span class="ruby-identifier">ary</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ary</span>
+    <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-number">0</span>, <span class="ruby-string">&#39;end&#39;</span>)
+    <span class="ruby-ivar">@ent_list</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">ent</span><span class="ruby-operator">|</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">ent</span>)}
+    <span class="ruby-identifier">_reset_width</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">get</span>(<span class="ruby-number">0</span>, <span class="ruby-string">&#39;end&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-__methodcall_optkeys">
+            
+              <b>__methodcall_optkeys</b>()
+            
+            <a href="../../../classes/Tk/RbWidget/Combobox.html#method-i-__methodcall_optkeys" name="method-i-__methodcall_optkeys" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-__methodcall_optkeys_source')" id="l_method-i-__methodcall_optkeys_source">show</a>
+                
+              </p>
+              <div id="method-i-__methodcall_optkeys_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/sample/tkcombobox.rb, line 335</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">__methodcall_optkeys</span>  <span class="ruby-comment"># { key=&gt;method, ... }</span>
+  {<span class="ruby-string">&#39;state&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:_state_control</span>}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_button_proc">
+            
+              <b>_button_proc</b>(dir = true)
+            
+            <a href="../../../classes/Tk/RbWidget/Combobox.html#method-i-_button_proc" name="method-i-_button_proc" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_button_proc_source')" id="l_method-i-_button_proc_source">show</a>
+                
+              </p>
+              <div id="method-i-_button_proc_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/sample/tkcombobox.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_button_proc</span>(<span class="ruby-identifier">dir</span> = <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ent</span>.<span class="ruby-identifier">state</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;disabled&#39;</span>
+  <span class="ruby-ivar">@btn</span>.<span class="ruby-identifier">relief</span>(<span class="ruby-value">:sunken</span>)
+  <span class="ruby-identifier">x</span> = <span class="ruby-ivar">@frame</span>.<span class="ruby-identifier">winfo_rootx</span>
+  <span class="ruby-identifier">y</span> = <span class="ruby-ivar">@frame</span>.<span class="ruby-identifier">winfo_rooty</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">dir</span>
+    <span class="ruby-ivar">@top</span>.<span class="ruby-identifier">geometry</span>(<span class="ruby-node">&quot;+#{x}+#{y + @frame.winfo_height}&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@btn</span>.<span class="ruby-identifier">image</span>(<span class="ruby-identifier">@@up_btn_bmp</span>)
+    <span class="ruby-ivar">@top</span>.<span class="ruby-identifier">geometry</span>(<span class="ruby-node">&quot;+#{x}+#{y - @top.winfo_reqheight}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@top</span>.<span class="ruby-identifier">deiconify</span>
+  <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">focus</span>
+
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">idx</span> = <span class="ruby-identifier">values</span>.<span class="ruby-identifier">index</span>(<span class="ruby-ivar">@ent</span>.<span class="ruby-identifier">value</span>))
+    <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">see</span>(<span class="ruby-identifier">idx</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>)
+    <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">activate</span>(<span class="ruby-identifier">idx</span>)
+    <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">selection_set</span>(<span class="ruby-identifier">idx</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>
+    <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">see</span>(<span class="ruby-number">0</span>)
+    <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">activate</span>(<span class="ruby-number">0</span>)
+    <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">selection_set</span>(<span class="ruby-number">0</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@top</span>.<span class="ruby-identifier">grab</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-ivar">@wait_var</span>.<span class="ruby-identifier">tkwait</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">idx</span> = <span class="ruby-ivar">@wait_var</span>.<span class="ruby-identifier">to_i</span>) <span class="ruby-operator">&gt;=</span> <span class="ruby-number">0</span>
+      <span class="ruby-comment"># @ent.value = @lst.get(idx)</span>
+      <span class="ruby-identifier">_set_entry_value</span>(<span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">idx</span>))
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@top</span>.<span class="ruby-identifier">withdraw</span>
+    <span class="ruby-ivar">@btn</span>.<span class="ruby-identifier">relief</span>(<span class="ruby-value">:raised</span>)
+    <span class="ruby-ivar">@btn</span>.<span class="ruby-identifier">image</span>(<span class="ruby-identifier">@@down_btn_bmp</span>)
+  <span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-ivar">@top</span>.<span class="ruby-identifier">grab</span>(<span class="ruby-value">:release</span>)
+      <span class="ruby-ivar">@ent</span>.<span class="ruby-identifier">focus</span>
+    <span class="ruby-keyword">rescue</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_init_bindings">
+            
+              <b>_init_bindings</b>()
+            
+            <a href="../../../classes/Tk/RbWidget/Combobox.html#method-i-_init_bindings" name="method-i-_init_bindings" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_init_bindings_source')" id="l_method-i-_init_bindings_source">show</a>
+                
+              </p>
+              <div id="method-i-_init_bindings_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/sample/tkcombobox.rb, line 297</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_init_bindings</span>
+  <span class="ruby-ivar">@btn</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-string">&#39;1&#39;</span>, <span class="ruby-identifier">proc</span>{<span class="ruby-identifier">_button_proc</span>(<span class="ruby-keyword">true</span>)})
+  <span class="ruby-ivar">@btn</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-string">&#39;3&#39;</span>, <span class="ruby-identifier">proc</span>{<span class="ruby-identifier">_button_proc</span>(<span class="ruby-keyword">false</span>)})
+
+  <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-string">&#39;1&#39;</span>, <span class="ruby-identifier">proc</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">y</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@wait_var</span>.<span class="ruby-identifier">value</span> = <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">nearest</span>(<span class="ruby-identifier">y</span>)}, <span class="ruby-string">&#39;%y&#39;</span>)
+  <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-string">&#39;Return&#39;</span>, <span class="ruby-identifier">proc</span>{<span class="ruby-ivar">@wait_var</span>.<span class="ruby-identifier">value</span> = <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">curselection</span>[<span class="ruby-number">0</span>]})
+
+  <span class="ruby-identifier">cancel</span> = <span class="ruby-constant">TkVirtualEvent</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;2&#39;</span>, <span class="ruby-string">&#39;3&#39;</span>, <span class="ruby-string">&#39;Escape&#39;</span>)
+  <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-identifier">cancel</span>, <span class="ruby-identifier">proc</span>{<span class="ruby-ivar">@wait_var</span>.<span class="ruby-identifier">value</span> = <span class="ruby-number">-1</span>})
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_reset_width">
+            
+              <b>_reset_width</b>()
+            
+            <a href="../../../classes/Tk/RbWidget/Combobox.html#method-i-_reset_width" name="method-i-_reset_width" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_reset_width_source')" id="l_method-i-_reset_width_source">show</a>
+                
+              </p>
+              <div id="method-i-_reset_width_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/sample/tkcombobox.rb, line 410</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_reset_width</span>
+  <span class="ruby-identifier">len</span> = <span class="ruby-ivar">@ent</span>.<span class="ruby-identifier">width</span>
+  <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">get</span>(<span class="ruby-number">0</span>, <span class="ruby-string">&#39;end&#39;</span>).<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">len</span> = <span class="ruby-identifier">l</span>.<span class="ruby-identifier">length</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">l</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">len</span>}
+  <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">width</span>(<span class="ruby-identifier">len</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_set_entry_value">
+            
+              <b>_set_entry_value</b>(val)
+            
+            <a href="../../../classes/Tk/RbWidget/Combobox.html#method-i-_set_entry_value" name="method-i-_set_entry_value" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_set_entry_value_source')" id="l_method-i-_set_entry_value_source">show</a>
+                
+              </p>
+              <div id="method-i-_set_entry_value_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/sample/tkcombobox.rb, line 309</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_set_entry_value</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-ivar">@ent</span>.<span class="ruby-identifier">textvariable</span>.<span class="ruby-identifier">value</span> = <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_state_control">
+            
+              <b>_state_control</b>(value = None)
+            
+            <a href="../../../classes/Tk/RbWidget/Combobox.html#method-i-_state_control" name="method-i-_state_control" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_state_control_source')" id="l_method-i-_state_control_source">show</a>
+                
+              </p>
+              <div id="method-i-_state_control_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/sample/tkcombobox.rb, line 316</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_state_control</span>(<span class="ruby-identifier">value</span> = <span class="ruby-constant">None</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-constant">None</span>
+    <span class="ruby-comment"># get</span>
+    <span class="ruby-ivar">@ent</span>.<span class="ruby-identifier">state</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># set</span>
+    <span class="ruby-ivar">@ent</span>.<span class="ruby-identifier">state</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@ent</span>.<span class="ruby-identifier">state</span> <span class="ruby-comment"># regulate &#39;state&#39; string</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;normal&#39;</span>, <span class="ruby-string">&#39;readonly&#39;</span>
+      <span class="ruby-ivar">@btn</span>.<span class="ruby-identifier">state</span> <span class="ruby-string">&#39;normal&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;disabled&#39;</span>
+      <span class="ruby-ivar">@btn</span>.<span class="ruby-identifier">state</span> <span class="ruby-string">&#39;disabled&#39;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># unknown : do nothing</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_textvariable_control">
+            
+              <b>_textvariable_control</b>(var = None)
+            
+            <a href="../../../classes/Tk/RbWidget/Combobox.html#method-i-_textvariable_control" name="method-i-_textvariable_control" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_textvariable_control_source')" id="l_method-i-_textvariable_control_source">show</a>
+                
+              </p>
+              <div id="method-i-_textvariable_control_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/sample/tkcombobox.rb, line 342</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_textvariable_control</span>(<span class="ruby-identifier">var</span> = <span class="ruby-constant">None</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">var</span> <span class="ruby-operator">==</span> <span class="ruby-constant">None</span>
+    <span class="ruby-comment"># get</span>
+    ((<span class="ruby-identifier">var</span> = <span class="ruby-ivar">@ent</span>.<span class="ruby-identifier">textvariable</span>) <span class="ruby-operator">===</span> <span class="ruby-ivar">@default_var</span>)<span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span><span class="ruby-operator">:</span> <span class="ruby-identifier">var</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># set</span>
+    <span class="ruby-ivar">@var</span> = <span class="ruby-identifier">var</span>
+    <span class="ruby-identifier">tk_send</span>(<span class="ruby-string">&#39;configure&#39;</span>, <span class="ruby-string">&#39;-textvariable&#39;</span>, (<span class="ruby-ivar">@var</span>)<span class="ruby-operator">?</span> <span class="ruby-identifier">var</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@default_var</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_composite">
+            
+              <b>initialize_composite</b>(keys={})
+            
+            <a href="../../../classes/Tk/RbWidget/Combobox.html#method-i-initialize_composite" name="method-i-initialize_composite" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_composite_source')" id="l_method-i-initialize_composite_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_composite_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/sample/tkcombobox.rb, line 356</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_composite</span>(<span class="ruby-identifier">keys</span>={})
+  <span class="ruby-identifier">keys</span> = <span class="ruby-identifier">_symbolkey2str</span>(<span class="ruby-identifier">keys</span>)
+
+  <span class="ruby-ivar">@btn</span> = <span class="ruby-constant">TkLabel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@frame</span>, <span class="ruby-value">:relief=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">:raised</span>, <span class="ruby-value">:borderwidth=</span><span class="ruby-operator">&gt;</span><span class="ruby-number">2</span>,
+                     <span class="ruby-value">:image=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">@@down_btn_bmp</span>).<span class="ruby-identifier">pack</span>(<span class="ruby-value">:side=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">:right</span>,
+                                                  <span class="ruby-value">:ipadx=</span><span class="ruby-operator">&gt;</span><span class="ruby-number">2</span>, <span class="ruby-value">:fill=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">:y</span>)
+  <span class="ruby-ivar">@ent</span> = <span class="ruby-constant">TkEntry</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@frame</span>).<span class="ruby-identifier">pack</span>(<span class="ruby-value">:side=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">:left</span>)
+  <span class="ruby-ivar">@path</span> = <span class="ruby-ivar">@ent</span>.<span class="ruby-identifier">path</span>
+
+  <span class="ruby-ivar">@top</span> = <span class="ruby-constant">TkToplevel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@btn</span>, <span class="ruby-value">:borderwidth=</span><span class="ruby-operator">&gt;</span><span class="ruby-number">1</span>, <span class="ruby-value">:relief=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">:raised</span>) {
+    <span class="ruby-identifier">withdraw</span>
+    <span class="ruby-identifier">transient</span>
+    <span class="ruby-identifier">overrideredirect</span>(<span class="ruby-keyword">true</span>)
+  }
+
+  <span class="ruby-identifier">startwait</span> = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;startwait&#39;</span>){<span class="ruby-number">300</span>}
+  <span class="ruby-identifier">interval</span> = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;interval&#39;</span>){<span class="ruby-number">150</span>}
+  <span class="ruby-ivar">@lst</span> = <span class="ruby-constant">Tk</span><span class="ruby-operator">::</span><span class="ruby-constant">RbWidget</span><span class="ruby-operator">::</span><span class="ruby-constant">AutoScrollListbox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@top</span>, <span class="ruby-value">:scrollbar=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword">true</span>,
+                                             <span class="ruby-value">:startwait=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">startwait</span>,
+                                             <span class="ruby-value">:interval=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">interval</span>)
+  <span class="ruby-ivar">@lst</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-value">:fill=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">:both</span>, <span class="ruby-value">:expand=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword">true</span>)
+  <span class="ruby-ivar">@ent_list</span> = []
+
+  <span class="ruby-ivar">@wait_var</span> = <span class="ruby-constant">TkVariable</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@var</span> = <span class="ruby-ivar">@default_var</span> = <span class="ruby-constant">TkVariable</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-ivar">@ent</span>.<span class="ruby-identifier">textvariable</span> <span class="ruby-ivar">@default_var</span>
+
+  <span class="ruby-identifier">_init_bindings</span>
+
+  <span class="ruby-identifier">option_methods</span>(<span class="ruby-string">&#39;textvariable&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:_textvariable_control</span>)
+
+  <span class="ruby-identifier">delegate</span>(<span class="ruby-string">&#39;DEFAULT&#39;</span>, <span class="ruby-ivar">@ent</span>)
+  <span class="ruby-identifier">delegate</span>(<span class="ruby-string">&#39;height&#39;</span>, <span class="ruby-ivar">@lst</span>)
+  <span class="ruby-identifier">delegate</span>(<span class="ruby-string">&#39;relief&#39;</span>, <span class="ruby-ivar">@frame</span>)
+  <span class="ruby-identifier">delegate</span>(<span class="ruby-string">&#39;borderwidth&#39;</span>, <span class="ruby-ivar">@frame</span>)
+
+  <span class="ruby-identifier">delegate</span>(<span class="ruby-string">&#39;arrowrelief&#39;</span>, <span class="ruby-ivar">@lst</span>)
+  <span class="ruby-identifier">delegate</span>(<span class="ruby-string">&#39;arrowborderwidth&#39;</span>, <span class="ruby-ivar">@lst</span>)
+
+  <span class="ruby-identifier">delegate</span>(<span class="ruby-string">&#39;state&#39;</span>, <span class="ruby-keyword">false</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mode</span> = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;scrollbar&#39;</span>)
+    <span class="ruby-identifier">scrollbar</span>(<span class="ruby-identifier">mode</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">configure</span> <span class="ruby-identifier">keys</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

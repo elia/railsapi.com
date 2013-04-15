@@ -1,0 +1,1512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Tk::Tcllib::TablelistItemConfig</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Tk::Tcllib::TablelistItemConfig 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/ext/tk/lib/tkextlib/tcllib/tablelist_core_rb.html">ext/tk/lib/tkextlib/tcllib/tablelist_core.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-__item_cget_cmd">__item_cget_cmd</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-__item_config_cmd">__item_config_cmd</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_from_idx">_from_idx</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_to_idx">_to_idx</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-cell_cget">cell_cget</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cell_cget_strict">cell_cget_strict</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cell_cget_tkstring">cell_cget_tkstring</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cell_configinfo">cell_configinfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cell_configure">cell_configure</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cellcget">cellcget</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cellcget_strict">cellcget_strict</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cellcget_tkstring">cellcget_tkstring</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cellconfiginfo">cellconfiginfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cellconfigure">cellconfigure</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-column_cget">column_cget</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-column_cget_strict">column_cget_strict</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-column_cget_tkstring">column_cget_tkstring</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-column_configinfo">column_configinfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-column_configure">column_configure</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-columncget">columncget</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-columncget_strict">columncget_strict</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-columncget_tkstring">columncget_tkstring</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-columnconfiginfo">columnconfiginfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-columnconfigure">columnconfigure</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-current_cell_configinfo">current_cell_configinfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-current_cellconfiginfo">current_cellconfiginfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-current_column_configinfo">current_column_configinfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-current_columnconfiginfo">current_columnconfiginfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-current_row_configinfo">current_row_configinfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-current_rowconfiginfo">current_rowconfiginfo</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-row_cget">row_cget</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-row_cget_strict">row_cget_strict</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-row_cget_tkstring">row_cget_tkstring</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-row_configinfo">row_configinfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-row_configure">row_configure</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-rowcget">rowcget</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-rowcget_strict">rowcget_strict</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-rowcget_tkstring">rowcget_tkstring</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-rowconfiginfo">rowconfiginfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-rowconfigure">rowconfigure</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../../TkItemConfigMethod.html">
+              TkItemConfigMethod
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-__item_cget_cmd">
+            
+              <b>__item_cget_cmd</b>(mixed_id)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-__item_cget_cmd" name="method-i-__item_cget_cmd" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-__item_cget_cmd_source')" id="l_method-i-__item_cget_cmd_source">show</a>
+                
+              </p>
+              <div id="method-i-__item_cget_cmd_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">__item_cget_cmd</span>(<span class="ruby-identifier">mixed_id</span>)
+  [<span class="ruby-keyword">self</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">mixed_id</span>[<span class="ruby-number">0</span>] <span class="ruby-operator">+</span> <span class="ruby-string">&#39;cget&#39;</span>, <span class="ruby-identifier">_to_idx</span>(<span class="ruby-identifier">mixed_id</span>[<span class="ruby-number">1</span>])]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-__item_config_cmd">
+            
+              <b>__item_config_cmd</b>(mixed_id)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-__item_config_cmd" name="method-i-__item_config_cmd" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-__item_config_cmd_source')" id="l_method-i-__item_config_cmd_source">show</a>
+                
+              </p>
+              <div id="method-i-__item_config_cmd_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">__item_config_cmd</span>(<span class="ruby-identifier">mixed_id</span>)
+  [<span class="ruby-keyword">self</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">mixed_id</span>[<span class="ruby-number">0</span>] <span class="ruby-operator">+</span> <span class="ruby-string">&#39;configure&#39;</span>, <span class="ruby-identifier">_to_idx</span>(<span class="ruby-identifier">mixed_id</span>[<span class="ruby-number">1</span>])]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cell_cget">
+            
+              <b>cell_cget</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-cell_cget" name="method-i-cell_cget" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-cellcget">cellcget</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cell_cget_source')" id="l_method-i-cell_cget_source">show</a>
+                
+              </p>
+              <div id="method-i-cell_cget_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cell_cget</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">option</span>)
+  <span class="ruby-identifier">itemcget</span>([<span class="ruby-string">&#39;cell&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">option</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cell_cget_strict">
+            
+              <b>cell_cget_strict</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-cell_cget_strict" name="method-i-cell_cget_strict" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-cellcget_strict">cellcget_strict</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cell_cget_strict_source')" id="l_method-i-cell_cget_strict_source">show</a>
+                
+              </p>
+              <div id="method-i-cell_cget_strict_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cell_cget_strict</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">option</span>)
+  <span class="ruby-identifier">itemcget_strict</span>([<span class="ruby-string">&#39;cell&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">option</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cell_cget_tkstring">
+            
+              <b>cell_cget_tkstring</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-cell_cget_tkstring" name="method-i-cell_cget_tkstring" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-cellcget_tkstring">cellcget_tkstring</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cell_cget_tkstring_source')" id="l_method-i-cell_cget_tkstring_source">show</a>
+                
+              </p>
+              <div id="method-i-cell_cget_tkstring_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cell_cget_tkstring</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">option</span>)
+  <span class="ruby-identifier">itemcget_tkstring</span>([<span class="ruby-string">&#39;cell&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">option</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cell_configinfo">
+            
+              <b>cell_configinfo</b>(tagOrId, slot=nil)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-cell_configinfo" name="method-i-cell_configinfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-cellconfiginfo">cellconfiginfo</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cell_configinfo_source')" id="l_method-i-cell_configinfo_source">show</a>
+                
+              </p>
+              <div id="method-i-cell_configinfo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cell_configinfo</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">slot</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">itemconfiginfo</span>([<span class="ruby-string">&#39;cell&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">slot</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cell_configure">
+            
+              <b>cell_configure</b>(tagOrId, slot, value=None)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-cell_configure" name="method-i-cell_configure" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-cellconfigure">cellconfigure</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cell_configure_source')" id="l_method-i-cell_configure_source">show</a>
+                
+              </p>
+              <div id="method-i-cell_configure_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cell_configure</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">slot</span>, <span class="ruby-identifier">value</span>=<span class="ruby-constant">None</span>)
+  <span class="ruby-identifier">itemconfigure</span>([<span class="ruby-string">&#39;cell&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">slot</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cellcget">
+            
+              <b>cellcget</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-cellcget" name="method-i-cellcget" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cellcget_strict">
+            
+              <b>cellcget_strict</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-cellcget_strict" name="method-i-cellcget_strict" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cellcget_tkstring">
+            
+              <b>cellcget_tkstring</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-cellcget_tkstring" name="method-i-cellcget_tkstring" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cellconfiginfo">
+            
+              <b>cellconfiginfo</b>(tagOrId, slot=nil)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-cellconfiginfo" name="method-i-cellconfiginfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cellconfigure">
+            
+              <b>cellconfigure</b>(tagOrId, slot, value=None)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-cellconfigure" name="method-i-cellconfigure" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-column_cget">
+            
+              <b>column_cget</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-column_cget" name="method-i-column_cget" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-columncget">columncget</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-column_cget_source')" id="l_method-i-column_cget_source">show</a>
+                
+              </p>
+              <div id="method-i-column_cget_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">column_cget</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">option</span>)
+  <span class="ruby-identifier">itemcget</span>([<span class="ruby-string">&#39;column&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">option</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-column_cget_strict">
+            
+              <b>column_cget_strict</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-column_cget_strict" name="method-i-column_cget_strict" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-columncget_strict">columncget_strict</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-column_cget_strict_source')" id="l_method-i-column_cget_strict_source">show</a>
+                
+              </p>
+              <div id="method-i-column_cget_strict_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">column_cget_strict</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">option</span>)
+  <span class="ruby-identifier">itemcget_strict</span>([<span class="ruby-string">&#39;column&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">option</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-column_cget_tkstring">
+            
+              <b>column_cget_tkstring</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-column_cget_tkstring" name="method-i-column_cget_tkstring" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-columncget_tkstring">columncget_tkstring</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-column_cget_tkstring_source')" id="l_method-i-column_cget_tkstring_source">show</a>
+                
+              </p>
+              <div id="method-i-column_cget_tkstring_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">column_cget_tkstring</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">option</span>)
+  <span class="ruby-identifier">itemcget_tkstring</span>([<span class="ruby-string">&#39;column&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">option</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-column_configinfo">
+            
+              <b>column_configinfo</b>(tagOrId, slot=nil)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-column_configinfo" name="method-i-column_configinfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-columnconfiginfo">columnconfiginfo</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-column_configinfo_source')" id="l_method-i-column_configinfo_source">show</a>
+                
+              </p>
+              <div id="method-i-column_configinfo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">column_configinfo</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">slot</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">itemconfiginfo</span>([<span class="ruby-string">&#39;column&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">slot</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-column_configure">
+            
+              <b>column_configure</b>(tagOrId, slot, value=None)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-column_configure" name="method-i-column_configure" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-columnconfigure">columnconfigure</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-column_configure_source')" id="l_method-i-column_configure_source">show</a>
+                
+              </p>
+              <div id="method-i-column_configure_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">column_configure</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">slot</span>, <span class="ruby-identifier">value</span>=<span class="ruby-constant">None</span>)
+  <span class="ruby-identifier">itemconfigure</span>([<span class="ruby-string">&#39;column&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">slot</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-columncget">
+            
+              <b>columncget</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-columncget" name="method-i-columncget" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-columncget_strict">
+            
+              <b>columncget_strict</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-columncget_strict" name="method-i-columncget_strict" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-columncget_tkstring">
+            
+              <b>columncget_tkstring</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-columncget_tkstring" name="method-i-columncget_tkstring" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-columnconfiginfo">
+            
+              <b>columnconfiginfo</b>(tagOrId, slot=nil)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-columnconfiginfo" name="method-i-columnconfiginfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-columnconfigure">
+            
+              <b>columnconfigure</b>(tagOrId, slot, value=None)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-columnconfigure" name="method-i-columnconfigure" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-current_cell_configinfo">
+            
+              <b>current_cell_configinfo</b>(tagOrId, slot=nil)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-current_cell_configinfo" name="method-i-current_cell_configinfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-current_cellconfiginfo">current_cellconfiginfo</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-current_cell_configinfo_source')" id="l_method-i-current_cell_configinfo_source">show</a>
+                
+              </p>
+              <div id="method-i-current_cell_configinfo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">current_cell_configinfo</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">slot</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">current_itemconfiginfo</span>([<span class="ruby-string">&#39;cell&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">slot</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-current_cellconfiginfo">
+            
+              <b>current_cellconfiginfo</b>(tagOrId, slot=nil)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-current_cellconfiginfo" name="method-i-current_cellconfiginfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-current_column_configinfo">
+            
+              <b>current_column_configinfo</b>(tagOrId, slot=nil)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-current_column_configinfo" name="method-i-current_column_configinfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-current_columnconfiginfo">current_columnconfiginfo</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-current_column_configinfo_source')" id="l_method-i-current_column_configinfo_source">show</a>
+                
+              </p>
+              <div id="method-i-current_column_configinfo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">current_column_configinfo</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">slot</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">current_itemconfiginfo</span>([<span class="ruby-string">&#39;column&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">slot</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-current_columnconfiginfo">
+            
+              <b>current_columnconfiginfo</b>(tagOrId, slot=nil)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-current_columnconfiginfo" name="method-i-current_columnconfiginfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-current_row_configinfo">
+            
+              <b>current_row_configinfo</b>(tagOrId, slot=nil)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-current_row_configinfo" name="method-i-current_row_configinfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-current_rowconfiginfo">current_rowconfiginfo</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-current_row_configinfo_source')" id="l_method-i-current_row_configinfo_source">show</a>
+                
+              </p>
+              <div id="method-i-current_row_configinfo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">current_row_configinfo</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">slot</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">current_itemconfiginfo</span>([<span class="ruby-string">&#39;row&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">slot</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-current_rowconfiginfo">
+            
+              <b>current_rowconfiginfo</b>(tagOrId, slot=nil)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-current_rowconfiginfo" name="method-i-current_rowconfiginfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-row_cget">
+            
+              <b>row_cget</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-row_cget" name="method-i-row_cget" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-rowcget">rowcget</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-row_cget_source')" id="l_method-i-row_cget_source">show</a>
+                
+              </p>
+              <div id="method-i-row_cget_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">row_cget</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">option</span>)
+  <span class="ruby-identifier">itemcget</span>([<span class="ruby-string">&#39;row&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">option</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-row_cget_strict">
+            
+              <b>row_cget_strict</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-row_cget_strict" name="method-i-row_cget_strict" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-rowcget_strict">rowcget_strict</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-row_cget_strict_source')" id="l_method-i-row_cget_strict_source">show</a>
+                
+              </p>
+              <div id="method-i-row_cget_strict_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">row_cget_strict</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">option</span>)
+  <span class="ruby-identifier">itemcget_strict</span>([<span class="ruby-string">&#39;row&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">option</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-row_cget_tkstring">
+            
+              <b>row_cget_tkstring</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-row_cget_tkstring" name="method-i-row_cget_tkstring" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-rowcget_tkstring">rowcget_tkstring</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-row_cget_tkstring_source')" id="l_method-i-row_cget_tkstring_source">show</a>
+                
+              </p>
+              <div id="method-i-row_cget_tkstring_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">row_cget_tkstring</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">option</span>)
+  <span class="ruby-identifier">itemcget_tkstring</span>([<span class="ruby-string">&#39;row&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">option</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-row_configinfo">
+            
+              <b>row_configinfo</b>(tagOrId, slot=nil)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-row_configinfo" name="method-i-row_configinfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-rowconfiginfo">rowconfiginfo</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-row_configinfo_source')" id="l_method-i-row_configinfo_source">show</a>
+                
+              </p>
+              <div id="method-i-row_configinfo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">row_configinfo</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">slot</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">itemconfiginfo</span>([<span class="ruby-string">&#39;row&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">slot</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-row_configure">
+            
+              <b>row_configure</b>(tagOrId, slot, value=None)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-row_configure" name="method-i-row_configure" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TablelistItemConfig.html#method-i-rowconfigure">rowconfigure</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-row_configure_source')" id="l_method-i-row_configure_source">show</a>
+                
+              </p>
+              <div id="method-i-row_configure_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">row_configure</span>(<span class="ruby-identifier">tagOrId</span>, <span class="ruby-identifier">slot</span>, <span class="ruby-identifier">value</span>=<span class="ruby-constant">None</span>)
+  <span class="ruby-identifier">itemconfigure</span>([<span class="ruby-string">&#39;row&#39;</span>, <span class="ruby-identifier">tagOrId</span>], <span class="ruby-identifier">slot</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-rowcget">
+            
+              <b>rowcget</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-rowcget" name="method-i-rowcget" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-rowcget_strict">
+            
+              <b>rowcget_strict</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-rowcget_strict" name="method-i-rowcget_strict" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-rowcget_tkstring">
+            
+              <b>rowcget_tkstring</b>(tagOrId, option)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-rowcget_tkstring" name="method-i-rowcget_tkstring" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-rowconfiginfo">
+            
+              <b>rowconfiginfo</b>(tagOrId, slot=nil)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-rowconfiginfo" name="method-i-rowconfiginfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-rowconfigure">
+            
+              <b>rowconfigure</b>(tagOrId, slot, value=None)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-rowconfigure" name="method-i-rowconfigure" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-_from_idx">
+            
+              <b>_from_idx</b>(idx)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-_from_idx" name="method-i-_from_idx" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_from_idx_source')" id="l_method-i-_from_idx_source">show</a>
+                
+              </p>
+              <div id="method-i-_from_idx_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_from_idx</span>(<span class="ruby-identifier">idx</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">idx</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">idx</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span>[<span class="ruby-number">0</span>] <span class="ruby-operator">==</span> <span class="ruby-string">@</span>  <span class="ruby-comment"># &#39;@x,y&#39;</span>
+    <span class="ruby-identifier">idx</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">idx</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/([^,]+),([^,]+)/</span>
+    <span class="ruby-identifier">row</span> = <span class="ruby-node">$1</span>, <span class="ruby-identifier">column</span> = <span class="ruby-node">$2</span>
+    [<span class="ruby-identifier">num_or_str</span>(<span class="ruby-identifier">row</span>), <span class="ruby-identifier">num_or_str</span>(<span class="ruby-identifier">column</span>)]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">num_or_str</span>(<span class="ruby-identifier">idx</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_to_idx">
+            
+              <b>_to_idx</b>(idx)
+            
+            <a href="../../../classes/Tk/Tcllib/TablelistItemConfig.html#method-i-_to_idx" name="method-i-_to_idx" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_to_idx_source')" id="l_method-i-_to_idx_source">show</a>
+                
+              </p>
+              <div id="method-i-_to_idx_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/tcllib/tablelist_core.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_to_idx</span>(<span class="ruby-identifier">idx</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">idx</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">elem</span><span class="ruby-operator">|</span> <span class="ruby-identifier">_get_eval_string</span>(<span class="ruby-identifier">elem</span>)}.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;,&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">idx</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

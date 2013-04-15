@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Test::Unit::Options</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Test::Unit::Options 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/lib/test/unit_rb.html">lib/test/unit.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-non_options">non_options</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-option_parser">option_parser</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-process_args">process_args</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-setup_options">setup_options</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(*, &amp;block)
+            
+            <a href="../../../classes/Test/Unit/Options.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/test/unit.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(*, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@init_hook</span> = <span class="ruby-identifier">block</span>
+  <span class="ruby-ivar">@options</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">super</span>(&amp;<span class="ruby-keyword">nil</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-option_parser">
+            
+              <b>option_parser</b>()
+            
+            <a href="../../../classes/Test/Unit/Options.html#method-i-option_parser" name="method-i-option_parser" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-option_parser_source')" id="l_method-i-option_parser_source">show</a>
+                
+              </p>
+              <div id="method-i-option_parser_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/test/unit.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">option_parser</span>
+  <span class="ruby-ivar">@option_parser</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-process_args">
+            
+              <b>process_args</b>(args = [])
+            
+            <a href="../../../classes/Test/Unit/Options.html#method-i-process_args" name="method-i-process_args" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-process_args_source')" id="l_method-i-process_args_source">show</a>
+                
+              </p>
+              <div id="method-i-process_args_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/test/unit.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">process_args</span>(<span class="ruby-identifier">args</span> = [])
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@options</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@options</span>
+  <span class="ruby-identifier">orig_args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">option_parser</span>
+  <span class="ruby-identifier">setup_options</span>(<span class="ruby-identifier">opts</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">orig_args</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">args</span>
+  <span class="ruby-identifier">args</span> = <span class="ruby-ivar">@init_hook</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@init_hook</span>
+  <span class="ruby-identifier">non_options</span>(<span class="ruby-identifier">args</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-ivar">@help</span> = <span class="ruby-identifier">orig_args</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/[\s|&amp;&lt;&gt;$()]/</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">inspect</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">s</span> }.<span class="ruby-identifier">join</span> <span class="ruby-string">&quot; &quot;</span>
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-value">:parallel</span>]
+    <span class="ruby-ivar">@files</span> = <span class="ruby-identifier">args</span>
+    <span class="ruby-ivar">@args</span> = <span class="ruby-identifier">orig_args</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-non_options">
+            
+              <b>non_options</b>(files, options)
+            
+            <a href="../../../classes/Test/Unit/Options.html#method-i-non_options" name="method-i-non_options" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-non_options_source')" id="l_method-i-non_options_source">show</a>
+                
+              </p>
+              <div id="method-i-non_options_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/test/unit.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">non_options</span>(<span class="ruby-identifier">files</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;rbconfig&quot;</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span>
+    <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;#{caller(1)[0]}: warning: Parallel running disabled because can&#39;t get path to ruby; run specify with --ruby argument&quot;</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:parallel</span>] = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:ruby</span>] <span class="ruby-operator">||=</span> [<span class="ruby-constant">RbConfig</span>.<span class="ruby-identifier">ruby</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-setup_options">
+            
+              <b>setup_options</b>(opts, options)
+            
+            <a href="../../../classes/Test/Unit/Options.html#method-i-setup_options" name="method-i-setup_options" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-setup_options_source')" id="l_method-i-setup_options_source">show</a>
+                
+              </p>
+              <div id="method-i-setup_options_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/test/unit.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">setup_options</span>(<span class="ruby-identifier">opts</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&#39;minitest options:&#39;</span>
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">version</span> = <span class="ruby-constant">MiniTest</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span>
+
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:retry</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:job_status</span>] = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span> <span class="ruby-string">&#39;-h&#39;</span>, <span class="ruby-string">&#39;--help&#39;</span>, <span class="ruby-string">&#39;Display this help.&#39;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">opts</span>
+    <span class="ruby-identifier">exit</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span> <span class="ruby-string">&#39;-s&#39;</span>, <span class="ruby-string">&#39;--seed SEED&#39;</span>, <span class="ruby-constant">Integer</span>, <span class="ruby-string">&quot;Sets random seed&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:seed</span>] = <span class="ruby-identifier">m</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span> <span class="ruby-string">&#39;-v&#39;</span>, <span class="ruby-string">&#39;--verbose&#39;</span>, <span class="ruby-string">&quot;Verbose. Show progress processing files.&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:verbose</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">verbose</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:verbose</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span> <span class="ruby-string">&#39;-n&#39;</span>, <span class="ruby-string">&#39;--name PATTERN&#39;</span>, <span class="ruby-string">&quot;Filter test names on pattern.&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:filter</span>] = <span class="ruby-identifier">a</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span> <span class="ruby-string">&#39;--jobs-status [TYPE]&#39;</span>, [<span class="ruby-value">:normal</span>, <span class="ruby-value">:replace</span>],
+          <span class="ruby-string">&quot;Show status of jobs every file; Disabled when --jobs isn&#39;t specified.&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:job_status</span>] = <span class="ruby-identifier">type</span> <span class="ruby-operator">||</span> <span class="ruby-value">:normal</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span> <span class="ruby-string">&#39;-j N&#39;</span>, <span class="ruby-string">&#39;--jobs N&#39;</span>, <span class="ruby-string">&quot;Allow run tests with N jobs at once&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-regexp">/^t/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">a</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:testing</span>] = <span class="ruby-keyword">true</span> <span class="ruby-comment"># For testing</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:parallel</span>] = <span class="ruby-identifier">a</span>[<span class="ruby-number">1</span><span class="ruby-operator">..</span><span class="ruby-number">-1</span>].<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:parallel</span>] = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span> <span class="ruby-string">&#39;--separate&#39;</span>, <span class="ruby-string">&quot;Restart job process after one testcase has done&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:parallel</span>] <span class="ruby-operator">||=</span> <span class="ruby-number">1</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:separate</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span> <span class="ruby-string">&#39;--retry&#39;</span>, <span class="ruby-string">&quot;Retry running testcase when --jobs specified&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:retry</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span> <span class="ruby-string">&#39;--no-retry&#39;</span>, <span class="ruby-string">&quot;Disable --retry&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:retry</span>] = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span> <span class="ruby-string">&#39;--ruby VAL&#39;</span>, <span class="ruby-string">&quot;Path to ruby; It&#39;ll have used at -j option&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:ruby</span>] = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/ /</span>).<span class="ruby-identifier">reject</span>(&amp;<span class="ruby-value">:empty?</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span> <span class="ruby-string">&#39;-q&#39;</span>, <span class="ruby-string">&#39;--hide-skip&#39;</span>, <span class="ruby-string">&#39;Hide skipped tests&#39;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:hide_skip</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span> <span class="ruby-string">&#39;--show-skip&#39;</span>, <span class="ruby-string">&#39;Show skipped tests&#39;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:hide_skip</span>] = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span> <span class="ruby-string">&#39;--color[=WHEN]&#39;</span>,
+          [<span class="ruby-value">:always</span>, <span class="ruby-value">:never</span>, <span class="ruby-value">:auto</span>],
+          <span class="ruby-string">&quot;colorize the output.  WHEN defaults to &#39;always&#39;&quot;</span>, <span class="ruby-string">&quot;or can be &#39;never&#39; or &#39;auto&#39;.&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:color</span>] = <span class="ruby-identifier">c</span> <span class="ruby-operator">||</span> <span class="ruby-value">:always</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span> <span class="ruby-string">&#39;--tty[=WHEN]&#39;</span>,
+          [<span class="ruby-value">:yes</span>, <span class="ruby-value">:no</span>],
+          <span class="ruby-string">&quot;force to output tty control.  WHEN defaults to &#39;yes&#39;&quot;</span>, <span class="ruby-string">&quot;or can be &#39;no&#39;.&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@tty</span> = <span class="ruby-identifier">c</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:no</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

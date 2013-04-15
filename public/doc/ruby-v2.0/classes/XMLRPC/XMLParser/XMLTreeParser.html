@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>XMLRPC::XMLParser::XMLTreeParser</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            XMLRPC::XMLParser::XMLTreeParser 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="AbstractTreeParser.html">XMLRPC::XMLParser::AbstractTreeParser</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/lib/xmlrpc/parser_rb.html">lib/xmlrpc/parser.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-_nodeType">_nodeType</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-createCleanedTree">createCleanedTree</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-methodCall_document">methodCall_document</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-methodResponse_document">methodResponse_document</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>()
+            
+            <a href="../../../classes/XMLRPC/XMLParser/XMLTreeParser.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/xmlrpc/parser.rb, line 645</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;xmltreebuilder&quot;</span>
+
+  <span class="ruby-comment"># The new XMLParser library (0.6.2+) uses a slightly different DOM implementation.</span>
+  <span class="ruby-comment"># The following code removes the differences between both versions.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">DOM</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">DOM</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">DOCUMENT</span> <span class="ruby-comment"># code below has been already executed</span>
+    <span class="ruby-identifier">klass</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">DOM</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>
+    <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">const_set</span>(<span class="ruby-value">:DOCUMENT</span>, <span class="ruby-identifier">klass</span><span class="ruby-operator">::</span><span class="ruby-constant">DOCUMENT_NODE</span>)
+    <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">const_set</span>(<span class="ruby-value">:TEXT</span>, <span class="ruby-identifier">klass</span><span class="ruby-operator">::</span><span class="ruby-constant">TEXT_NODE</span>)
+    <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">const_set</span>(<span class="ruby-value">:COMMENT</span>, <span class="ruby-identifier">klass</span><span class="ruby-operator">::</span><span class="ruby-constant">COMMENT_NODE</span>)
+    <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">const_set</span>(<span class="ruby-value">:ELEMENT</span>, <span class="ruby-identifier">klass</span><span class="ruby-operator">::</span><span class="ruby-constant">ELEMENT_NODE</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-_nodeType">
+            
+              <b>_nodeType</b>(node)
+            
+            <a href="../../../classes/XMLRPC/XMLParser/XMLTreeParser.html#method-i-_nodeType" name="method-i-_nodeType" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_nodeType_source')" id="l_method-i-_nodeType_source">show</a>
+                
+              </p>
+              <div id="method-i-_nodeType_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/xmlrpc/parser.rb, line 662</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_nodeType</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">tp</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">nodeType</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">tp</span> <span class="ruby-operator">==</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SimpleTree</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">TEXT</span> <span class="ruby-keyword">then</span> <span class="ruby-value">:TEXT</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">tp</span> <span class="ruby-operator">==</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SimpleTree</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">COMMENT</span> <span class="ruby-keyword">then</span> <span class="ruby-value">:COMMENT</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">tp</span> <span class="ruby-operator">==</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SimpleTree</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">ELEMENT</span> <span class="ruby-keyword">then</span> <span class="ruby-value">:ELEMENT</span>
+  <span class="ruby-keyword">else</span> <span class="ruby-value">:ELSE</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-createCleanedTree">
+            
+              <b>createCleanedTree</b>(str)
+            
+            <a href="../../../classes/XMLRPC/XMLParser/XMLTreeParser.html#method-i-createCleanedTree" name="method-i-createCleanedTree" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-createCleanedTree_source')" id="l_method-i-createCleanedTree_source">show</a>
+                
+              </p>
+              <div id="method-i-createCleanedTree_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/xmlrpc/parser.rb, line 686</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">createCleanedTree</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SimpleTreeBuilder</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">documentElement</span>.<span class="ruby-identifier">normalize</span>
+  <span class="ruby-identifier">removeWhitespacesAndComments</span>(<span class="ruby-identifier">doc</span>)
+  <span class="ruby-identifier">doc</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-methodCall_document">
+            
+              <b>methodCall_document</b>(node)
+            
+            <a href="../../../classes/XMLRPC/XMLParser/XMLTreeParser.html#method-i-methodCall_document" name="method-i-methodCall_document" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-methodCall_document_source')" id="l_method-i-methodCall_document_source">show</a>
+                
+              </p>
+              <div id="method-i-methodCall_document_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/xmlrpc/parser.rb, line 679</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">methodCall_document</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">assert</span>( <span class="ruby-identifier">node</span>.<span class="ruby-identifier">nodeType</span> <span class="ruby-operator">==</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SimpleTree</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">DOCUMENT</span> )
+  <span class="ruby-identifier">hasOnlyOneChild</span>(<span class="ruby-identifier">node</span>, <span class="ruby-string">&quot;methodCall&quot;</span>)
+
+  <span class="ruby-identifier">methodCall</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">firstChild</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-methodResponse_document">
+            
+              <b>methodResponse_document</b>(node)
+            
+            <a href="../../../classes/XMLRPC/XMLParser/XMLTreeParser.html#method-i-methodResponse_document" name="method-i-methodResponse_document" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-methodResponse_document_source')" id="l_method-i-methodResponse_document_source">show</a>
+                
+              </p>
+              <div id="method-i-methodResponse_document_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/xmlrpc/parser.rb, line 672</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">methodResponse_document</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">assert</span>( <span class="ruby-identifier">node</span>.<span class="ruby-identifier">nodeType</span> <span class="ruby-operator">==</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SimpleTree</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">DOCUMENT</span> )
+  <span class="ruby-identifier">hasOnlyOneChild</span>(<span class="ruby-identifier">node</span>, <span class="ruby-string">&quot;methodResponse&quot;</span>)
+
+  <span class="ruby-identifier">methodResponse</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">firstChild</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>OpenSSL::ASN1::ObjectId</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            OpenSSL::ASN1::ObjectId 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="Primitive.html">OpenSSL::ASN1::Primitive</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/ext/openssl/ossl_asn1_c.html">ext/openssl/ossl_asn1.c</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Document-module: <a href="../ASN1.html">OpenSSL::ASN1</a></p>
+
+<p>Abstract Syntax Notation One (or ASN.1) is a notation syntax to describe
+data structures and is defined in ITU-T X.680. ASN.1 itself does not
+mandate any encoding or parsing rules, but usually ASN.1 data structures
+are encoded using the Distinguished <a
+href="../../Encoding.html">Encoding</a> Rules (DER) or less often the Basic
+<a href="../../Encoding.html">Encoding</a> Rules (BER) described in ITU-T
+X.690. DER and BER encodings are binary Tag-Length-Value (TLV) encodings
+that are quite concise compared to other popular data description formats
+such as <a href="../../XML.html">XML</a>, <a
+href="../../JSON.html">JSON</a> etc. ASN.1 data structures are very common
+in cryptographic applications, e.g. X.509 public key certificates or
+certificate revocation lists (CRLs) are all defined in ASN.1 and
+DER-encoded. ASN.1, DER and BER are the building blocks of applied
+cryptography. The <a href="../ASN1.html">ASN1</a> module provides the
+necessary classes that allow generation of ASN.1 data structures and the
+methods to encode them using a DER encoding. The decode method allows
+parsing arbitrary BER-/DER-encoded data to a Ruby object that can then be
+modified and re-encoded at will.</p>
+
+<h2 id="label-ASN.1+class+hierarchy">ASN.1 class hierarchy</h2>
+
+<p>The base class representing ASN.1 structures is <a
+href="ASN1Data.html">ASN1Data</a>. <a href="ASN1Data.html">ASN1Data</a>
+offers attributes to read and set the <code>tag</code>, the
+<code>tag_class</code> and finally the <code>value</code> of a particular
+ASN.1 item. Upon parsing, any tagged values (implicit or explicit) will be
+represented by <a href="ASN1Data.html">ASN1Data</a> instances because their
+“real type” can only be determined using out-of-band information from the
+ASN.1 type declaration. Since this information is normally known when
+encoding a type, all sub-classes of <a href="ASN1Data.html">ASN1Data</a>
+offer an additional attribute <code>tagging</code> that allows to encode a
+value implicitly (<code>:IMPLICIT</code>) or explicitly
+(<code>:EXPLICIT</code>).</p>
+
+<h3 id="label-Constructive"><a href="Constructive.html">Constructive</a></h3>
+
+<p><a href="Constructive.html">Constructive</a> is, as its name implies, the
+base class for all constructed encodings, i.e. those that consist of
+several values, opposed to “primitive” encodings with just one single
+value. <a href="Primitive.html">Primitive</a> values that are encoded with
+“infinite length” are typically constructed (their values come in multiple
+chunks) and are therefore represented by instances of <a
+href="Constructive.html">Constructive</a>. The value of an <a
+href="Constructive.html">Constructive</a> is always an Array.</p>
+
+<h4 id="label-ASN1%3A%3ASet+and+ASN1%3A%3ASequence">ASN1::Set and ASN1::Sequence</h4>
+
+<p>The most common constructive encodings are SETs and SEQUENCEs, which is why
+there are two sub-classes of <a href="Constructive.html">Constructive</a>
+representing each of them.</p>
+
+<h3 id="label-Primitive"><a href="Primitive.html">Primitive</a></h3>
+
+<p>This is the super class of all primitive values. <a
+href="Primitive.html">Primitive</a> itself is not used when parsing ASN.1
+data, all values are either instances of a corresponding sub-class of <a
+href="Primitive.html">Primitive</a> or they are instances of <a
+href="ASN1Data.html">ASN1Data</a> if the value was tagged implicitly or
+explicitly. Please cf. <a href="Primitive.html">Primitive</a> documentation
+for details on sub-classes and their respective mappings of ASN.1 data
+types to Ruby objects.</p>
+
+<h2 id="label-Possible+values+for+tagging">Possible values for <code>tagging</code></h2>
+
+<p>When constructing an <a href="ASN1Data.html">ASN1Data</a> object the ASN.1
+type definition may require certain elements to be either implicitly or
+explicitly tagged. This can be achieved by setting the <code>tagging</code>
+attribute manually for sub-classes of <a href="ASN1Data.html">ASN1Data</a>.
+Use the symbol <code>:IMPLICIT</code> for implicit tagging and
+<code>:EXPLICIT</code> if the element requires explicit tagging.</p>
+
+<h2 id="label-Possible+values+for+tag_class">Possible values for <code>tag_class</code></h2>
+
+<p>It is possible to create arbitrary <a href="ASN1Data.html">ASN1Data</a>
+objects that also support a PRIVATE or APPLICATION tag class. Possible
+values for the <code>tag_class</code> attribute are:</p>
+<ul><li>
+<p><code>:UNIVERSAL</code> (the default for untagged values)</p>
+</li><li>
+<p><code>:CONTEXT_SPECIFIC</code> (the default for tagged values)</p>
+</li><li>
+<p><code>:APPLICATION</code></p>
+</li><li>
+<p><code>:PRIVATE</code></p>
+</li></ul>
+
+<h2 id="label-Tag+constants">Tag constants</h2>
+
+<p>There is a constant defined for each universal tag:</p>
+<ul><li>
+<p>OpenSSL::ASN1::EOC (0)</p>
+</li><li>
+<p>OpenSSL::ASN1::BOOLEAN (1)</p>
+</li><li>
+<p>OpenSSL::ASN1::INTEGER (2)</p>
+</li><li>
+<p>OpenSSL::ASN1::BIT_STRING (3)</p>
+</li><li>
+<p>OpenSSL::ASN1::OCTET_STRING (4)</p>
+</li><li>
+<p>OpenSSL::ASN1::NULL (5)</p>
+</li><li>
+<p>OpenSSL::ASN1::OBJECT (6)</p>
+</li><li>
+<p>OpenSSL::ASN1::ENUMERATED (10)</p>
+</li><li>
+<p>OpenSSL::ASN1::UTF8STRING (12)</p>
+</li><li>
+<p>OpenSSL::ASN1::SEQUENCE (16)</p>
+</li><li>
+<p>OpenSSL::ASN1::SET (17)</p>
+</li><li>
+<p>OpenSSL::ASN1::NUMERICSTRING (18)</p>
+</li><li>
+<p>OpenSSL::ASN1::PRINTABLESTRING (19)</p>
+</li><li>
+<p>OpenSSL::ASN1::T61STRING (20)</p>
+</li><li>
+<p>OpenSSL::ASN1::VIDEOTEXSTRING (21)</p>
+</li><li>
+<p>OpenSSL::ASN1::IA5STRING (22)</p>
+</li><li>
+<p>OpenSSL::ASN1::UTCTIME (23)</p>
+</li><li>
+<p>OpenSSL::ASN1::GENERALIZEDTIME (24)</p>
+</li><li>
+<p>OpenSSL::ASN1::GRAPHICSTRING (25)</p>
+</li><li>
+<p>OpenSSL::ASN1::ISO64STRING (26)</p>
+</li><li>
+<p>OpenSSL::ASN1::GENERALSTRING (27)</p>
+</li><li>
+<p>OpenSSL::ASN1::UNIVERSALSTRING (28)</p>
+</li><li>
+<p>OpenSSL::ASN1::BMPSTRING (30)</p>
+</li></ul>
+
+<h2 id="label-UNIVERSAL_TAG_NAME+constant">UNIVERSAL_TAG_NAME constant</h2>
+
+<p>An Array that stores the name of a given tag number. These names are the
+same as the name of the tag constant that is additionally defined, e.g. <a
+href="http://2">UNIVERSAL_TAG_NAME</a> = “INTEGER” and
+OpenSSL::ASN1::INTEGER = 2.</p>
+
+<h2 id="label-Example+usage">Example usage</h2>
+
+<h3 id="label-Decoding+and+viewing+a+DER-encoded+file">Decoding and viewing a DER-encoded file</h3>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;openssl&#39;</span>
+<span class="ruby-identifier">require</span> <span class="ruby-string">&#39;pp&#39;</span>
+<span class="ruby-identifier">der</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">binread</span>(<span class="ruby-string">&#39;data.der&#39;</span>)
+<span class="ruby-identifier">asn1</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">ASN1</span>.<span class="ruby-identifier">decode</span>(<span class="ruby-identifier">der</span>)
+<span class="ruby-identifier">pp</span> <span class="ruby-identifier">der</span>
+</pre>
+
+<h3 id="label-Creating+an+ASN.1+structure+and+DER-encoding+it">Creating an ASN.1 structure and DER-encoding it</h3>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;openssl&#39;</span>
+<span class="ruby-identifier">version</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">ASN1</span><span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>)
+<span class="ruby-comment"># Explicitly 0-tagged implies context-specific tag class</span>
+<span class="ruby-identifier">serial</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">ASN1</span><span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">12345</span>, <span class="ruby-value">0</span>, :<span class="ruby-constant">EXPLICIT</span>, :<span class="ruby-constant">CONTEXT_SPECIFIC</span>)
+<span class="ruby-identifier">name</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">ASN1</span><span class="ruby-operator">::</span><span class="ruby-constant">PrintableString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Data 1&#39;</span>)
+<span class="ruby-identifier">sequence</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">ASN1</span><span class="ruby-operator">::</span><span class="ruby-constant">Sequence</span>.<span class="ruby-identifier">new</span>( [ <span class="ruby-identifier">version</span>, <span class="ruby-identifier">serial</span>, <span class="ruby-identifier">name</span> ] )
+<span class="ruby-identifier">der</span> = <span class="ruby-identifier">sequence</span>.<span class="ruby-identifier">to_der</span>
+</pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-ln">ln</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-long_name">long_name</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-oid">oid</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-register">register</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-short_name">short_name</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-sn">sn</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-register">
+            
+              <b>register</b>(p1, p2, p3)
+            
+            <a href="../../../classes/OpenSSL/ASN1/ObjectId.html#method-c-register" name="method-c-register" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-register_source')" id="l_method-c-register_source">show</a>
+                
+              </p>
+              <div id="method-c-register_source" class="dyn-source">
+                <pre>static VALUE
+ossl_asn1obj_s_register(VALUE self, VALUE oid, VALUE sn, VALUE ln)
+{
+    StringValue(oid);
+    StringValue(sn);
+    StringValue(ln);
+
+    if(!OBJ_create(RSTRING_PTR(oid), RSTRING_PTR(sn), RSTRING_PTR(ln)))
+        ossl_raise(eASN1Error, NULL);
+
+    return Qtrue;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-ln">
+            
+              <b>ln</b>()
+            
+            <a href="../../../classes/OpenSSL/ASN1/ObjectId.html#method-i-ln" name="method-i-ln" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="ObjectId.html#method-i-long_name">long_name</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-ln_source')" id="l_method-i-ln_source">show</a>
+                
+              </p>
+              <div id="method-i-ln_source" class="dyn-source">
+                <pre>static VALUE
+ossl_asn1obj_get_ln(VALUE self)
+{
+    VALUE val, ret = Qnil;
+    int nid;
+
+    val = ossl_asn1_get_value(self);
+    if ((nid = OBJ_txt2nid(StringValuePtr(val))) != NID_undef)
+        ret = rb_str_new2(OBJ_nid2ln(nid));
+
+    return ret;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-long_name">
+            
+              <b>long_name</b>()
+            
+            <a href="../../../classes/OpenSSL/ASN1/ObjectId.html#method-i-long_name" name="method-i-long_name" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-oid">
+            
+              <b>oid</b>()
+            
+            <a href="../../../classes/OpenSSL/ASN1/ObjectId.html#method-i-oid" name="method-i-oid" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-oid_source')" id="l_method-i-oid_source">show</a>
+                
+              </p>
+              <div id="method-i-oid_source" class="dyn-source">
+                <pre>static VALUE
+ossl_asn1obj_get_oid(VALUE self)
+{
+    VALUE val;
+    ASN1_OBJECT *a1obj;
+    char buf[128];
+
+    val = ossl_asn1_get_value(self);
+    a1obj = obj_to_asn1obj(val);
+    OBJ_obj2txt(buf, sizeof(buf), a1obj, 1);
+    ASN1_OBJECT_free(a1obj);
+
+    return rb_str_new2(buf);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-short_name">
+            
+              <b>short_name</b>()
+            
+            <a href="../../../classes/OpenSSL/ASN1/ObjectId.html#method-i-short_name" name="method-i-short_name" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-sn">
+            
+              <b>sn</b>()
+            
+            <a href="../../../classes/OpenSSL/ASN1/ObjectId.html#method-i-sn" name="method-i-sn" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="ObjectId.html#method-i-short_name">short_name</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-sn_source')" id="l_method-i-sn_source">show</a>
+                
+              </p>
+              <div id="method-i-sn_source" class="dyn-source">
+                <pre>static VALUE
+ossl_asn1obj_get_sn(VALUE self)
+{
+    VALUE val, ret = Qnil;
+    int nid;
+
+    val = ossl_asn1_get_value(self);
+    if ((nid = OBJ_txt2nid(StringValuePtr(val))) != NID_undef)
+        ret = rb_str_new2(OBJ_nid2sn(nid));
+
+    return ret;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>OpenSSL::Cipher::CipherError</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            OpenSSL::Cipher::CipherError 
+            
+                <span class="parent">&lt; 
+                    
+                    eOSSLError
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/ext/openssl/ossl_cipher_c.html">ext/openssl/ossl_cipher.c</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Document-class: <a href="../Cipher.html">OpenSSL::Cipher</a></p>
+
+<pre class="ruby"><span class="ruby-constant">Provides</span> <span class="ruby-identifier">symmetric</span> <span class="ruby-identifier">algorithms</span> <span class="ruby-keyword">for</span> <span class="ruby-identifier">encryption</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">decryption</span>. <span class="ruby-constant">The</span>
+<span class="ruby-identifier">algorithms</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">are</span> <span class="ruby-identifier">available</span> <span class="ruby-identifier">depend</span> <span class="ruby-identifier">on</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">particular</span> <span class="ruby-identifier">version</span>
+<span class="ruby-identifier">of</span> <span class="ruby-constant">OpenSSL</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">installed</span>.
+
+<span class="ruby-operator">===</span> <span class="ruby-constant">Listing</span> <span class="ruby-identifier">all</span> <span class="ruby-identifier">supported</span> <span class="ruby-identifier">algorithms</span>
+
+<span class="ruby-constant">A</span> <span class="ruby-identifier">list</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">supported</span> <span class="ruby-identifier">algorithms</span> <span class="ruby-identifier">can</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">obtained</span> <span class="ruby-identifier">by</span>
+
+  <span class="ruby-identifier">puts</span> <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Cipher</span>.<span class="ruby-identifier">ciphers</span>
+
+<span class="ruby-operator">===</span> <span class="ruby-constant">Instantiating</span> <span class="ruby-identifier">a</span> <span class="ruby-constant">Cipher</span>
+
+<span class="ruby-constant">There</span> <span class="ruby-identifier">are</span> <span class="ruby-identifier">several</span> <span class="ruby-identifier">ways</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">create</span> <span class="ruby-identifier">a</span> <span class="ruby-constant">Cipher</span> <span class="ruby-identifier">instance</span>. <span class="ruby-constant">Generally</span>, <span class="ruby-identifier">a</span>
+<span class="ruby-constant">Cipher</span> <span class="ruby-identifier">algorithm</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">categorized</span> <span class="ruby-identifier">by</span> <span class="ruby-identifier">its</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">the</span> <span class="ruby-identifier">key</span> <span class="ruby-identifier">length</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">bits</span>
+<span class="ruby-keyword">and</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">cipher</span> <span class="ruby-identifier">mode</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">used</span>. <span class="ruby-constant">The</span> <span class="ruby-identifier">most</span> <span class="ruby-identifier">generic</span> <span class="ruby-identifier">way</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">create</span> <span class="ruby-identifier">a</span>
+<span class="ruby-constant">Cipher</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">following</span>
+
+  <span class="ruby-identifier">cipher</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Cipher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;&lt;name&gt;-&lt;key length&gt;-&lt;mode&gt;&#39;</span>)
+
+<span class="ruby-constant">That</span> <span class="ruby-identifier">is</span>, <span class="ruby-identifier">a</span> <span class="ruby-identifier">string</span> <span class="ruby-identifier">consisting</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">hyphenated</span> <span class="ruby-identifier">concatenation</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span>
+<span class="ruby-identifier">individual</span> <span class="ruby-identifier">components</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">key</span> <span class="ruby-identifier">length</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">mode</span>. <span class="ruby-constant">Either</span> <span class="ruby-identifier">all</span> <span class="ruby-identifier">uppercase</span>
+<span class="ruby-keyword">or</span> <span class="ruby-identifier">all</span> <span class="ruby-identifier">lowercase</span> <span class="ruby-identifier">strings</span> <span class="ruby-identifier">may</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">used</span>, <span class="ruby-keyword">for</span> <span class="ruby-identifier">example</span><span class="ruby-operator">:</span>
+
+ <span class="ruby-identifier">cipher</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Cipher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;AES-128-CBC&#39;</span>)
+
+<span class="ruby-constant">For</span> <span class="ruby-identifier">each</span> <span class="ruby-identifier">algorithm</span> <span class="ruby-identifier">supported</span>, <span class="ruby-identifier">there</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">a</span> <span class="ruby-keyword">class</span> <span class="ruby-identifier">defined</span> <span class="ruby-identifier">under</span> <span class="ruby-identifier">the</span>
+<span class="ruby-constant">Cipher</span> <span class="ruby-keyword">class</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">goes</span> <span class="ruby-identifier">by</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">name</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">cipher</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">g</span>. <span class="ruby-identifier">to</span> <span class="ruby-identifier">obtain</span> <span class="ruby-identifier">an</span>
+<span class="ruby-identifier">instance</span> <span class="ruby-identifier">of</span> <span class="ruby-constant">AES</span>, <span class="ruby-identifier">you</span> <span class="ruby-identifier">could</span> <span class="ruby-identifier">also</span> <span class="ruby-identifier">use</span>
+
+  <span class="ruby-comment"># these are equivalent</span>
+  <span class="ruby-identifier">cipher</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Cipher</span><span class="ruby-operator">::</span><span class="ruby-constant">AES</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">128</span>, :<span class="ruby-constant">CBC</span>)
+  <span class="ruby-identifier">cipher</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Cipher</span><span class="ruby-operator">::</span><span class="ruby-constant">AES</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">128</span>, <span class="ruby-string">&#39;CBC&#39;</span>)
+  <span class="ruby-identifier">cipher</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Cipher</span><span class="ruby-operator">::</span><span class="ruby-constant">AES</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;128-CBC&#39;</span>)
+
+<span class="ruby-constant">Finally</span>, <span class="ruby-identifier">due</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">its</span> <span class="ruby-identifier">wide</span><span class="ruby-operator">-</span><span class="ruby-identifier">spread</span> <span class="ruby-identifier">use</span>, <span class="ruby-identifier">there</span> <span class="ruby-identifier">are</span> <span class="ruby-identifier">also</span> <span class="ruby-identifier">extra</span> <span class="ruby-identifier">classes</span>
+<span class="ruby-identifier">defined</span> <span class="ruby-keyword">for</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">different</span> <span class="ruby-identifier">key</span> <span class="ruby-identifier">sizes</span> <span class="ruby-identifier">of</span> <span class="ruby-constant">AES</span>
+
+  <span class="ruby-identifier">cipher</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Cipher</span><span class="ruby-operator">::</span><span class="ruby-constant">AES128</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-constant">CBC</span>)
+  <span class="ruby-identifier">cipher</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Cipher</span><span class="ruby-operator">::</span><span class="ruby-constant">AES192</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-constant">CBC</span>)
+  <span class="ruby-identifier">cipher</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Cipher</span><span class="ruby-operator">::</span><span class="ruby-constant">AES256</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-constant">CBC</span>)
+
+<span class="ruby-operator">===</span> <span class="ruby-constant">Choosing</span> <span class="ruby-identifier">either</span> <span class="ruby-identifier">encryption</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">decryption</span> <span class="ruby-identifier">mode</span>
+
+<span class="ruby-constant">Encryption</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">decryption</span> <span class="ruby-identifier">are</span> <span class="ruby-identifier">often</span> <span class="ruby-identifier">very</span> <span class="ruby-identifier">similar</span> <span class="ruby-identifier">operations</span> <span class="ruby-keyword">for</span>
+<span class="ruby-identifier">symmetric</span> <span class="ruby-identifier">algorithms</span>, <span class="ruby-identifier">this</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">reflected</span> <span class="ruby-identifier">by</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">having</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">choose</span>
+<span class="ruby-identifier">different</span> <span class="ruby-identifier">classes</span> <span class="ruby-keyword">for</span> <span class="ruby-identifier">either</span> <span class="ruby-identifier">operation</span>, <span class="ruby-identifier">both</span> <span class="ruby-identifier">can</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">done</span> <span class="ruby-identifier">using</span> <span class="ruby-identifier">the</span>
+<span class="ruby-identifier">same</span> <span class="ruby-identifier">class</span>. <span class="ruby-constant">Still</span>, <span class="ruby-identifier">after</span> <span class="ruby-identifier">obtaining</span> <span class="ruby-identifier">a</span> <span class="ruby-constant">Cipher</span> <span class="ruby-identifier">instance</span>, <span class="ruby-identifier">we</span> <span class="ruby-identifier">need</span> <span class="ruby-identifier">to</span>
+<span class="ruby-identifier">tell</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">instance</span> <span class="ruby-identifier">what</span> <span class="ruby-identifier">it</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">we</span> <span class="ruby-identifier">intend</span> <span class="ruby-identifier">to</span> <span class="ruby-keyword">do</span> <span class="ruby-identifier">with</span> <span class="ruby-identifier">it</span>, <span class="ruby-identifier">so</span> <span class="ruby-identifier">we</span>
+<span class="ruby-identifier">need</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">call</span> <span class="ruby-identifier">either</span>
+
+  <span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">encrypt</span>
+
+<span class="ruby-keyword">or</span>
+
+  <span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">decrypt</span>
+
+<span class="ruby-identifier">on</span> <span class="ruby-identifier">the</span> <span class="ruby-constant">Cipher</span> <span class="ruby-identifier">instance</span>. <span class="ruby-constant">This</span> <span class="ruby-identifier">should</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">first</span> <span class="ruby-identifier">call</span> <span class="ruby-identifier">after</span> <span class="ruby-identifier">creating</span>
+<span class="ruby-identifier">the</span> <span class="ruby-identifier">instance</span>, <span class="ruby-identifier">otherwise</span> <span class="ruby-identifier">configuration</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">has</span> <span class="ruby-identifier">already</span> <span class="ruby-identifier">been</span> <span class="ruby-identifier">set</span> <span class="ruby-identifier">could</span>
+<span class="ruby-identifier">get</span> <span class="ruby-identifier">lost</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">process</span>.
+
+<span class="ruby-operator">===</span> <span class="ruby-constant">Choosing</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">key</span>
+
+<span class="ruby-constant">Symmetric</span> <span class="ruby-identifier">encryption</span> <span class="ruby-identifier">requires</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">key</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">same</span> <span class="ruby-keyword">for</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">encrypting</span>
+<span class="ruby-keyword">and</span> <span class="ruby-keyword">for</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">decrypting</span> <span class="ruby-identifier">party</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">after</span> <span class="ruby-identifier">initial</span> <span class="ruby-identifier">key</span> <span class="ruby-identifier">establishment</span> <span class="ruby-identifier">should</span>
+<span class="ruby-identifier">be</span> <span class="ruby-identifier">kept</span> <span class="ruby-identifier">as</span> <span class="ruby-identifier">private</span> <span class="ruby-identifier">information</span>. <span class="ruby-constant">There</span> <span class="ruby-identifier">are</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">lot</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">ways</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">create</span>
+<span class="ruby-identifier">insecure</span> <span class="ruby-identifier">keys</span>, <span class="ruby-identifier">the</span> <span class="ruby-identifier">most</span> <span class="ruby-identifier">notable</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">simply</span> <span class="ruby-identifier">take</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">password</span> <span class="ruby-identifier">as</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">key</span>
+<span class="ruby-identifier">without</span> <span class="ruby-identifier">processing</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">password</span> <span class="ruby-identifier">further</span>. <span class="ruby-constant">A</span> <span class="ruby-identifier">simple</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">secure</span> <span class="ruby-identifier">way</span> <span class="ruby-identifier">to</span>
+<span class="ruby-identifier">create</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">key</span> <span class="ruby-keyword">for</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">particular</span> <span class="ruby-constant">Cipher</span> <span class="ruby-identifier">is</span>
+
+ <span class="ruby-identifier">cipher</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">AES256</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-constant">CFB</span>)
+ <span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">encrypt</span>
+ <span class="ruby-identifier">key</span> = <span class="ruby-identifier">cipher</span>.<span class="ruby-identifier">random_key</span> <span class="ruby-comment"># also sets the generated key on the Cipher</span>
+
+<span class="ruby-constant">If</span> <span class="ruby-identifier">you</span> <span class="ruby-identifier">absolutely</span> <span class="ruby-identifier">need</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">use</span> <span class="ruby-identifier">passwords</span> <span class="ruby-identifier">as</span> <span class="ruby-identifier">encryption</span> <span class="ruby-identifier">keys</span>, <span class="ruby-identifier">you</span>
+<span class="ruby-identifier">should</span> <span class="ruby-identifier">use</span> <span class="ruby-constant">Password</span><span class="ruby-operator">-</span><span class="ruby-constant">Based</span> <span class="ruby-constant">Key</span> <span class="ruby-constant">Derivation</span> <span class="ruby-constant">Function</span> <span class="ruby-value">2</span> (<span class="ruby-constant">PBKDF2</span>) <span class="ruby-identifier">by</span>
+<span class="ruby-identifier">generating</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">key</span> <span class="ruby-identifier">with</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">help</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">functionality</span> <span class="ruby-identifier">provided</span> <span class="ruby-identifier">by</span>
+<span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">PKCS5</span>.<span class="ruby-identifier">pbkdf2_hmac_sha1</span> <span class="ruby-keyword">or</span> <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">PKCS5</span>.<span class="ruby-identifier">pbkdf2_hmac</span>.
+
+<span class="ruby-constant">Although</span> <span class="ruby-identifier">there</span> <span class="ruby-identifier">is</span> <span class="ruby-constant">Cipher</span><span class="ruby-comment">#pkcs5_keyivgen, its use is deprecated and</span>
+<span class="ruby-identifier">it</span> <span class="ruby-identifier">should</span> <span class="ruby-identifier">only</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">used</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">legacy</span> <span class="ruby-identifier">applications</span> <span class="ruby-identifier">because</span> <span class="ruby-identifier">it</span> <span class="ruby-identifier">does</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">use</span>
+<span class="ruby-identifier">the</span> <span class="ruby-identifier">newer</span> <span class="ruby-constant">PKCS</span><span class="ruby-comment">#5 v2 algorithms.</span>
+
+<span class="ruby-operator">===</span> <span class="ruby-constant">Choosing</span> <span class="ruby-identifier">an</span> <span class="ruby-constant">IV</span>
+
+<span class="ruby-constant">The</span> <span class="ruby-identifier">cipher</span> <span class="ruby-identifier">modes</span> <span class="ruby-constant">CBC</span>, <span class="ruby-constant">CFB</span>, <span class="ruby-constant">OFB</span> <span class="ruby-keyword">and</span> <span class="ruby-constant">CTR</span> <span class="ruby-identifier">all</span> <span class="ruby-identifier">need</span> <span class="ruby-identifier">an</span> <span class="ruby-string">&quot;initialization
+vector&quot;</span>, <span class="ruby-keyword">or</span> <span class="ruby-identifier">short</span>, <span class="ruby-constant">IV</span>. <span class="ruby-constant">ECB</span> <span class="ruby-identifier">mode</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">only</span> <span class="ruby-identifier">mode</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">does</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">require</span>
+<span class="ruby-identifier">an</span> <span class="ruby-constant">IV</span>, <span class="ruby-identifier">but</span> <span class="ruby-identifier">there</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">almost</span> <span class="ruby-identifier">no</span> <span class="ruby-identifier">legitimate</span> <span class="ruby-identifier">use</span> <span class="ruby-keyword">case</span> <span class="ruby-keyword">for</span> <span class="ruby-identifier">this</span> <span class="ruby-identifier">mode</span>
+<span class="ruby-identifier">because</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">fact</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">it</span> <span class="ruby-identifier">does</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">sufficiently</span> <span class="ruby-identifier">hide</span> <span class="ruby-identifier">plaintext</span>
+<span class="ruby-identifier">patterns</span>. <span class="ruby-constant">Therefore</span>
+
+<span class="ruby-operator">&lt;</span><span class="ruby-identifier">b</span><span class="ruby-operator">&gt;</span><span class="ruby-constant">You</span> <span class="ruby-identifier">should</span> <span class="ruby-identifier">never</span> <span class="ruby-identifier">use</span> <span class="ruby-constant">ECB</span> <span class="ruby-identifier">mode</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">you</span> <span class="ruby-identifier">are</span> <span class="ruby-identifier">absolutely</span> <span class="ruby-identifier">sure</span> <span class="ruby-identifier">that</span>
+<span class="ruby-identifier">you</span> <span class="ruby-identifier">absolutely</span> <span class="ruby-identifier">need</span> <span class="ruby-identifier">it</span><span class="ruby-operator">&lt;</span><span class="ruby-regexp">/b&gt;
+
+Because of this, you will end up with a mode that explicitly requires
+an IV in any case. Note that for backwards compatibility reasons,
+setting an IV is not explicitly mandated by the Cipher API. If not
+set, OpenSSL itself defaults to an all-zeroes IV (&quot;\0&quot;, not the
+character). Although the IV can be seen as public information, i.e.
+it may be transmitted in public once generated, it should still stay
+unpredictable to prevent certain kinds of attacks. Therefore, ideally
+
+&lt;b&gt;Always create a secure random IV for every encryption of your
+Cipher&lt;/</span><span class="ruby-identifier">b</span><span class="ruby-operator">&gt;</span>
+
+<span class="ruby-constant">A</span> <span class="ruby-identifier">new</span>, <span class="ruby-identifier">random</span> <span class="ruby-constant">IV</span> <span class="ruby-identifier">should</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">created</span> <span class="ruby-keyword">for</span> <span class="ruby-identifier">every</span> <span class="ruby-identifier">encryption</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">data</span>. <span class="ruby-constant">Think</span>
+<span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-constant">IV</span> <span class="ruby-identifier">as</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">nonce</span> (<span class="ruby-identifier">number</span> <span class="ruby-identifier">used</span> <span class="ruby-identifier">once</span>) <span class="ruby-operator">-</span> <span class="ruby-identifier">it</span><span class="ruby-string">&#39;s public but random and
+unpredictable. A secure random IV can be created as follows
+
+ cipher = ...
+ cipher.encrypt
+ key = cipher.random_key
+ iv = cipher.random_iv # also sets the generated IV on the Cipher
+
+ Although the key is generally a random value, too, it is a bad choice
+ as an IV. There are elaborate ways how an attacker can take advantage
+ of such an IV. As a general rule of thumb, exposing the key directly
+ or indirectly should be avoided at all cost and exceptions only be
+ made with good reason.
+
+=== Calling Cipher#final
+
+ECB (which should not be used) and CBC are both block-based modes.
+This means that unlike for the other streaming-based modes, they
+operate on fixed-size blocks of data, and therefore they require a
+&quot;finalization&quot; step to produce or correctly decrypt the last block of
+data by appropriately handling some form of padding. Therefore it is
+essential to add the output of OpenSSL::Cipher#final to your
+encryption/decryption buffer or you will end up with decryption errors
+or truncated data.
+
+Although this is not really necessary for streaming-mode ciphers, it is
+still recommended to apply the same pattern of adding the output of
+Cipher#final there as well - it also enables you to switch between
+modes more easily in the future.
+
+=== Encrypting and decrypting some data
+
+  data = &quot;Very, very confidential data&quot;
+
+  cipher = OpenSSL::Cipher::AES.new(128, :CBC)
+  cipher.encrypt
+  key = cipher.random_key
+  iv = cipher.random_iv
+
+  encrypted = cipher.update(data) + cipher.final
+  ...
+  decipher = OpenSSL::Cipher::AES.new(128, :CBC)
+  decipher.decrypt
+  decipher.key = key
+  decipher.iv = iv
+
+  plain = decipher.update(encrypted) + decipher.final
+
+  puts data == plain #=&gt; true
+
+=== Authenticated Encryption and Associated Data (AEAD)
+
+If the OpenSSL version used supports it, an Authenticated Encryption
+mode (such as GCM or CCM) should always be preferred over any
+unauthenticated mode. Currently, OpenSSL supports AE only in combination
+with Associated Data (AEAD) where additional associated data is included
+in the encryption process to compute a tag at the end of the encryption.
+This tag will also be used in the decryption process and by verifying
+its validity, the authenticity of a given ciphertext is established.
+
+This is superior to unauthenticated modes in that it allows to detect
+if somebody effectively changed the ciphertext after it had been
+encrypted. This prevents malicious modifications of the ciphertext that
+could otherwise be exploited to modify ciphertexts in ways beneficial to
+potential attackers.
+
+If no associated data is needed for encryption and later decryption,
+the OpenSSL library still requires a value to be set - &quot;&quot; may be used in
+case none is available. An example using the GCM (Galois Counter Mode):
+
+  cipher = OpenSSL::Cipher::AES.new(128, :GCM)
+  cipher.encrypt
+  key = cipher.random_key
+  iv = cipher.random_iv
+  cipher.auth_data = &quot;&quot;
+
+  encrypted = cipher.update(data) + cipher.final
+  tag = cipher.auth_tag
+
+  decipher = OpenSSL::Cipher::AES.new(128, :GCM)
+  decipher.decrypt
+  decipher.key = key
+  decipher.iv = iv
+  decipher.auth_tag = tag
+  decipher.auth_data = &quot;&quot;
+
+  plain = decipher.update(encrypted) + decipher.final
+
+  puts data == plain #=&gt; true
+</span></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>    

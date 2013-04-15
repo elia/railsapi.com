@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>OpenURI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            OpenURI 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/lib/open-uri_rb.html">lib/open-uri.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="OpenURI.html">OpenURI</a> is an easy-to-use wrapper for <a
+href="Net/HTTP.html">Net::HTTP</a>, Net::HTTPS and <a
+href="Net/FTP.html">Net::FTP</a>.</p>
+
+<h2 id="label-Example">Example</h2>
+
+<p>It is possible to open an http, https or ftp URL as though it were a file:</p>
+
+<pre class="ruby"><span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;http://www.ruby-lang.org/&quot;</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">f</span>.<span class="ruby-identifier">each_line</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">line</span>}
+}
+</pre>
+
+<p>The opened file has several getter methods for its meta-information, as
+follows, since it is extended by <a
+href="OpenURI/Meta.html">OpenURI::Meta</a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;http://www.ruby-lang.org/en&quot;</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">f</span>.<span class="ruby-identifier">each_line</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">line</span>}
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">base_uri</span>         <span class="ruby-comment"># &lt;URI::HTTP:0x40e6ef2 URL:http://www.ruby-lang.org/en/&gt;</span>
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">content_type</span>     <span class="ruby-comment"># &quot;text/html&quot;</span>
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">charset</span>          <span class="ruby-comment"># &quot;iso-8859-1&quot;</span>
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">content_encoding</span> <span class="ruby-comment"># []</span>
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">last_modified</span>    <span class="ruby-comment"># Thu Dec 05 02:45:02 UTC 2002</span>
+}
+</pre>
+
+<p>Additional header fields can be specified by an optional hash argument.</p>
+
+<pre class="ruby"><span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;http://www.ruby-lang.org/en/&quot;</span>,
+  <span class="ruby-string">&quot;User-Agent&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;Ruby/#{RUBY_VERSION}&quot;</span>,
+  <span class="ruby-string">&quot;From&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;foo@bar.invalid&quot;</span>,
+  <span class="ruby-string">&quot;Referer&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;http://www.ruby-lang.org/&quot;</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+  <span class="ruby-comment"># ...</span>
+}
+</pre>
+
+<p>The environment variables such as http_proxy, https_proxy and ftp_proxy are
+in effect by default. Here we disable proxy:</p>
+
+<pre class="ruby"><span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;http://www.ruby-lang.org/en/raa.html&quot;</span>, :<span class="ruby-identifier">proxy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+  <span class="ruby-comment"># ...</span>
+}
+</pre>
+
+<p>See <a
+href="OpenURI/OpenRead.html#method-i-open">OpenURI::OpenRead#open</a> and
+<a href="Kernel.html#method-i-open">Kernel#open</a> for more on available
+options.</p>
+
+<p><a href="URI.html">URI</a> objects can be opened in a similar way.</p>
+
+<pre class="ruby"><span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;http://www.ruby-lang.org/en/&quot;</span>)
+<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">open</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+  <span class="ruby-comment"># ...</span>
+}
+</pre>
+
+<p><a href="URI.html">URI</a> objects can be read directly. The returned
+string is also extended by <a href="OpenURI/Meta.html">OpenURI::Meta</a>.</p>
+
+<pre>str = uri.read
+p str.base_uri</pre>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>Tanaka Akira &lt;akr@m17n.org&gt;</p>
+</dd></dl>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="OpenURI/Meta.html">OpenURI::Meta</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="OpenURI/OpenRead.html">OpenURI::OpenRead</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="OpenURI/HTTPError.html">OpenURI::HTTPError</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="OpenURI/HTTPRedirect.html">OpenURI::HTTPRedirect</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">Options</td>
+            <td>=</td>
+            <td class="attr-value">{
+:proxy =&gt; true,
+:proxy_http_basic_authentication =&gt; true,
+:progress_proc =&gt; true,
+:content_length_proc =&gt; true,
+:http_basic_authentication =&gt; true,
+:read_timeout =&gt; true,
+:ssl_ca_cert =&gt; nil,
+:ssl_verify_mode =&gt; nil,
+:ftp_active_mode =&gt; false,
+:redirect =&gt; true,
+}</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>    

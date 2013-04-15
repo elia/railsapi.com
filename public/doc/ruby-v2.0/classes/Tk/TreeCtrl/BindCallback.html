@@ -1,0 +1,2023 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Tk::TreeCtrl::BindCallback</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Tk::TreeCtrl::BindCallback 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/ext/tk/lib/tkextlib/treectrl/tktreectrl_rb.html">ext/tk/lib/tkextlib/treectrl/tktreectrl.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-autoScanCancel">autoScanCancel</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-autoScanCheck">autoScanCheck</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-autoScanCheckAux">autoScanCheckAux</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-beginExtend">beginExtend</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-beginSelect">beginSelect</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-beginToggle">beginToggle</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-buttonPress1">buttonPress1</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-cancel">cancel</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-cancelRepeat">cancelRepeat</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-cursorCancel">cursorCancel</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-cursorCheck">cursorCheck</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-cursorCheckAux">cursorCheckAux</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-dataExtend">dataExtend</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-doubleButton1">doubleButton1</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-entryClose">entryClose</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-entryExpanderKeypress">entryExpanderKeypress</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-entryExpanderOpen">entryExpanderOpen</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-entryOpen">entryOpen</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-extendUpDown">extendUpDown</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-fileList_autoScanCheck">fileList_autoScanCheck</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-fileList_autoScanCheckAux">fileList_autoScanCheckAux</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-fileList_button1">fileList_button1</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-fileList_edit">fileList_edit</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-fileList_editCancel">fileList_editCancel</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-fileList_leave1">fileList_leave1</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-fileList_motion">fileList_motion</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-fileList_motion1">fileList_motion1</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-fileList_release1">fileList_release1</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-leave1">leave1</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-left_right">left_right</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-marqueeBegin">marqueeBegin</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-marqueeEnd">marqueeEnd</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-marqueeUpdate">marqueeUpdate</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-motion">motion</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-motion1">motion1</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-percentsCmd">percentsCmd</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-release1">release1</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-scanDrag">scanDrag</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-scanMark">scanMark</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-selectAll">selectAll</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-setActiveItem">setActiveItem</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-textClose">textClose</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-textExpanderKeypress">textExpanderKeypress</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-textExpanderOpen">textExpanderOpen</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-textOpen">textOpen</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-up_down">up_down</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../../Tk.html">
+              Tk
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-autoScanCancel">
+            
+              <b>autoScanCancel</b>(w)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-autoScanCancel" name="method-c-autoScanCancel" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-autoScanCancel_source')" id="l_method-c-autoScanCancel_source">show</a>
+                
+              </p>
+              <div id="method-c-autoScanCancel_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2429</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">autoScanCancel</span>(<span class="ruby-identifier">w</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::AutoScanCancel&#39;</span>, <span class="ruby-identifier">w</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-autoScanCheck">
+            
+              <b>autoScanCheck</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-autoScanCheck" name="method-c-autoScanCheck" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-autoScanCheck_source')" id="l_method-c-autoScanCheck_source">show</a>
+                
+              </p>
+              <div id="method-c-autoScanCheck_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2423</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">autoScanCheck</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::AutoScanCheck&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-autoScanCheckAux">
+            
+              <b>autoScanCheckAux</b>(w)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-autoScanCheckAux" name="method-c-autoScanCheckAux" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-autoScanCheckAux_source')" id="l_method-c-autoScanCheckAux_source">show</a>
+                
+              </p>
+              <div id="method-c-autoScanCheckAux_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2426</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">autoScanCheckAux</span>(<span class="ruby-identifier">w</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::AutoScanCheckAux&#39;</span>, <span class="ruby-identifier">w</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-beginExtend">
+            
+              <b>beginExtend</b>(w, el)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-beginExtend" name="method-c-beginExtend" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-beginExtend_source')" id="l_method-c-beginExtend_source">show</a>
+                
+              </p>
+              <div id="method-c-beginExtend_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2414</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">beginExtend</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">el</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::BeginExtend&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">el</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-beginSelect">
+            
+              <b>beginSelect</b>(w, el)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-beginSelect" name="method-c-beginSelect" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-beginSelect_source')" id="l_method-c-beginSelect_source">show</a>
+                
+              </p>
+              <div id="method-c-beginSelect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2408</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">beginSelect</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">el</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::BeginSelect&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">el</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-beginToggle">
+            
+              <b>beginToggle</b>(w, el)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-beginToggle" name="method-c-beginToggle" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-beginToggle_source')" id="l_method-c-beginToggle_source">show</a>
+                
+              </p>
+              <div id="method-c-beginToggle_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2417</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">beginToggle</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">el</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::BeginToggle&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">el</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-buttonPress1">
+            
+              <b>buttonPress1</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-buttonPress1" name="method-c-buttonPress1" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-buttonPress1_source')" id="l_method-c-buttonPress1_source">show</a>
+                
+              </p>
+              <div id="method-c-buttonPress1_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2393</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">buttonPress1</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::ButtonPress1&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-cancel">
+            
+              <b>cancel</b>(w)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-cancel" name="method-c-cancel" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-cancel_source')" id="l_method-c-cancel_source">show</a>
+                
+              </p>
+              <div id="method-c-cancel_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2447</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cancel</span>(<span class="ruby-identifier">w</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::Cancel&#39;</span>, <span class="ruby-identifier">w</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-cancelRepeat">
+            
+              <b>cancelRepeat</b>()
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-cancelRepeat" name="method-c-cancelRepeat" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-cancelRepeat_source')" id="l_method-c-cancelRepeat_source">show</a>
+                
+              </p>
+              <div id="method-c-cancelRepeat_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2420</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cancelRepeat</span>
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::CancelRepeat&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-cursorCancel">
+            
+              <b>cursorCancel</b>(w)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-cursorCancel" name="method-c-cursorCancel" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-cursorCancel_source')" id="l_method-c-cursorCancel_source">show</a>
+                
+              </p>
+              <div id="method-c-cursorCancel_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2390</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cursorCancel</span>(<span class="ruby-identifier">w</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::CursorCancel&#39;</span>, <span class="ruby-identifier">w</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-cursorCheck">
+            
+              <b>cursorCheck</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-cursorCheck" name="method-c-cursorCheck" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-cursorCheck_source')" id="l_method-c-cursorCheck_source">show</a>
+                
+              </p>
+              <div id="method-c-cursorCheck_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2384</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cursorCheck</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::CursorCheck&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-cursorCheckAux">
+            
+              <b>cursorCheckAux</b>(w)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-cursorCheckAux" name="method-c-cursorCheckAux" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-cursorCheckAux_source')" id="l_method-c-cursorCheckAux_source">show</a>
+                
+              </p>
+              <div id="method-c-cursorCheckAux_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2387</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cursorCheckAux</span>(<span class="ruby-identifier">w</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::CursorCheckAux&#39;</span>, <span class="ruby-identifier">w</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-dataExtend">
+            
+              <b>dataExtend</b>(w, el)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-dataExtend" name="method-c-dataExtend" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-dataExtend_source')" id="l_method-c-dataExtend_source">show</a>
+                
+              </p>
+              <div id="method-c-dataExtend_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2444</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">dataExtend</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">el</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::DataExtend&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">el</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-doubleButton1">
+            
+              <b>doubleButton1</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-doubleButton1" name="method-c-doubleButton1" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-doubleButton1_source')" id="l_method-c-doubleButton1_source">show</a>
+                
+              </p>
+              <div id="method-c-doubleButton1_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2396</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">doubleButton1</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::DoubleButton1&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-entryClose">
+            
+              <b>entryClose</b>(w, accept)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-entryClose" name="method-c-entryClose" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-entryClose_source')" id="l_method-c-entryClose_source">show</a>
+                
+              </p>
+              <div id="method-c-entryClose_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2504</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">entryClose</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">accept</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::EntryClose&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">accept</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-entryExpanderKeypress">
+            
+              <b>entryExpanderKeypress</b>(w)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-entryExpanderKeypress" name="method-c-entryExpanderKeypress" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-entryExpanderKeypress_source')" id="l_method-c-entryExpanderKeypress_source">show</a>
+                
+              </p>
+              <div id="method-c-entryExpanderKeypress_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2507</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">entryExpanderKeypress</span>(<span class="ruby-identifier">w</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::EntryExpanderKeypress&#39;</span>, <span class="ruby-identifier">w</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-entryExpanderOpen">
+            
+              <b>entryExpanderOpen</b>(w, item, col, elem)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-entryExpanderOpen" name="method-c-entryExpanderOpen" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-entryExpanderOpen_source')" id="l_method-c-entryExpanderOpen_source">show</a>
+                
+              </p>
+              <div id="method-c-entryExpanderOpen_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2501</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">entryExpanderOpen</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">item</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">elem</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::EntryExpanderOpen&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">item</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">elem</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-entryOpen">
+            
+              <b>entryOpen</b>(w, item, col, elem)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-entryOpen" name="method-c-entryOpen" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-entryOpen_source')" id="l_method-c-entryOpen_source">show</a>
+                
+              </p>
+              <div id="method-c-entryOpen_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2498</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">entryOpen</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">item</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">elem</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::EntryOpen&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">item</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">elem</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-extendUpDown">
+            
+              <b>extendUpDown</b>(w, amount)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-extendUpDown" name="method-c-extendUpDown" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-extendUpDown_source')" id="l_method-c-extendUpDown_source">show</a>
+                
+              </p>
+              <div id="method-c-extendUpDown_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2441</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extendUpDown</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">amount</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::ExtendUpDown&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">amount</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-fileList_autoScanCheck">
+            
+              <b>fileList_autoScanCheck</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-fileList_autoScanCheck" name="method-c-fileList_autoScanCheck" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-fileList_autoScanCheck_source')" id="l_method-c-fileList_autoScanCheck_source">show</a>
+                
+              </p>
+              <div id="method-c-fileList_autoScanCheck_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2491</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fileList_autoScanCheck</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::FileListAutoScanCheck&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-fileList_autoScanCheckAux">
+            
+              <b>fileList_autoScanCheckAux</b>(w)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-fileList_autoScanCheckAux" name="method-c-fileList_autoScanCheckAux" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-fileList_autoScanCheckAux_source')" id="l_method-c-fileList_autoScanCheckAux_source">show</a>
+                
+              </p>
+              <div id="method-c-fileList_autoScanCheckAux_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2494</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fileList_autoScanCheckAux</span>(<span class="ruby-identifier">w</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::FileListAutoScanCheckAux&#39;</span>, <span class="ruby-identifier">w</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-fileList_button1">
+            
+              <b>fileList_button1</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-fileList_button1" name="method-c-fileList_button1" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>filelist-bindings</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-fileList_button1_source')" id="l_method-c-fileList_button1_source">show</a>
+                
+              </p>
+              <div id="method-c-fileList_button1_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2470</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fileList_button1</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::FileListButton1&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-fileList_edit">
+            
+              <b>fileList_edit</b>(w, i, s, e)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-fileList_edit" name="method-c-fileList_edit" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-fileList_edit_source')" id="l_method-c-fileList_edit_source">show</a>
+                
+              </p>
+              <div id="method-c-fileList_edit_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2485</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fileList_edit</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">i</span>, <span class="ruby-identifier">s</span>, <span class="ruby-identifier">e</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::FileListEdit&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">i</span>, <span class="ruby-identifier">s</span>, <span class="ruby-identifier">e</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-fileList_editCancel">
+            
+              <b>fileList_editCancel</b>(w)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-fileList_editCancel" name="method-c-fileList_editCancel" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-fileList_editCancel_source')" id="l_method-c-fileList_editCancel_source">show</a>
+                
+              </p>
+              <div id="method-c-fileList_editCancel_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2488</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fileList_editCancel</span>(<span class="ruby-identifier">w</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::FileListEditCancel&#39;</span>, <span class="ruby-identifier">w</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-fileList_leave1">
+            
+              <b>fileList_leave1</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-fileList_leave1" name="method-c-fileList_leave1" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-fileList_leave1_source')" id="l_method-c-fileList_leave1_source">show</a>
+                
+              </p>
+              <div id="method-c-fileList_leave1_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2479</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fileList_leave1</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::FileListLeave1&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-fileList_motion">
+            
+              <b>fileList_motion</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-fileList_motion" name="method-c-fileList_motion" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-fileList_motion_source')" id="l_method-c-fileList_motion_source">show</a>
+                
+              </p>
+              <div id="method-c-fileList_motion_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2476</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fileList_motion</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::FileListMotion&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-fileList_motion1">
+            
+              <b>fileList_motion1</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-fileList_motion1" name="method-c-fileList_motion1" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-fileList_motion1_source')" id="l_method-c-fileList_motion1_source">show</a>
+                
+              </p>
+              <div id="method-c-fileList_motion1_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2473</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fileList_motion1</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::FileListMotion1&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-fileList_release1">
+            
+              <b>fileList_release1</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-fileList_release1" name="method-c-fileList_release1" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-fileList_release1_source')" id="l_method-c-fileList_release1_source">show</a>
+                
+              </p>
+              <div id="method-c-fileList_release1_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2482</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fileList_release1</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::FileListRelease1&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-leave1">
+            
+              <b>leave1</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-leave1" name="method-c-leave1" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-leave1_source')" id="l_method-c-leave1_source">show</a>
+                
+              </p>
+              <div id="method-c-leave1_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2402</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">leave1</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::Leave1&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-left_right">
+            
+              <b>left_right</b>(w, n)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-left_right" name="method-c-left_right" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-left_right_source')" id="l_method-c-left_right_source">show</a>
+                
+              </p>
+              <div id="method-c-left_right_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2435</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">left_right</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">n</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::LeftRight&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">n</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-marqueeBegin">
+            
+              <b>marqueeBegin</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-marqueeBegin" name="method-c-marqueeBegin" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-marqueeBegin_source')" id="l_method-c-marqueeBegin_source">show</a>
+                
+              </p>
+              <div id="method-c-marqueeBegin_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2453</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">marqueeBegin</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::MarqueeBegin&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-marqueeEnd">
+            
+              <b>marqueeEnd</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-marqueeEnd" name="method-c-marqueeEnd" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-marqueeEnd_source')" id="l_method-c-marqueeEnd_source">show</a>
+                
+              </p>
+              <div id="method-c-marqueeEnd_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2459</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">marqueeEnd</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::MarqueeEnd&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-marqueeUpdate">
+            
+              <b>marqueeUpdate</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-marqueeUpdate" name="method-c-marqueeUpdate" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-marqueeUpdate_source')" id="l_method-c-marqueeUpdate_source">show</a>
+                
+              </p>
+              <div id="method-c-marqueeUpdate_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2456</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">marqueeUpdate</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::MarqueeUpdate&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-motion">
+            
+              <b>motion</b>(w, le)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-motion" name="method-c-motion" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-motion_source')" id="l_method-c-motion_source">show</a>
+                
+              </p>
+              <div id="method-c-motion_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2411</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">motion</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">le</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::Motion&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">el</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-motion1">
+            
+              <b>motion1</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-motion1" name="method-c-motion1" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-motion1_source')" id="l_method-c-motion1_source">show</a>
+                
+              </p>
+              <div id="method-c-motion1_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2399</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">motion1</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::Motion1&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-percentsCmd">
+            
+              <b>percentsCmd</b>(*args)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-percentsCmd" name="method-c-percentsCmd" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-percentsCmd_source')" id="l_method-c-percentsCmd_source">show</a>
+                
+              </p>
+              <div id="method-c-percentsCmd_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2381</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">percentsCmd</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::PercentsCmd&#39;</span>, *<span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-release1">
+            
+              <b>release1</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-release1" name="method-c-release1" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-release1_source')" id="l_method-c-release1_source">show</a>
+                
+              </p>
+              <div id="method-c-release1_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2405</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">release1</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::Release1&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-scanDrag">
+            
+              <b>scanDrag</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-scanDrag" name="method-c-scanDrag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-scanDrag_source')" id="l_method-c-scanDrag_source">show</a>
+                
+              </p>
+              <div id="method-c-scanDrag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2465</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">scanDrag</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::ScanDrag&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-scanMark">
+            
+              <b>scanMark</b>(w, x, y)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-scanMark" name="method-c-scanMark" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-scanMark_source')" id="l_method-c-scanMark_source">show</a>
+                
+              </p>
+              <div id="method-c-scanMark_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2462</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">scanMark</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::ScanMark&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-selectAll">
+            
+              <b>selectAll</b>(w)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-selectAll" name="method-c-selectAll" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-selectAll_source')" id="l_method-c-selectAll_source">show</a>
+                
+              </p>
+              <div id="method-c-selectAll_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2450</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">selectAll</span>(<span class="ruby-identifier">w</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::selectAll&#39;</span>, <span class="ruby-identifier">w</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-setActiveItem">
+            
+              <b>setActiveItem</b>(w, idx)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-setActiveItem" name="method-c-setActiveItem" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-setActiveItem_source')" id="l_method-c-setActiveItem_source">show</a>
+                
+              </p>
+              <div id="method-c-setActiveItem_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2438</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">setActiveItem</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">idx</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::SetActiveItem&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">idx</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-textClose">
+            
+              <b>textClose</b>(w, accept)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-textClose" name="method-c-textClose" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-textClose_source')" id="l_method-c-textClose_source">show</a>
+                
+              </p>
+              <div id="method-c-textClose_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2516</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">textClose</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">accept</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::TextClose&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">accept</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-textExpanderKeypress">
+            
+              <b>textExpanderKeypress</b>(w)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-textExpanderKeypress" name="method-c-textExpanderKeypress" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-textExpanderKeypress_source')" id="l_method-c-textExpanderKeypress_source">show</a>
+                
+              </p>
+              <div id="method-c-textExpanderKeypress_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2519</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">textExpanderKeypress</span>(<span class="ruby-identifier">w</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::TextExpanderKeypress&#39;</span>, <span class="ruby-identifier">w</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-textExpanderOpen">
+            
+              <b>textExpanderOpen</b>(w, item, col, elem, width)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-textExpanderOpen" name="method-c-textExpanderOpen" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-textExpanderOpen_source')" id="l_method-c-textExpanderOpen_source">show</a>
+                
+              </p>
+              <div id="method-c-textExpanderOpen_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2513</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">textExpanderOpen</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">item</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">elem</span>, <span class="ruby-identifier">width</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::TextOpen&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">item</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">elem</span>, <span class="ruby-identifier">width</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-textOpen">
+            
+              <b>textOpen</b>(w, item, col, elem, width=0, height=0)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-textOpen" name="method-c-textOpen" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-textOpen_source')" id="l_method-c-textOpen_source">show</a>
+                
+              </p>
+              <div id="method-c-textOpen_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2510</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">textOpen</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">item</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">elem</span>, <span class="ruby-identifier">width</span>=<span class="ruby-number">0</span>, <span class="ruby-identifier">height</span>=<span class="ruby-number">0</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::TextOpen&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">item</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">elem</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-up_down">
+            
+              <b>up_down</b>(w, n)
+            
+            <a href="../../../classes/Tk/TreeCtrl/BindCallback.html#method-c-up_down" name="method-c-up_down" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-up_down_source')" id="l_method-c-up_down_source">show</a>
+                
+              </p>
+              <div id="method-c-up_down_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tkextlib/treectrl/tktreectrl.rb, line 2432</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">up_down</span>(<span class="ruby-identifier">w</span>, <span class="ruby-identifier">n</span>)
+  <span class="ruby-identifier">tk_call</span>(<span class="ruby-string">&#39;::TreeCtrl::UpDown&#39;</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">n</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                        </div>
+
+    </div>
+  </body>
+</html>    

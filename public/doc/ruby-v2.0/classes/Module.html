@@ -1,0 +1,4822 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Module</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Module 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/class_c.html">class.c</a></li>
+            
+            <li><a href="../files/eval_c.html">eval.c</a></li>
+            
+            <li><a href="../files/load_c.html">load.c</a></li>
+            
+            <li><a href="../files/object_c.html">object.c</a></li>
+            
+            <li><a href="../files/proc_c.html">proc.c</a></li>
+            
+            <li><a href="../files/vm_eval_c.html">vm_eval.c</a></li>
+            
+            <li><a href="../files/vm_method_c.html">vm_method.c</a></li>
+            
+            <li><a href="../files/lib/minitest/spec_rb.html">lib/minitest/spec.rb</a></li>
+            
+            <li><a href="../files/lib/rake/ext/core_rb.html">lib/rake/ext/core.rb</a></li>
+            
+            <li><a href="../files/lib/rake/ext/module_rb.html">lib/rake/ext/module.rb</a></li>
+            
+            <li><a href="../files/ext/psych/lib/psych/core_ext_rb.html">ext/psych/lib/psych/core_ext.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>A <code>Module</code> is a collection of methods and constants. The methods
+in a module may be instance methods or module methods. Instance methods
+appear as methods in a class when the module is included, module methods do
+not. Conversely, module methods may be called without creating an
+encapsulating object, while instance methods may not. (See
+<code>Module#module_function</code>)</p>
+
+<p>In the descriptions that follow, the parameter <em>sym</em> refers to a
+symbol, which is either a quoted string or a <code>Symbol</code> (such as
+<code>:name</code>).</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Mod</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">Math</span>
+  <span class="ruby-constant">CONST</span> = <span class="ruby-value">1</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">meth</span>
+    <span class="ruby-comment">#  ...</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">Mod</span>.<span class="ruby-identifier">class</span>              <span class="ruby-comment">#=&gt; Module</span>
+<span class="ruby-constant">Mod</span>.<span class="ruby-identifier">constants</span>          <span class="ruby-comment">#=&gt; [:CONST, :PI, :E]</span>
+<span class="ruby-constant">Mod</span>.<span class="ruby-identifier">instance_methods</span>   <span class="ruby-comment">#=&gt; [:meth]</span>
+</pre>
+
+<p>Core extension library</p>
+
+<p>Rake extensions to <a href="Module.html">Module</a>.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-3C">&lt;</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-3C-3D">&lt;=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-3C-3D-3E">&lt;=&gt;</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-3D-3D">==</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-3D-3D-3D">===</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-3E">&gt;</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-3E-3D">&gt;=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-alias_method">alias_method</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-ancestors">ancestors</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-append_features">append_features</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-attr">attr</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-attr_accessor">attr_accessor</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-attr_reader">attr_reader</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-attr_writer">attr_writer</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-autoload">autoload</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-autoload-3F">autoload?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-class_eval">class_eval</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-class_exec">class_exec</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-class_variable_defined-3F">class_variable_defined?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-class_variable_get">class_variable_get</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-class_variable_set">class_variable_set</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-class_variables">class_variables</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-const_defined-3F">const_defined?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-const_get">const_get</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-const_missing">const_missing</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-const_set">const_set</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-constants">constants</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-constants">constants</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-define_method">define_method</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-extend_object">extend_object</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-extended">extended</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-freeze">freeze</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-include">include</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-include-3F">include?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-included">included</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-included_modules">included_modules</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-inspect">inspect</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-instance_method">instance_method</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-instance_methods">instance_methods</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-method_added">method_added</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-method_defined-3F">method_defined?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-method_removed">method_removed</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-method_undefined">method_undefined</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-module_eval">module_eval</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-module_exec">module_exec</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-module_function">module_function</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-name">name</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-nesting">nesting</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-prepend">prepend</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-prepend_features">prepend_features</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-prepended">prepended</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-private">private</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-private_class_method">private_class_method</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-private_constant">private_constant</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-private_instance_methods">private_instance_methods</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-private_method_defined-3F">private_method_defined?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-protected">protected</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-protected_instance_methods">protected_instance_methods</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-protected_method_defined-3F">protected_method_defined?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-psych_yaml_as">psych_yaml_as</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-public">public</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-public_class_method">public_class_method</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-public_constant">public_constant</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-public_instance_method">public_instance_method</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-public_instance_methods">public_instance_methods</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-public_method_defined-3F">public_method_defined?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-rake_extension">rake_extension</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-rake_original_const_missing">rake_original_const_missing</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-refine">refine</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-remove_class_variable">remove_class_variable</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-remove_const">remove_const</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-remove_method">remove_method</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to_s">to_s</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-undef_method">undef_method</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-used">used</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>Y</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-yaml_as">yaml_as</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-constants">
+            
+              <b>Module.constants   &rarr; array
+Module.constants(inherited)   &rarr; array
+</b>
+            
+            <a href="../classes/Module.html#method-c-constants" name="method-c-constants" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>In the first form, returns an array of the names of all constants
+accessible from the point of call. This list includes the names of all
+modules and classes defined in the global scope.</p>
+
+<pre class="ruby"><span class="ruby-constant">Module</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">first</span>(<span class="ruby-value">4</span>)
+   <span class="ruby-comment"># =&gt; [:ARGF, :ARGV, :ArgumentError, :Array]</span>
+
+<span class="ruby-constant">Module</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">include?</span>(:<span class="ruby-constant">SEEK_SET</span>)   <span class="ruby-comment"># =&gt; false</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">IO</span>
+  <span class="ruby-constant">Module</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">include?</span>(:<span class="ruby-constant">SEEK_SET</span>) <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The second form calls the instance method <code>constants</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-constants_source')" id="l_method-c-constants_source">show</a>
+                
+              </p>
+              <div id="method-c-constants_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_s_constants(int argc, VALUE *argv, VALUE mod)
+{
+    const NODE *cref = rb_vm_cref();
+    VALUE klass;
+    VALUE cbase = 0;
+    void *data = 0;
+
+    if (argc &gt; 0) {
+        return rb_mod_constants(argc, argv, rb_cModule);
+    }
+
+    while (cref) {
+        klass = cref-&gt;nd_clss;
+        if (!(cref-&gt;flags &amp; NODE_FL_CREF_PUSHED_BY_EVAL) &amp;&amp;
+            !NIL_P(klass)) {
+            data = rb_mod_const_at(cref-&gt;nd_clss, data);
+            if (!cbase) {
+                cbase = klass;
+            }
+        }
+        cref = cref-&gt;nd_next;
+    }
+
+    if (cbase) {
+        data = rb_mod_const_of(cbase, data);
+    }
+    return rb_const_list(data);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-nesting">
+            
+              <b>Module.nesting    &rarr; array
+</b>
+            
+            <a href="../classes/Module.html#method-c-nesting" name="method-c-nesting" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the list of <code>Modules</code> nested at the point of call.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">M1</span>
+  <span class="ruby-keyword">module</span> <span class="ruby-constant">M2</span>
+    <span class="ruby-identifier">$a</span> = <span class="ruby-constant">Module</span>.<span class="ruby-identifier">nesting</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">$a</span>           <span class="ruby-comment">#=&gt; [M1::M2, M1]</span>
+<span class="ruby-identifier">$a</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">name</span>   <span class="ruby-comment">#=&gt; &quot;M1::M2&quot;</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-nesting_source')" id="l_method-c-nesting_source">show</a>
+                
+              </p>
+              <div id="method-c-nesting_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_nesting(void)
+{
+    VALUE ary = rb_ary_new();
+    const NODE *cref = rb_vm_cref();
+
+    while (cref &amp;&amp; cref-&gt;nd_next) {
+        VALUE klass = cref-&gt;nd_clss;
+        if (!(cref-&gt;flags &amp; NODE_FL_CREF_PUSHED_BY_EVAL) &amp;&amp;
+            !NIL_P(klass)) {
+            rb_ary_push(ary, klass);
+        }
+        cref = cref-&gt;nd_next;
+    }
+    return ary;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>Module.new                  &rarr; mod
+Module.new {|mod| block }   &rarr; mod
+</b>
+            
+            <a href="../classes/Module.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Creates a new anonymous module. If a block is given, it is passed the
+module object, and the block is evaluated in the context of this module
+using <code>module_eval</code>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">fred</span> = <span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">meth1</span>
+    <span class="ruby-string">&quot;hello&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">meth2</span>
+    <span class="ruby-string">&quot;bye&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">a</span> = <span class="ruby-string">&quot;my string&quot;</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">extend</span>(<span class="ruby-identifier">fred</span>)   <span class="ruby-comment">#=&gt; &quot;my string&quot;</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">meth1</span>          <span class="ruby-comment">#=&gt; &quot;hello&quot;</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">meth2</span>          <span class="ruby-comment">#=&gt; &quot;bye&quot;</span>
+</pre>
+
+<p>Assign the module to a constant (name starting uppercase) if you want to
+treat it like a regular module.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_initialize(VALUE module)
+{
+    if (rb_block_given_p()) {
+        rb_mod_module_exec(1, &amp;module, module);
+    }
+    return Qnil;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-3C">
+            
+              <b>mod < other   &rarr;  true, false, or nil
+</b>
+            
+            <a href="../classes/Module.html#method-i-3C" name="method-i-3C" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns true if <em>mod</em> is a subclass of <em>other</em>. Returns
+<code>nil</code> if there&#39;s no relationship between the two. (Think of
+the relationship in terms of the class definition: “class A&lt;B” implies
+“A&lt;B”).</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-3C_source')" id="l_method-i-3C_source">show</a>
+                
+              </p>
+              <div id="method-i-3C_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_lt(VALUE mod, VALUE arg)
+{
+    if (mod == arg) return Qfalse;
+    return rb_class_inherited_p(mod, arg);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-3C-3D">
+            
+              <b>mod <= other   &rarr;  true, false, or nil
+</b>
+            
+            <a href="../classes/Module.html#method-i-3C-3D" name="method-i-3C-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns true if <em>mod</em> is a subclass of <em>other</em> or is the same
+as <em>other</em>. Returns <code>nil</code> if there&#39;s no relationship
+between the two. (Think of the relationship in terms of the class
+definition: “class A&lt;B” implies “A&lt;B”).</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-3C-3D_source')" id="l_method-i-3C-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-3C-3D_source" class="dyn-source">
+                <pre>VALUE
+rb_class_inherited_p(VALUE mod, VALUE arg)
+{
+    VALUE start = mod;
+
+    if (mod == arg) return Qtrue;
+    if (!CLASS_OR_MODULE_P(arg)) {
+        rb_raise(rb_eTypeError, &quot;compared with non class/module&quot;);
+    }
+    while (mod) {
+        if (RCLASS_M_TBL(mod) == RCLASS_M_TBL(arg))
+            return Qtrue;
+        mod = RCLASS_SUPER(mod);
+    }
+    /* not mod &lt; arg; check if mod &gt; arg */
+    while (arg) {
+        if (RCLASS_M_TBL(arg) == RCLASS_M_TBL(start))
+            return Qfalse;
+        arg = RCLASS_SUPER(arg);
+    }
+    return Qnil;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-3C-3D-3E">
+            
+              <b>mod <=> other_mod   &rarr; -1, 0, +1, or nil
+</b>
+            
+            <a href="../classes/Module.html#method-i-3C-3D-3E" name="method-i-3C-3D-3E" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Comparison—Returns -1 if <em>mod</em> includes <em>other_mod</em>, 0 if
+<em>mod</em> is the same as <em>other_mod</em>, and +1 if <em>mod</em> is
+included by <em>other_mod</em>. Returns <code>nil</code> if <em>mod</em>
+has no relationship with <em>other_mod</em> or if <em>other_mod</em> is not
+a module.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-3C-3D-3E_source')" id="l_method-i-3C-3D-3E_source">show</a>
+                
+              </p>
+              <div id="method-i-3C-3D-3E_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_cmp(VALUE mod, VALUE arg)
+{
+    VALUE cmp;
+
+    if (mod == arg) return INT2FIX(0);
+    if (!CLASS_OR_MODULE_P(arg)) {
+        return Qnil;
+    }
+
+    cmp = rb_class_inherited_p(mod, arg);
+    if (NIL_P(cmp)) return Qnil;
+    if (cmp) {
+        return INT2FIX(-1);
+    }
+    return INT2FIX(1);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-3D-3D">
+            
+              <b>obj == other        &rarr; true or false
+obj.equal?(other)   &rarr; true or false
+obj.eql?(other)     &rarr; true or false
+</b>
+            
+            <a href="../classes/Module.html#method-i-3D-3D" name="method-i-3D-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Equality — At the <code>Object</code> level, <code>==</code> returns
+<code>true</code> only if <code>obj</code> and <code>other</code> are the
+same object. Typically, this method is overridden in descendant classes to
+provide class-specific meaning.</p>
+
+<p>Unlike <code>==</code>, the <code>equal?</code> method should never be
+overridden by subclasses as it is used to determine object identity (that
+is, <code>a.equal?(b)</code> if and only if <code>a</code> is the same
+object as <code>b</code>):</p>
+
+<pre class="ruby"><span class="ruby-identifier">obj</span> = <span class="ruby-string">&quot;a&quot;</span>
+<span class="ruby-identifier">other</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">dup</span>
+
+<span class="ruby-identifier">a</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>      <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">equal?</span> <span class="ruby-identifier">other</span>  <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">equal?</span> <span class="ruby-identifier">a</span>      <span class="ruby-comment">#=&gt; true</span>
+</pre>
+
+<p>The <code>eql?</code> method returns <code>true</code> if <code>obj</code>
+and <code>other</code> refer to the same hash key.  This is used by <a
+href="Hash.html">Hash</a> to test members for equality.  For objects of
+class <code>Object</code>, <code>eql?</code> is synonymous with
+<code>==</code>.  Subclasses normally continue this tradition by aliasing
+<code>eql?</code> to their overridden <code>==</code> method, but there are
+exceptions.  <code>Numeric</code> types, for example, perform type
+conversion across <code>==</code>, but not across <code>eql?</code>, so:</p>
+
+<pre class="ruby"><span class="ruby-value">1</span> <span class="ruby-operator">==</span> <span class="ruby-value">1.0</span>     <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-value">1</span>.<span class="ruby-identifier">eql?</span> <span class="ruby-value">1.0</span>   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-3D-3D_source')" id="l_method-i-3D-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-3D-3D_source" class="dyn-source">
+                <pre>VALUE
+rb_obj_equal(VALUE obj1, VALUE obj2)
+{
+    if (obj1 == obj2) return Qtrue;
+    return Qfalse;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-3D-3D-3D">
+            
+              <b>mod === obj    &rarr; true or false
+</b>
+            
+            <a href="../classes/Module.html#method-i-3D-3D-3D" name="method-i-3D-3D-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Case Equality—Returns <code>true</code> if <em>an<a
+href="Object.html">Object</a></em> is an instance of <em>mod</em> or one of
+<em>mod</em>&#39;s descendants. Of limited use for modules, but can be used
+in <code>case</code> statements to classify objects by class.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-3D-3D-3D_source')" id="l_method-i-3D-3D-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-3D-3D-3D_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_eqq(VALUE mod, VALUE arg)
+{
+    return rb_obj_is_kind_of(arg, mod);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-3E">
+            
+              <b>mod > other   &rarr;  true, false, or nil
+</b>
+            
+            <a href="../classes/Module.html#method-i-3E" name="method-i-3E" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns true if <em>mod</em> is an ancestor of <em>other</em>. Returns
+<code>nil</code> if there&#39;s no relationship between the two. (Think of
+the relationship in terms of the class definition: “class A&lt;B” implies
+“B&gt;A”).</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-3E_source')" id="l_method-i-3E_source">show</a>
+                
+              </p>
+              <div id="method-i-3E_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_gt(VALUE mod, VALUE arg)
+{
+    if (mod == arg) return Qfalse;
+    return rb_mod_ge(mod, arg);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-3E-3D">
+            
+              <b>mod >= other   &rarr;  true, false, or nil
+</b>
+            
+            <a href="../classes/Module.html#method-i-3E-3D" name="method-i-3E-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns true if <em>mod</em> is an ancestor of <em>other</em>, or the two
+modules are the same. Returns <code>nil</code> if there&#39;s no
+relationship between the two. (Think of the relationship in terms of the
+class definition: “class A&lt;B” implies “B&gt;A”).</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-3E-3D_source')" id="l_method-i-3E-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-3E-3D_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_ge(VALUE mod, VALUE arg)
+{
+    if (!CLASS_OR_MODULE_P(arg)) {
+        rb_raise(rb_eTypeError, &quot;compared with non class/module&quot;);
+    }
+
+    return rb_class_inherited_p(arg, mod);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ancestors">
+            
+              <b>mod.ancestors &rarr; array
+</b>
+            
+            <a href="../classes/Module.html#method-i-ancestors" name="method-i-ancestors" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns a list of modules included in <em>mod</em> (including <em>mod</em>
+itself).</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Mod</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">Math</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">Comparable</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Mod</span>.<span class="ruby-identifier">ancestors</span>    <span class="ruby-comment">#=&gt; [Mod, Comparable, Math]</span>
+<span class="ruby-constant">Math</span>.<span class="ruby-identifier">ancestors</span>   <span class="ruby-comment">#=&gt; [Math]</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-ancestors_source')" id="l_method-i-ancestors_source">show</a>
+                
+              </p>
+              <div id="method-i-ancestors_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_ancestors(VALUE mod)
+{
+    VALUE p, ary = rb_ary_new();
+
+    for (p = mod; p; p = RCLASS_SUPER(p)) {
+	if (FL_TEST(p, FL_SINGLETON))
+	    continue;
+	if (BUILTIN_TYPE(p) == T_ICLASS) {
+	    rb_ary_push(ary, RBASIC(p)-&gt;klass);
+	}
+	else if (p == RCLASS_ORIGIN(p)) {
+	    rb_ary_push(ary, p);
+	}
+    }
+    return ary;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-autoload">
+            
+              <b>mod.autoload(module, filename)   &rarr; nil
+</b>
+            
+            <a href="../classes/Module.html#method-i-autoload" name="method-i-autoload" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Registers <em>filename</em> to be loaded (using
+<code>Kernel::require</code>) the first time that <em>module</em> (which
+may be a <code>String</code> or a symbol) is accessed in the namespace of
+<em>mod</em>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">A</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">A</span>.<span class="ruby-identifier">autoload</span>(:<span class="ruby-constant">B</span>, <span class="ruby-string">&quot;b&quot;</span>)
+<span class="ruby-constant">A</span><span class="ruby-operator">::</span><span class="ruby-constant">B</span>.<span class="ruby-identifier">doit</span>            <span class="ruby-comment"># autoloads &quot;b&quot;</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-autoload_source')" id="l_method-i-autoload_source">show</a>
+                
+              </p>
+              <div id="method-i-autoload_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_autoload(VALUE mod, VALUE sym, VALUE file)
+{
+    ID id = rb_to_id(sym);
+
+    FilePathValue(file);
+    rb_autoload(mod, id, RSTRING_PTR(file));
+    return Qnil;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-autoload-3F">
+            
+              <b>mod.autoload?(name)   &rarr; String or nil
+</b>
+            
+            <a href="../classes/Module.html#method-i-autoload-3F" name="method-i-autoload-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns <em>filename</em> to be loaded if <em>name</em> is registered as
+<code>autoload</code> in the namespace of <em>mod</em>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">A</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">A</span>.<span class="ruby-identifier">autoload</span>(:<span class="ruby-constant">B</span>, <span class="ruby-string">&quot;b&quot;</span>)
+<span class="ruby-constant">A</span>.<span class="ruby-identifier">autoload?</span>(:<span class="ruby-constant">B</span>)            <span class="ruby-comment">#=&gt; &quot;b&quot;</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-autoload-3F_source')" id="l_method-i-autoload-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-autoload-3F_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_autoload_p(VALUE mod, VALUE sym)
+{
+    ID id = rb_check_id(&amp;sym);
+    if (!id) {
+        return Qnil;
+    }
+    return rb_autoload_p(mod, id);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-class_eval">
+            
+              <b>mod.class_eval(string [, filename [, lineno]])  &rarr; obj
+mod.module_eval {|| block }                     &rarr; obj
+</b>
+            
+            <a href="../classes/Module.html#method-i-class_eval" name="method-i-class_eval" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Evaluates the string or block in the context of <em>mod</em>, except that
+when a block is given, constant/class variable lookup is not affected. This
+can be used to add methods to a class. <code>module_eval</code> returns the
+result of evaluating its argument. The optional <em>filename</em> and
+<em>lineno</em> parameters set the text for error messages.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Thing</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">a</span> = <span class="ruby-string">%q{def hello() &quot;Hello there!&quot; end}</span>
+<span class="ruby-constant">Thing</span>.<span class="ruby-identifier">module_eval</span>(<span class="ruby-identifier">a</span>)
+<span class="ruby-identifier">puts</span> <span class="ruby-constant">Thing</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">hello</span>()
+<span class="ruby-constant">Thing</span>.<span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;invalid code&quot;</span>, <span class="ruby-string">&quot;dummy&quot;</span>, <span class="ruby-value">123</span>)
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>Hello there!
+dummy:123:in `module_eval&#39;: undefined local variable
+    or method `code&#39; for Thing:Class</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-class_eval_source')" id="l_method-i-class_eval_source">show</a>
+                
+              </p>
+              <div id="method-i-class_eval_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_module_eval(int argc, VALUE *argv, VALUE mod)
+{
+    return specific_eval(argc, argv, mod, mod);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-class_exec">
+            
+              <b>mod.module_exec(arg...) {|var...| block }       &rarr; obj
+mod.class_exec(arg...) {|var...| block }        &rarr; obj
+</b>
+            
+            <a href="../classes/Module.html#method-i-class_exec" name="method-i-class_exec" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Evaluates the given block in the context of the class/module. The method
+defined in the block will belong to the receiver.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Thing</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">Thing</span>.<span class="ruby-identifier">class_exec</span>{
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">hello</span>() <span class="ruby-string">&quot;Hello there!&quot;</span> <span class="ruby-keyword">end</span>
+}
+<span class="ruby-identifier">puts</span> <span class="ruby-constant">Thing</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">hello</span>()
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>Hello there!</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-class_exec_source')" id="l_method-i-class_exec_source">show</a>
+                
+              </p>
+              <div id="method-i-class_exec_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_module_exec(int argc, VALUE *argv, VALUE mod)
+{
+    return yield_under(mod, mod, rb_ary_new4(argc, argv));
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-class_variable_defined-3F">
+            
+              <b>obj.class_variable_defined?(symbol)    &rarr; true or false
+</b>
+            
+            <a href="../classes/Module.html#method-i-class_variable_defined-3F" name="method-i-class_variable_defined-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns <code>true</code> if the given class variable is defined in
+<em>obj</em>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Fred</span>
+  <span class="ruby-identifier">@@foo</span> = <span class="ruby-value">99</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">Fred</span>.<span class="ruby-identifier">class_variable_defined?</span>(:<span class="ruby-identifier">@@foo</span>)    <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">Fred</span>.<span class="ruby-identifier">class_variable_defined?</span>(:<span class="ruby-identifier">@@bar</span>)    <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-class_variable_defined-3F_source')" id="l_method-i-class_variable_defined-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-class_variable_defined-3F_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_cvar_defined(VALUE obj, VALUE iv)
+{
+    ID id = rb_check_id(&amp;iv);
+
+    if (!id) {
+        if (rb_is_class_name(iv)) {
+            return Qfalse;
+        }
+        else {
+            rb_name_error_str(iv, &quot;`%&quot;PRIsVALUE&quot;&#39; is not allowed as a class variable name&quot;,
+                              QUOTE(iv));
+        }
+    }
+    if (!rb_is_class_id(id)) {
+        rb_name_error(id, &quot;`%&quot;PRIsVALUE&quot;&#39; is not allowed as a class variable name&quot;,
+                      QUOTE_ID(id));
+    }
+    return rb_cvar_defined(obj, id);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-class_variable_get">
+            
+              <b>mod.class_variable_get(symbol)    &rarr; obj
+</b>
+            
+            <a href="../classes/Module.html#method-i-class_variable_get" name="method-i-class_variable_get" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the value of the given class variable (or throws a
+<code>NameError</code> exception). The <code>@@</code> part of the variable
+name should be included for regular class variables</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Fred</span>
+  <span class="ruby-identifier">@@foo</span> = <span class="ruby-value">99</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">Fred</span>.<span class="ruby-identifier">class_variable_get</span>(:<span class="ruby-identifier">@@foo</span>)     <span class="ruby-comment">#=&gt; 99</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-class_variable_get_source')" id="l_method-i-class_variable_get_source">show</a>
+                
+              </p>
+              <div id="method-i-class_variable_get_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_cvar_get(VALUE obj, VALUE iv)
+{
+    ID id = rb_check_id(&amp;iv);
+
+    if (!id) {
+        if (rb_is_class_name(iv)) {
+            rb_name_error_str(iv, &quot;uninitialized class variable %&quot;PRIsVALUE&quot; in %&quot;PRIsVALUE&quot;&quot;,
+                              iv, rb_class_name(obj));
+        }
+        else {
+            rb_name_error_str(iv, &quot;`%&quot;PRIsVALUE&quot;&#39; is not allowed as a class variable name&quot;,
+                              QUOTE(iv));
+        }
+    }
+    if (!rb_is_class_id(id)) {
+        rb_name_error(id, &quot;`%&quot;PRIsVALUE&quot;&#39; is not allowed as a class variable name&quot;,
+                      QUOTE_ID(id));
+    }
+    return rb_cvar_get(obj, id);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-class_variable_set">
+            
+              <b>obj.class_variable_set(symbol, obj)    &rarr; obj
+</b>
+            
+            <a href="../classes/Module.html#method-i-class_variable_set" name="method-i-class_variable_set" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets the class variable names by <em>symbol</em> to <em>object</em>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Fred</span>
+  <span class="ruby-identifier">@@foo</span> = <span class="ruby-value">99</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">foo</span>
+    <span class="ruby-identifier">@@foo</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">Fred</span>.<span class="ruby-identifier">class_variable_set</span>(:<span class="ruby-identifier">@@foo</span>, <span class="ruby-value">101</span>)     <span class="ruby-comment">#=&gt; 101</span>
+<span class="ruby-constant">Fred</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">foo</span>                             <span class="ruby-comment">#=&gt; 101</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-class_variable_set_source')" id="l_method-i-class_variable_set_source">show</a>
+                
+              </p>
+              <div id="method-i-class_variable_set_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_cvar_set(VALUE obj, VALUE iv, VALUE val)
+{
+    ID id = rb_to_id(iv);
+
+    if (!rb_is_class_id(id)) {
+        rb_name_error(id, &quot;`%&quot;PRIsVALUE&quot;&#39; is not allowed as a class variable name&quot;,
+                      QUOTE_ID(id));
+    }
+    rb_cvar_set(obj, id, val);
+    return val;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-class_variables">
+            
+              <b>mod.class_variables(inherit=true)    &rarr; array
+</b>
+            
+            <a href="../classes/Module.html#method-i-class_variables" name="method-i-class_variables" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns an array of the names of class variables in <em>mod</em>. This
+includes the names of class variables in any included modules, unless the
+<em>inherit</em> parameter is set to <code>false</code>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">One</span>
+  <span class="ruby-identifier">@@var1</span> = <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Two</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">One</span>
+  <span class="ruby-identifier">@@var2</span> = <span class="ruby-value">2</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">One</span>.<span class="ruby-identifier">class_variables</span>   <span class="ruby-comment">#=&gt; [:@@var1]</span>
+<span class="ruby-constant">Two</span>.<span class="ruby-identifier">class_variables</span>   <span class="ruby-comment">#=&gt; [:@@var2, :@@var1]</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-class_variables_source')" id="l_method-i-class_variables_source">show</a>
+                
+              </p>
+              <div id="method-i-class_variables_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_class_variables(int argc, VALUE *argv, VALUE mod)
+{
+    VALUE inherit;
+    st_table *tbl;
+
+    if (argc == 0) {
+	inherit = Qtrue;
+    }
+    else {
+	rb_scan_args(argc, argv, &quot;01&quot;, &amp;inherit);
+    }
+    if (RTEST(inherit)) {
+	tbl = mod_cvar_of(mod, 0);
+    }
+    else {
+	tbl = mod_cvar_at(mod, 0);
+    }
+    return cvar_list(tbl);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-const_defined-3F">
+            
+              <b>mod.const_defined?(sym, inherit=true)   &rarr; true or false
+</b>
+            
+            <a href="../classes/Module.html#method-i-const_defined-3F" name="method-i-const_defined-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Checks for a constant with the given name in <em>mod</em> If
+<code>inherit</code> is set, the lookup will also search the ancestors (and
+<code>Object</code> if <em>mod</em> is a <code>Module</code>.)</p>
+
+<p>Returns whether or not a definition is found:</p>
+
+<pre class="ruby"><span class="ruby-constant">Math</span>.<span class="ruby-identifier">const_defined?</span> <span class="ruby-string">&quot;PI&quot;</span>   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">IO</span>.<span class="ruby-identifier">const_defined?</span> :<span class="ruby-constant">SYNC</span>   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">IO</span>.<span class="ruby-identifier">const_defined?</span> :<span class="ruby-constant">SYNC</span>, <span class="ruby-keyword">false</span>   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-const_defined-3F_source')" id="l_method-i-const_defined-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-const_defined-3F_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_const_defined(int argc, VALUE *argv, VALUE mod)
+{
+    VALUE name, recur;
+    ID id;
+
+    if (argc == 1) {
+        name = argv[0];
+        recur = Qtrue;
+    }
+    else {
+        rb_scan_args(argc, argv, &quot;11&quot;, &amp;name, &amp;recur);
+    }
+    if (!(id = rb_check_id(&amp;name))) {
+        if (rb_is_const_name(name)) {
+            return Qfalse;
+        }
+        else {
+            rb_name_error_str(name, &quot;wrong constant name %&quot;PRIsVALUE,
+                              QUOTE(name));
+        }
+    }
+    if (!rb_is_const_id(id)) {
+        rb_name_error(id, &quot;wrong constant name %&quot;PRIsVALUE,
+                      QUOTE_ID(id));
+    }
+    return RTEST(recur) ? rb_const_defined(mod, id) : rb_const_defined_at(mod, id);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-const_get">
+            
+              <b>mod.const_get(sym, inherit=true)    &rarr; obj
+mod.const_get(str, inherit=true)    &rarr; obj
+</b>
+            
+            <a href="../classes/Module.html#method-i-const_get" name="method-i-const_get" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Checks for a constant with the given name in <em>mod</em> If
+<code>inherit</code> is set, the lookup will also search the ancestors (and
+<code>Object</code> if <em>mod</em> is a <code>Module</code>.)</p>
+
+<p>The value of the constant is returned if a definition is found, otherwise a
+<code>NameError</code> is raised.</p>
+
+<pre class="ruby"><span class="ruby-constant">Math</span>.<span class="ruby-identifier">const_get</span>(:<span class="ruby-constant">PI</span>)   <span class="ruby-comment">#=&gt; 3.14159265358979</span>
+</pre>
+
+<p>This method will recursively look up constant names if a namespaced class
+name is provided.  For example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Foo</span>; <span class="ruby-keyword">class</span> <span class="ruby-constant">Bar</span>; <span class="ruby-keyword">end</span> <span class="ruby-keyword">end</span>
+<span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_get</span> <span class="ruby-string">&#39;Foo::Bar&#39;</span>
+</pre>
+
+<p>The <code>inherit</code> flag is respected on each lookup.  For example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Foo</span>
+  <span class="ruby-keyword">class</span> <span class="ruby-constant">Bar</span>
+    <span class="ruby-constant">VAL</span> = <span class="ruby-value">10</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">class</span> <span class="ruby-constant">Baz</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Bar</span>; <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_get</span> <span class="ruby-string">&#39;Foo::Baz::VAL&#39;</span>         <span class="ruby-comment"># =&gt; 10</span>
+<span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_get</span> <span class="ruby-string">&#39;Foo::Baz::VAL&#39;</span>, <span class="ruby-keyword">false</span>  <span class="ruby-comment"># =&gt; NameError</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-const_get_source')" id="l_method-i-const_get_source">show</a>
+                
+              </p>
+              <div id="method-i-const_get_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_const_get(int argc, VALUE *argv, VALUE mod)
+{
+    VALUE name, recur;
+    rb_encoding *enc;
+    const char *pbeg, *p, *path, *pend;
+    ID id;
+    int nestable = 1;
+
+    if (argc == 1) {
+        name = argv[0];
+        recur = Qtrue;
+    }
+    else {
+        rb_scan_args(argc, argv, &quot;11&quot;, &amp;name, &amp;recur);
+    }
+
+    if (SYMBOL_P(name)) {
+        name = rb_sym_to_s(name);
+        nestable = 0;
+    }
+
+    name = rb_check_string_type(name);
+    Check_Type(name, T_STRING);
+
+    enc = rb_enc_get(name);
+    path = RSTRING_PTR(name);
+
+    if (!rb_enc_asciicompat(enc)) {
+        rb_raise(rb_eArgError, &quot;invalid class path encoding (non ASCII)&quot;);
+    }
+
+    pbeg = p = path;
+    pend = path + RSTRING_LEN(name);
+
+    if (p &gt;= pend || !*p) {
+      wrong_name:
+        rb_raise(rb_eNameError, &quot;wrong constant name %&quot;PRIsVALUE,
+                 QUOTE(name));
+    }
+
+    if (p + 2 &lt; pend &amp;&amp; p[0] == &#39;:&#39; &amp;&amp; p[1] == &#39;:&#39;) {
+        if (!nestable) goto wrong_name;
+        mod = rb_cObject;
+        p += 2;
+        pbeg = p;
+    }
+
+    while (p &lt; pend) {
+        VALUE part;
+        long len, beglen;
+
+        while (p &lt; pend &amp;&amp; *p != &#39;:&#39;) p++;
+
+        if (pbeg == p) goto wrong_name;
+
+        id = rb_check_id_cstr(pbeg, len = p-pbeg, enc);
+        beglen = pbeg-path;
+
+        if (p &lt; pend &amp;&amp; p[0] == &#39;:&#39;) {
+            if (!nestable) goto wrong_name;
+            if (p + 2 &gt;= pend || p[1] != &#39;:&#39;) goto wrong_name;
+            p += 2;
+            pbeg = p;
+        }
+
+        if (!RB_TYPE_P(mod, T_MODULE) &amp;&amp; !RB_TYPE_P(mod, T_CLASS)) {
+            rb_raise(rb_eTypeError, &quot;%&quot;PRIsVALUE&quot; does not refer to class/module&quot;,
+                     QUOTE(name));
+        }
+
+        if (!id) {
+            if (!ISUPPER(*pbeg) || !rb_enc_symname2_p(pbeg, len, enc)) {
+                part = rb_str_subseq(name, beglen, len);
+                rb_name_error_str(part, &quot;wrong constant name %&quot;PRIsVALUE,
+                                  QUOTE(part));
+            }
+            else if (!rb_method_basic_definition_p(CLASS_OF(mod), id_const_missing)) {
+                id = rb_intern3(pbeg, len, enc);
+            }
+            else {
+                part = rb_str_subseq(name, beglen, len);
+                rb_name_error_str(part, &quot;uninitialized constant %&quot;PRIsVALUE&quot;%&quot;PRIsVALUE,
+                                  rb_str_subseq(name, 0, beglen),
+                                  QUOTE(part));
+            }
+        }
+        if (!rb_is_const_id(id)) {
+            rb_name_error(id, &quot;wrong constant name %&quot;PRIsVALUE,
+                          QUOTE_ID(id));
+        }
+        mod = RTEST(recur) ? rb_const_get(mod, id) : rb_const_get_at(mod, id);
+    }
+
+    return mod;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-const_missing">
+            
+              <b>mod.const_missing(sym)    &rarr; obj
+</b>
+            
+            <a href="../classes/Module.html#method-i-const_missing" name="method-i-const_missing" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Invoked when a reference is made to an undefined constant in <em>mod</em>.
+It is passed a symbol for the undefined constant, and returns a value to be
+used for that constant. The following code is an example of the same:</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-constant">Foo</span>.<span class="ruby-identifier">const_missing</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">name</span> <span class="ruby-comment"># return the constant name as Symbol</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Foo</span><span class="ruby-operator">::</span><span class="ruby-constant">UNDEFINED_CONST</span>    <span class="ruby-comment">#=&gt; :UNDEFINED_CONST: symbol returned</span>
+</pre>
+
+<p>In the next example when a reference is made to an undefined constant, it
+attempts to load a file whose name is the lowercase version of the constant
+(thus class <code>Fred</code> is assumed to be in file
+<code>fred.rb</code>).  If found, it returns the loaded class. It therefore
+implements an autoload feature similar to <a
+href="Kernel.html#method-i-autoload">Kernel#autoload</a> and <a
+href="Module.html#method-i-autoload">#autoload</a>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_missing</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-ivar">@looked_for</span> <span class="ruby-operator">||=</span> {}
+  <span class="ruby-identifier">str_name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Class not found: #{name}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@looked_for</span>[<span class="ruby-identifier">str_name</span>]
+  <span class="ruby-ivar">@looked_for</span>[<span class="ruby-identifier">str_name</span>] = <span class="ruby-value">1</span>
+  <span class="ruby-identifier">file</span> = <span class="ruby-identifier">str_name</span>.<span class="ruby-identifier">downcase</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-identifier">file</span>
+  <span class="ruby-identifier">klass</span> = <span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">klass</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">klass</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Class not found: #{name}&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Module.html#method-i-rake_original_const_missing">rake_original_const_missing</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-const_missing_source')" id="l_method-i-const_missing_source">show</a>
+                
+              </p>
+              <div id="method-i-const_missing_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_const_missing(VALUE klass, VALUE name)
+{
+    rb_frame_pop(); /* pop frame for &quot;const_missing&quot; */
+    uninitialized_constant(klass, rb_to_id(name));
+
+    UNREACHABLE;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-const_set">
+            
+              <b>mod.const_set(sym, obj)    &rarr; obj
+</b>
+            
+            <a href="../classes/Module.html#method-i-const_set" name="method-i-const_set" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets the named constant to the given object, returning that object. Creates
+a new constant if no constant with the given name previously existed.</p>
+
+<pre class="ruby"><span class="ruby-constant">Math</span>.<span class="ruby-identifier">const_set</span>(<span class="ruby-string">&quot;HIGH_SCHOOL_PI&quot;</span>, <span class="ruby-value">22.0</span><span class="ruby-operator">/</span><span class="ruby-value">7.0</span>)   <span class="ruby-comment">#=&gt; 3.14285714285714</span>
+<span class="ruby-constant">Math</span><span class="ruby-operator">::</span><span class="ruby-constant">HIGH_SCHOOL_PI</span> <span class="ruby-operator">-</span> <span class="ruby-constant">Math</span><span class="ruby-operator">::</span><span class="ruby-constant">PI</span>              <span class="ruby-comment">#=&gt; 0.00126448926734968</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-const_set_source')" id="l_method-i-const_set_source">show</a>
+                
+              </p>
+              <div id="method-i-const_set_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_const_set(VALUE mod, VALUE name, VALUE value)
+{
+    ID id = rb_to_id(name);
+
+    if (!rb_is_const_id(id)) {
+        rb_name_error(id, &quot;wrong constant name %&quot;PRIsVALUE,
+                      QUOTE_ID(id));
+    }
+    rb_const_set(mod, id, value);
+    return value;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-constants">
+            
+              <b>mod.constants(inherit=true)    &rarr; array
+</b>
+            
+            <a href="../classes/Module.html#method-i-constants" name="method-i-constants" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns an array of the names of the constants accessible in <em>mod</em>.
+This includes the names of constants in any included modules (example at
+start of section), unless the <em>inherit</em> parameter is set to
+<code>false</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">IO</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">include?</span>(:<span class="ruby-constant">SYNC</span>)        <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">IO</span>.<span class="ruby-identifier">constants</span>(<span class="ruby-keyword">false</span>).<span class="ruby-identifier">include?</span>(:<span class="ruby-constant">SYNC</span>) <span class="ruby-comment">#=&gt; false</span>
+</pre>
+
+<p>Also see <code>Module::const_defined?</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-constants_source')" id="l_method-i-constants_source">show</a>
+                
+              </p>
+              <div id="method-i-constants_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_constants(int argc, VALUE *argv, VALUE mod)
+{
+    VALUE inherit;
+    st_table *tbl;
+
+    if (argc == 0) {
+	inherit = Qtrue;
+    }
+    else {
+	rb_scan_args(argc, argv, &quot;01&quot;, &amp;inherit);
+    }
+    if (RTEST(inherit)) {
+	tbl = rb_mod_const_of(mod, 0);
+    }
+    else {
+	tbl = rb_mod_const_at(mod, 0);
+    }
+    return rb_const_list(tbl);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-freeze">
+            
+              <b>mod.freeze       &rarr; mod
+</b>
+            
+            <a href="../classes/Module.html#method-i-freeze" name="method-i-freeze" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Prevents further modifications to <em>mod</em>.</p>
+
+<p>This method returns self.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-freeze_source')" id="l_method-i-freeze_source">show</a>
+                
+              </p>
+              <div id="method-i-freeze_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_freeze(VALUE mod)
+{
+    rb_class_name(mod);
+    return rb_obj_freeze(mod);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-include-3F">
+            
+              <b>mod.include?(module)    &rarr; true or false
+</b>
+            
+            <a href="../classes/Module.html#method-i-include-3F" name="method-i-include-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns <code>true</code> if <em>module</em> is included in <em>mod</em> or
+one of <em>mod</em>&#39;s ancestors.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">A</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">B</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">A</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">C</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">B</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">B</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">A</span>)   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">A</span>)   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">A</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">A</span>)   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-include-3F_source')" id="l_method-i-include-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-include-3F_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_include_p(VALUE mod, VALUE mod2)
+{
+    VALUE p;
+
+    Check_Type(mod2, T_MODULE);
+    for (p = RCLASS_SUPER(mod); p; p = RCLASS_SUPER(p)) {
+	if (BUILTIN_TYPE(p) == T_ICLASS) {
+	    if (RBASIC(p)-&gt;klass == mod2) return Qtrue;
+	}
+    }
+    return Qfalse;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-included_modules">
+            
+              <b>mod.included_modules &rarr; array
+</b>
+            
+            <a href="../classes/Module.html#method-i-included_modules" name="method-i-included_modules" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the list of modules included in <em>mod</em>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Mixin</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">module</span> <span class="ruby-constant">Outer</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">Mixin</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Mixin</span>.<span class="ruby-identifier">included_modules</span>   <span class="ruby-comment">#=&gt; []</span>
+<span class="ruby-constant">Outer</span>.<span class="ruby-identifier">included_modules</span>   <span class="ruby-comment">#=&gt; [Mixin]</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-included_modules_source')" id="l_method-i-included_modules_source">show</a>
+                
+              </p>
+              <div id="method-i-included_modules_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_included_modules(VALUE mod)
+{
+    VALUE ary = rb_ary_new();
+    VALUE p;
+
+    for (p = RCLASS_SUPER(mod); p; p = RCLASS_SUPER(p)) {
+	if (BUILTIN_TYPE(p) == T_ICLASS) {
+	    rb_ary_push(ary, RBASIC(p)-&gt;klass);
+	}
+    }
+    return ary;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inspect">
+            
+              <b>inspect</b>()
+            
+            <a href="../classes/Module.html#method-i-inspect" name="method-i-inspect" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-instance_method">
+            
+              <b>mod.instance_method(symbol)   &rarr; unbound_method
+</b>
+            
+            <a href="../classes/Module.html#method-i-instance_method" name="method-i-instance_method" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns an <code>UnboundMethod</code> representing the given instance
+method in <em>mod</em>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Interpreter</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">do_a</span>() <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;there, &quot;</span>; <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">do_d</span>() <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Hello &quot;</span>;  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">do_e</span>() <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;!\n&quot;</span>;     <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">do_v</span>() <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Dave&quot;</span>;    <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Dispatcher</span> = {
+    <span class="ruby-string">&quot;a&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">instance_method</span>(:<span class="ruby-identifier">do_a</span>),
+    <span class="ruby-string">&quot;d&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">instance_method</span>(:<span class="ruby-identifier">do_d</span>),
+    <span class="ruby-string">&quot;e&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">instance_method</span>(:<span class="ruby-identifier">do_e</span>),
+    <span class="ruby-string">&quot;v&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">instance_method</span>(:<span class="ruby-identifier">do_v</span>)
+  }
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">interpret</span>(<span class="ruby-identifier">string</span>)
+    <span class="ruby-identifier">string</span>.<span class="ruby-identifier">each_char</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-constant">Dispatcher</span>[<span class="ruby-identifier">b</span>].<span class="ruby-identifier">bind</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">call</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">interpreter</span> = <span class="ruby-constant">Interpreter</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">interpreter</span>.<span class="ruby-identifier">interpret</span>(<span class="ruby-string">&#39;dave&#39;</span>)
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>Hello there, Dave!</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-instance_method_source')" id="l_method-i-instance_method_source">show</a>
+                
+              </p>
+              <div id="method-i-instance_method_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_instance_method(VALUE mod, VALUE vid)
+{
+    ID id = rb_check_id(&amp;vid);
+    if (!id) {
+        rb_method_name_error(mod, vid);
+    }
+    return mnew(mod, Qundef, id, rb_cUnboundMethod, FALSE);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-instance_methods">
+            
+              <b>mod.instance_methods(include_super=true)   &rarr; array
+</b>
+            
+            <a href="../classes/Module.html#method-i-instance_methods" name="method-i-instance_methods" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns an array containing the names of the public and protected instance
+methods in the receiver. For a module, these are the public and protected
+methods; for a class, they are the instance (not singleton) methods. With
+no argument, or with an argument that is <code>false</code>, the instance
+methods in <em>mod</em> are returned, otherwise the methods in <em>mod</em>
+and <em>mod</em>&#39;s superclasses are returned.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">A</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method1</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">B</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method2</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">C</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">B</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method3</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">A</span>.<span class="ruby-identifier">instance_methods</span>                <span class="ruby-comment">#=&gt; [:method1]</span>
+<span class="ruby-constant">B</span>.<span class="ruby-identifier">instance_methods</span>(<span class="ruby-keyword">false</span>)         <span class="ruby-comment">#=&gt; [:method2]</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">instance_methods</span>(<span class="ruby-keyword">false</span>)         <span class="ruby-comment">#=&gt; [:method3]</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">instance_methods</span>(<span class="ruby-keyword">true</span>).<span class="ruby-identifier">length</span>   <span class="ruby-comment">#=&gt; 43</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-instance_methods_source')" id="l_method-i-instance_methods_source">show</a>
+                
+              </p>
+              <div id="method-i-instance_methods_source" class="dyn-source">
+                <pre>VALUE
+rb_class_instance_methods(int argc, VALUE *argv, VALUE mod)
+{
+    return class_instance_method_list(argc, argv, mod, 0, ins_methods_i);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-method_defined-3F">
+            
+              <b>mod.method_defined?(symbol)    &rarr; true or false
+</b>
+            
+            <a href="../classes/Module.html#method-i-method_defined-3F" name="method-i-method_defined-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns <code>true</code> if the named method is defined by <em>mod</em>
+(or its included modules and, if <em>mod</em> is a class, its ancestors).
+Public and protected methods are matched.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">A</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method1</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">B</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method2</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">C</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">B</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">A</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method3</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">A</span>.<span class="ruby-identifier">method_defined?</span> :<span class="ruby-identifier">method1</span>    <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">method_defined?</span> <span class="ruby-string">&quot;method1&quot;</span>   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">method_defined?</span> <span class="ruby-string">&quot;method2&quot;</span>   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">method_defined?</span> <span class="ruby-string">&quot;method3&quot;</span>   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">method_defined?</span> <span class="ruby-string">&quot;method4&quot;</span>   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-method_defined-3F_source')" id="l_method-i-method_defined-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-method_defined-3F_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_method_defined(VALUE mod, VALUE mid)
+{
+    ID id = rb_check_id(&amp;mid);
+    if (!id || !rb_method_boundp(mod, id, 1)) {
+        return Qfalse;
+    }
+    return Qtrue;
+
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-module_eval">
+            
+              <b>mod.class_eval(string [, filename [, lineno]])  &rarr; obj
+mod.module_eval {|| block }                     &rarr; obj
+</b>
+            
+            <a href="../classes/Module.html#method-i-module_eval" name="method-i-module_eval" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Evaluates the string or block in the context of <em>mod</em>, except that
+when a block is given, constant/class variable lookup is not affected. This
+can be used to add methods to a class. <code>module_eval</code> returns the
+result of evaluating its argument. The optional <em>filename</em> and
+<em>lineno</em> parameters set the text for error messages.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Thing</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">a</span> = <span class="ruby-string">%q{def hello() &quot;Hello there!&quot; end}</span>
+<span class="ruby-constant">Thing</span>.<span class="ruby-identifier">module_eval</span>(<span class="ruby-identifier">a</span>)
+<span class="ruby-identifier">puts</span> <span class="ruby-constant">Thing</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">hello</span>()
+<span class="ruby-constant">Thing</span>.<span class="ruby-identifier">module_eval</span>(<span class="ruby-string">&quot;invalid code&quot;</span>, <span class="ruby-string">&quot;dummy&quot;</span>, <span class="ruby-value">123</span>)
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>Hello there!
+dummy:123:in `module_eval&#39;: undefined local variable
+    or method `code&#39; for Thing:Class</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-module_eval_source')" id="l_method-i-module_eval_source">show</a>
+                
+              </p>
+              <div id="method-i-module_eval_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_module_eval(int argc, VALUE *argv, VALUE mod)
+{
+    return specific_eval(argc, argv, mod, mod);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-module_exec">
+            
+              <b>mod.module_exec(arg...) {|var...| block }       &rarr; obj
+mod.class_exec(arg...) {|var...| block }        &rarr; obj
+</b>
+            
+            <a href="../classes/Module.html#method-i-module_exec" name="method-i-module_exec" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Evaluates the given block in the context of the class/module. The method
+defined in the block will belong to the receiver.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Thing</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">Thing</span>.<span class="ruby-identifier">class_exec</span>{
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">hello</span>() <span class="ruby-string">&quot;Hello there!&quot;</span> <span class="ruby-keyword">end</span>
+}
+<span class="ruby-identifier">puts</span> <span class="ruby-constant">Thing</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">hello</span>()
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>Hello there!</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-module_exec_source')" id="l_method-i-module_exec_source">show</a>
+                
+              </p>
+              <div id="method-i-module_exec_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_module_exec(int argc, VALUE *argv, VALUE mod)
+{
+    return yield_under(mod, mod, rb_ary_new4(argc, argv));
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-name">
+            
+              <b>mod.name    &rarr; string
+</b>
+            
+            <a href="../classes/Module.html#method-i-name" name="method-i-name" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the name of the module <em>mod</em>.  Returns nil for anonymous
+modules.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-name_source')" id="l_method-i-name_source">show</a>
+                
+              </p>
+              <div id="method-i-name_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_name(VALUE mod)
+{
+    int permanent;
+    VALUE path = classname(mod, &amp;permanent);
+
+    if (!NIL_P(path)) return rb_str_dup(path);
+    return path;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-private_class_method">
+            
+              <b>mod.private_class_method(symbol, ...)   &rarr; mod
+</b>
+            
+            <a href="../classes/Module.html#method-i-private_class_method" name="method-i-private_class_method" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Makes existing class methods private. Often used to hide the default
+constructor <code>new</code>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">SimpleSingleton</span>  <span class="ruby-comment"># Not thread safe</span>
+  <span class="ruby-identifier">private_class_method</span> :<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-constant">SimpleSingleton</span>.<span class="ruby-identifier">create</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+    <span class="ruby-ivar">@me</span> = <span class="ruby-identifier">new</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span> <span class="ruby-ivar">@me</span>
+    <span class="ruby-ivar">@me</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-private_class_method_source')" id="l_method-i-private_class_method_source">show</a>
+                
+              </p>
+              <div id="method-i-private_class_method_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_private_method(int argc, VALUE *argv, VALUE obj)
+{
+    set_method_visibility(CLASS_OF(obj), argc, argv, NOEX_PRIVATE);
+    return obj;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-private_constant">
+            
+              <b>mod.private_constant(symbol, ...)    => mod
+</b>
+            
+            <a href="../classes/Module.html#method-i-private_constant" name="method-i-private_constant" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Makes a list of existing constants private.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-private_constant_source')" id="l_method-i-private_constant_source">show</a>
+                
+              </p>
+              <div id="method-i-private_constant_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_private_constant(int argc, VALUE *argv, VALUE obj)
+{
+    set_const_visibility(obj, argc, argv, CONST_PRIVATE);
+    return obj;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-private_instance_methods">
+            
+              <b>mod.private_instance_methods(include_super=true)    &rarr; array
+</b>
+            
+            <a href="../classes/Module.html#method-i-private_instance_methods" name="method-i-private_instance_methods" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns a list of the private instance methods defined in <em>mod</em>. If
+the optional parameter is not <code>false</code>, the methods of any
+ancestors are included.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Mod</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method1</span>()  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">private</span> :<span class="ruby-identifier">method1</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method2</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">Mod</span>.<span class="ruby-identifier">instance_methods</span>           <span class="ruby-comment">#=&gt; [:method2]</span>
+<span class="ruby-constant">Mod</span>.<span class="ruby-identifier">private_instance_methods</span>   <span class="ruby-comment">#=&gt; [:method1]</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-private_instance_methods_source')" id="l_method-i-private_instance_methods_source">show</a>
+                
+              </p>
+              <div id="method-i-private_instance_methods_source" class="dyn-source">
+                <pre>VALUE
+rb_class_private_instance_methods(int argc, VALUE *argv, VALUE mod)
+{
+    return class_instance_method_list(argc, argv, mod, 0, ins_methods_priv_i);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-private_method_defined-3F">
+            
+              <b>mod.private_method_defined?(symbol)    &rarr; true or false
+</b>
+            
+            <a href="../classes/Module.html#method-i-private_method_defined-3F" name="method-i-private_method_defined-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns <code>true</code> if the named private method is defined by _ mod_
+(or its included modules and, if <em>mod</em> is a class, its ancestors).</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">A</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method1</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">B</span>
+  <span class="ruby-identifier">private</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method2</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">C</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">B</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">A</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method3</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">A</span>.<span class="ruby-identifier">method_defined?</span> :<span class="ruby-identifier">method1</span>            <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">private_method_defined?</span> <span class="ruby-string">&quot;method1&quot;</span>   <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">private_method_defined?</span> <span class="ruby-string">&quot;method2&quot;</span>   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">method_defined?</span> <span class="ruby-string">&quot;method2&quot;</span>           <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-private_method_defined-3F_source')" id="l_method-i-private_method_defined-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-private_method_defined-3F_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_private_method_defined(VALUE mod, VALUE mid)
+{
+    return check_definition(mod, mid, NOEX_PRIVATE);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-protected_instance_methods">
+            
+              <b>mod.protected_instance_methods(include_super=true)   &rarr; array
+</b>
+            
+            <a href="../classes/Module.html#method-i-protected_instance_methods" name="method-i-protected_instance_methods" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns a list of the protected instance methods defined in <em>mod</em>.
+If the optional parameter is not <code>false</code>, the methods of any
+ancestors are included.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-protected_instance_methods_source')" id="l_method-i-protected_instance_methods_source">show</a>
+                
+              </p>
+              <div id="method-i-protected_instance_methods_source" class="dyn-source">
+                <pre>VALUE
+rb_class_protected_instance_methods(int argc, VALUE *argv, VALUE mod)
+{
+    return class_instance_method_list(argc, argv, mod, 0, ins_methods_prot_i);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-protected_method_defined-3F">
+            
+              <b>mod.protected_method_defined?(symbol)   &rarr; true or false
+</b>
+            
+            <a href="../classes/Module.html#method-i-protected_method_defined-3F" name="method-i-protected_method_defined-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns <code>true</code> if the named protected method is defined by
+<em>mod</em> (or its included modules and, if <em>mod</em> is a class, its
+ancestors).</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">A</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method1</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">B</span>
+  <span class="ruby-identifier">protected</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method2</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">C</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">B</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">A</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method3</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">A</span>.<span class="ruby-identifier">method_defined?</span> :<span class="ruby-identifier">method1</span>              <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">protected_method_defined?</span> <span class="ruby-string">&quot;method1&quot;</span>   <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">protected_method_defined?</span> <span class="ruby-string">&quot;method2&quot;</span>   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">method_defined?</span> <span class="ruby-string">&quot;method2&quot;</span>             <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-protected_method_defined-3F_source')" id="l_method-i-protected_method_defined-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-protected_method_defined-3F_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_protected_method_defined(VALUE mod, VALUE mid)
+{
+    return check_definition(mod, mid, NOEX_PROTECTED);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-psych_yaml_as">
+            
+              <b>psych_yaml_as</b>(url)
+            
+            <a href="../classes/Module.html#method-i-psych_yaml_as" name="method-i-psych_yaml_as" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Module.html#method-i-yaml_as">yaml_as</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-psych_yaml_as_source')" id="l_method-i-psych_yaml_as_source">show</a>
+                
+              </p>
+              <div id="method-i-psych_yaml_as_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/psych/lib/psych/core_ext.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">psych_yaml_as</span> <span class="ruby-identifier">url</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">caller</span>[<span class="ruby-number">0</span>].<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;rubytypes.rb&#39;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">$VERBOSE</span>
+    <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;#{caller[0]}: yaml_as is deprecated, please use yaml_tag&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Psych</span>.<span class="ruby-identifier">add_tag</span>(<span class="ruby-identifier">url</span>, <span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-public_class_method">
+            
+              <b>mod.public_class_method(symbol, ...)    &rarr; mod
+</b>
+            
+            <a href="../classes/Module.html#method-i-public_class_method" name="method-i-public_class_method" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Makes a list of existing class methods public.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-public_class_method_source')" id="l_method-i-public_class_method_source">show</a>
+                
+              </p>
+              <div id="method-i-public_class_method_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_public_method(int argc, VALUE *argv, VALUE obj)
+{
+    set_method_visibility(CLASS_OF(obj), argc, argv, NOEX_PUBLIC);
+    return obj;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-public_constant">
+            
+              <b>mod.public_constant(symbol, ...)    => mod
+</b>
+            
+            <a href="../classes/Module.html#method-i-public_constant" name="method-i-public_constant" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Makes a list of existing constants public.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-public_constant_source')" id="l_method-i-public_constant_source">show</a>
+                
+              </p>
+              <div id="method-i-public_constant_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_public_constant(int argc, VALUE *argv, VALUE obj)
+{
+    set_const_visibility(obj, argc, argv, CONST_PUBLIC);
+    return obj;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-public_instance_method">
+            
+              <b>mod.public_instance_method(symbol)   &rarr; unbound_method
+</b>
+            
+            <a href="../classes/Module.html#method-i-public_instance_method" name="method-i-public_instance_method" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Similar to <em><a
+href="Module.html#method-i-instance_method">#instance_method</a></em>,
+searches public method only.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-public_instance_method_source')" id="l_method-i-public_instance_method_source">show</a>
+                
+              </p>
+              <div id="method-i-public_instance_method_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_public_instance_method(VALUE mod, VALUE vid)
+{
+    ID id = rb_check_id(&amp;vid);
+    if (!id) {
+        rb_method_name_error(mod, vid);
+    }
+    return mnew(mod, Qundef, id, rb_cUnboundMethod, TRUE);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-public_instance_methods">
+            
+              <b>mod.public_instance_methods(include_super=true)   &rarr; array
+</b>
+            
+            <a href="../classes/Module.html#method-i-public_instance_methods" name="method-i-public_instance_methods" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns a list of the public instance methods defined in <em>mod</em>. If
+the optional parameter is not <code>false</code>, the methods of any
+ancestors are included.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-public_instance_methods_source')" id="l_method-i-public_instance_methods_source">show</a>
+                
+              </p>
+              <div id="method-i-public_instance_methods_source" class="dyn-source">
+                <pre>VALUE
+rb_class_public_instance_methods(int argc, VALUE *argv, VALUE mod)
+{
+    return class_instance_method_list(argc, argv, mod, 0, ins_methods_pub_i);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-public_method_defined-3F">
+            
+              <b>mod.public_method_defined?(symbol)   &rarr; true or false
+</b>
+            
+            <a href="../classes/Module.html#method-i-public_method_defined-3F" name="method-i-public_method_defined-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns <code>true</code> if the named public method is defined by
+<em>mod</em> (or its included modules and, if <em>mod</em> is a class, its
+ancestors).</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">A</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method1</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">B</span>
+  <span class="ruby-identifier">protected</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method2</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">C</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">B</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">A</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">method3</span>()  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">A</span>.<span class="ruby-identifier">method_defined?</span> :<span class="ruby-identifier">method1</span>           <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">public_method_defined?</span> <span class="ruby-string">&quot;method1&quot;</span>   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">public_method_defined?</span> <span class="ruby-string">&quot;method2&quot;</span>   <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">method_defined?</span> <span class="ruby-string">&quot;method2&quot;</span>          <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-public_method_defined-3F_source')" id="l_method-i-public_method_defined-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-public_method_defined-3F_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_public_method_defined(VALUE mod, VALUE mid)
+{
+    return check_definition(mod, mid, NOEX_PUBLIC);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-rake_extension">
+            
+              <b>rake_extension</b>(method)
+            
+            <a href="../classes/Module.html#method-i-rake_extension" name="method-i-rake_extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Check for an existing method in the current class before extending.  IF the
+method already exists, then a warning is printed and the extension is not
+added.  Otherwise the block is yielded and any definitions in the block
+will take effect.</p>
+
+<p>Usage:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">String</span>
+  <span class="ruby-identifier">rake_extension</span>(<span class="ruby-string">&quot;xyz&quot;</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">xyz</span>
+      <span class="ruby-operator">...</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-rake_extension_source')" id="l_method-i-rake_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-rake_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rake/ext/core.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">rake_extension</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">method_defined?</span>(<span class="ruby-identifier">method</span>)
+    <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;WARNING: Possible conflict with Rake extension: #{self}##{method} already exists&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-rake_original_const_missing">
+            
+              <b>rake_original_const_missing</b>(p1)
+            
+            <a href="../classes/Module.html#method-i-rake_original_const_missing" name="method-i-rake_original_const_missing" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Rename the original handler to make it available.</p>
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-remove_class_variable">
+            
+              <b>remove_class_variable(sym)    &rarr; obj
+</b>
+            
+            <a href="../classes/Module.html#method-i-remove_class_variable" name="method-i-remove_class_variable" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Removes the definition of the <em>sym</em>, returning that constant&#39;s
+value.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Dummy</span>
+  <span class="ruby-identifier">@@var</span> = <span class="ruby-value">99</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">@@var</span>
+  <span class="ruby-identifier">remove_class_variable</span>(:<span class="ruby-identifier">@@var</span>)
+  <span class="ruby-identifier">p</span>(<span class="ruby-keyword">defined?</span> <span class="ruby-identifier">@@var</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>99
+nil</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-remove_class_variable_source')" id="l_method-i-remove_class_variable_source">show</a>
+                
+              </p>
+              <div id="method-i-remove_class_variable_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_remove_cvar(VALUE mod, VALUE name)
+{
+    const ID id = rb_check_id(&amp;name);
+    st_data_t val, n = id;
+
+    if (!id) {
+	if (rb_is_class_name(name)) {
+	    rb_name_error_str(name, &quot;class variable %&quot;PRIsVALUE&quot; not defined for %&quot;PRIsVALUE&quot;&quot;,
+			      name, rb_class_name(mod));
+	}
+	else {
+	    rb_name_error_str(name, &quot;wrong class variable name %&quot;PRIsVALUE&quot;&quot;, QUOTE(name));
+	}
+    }
+    if (!rb_is_class_id(id)) {
+	rb_name_error(id, &quot;wrong class variable name %&quot;PRIsVALUE&quot;&quot;, QUOTE_ID(id));
+    }
+    if (!OBJ_UNTRUSTED(mod) &amp;&amp; rb_safe_level() &gt;= 4)
+	rb_raise(rb_eSecurityError, &quot;Insecure: can&#39;t remove class variable&quot;);
+    rb_check_frozen(mod);
+    if (RCLASS_IV_TBL(mod) &amp;&amp; st_delete(RCLASS_IV_TBL(mod), &amp;n, &amp;val)) {
+	return (VALUE)val;
+    }
+    if (rb_cvar_defined(mod, id)) {
+	rb_name_error(id, &quot;cannot remove %&quot;PRIsVALUE&quot; for %&quot;PRIsVALUE&quot;&quot;,
+		 QUOTE_ID(id), rb_class_name(mod));
+    }
+    rb_name_error(id, &quot;class variable %&quot;PRIsVALUE&quot; not defined for %&quot;PRIsVALUE&quot;&quot;,
+		  QUOTE_ID(id), rb_class_name(mod));
+
+    UNREACHABLE;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_s">
+            
+              <b>mod.to_s   &rarr; string
+</b>
+            
+            <a href="../classes/Module.html#method-i-to_s" name="method-i-to_s" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Return a string representing this module or class. For basic classes and
+modules, this is the name. For singletons, we show information on the thing
+we&#39;re attached to as well.</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Module.html#method-i-inspect">inspect</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_s_source')" id="l_method-i-to_s_source">show</a>
+                
+              </p>
+              <div id="method-i-to_s_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_to_s(VALUE klass)
+{
+    ID id_defined_at;
+    VALUE refined_class, defined_at;
+
+    if (FL_TEST(klass, FL_SINGLETON)) {
+        VALUE s = rb_usascii_str_new2(&quot;#&lt;Class:&quot;);
+        VALUE v = rb_iv_get(klass, &quot;__attached__&quot;);
+
+        if (CLASS_OR_MODULE_P(v)) {
+            rb_str_append(s, rb_inspect(v));
+        }
+        else {
+            rb_str_append(s, rb_any_to_s(v));
+        }
+        rb_str_cat2(s, &quot;&gt;&quot;);
+
+        return s;
+    }
+    refined_class = rb_refinement_module_get_refined_class(klass);
+    if (!NIL_P(refined_class)) {
+        VALUE s = rb_usascii_str_new2(&quot;#&lt;refinement:&quot;);
+
+        rb_str_concat(s, rb_inspect(refined_class));
+        rb_str_cat2(s, &quot;@&quot;);
+        CONST_ID(id_defined_at, &quot;__defined_at__&quot;);
+        defined_at = rb_attr_get(klass, id_defined_at);
+        rb_str_concat(s, rb_inspect(defined_at));
+        rb_str_cat2(s, &quot;&gt;&quot;);
+        return s;
+    }
+    return rb_str_dup(rb_class_name(klass));
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-yaml_as">
+            
+              <b>yaml_as</b>(url)
+            
+            <a href="../classes/Module.html#method-i-yaml_as" name="method-i-yaml_as" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-alias_method">
+            
+              <b>alias_method(new_name, old_name)   &rarr; self
+</b>
+            
+            <a href="../classes/Module.html#method-i-alias_method" name="method-i-alias_method" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Makes <em>new_name</em> a new copy of the method <em>old_name</em>. This
+can be used to retain access to methods that are overridden.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Mod</span>
+  <span class="ruby-identifier">alias_method</span> :<span class="ruby-identifier">orig_exit</span>, :<span class="ruby-identifier">exit</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">exit</span>(<span class="ruby-identifier">code</span>=<span class="ruby-value">0</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Exiting with code #{code}&quot;</span>
+    <span class="ruby-identifier">orig_exit</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">include</span> <span class="ruby-constant">Mod</span>
+<span class="ruby-identifier">exit</span>(<span class="ruby-value">99</span>)
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>Exiting with code 99</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-alias_method_source')" id="l_method-i-alias_method_source">show</a>
+                
+              </p>
+              <div id="method-i-alias_method_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_alias_method(VALUE mod, VALUE newname, VALUE oldname)
+{
+    ID oldid = rb_check_id(&amp;oldname);
+    if (!oldid) {
+        rb_print_undef_str(mod, oldname);
+    }
+    rb_alias(mod, rb_to_id(newname), oldid);
+    return mod;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-append_features">
+            
+              <b>append_features(mod)   &rarr; mod
+</b>
+            
+            <a href="../classes/Module.html#method-i-append_features" name="method-i-append_features" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>When this module is included in another, Ruby calls
+<code>append_features</code> in this module, passing it the receiving
+module in <em>mod</em>. Ruby&#39;s default implementation is to add the
+constants, methods, and module variables of this module to <em>mod</em> if
+this module has not already been added to <em>mod</em> or one of its
+ancestors. See also <code>Module#include</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-append_features_source')" id="l_method-i-append_features_source">show</a>
+                
+              </p>
+              <div id="method-i-append_features_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_append_features(VALUE module, VALUE include)
+{
+    switch (TYPE(include)) {
+      case T_CLASS:
+      case T_MODULE:
+        break;
+      default:
+        Check_Type(include, T_CLASS);
+        break;
+    }
+    rb_include_module(include, module);
+
+    return module;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-attr">
+            
+              <b>attr</b>(*args)
+            
+            <a href="../classes/Module.html#method-i-attr" name="method-i-attr" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-attr_source')" id="l_method-i-attr_source">show</a>
+                
+              </p>
+              <div id="method-i-attr_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_attr(int argc, VALUE *argv, VALUE klass)
+{
+    if (argc == 2 &amp;&amp; (argv[1] == Qtrue || argv[1] == Qfalse)) {
+        rb_warning(&quot;optional boolean argument is obsoleted&quot;);
+        rb_attr(klass, rb_to_id(argv[0]), 1, RTEST(argv[1]), TRUE);
+        return Qnil;
+    }
+    return rb_mod_attr_reader(argc, argv, klass);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-attr_accessor">
+            
+              <b>attr_accessor(symbol, ...)    &rarr; nil
+</b>
+            
+            <a href="../classes/Module.html#method-i-attr_accessor" name="method-i-attr_accessor" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Defines a named attribute for this module, where the name is
+<em>symbol.</em><code>id2name</code>, creating an instance variable
+(<code>@name</code>) and a corresponding access method to read it. Also
+creates a method called <code>name=</code> to set the attribute.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Mod</span>
+  <span class="ruby-identifier">attr_accessor</span>(:<span class="ruby-identifier">one</span>, :<span class="ruby-identifier">two</span>)
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">Mod</span>.<span class="ruby-identifier">instance_methods</span>.<span class="ruby-identifier">sort</span>   <span class="ruby-comment">#=&gt; [:one, :one=, :two, :two=]</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-attr_accessor_source')" id="l_method-i-attr_accessor_source">show</a>
+                
+              </p>
+              <div id="method-i-attr_accessor_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_attr_accessor(int argc, VALUE *argv, VALUE klass)
+{
+    int i;
+
+    for (i=0; i&lt;argc; i++) {
+        rb_attr(klass, rb_to_id(argv[i]), TRUE, TRUE, TRUE);
+    }
+    return Qnil;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-attr_reader">
+            
+              <b>attr_reader(symbol, ...)    &rarr; nil
+attr(symbol, ...)             &rarr; nil
+</b>
+            
+            <a href="../classes/Module.html#method-i-attr_reader" name="method-i-attr_reader" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Creates instance variables and corresponding methods that return the value
+of each instance variable. Equivalent to calling
+“<code>attr</code><em>:name</em>&#39;&#39; on each name in turn.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-attr_reader_source')" id="l_method-i-attr_reader_source">show</a>
+                
+              </p>
+              <div id="method-i-attr_reader_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_attr_reader(int argc, VALUE *argv, VALUE klass)
+{
+    int i;
+
+    for (i=0; i&lt;argc; i++) {
+        rb_attr(klass, rb_to_id(argv[i]), TRUE, FALSE, TRUE);
+    }
+    return Qnil;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-attr_writer">
+            
+              <b>attr_writer(symbol, ...)    &rarr; nil
+</b>
+            
+            <a href="../classes/Module.html#method-i-attr_writer" name="method-i-attr_writer" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Creates an accessor method to allow assignment to the attribute
+<em>symbol</em><code>.id2name</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-attr_writer_source')" id="l_method-i-attr_writer_source">show</a>
+                
+              </p>
+              <div id="method-i-attr_writer_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_attr_writer(int argc, VALUE *argv, VALUE klass)
+{
+    int i;
+
+    for (i=0; i&lt;argc; i++) {
+        rb_attr(klass, rb_to_id(argv[i]), FALSE, TRUE, TRUE);
+    }
+    return Qnil;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-define_method">
+            
+              <b>define_method(symbol, method)     &rarr; new_method
+define_method(symbol) { block }   &rarr; proc
+</b>
+            
+            <a href="../classes/Module.html#method-i-define_method" name="method-i-define_method" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Defines an instance method in the receiver. The <em>method</em> parameter
+can be a <code>Proc</code>, a <code>Method</code> or an
+<code>UnboundMethod</code> object. If a block is specified, it is used as
+the method body. This block is evaluated using <code>instance_eval</code>,
+a point that is tricky to demonstrate because <code>define_method</code> is
+private. (This is why we resort to the <code>send</code> hack in this
+example.)</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">A</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">fred</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;In Fred&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">create_method</span>(<span class="ruby-identifier">name</span>, &amp;<span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">send</span>(:<span class="ruby-identifier">define_method</span>, <span class="ruby-identifier">name</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">define_method</span>(:<span class="ruby-identifier">wilma</span>) { <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Charge it!&quot;</span> }
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">B</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">A</span>
+  <span class="ruby-identifier">define_method</span>(:<span class="ruby-identifier">barney</span>, <span class="ruby-identifier">instance_method</span>(:<span class="ruby-identifier">fred</span>))
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">a</span> = <span class="ruby-constant">B</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">barney</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">wilma</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">create_method</span>(:<span class="ruby-identifier">betty</span>) { <span class="ruby-identifier">p</span> <span class="ruby-keyword">self</span> }
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">betty</span>
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>In Fred
+Charge it!
+#&lt;B:0x401b39e8&gt;</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-define_method_source')" id="l_method-i-define_method_source">show</a>
+                
+              </p>
+              <div id="method-i-define_method_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_define_method(int argc, VALUE *argv, VALUE mod)
+{
+    ID id;
+    VALUE body;
+    int noex = NOEX_PUBLIC;
+
+    if (argc == 1) {
+        id = rb_to_id(argv[0]);
+        body = rb_block_lambda();
+    }
+    else {
+        rb_check_arity(argc, 1, 2);
+        id = rb_to_id(argv[0]);
+        body = argv[1];
+        if (!rb_obj_is_method(body) &amp;&amp; !rb_obj_is_proc(body)) {
+            rb_raise(rb_eTypeError,
+                     &quot;wrong argument type %s (expected Proc/Method)&quot;,
+                     rb_obj_classname(body));
+        }
+    }
+
+    if (rb_obj_is_method(body)) {
+        struct METHOD *method = (struct METHOD *)DATA_PTR(body);
+        VALUE rclass = method-&gt;rclass;
+        if (rclass != mod &amp;&amp; !RB_TYPE_P(rclass, T_MODULE) &amp;&amp;
+            !RTEST(rb_class_inherited_p(mod, rclass))) {
+            if (FL_TEST(rclass, FL_SINGLETON)) {
+                rb_raise(rb_eTypeError,
+                         &quot;can&#39;t bind singleton method to a different class&quot;);
+            }
+            else {
+                rb_raise(rb_eTypeError,
+                         &quot;bind argument must be a subclass of %s&quot;,
+                         rb_class2name(rclass));
+            }
+        }
+        rb_method_entry_set(mod, id, method-&gt;me, noex);
+    }
+    else if (rb_obj_is_proc(body)) {
+        rb_proc_t *proc;
+        body = proc_dup(body);
+        GetProcPtr(body, proc);
+        if (BUILTIN_TYPE(proc-&gt;block.iseq) != T_NODE) {
+            proc-&gt;block.iseq-&gt;defined_method_id = id;
+            proc-&gt;block.iseq-&gt;klass = mod;
+            proc-&gt;is_lambda = TRUE;
+            proc-&gt;is_from_method = TRUE;
+            proc-&gt;block.klass = mod;
+        }
+        rb_add_method(mod, id, VM_METHOD_TYPE_BMETHOD, (void *)body, noex);
+    }
+    else {
+        /* type error */
+        rb_raise(rb_eTypeError, &quot;wrong argument type (expected Proc/Method)&quot;);
+    }
+
+    return body;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extend_object">
+            
+              <b>extend_object(obj)    &rarr; obj
+</b>
+            
+            <a href="../classes/Module.html#method-i-extend_object" name="method-i-extend_object" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Extends the specified object by adding this module&#39;s constants and
+methods (which are added as singleton methods). This is the callback method
+used by <code>Object#extend</code>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Picky</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-constant">Picky</span>.<span class="ruby-identifier">extend_object</span>(<span class="ruby-identifier">o</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">String</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">o</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Can&#39;t add Picky to a String&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Picky added to #{o.class}&quot;</span>
+      <span class="ruby-keyword">super</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+(<span class="ruby-identifier">s</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>).<span class="ruby-identifier">extend</span> <span class="ruby-constant">Picky</span>  <span class="ruby-comment"># Call Object.extend</span>
+(<span class="ruby-identifier">s</span> = <span class="ruby-string">&quot;quick brown fox&quot;</span>).<span class="ruby-identifier">extend</span> <span class="ruby-constant">Picky</span>
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>Picky added to Array
+Can&#39;t add Picky to a String</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extend_object_source')" id="l_method-i-extend_object_source">show</a>
+                
+              </p>
+              <div id="method-i-extend_object_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_extend_object(VALUE mod, VALUE obj)
+{
+    rb_extend_object(obj, mod);
+    return obj;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extended">
+            
+              <b>extended</b>(p1)
+            
+            <a href="../classes/Module.html#method-i-extended" name="method-i-extended" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Not documented</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extended_source')" id="l_method-i-extended_source">show</a>
+                
+              </p>
+              <div id="method-i-extended_source" class="dyn-source">
+                <pre>static VALUE
+rb_obj_dummy(void)
+{
+    return Qnil;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-include">
+            
+              <b>include(module, ...)    &rarr; self
+</b>
+            
+            <a href="../classes/Module.html#method-i-include" name="method-i-include" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Invokes <code>Module.append_features</code> on each parameter in reverse
+order.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-include_source')" id="l_method-i-include_source">show</a>
+                
+              </p>
+              <div id="method-i-include_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_include(int argc, VALUE *argv, VALUE module)
+{
+    int i;
+    ID id_append_features, id_included;
+
+    CONST_ID(id_append_features, &quot;append_features&quot;);
+    CONST_ID(id_included, &quot;included&quot;);
+
+    for (i = 0; i &lt; argc; i++)
+        Check_Type(argv[i], T_MODULE);
+    while (argc--) {
+        rb_funcall(argv[argc], id_append_features, 1, module);
+        rb_funcall(argv[argc], id_included, 1, module);
+    }
+    return module;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-included">
+            
+              <b>included( othermod )
+</b>
+            
+            <a href="../classes/Module.html#method-i-included" name="method-i-included" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Callback invoked whenever the receiver is included in another module or
+class. This should be used in preference to
+<code>Module.append_features</code> if your code wants to perform some
+action when a module is included in another.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">A</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-constant">A</span>.<span class="ruby-identifier">included</span>(<span class="ruby-identifier">mod</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{self} included in #{mod}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">module</span> <span class="ruby-constant">Enumerable</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">A</span>
+<span class="ruby-keyword">end</span>
+ <span class="ruby-comment"># =&gt; prints &quot;A included in Enumerable&quot;</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-included_source')" id="l_method-i-included_source">show</a>
+                
+              </p>
+              <div id="method-i-included_source" class="dyn-source">
+                <pre>static VALUE
+rb_obj_dummy(void)
+{
+    return Qnil;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-method_added">
+            
+              <b>method_added(method_name)
+</b>
+            
+            <a href="../classes/Module.html#method-i-method_added" name="method-i-method_added" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Invoked as a callback whenever an instance method is added to the receiver.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Chatty</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">method_added</span>(<span class="ruby-identifier">method_name</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Adding #{method_name.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">some_class_method</span>() <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">some_instance_method</span>() <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>produces:</p>
+
+<pre>Adding :some_instance_method</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-method_added_source')" id="l_method-i-method_added_source">show</a>
+                
+              </p>
+              <div id="method-i-method_added_source" class="dyn-source">
+                <pre>static VALUE
+rb_obj_dummy(void)
+{
+    return Qnil;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-method_removed">
+            
+              <b>method_removed(method_name)
+</b>
+            
+            <a href="../classes/Module.html#method-i-method_removed" name="method-i-method_removed" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Invoked as a callback whenever an instance method is removed from the
+receiver.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Chatty</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">method_removed</span>(<span class="ruby-identifier">method_name</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Removing #{method_name.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">some_class_method</span>() <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">some_instance_method</span>() <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-identifier">remove_method</span> :<span class="ruby-identifier">some_class_method</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">remove_method</span> :<span class="ruby-identifier">some_instance_method</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>produces:</p>
+
+<pre>Removing :some_instance_method</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-method_removed_source')" id="l_method-i-method_removed_source">show</a>
+                
+              </p>
+              <div id="method-i-method_removed_source" class="dyn-source">
+                <pre>static VALUE
+rb_obj_dummy(void)
+{
+    return Qnil;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-method_undefined">
+            
+              <b>method_undefined</b>(p1)
+            
+            <a href="../classes/Module.html#method-i-method_undefined" name="method-i-method_undefined" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Not documented</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-method_undefined_source')" id="l_method-i-method_undefined_source">show</a>
+                
+              </p>
+              <div id="method-i-method_undefined_source" class="dyn-source">
+                <pre>static VALUE
+rb_obj_dummy(void)
+{
+    return Qnil;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-module_function">
+            
+              <b>module_function(symbol, ...)    &rarr; self
+</b>
+            
+            <a href="../classes/Module.html#method-i-module_function" name="method-i-module_function" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Creates module functions for the named methods. These functions may be
+called with the module as a receiver, and also become available as instance
+methods to classes that mix in the module. <a href="Module.html">Module</a>
+functions are copies of the original, and so may be changed independently.
+The instance-method versions are made private. If used with no arguments,
+subsequently defined methods become module functions.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Mod</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">one</span>
+    <span class="ruby-string">&quot;This is one&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">module_function</span> :<span class="ruby-identifier">one</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Cls</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">Mod</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">call_one</span>
+    <span class="ruby-identifier">one</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">Mod</span>.<span class="ruby-identifier">one</span>     <span class="ruby-comment">#=&gt; &quot;This is one&quot;</span>
+<span class="ruby-identifier">c</span> = <span class="ruby-constant">Cls</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">c</span>.<span class="ruby-identifier">call_one</span>  <span class="ruby-comment">#=&gt; &quot;This is one&quot;</span>
+<span class="ruby-keyword">module</span> <span class="ruby-constant">Mod</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">one</span>
+    <span class="ruby-string">&quot;This is the new one&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">Mod</span>.<span class="ruby-identifier">one</span>     <span class="ruby-comment">#=&gt; &quot;This is one&quot;</span>
+<span class="ruby-identifier">c</span>.<span class="ruby-identifier">call_one</span>  <span class="ruby-comment">#=&gt; &quot;This is the new one&quot;</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-module_function_source')" id="l_method-i-module_function_source">show</a>
+                
+              </p>
+              <div id="method-i-module_function_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_modfunc(int argc, VALUE *argv, VALUE module)
+{
+    int i;
+    ID id;
+    const rb_method_entry_t *me;
+
+    if (!RB_TYPE_P(module, T_MODULE)) {
+        rb_raise(rb_eTypeError, &quot;module_function must be called for modules&quot;);
+    }
+
+    secure_visibility(module);
+    if (argc == 0) {
+        SCOPE_SET(NOEX_MODFUNC);
+        return module;
+    }
+
+    set_method_visibility(module, argc, argv, NOEX_PRIVATE);
+
+    for (i = 0; i &lt; argc; i++) {
+        VALUE m = module;
+
+        id = rb_to_id(argv[i]);
+        for (;;) {
+            me = search_method(m, id, 0);
+            if (me == 0) {
+                me = search_method(rb_cObject, id, 0);
+            }
+            if (UNDEFINED_METHOD_ENTRY_P(me)) {
+                rb_print_undef(module, id, 0);
+            }
+            if (me-&gt;def-&gt;type != VM_METHOD_TYPE_ZSUPER) {
+                break; /* normal case: need not to follow &#39;super&#39; link */
+            }
+            m = RCLASS_SUPER(m);
+            if (!m)
+                break;
+        }
+        rb_method_entry_set(rb_singleton_class(module), id, me, NOEX_PUBLIC);
+    }
+    return module;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prepend">
+            
+              <b>prepend(module, ...)    &rarr; self
+</b>
+            
+            <a href="../classes/Module.html#method-i-prepend" name="method-i-prepend" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Invokes <code>Module.prepend_features</code> on each parameter in reverse
+order.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-prepend_source')" id="l_method-i-prepend_source">show</a>
+                
+              </p>
+              <div id="method-i-prepend_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_prepend(int argc, VALUE *argv, VALUE module)
+{
+    int i;
+    ID id_prepend_features, id_prepended;
+
+    CONST_ID(id_prepend_features, &quot;prepend_features&quot;);
+    CONST_ID(id_prepended, &quot;prepended&quot;);
+    for (i = 0; i &lt; argc; i++)
+        Check_Type(argv[i], T_MODULE);
+    while (argc--) {
+        rb_funcall(argv[argc], id_prepend_features, 1, module);
+        rb_funcall(argv[argc], id_prepended, 1, module);
+    }
+    return module;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prepend_features">
+            
+              <b>prepend_features(mod)   &rarr; mod
+</b>
+            
+            <a href="../classes/Module.html#method-i-prepend_features" name="method-i-prepend_features" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>When this module is prepended in another, Ruby calls
+<code>prepend_features</code> in this module, passing it the receiving
+module in <em>mod</em>. Ruby&#39;s default implementation is to overlay the
+constants, methods, and module variables of this module to <em>mod</em> if
+this module has not already been added to <em>mod</em> or one of its
+ancestors. See also <code>Module#prepend</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-prepend_features_source')" id="l_method-i-prepend_features_source">show</a>
+                
+              </p>
+              <div id="method-i-prepend_features_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_prepend_features(VALUE module, VALUE prepend)
+{
+    switch (TYPE(prepend)) {
+      case T_CLASS:
+      case T_MODULE:
+        break;
+      default:
+        Check_Type(prepend, T_CLASS);
+        break;
+    }
+    rb_prepend_module(prepend, module);
+
+    return module;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prepended">
+            
+              <b>prepended( othermod )
+</b>
+            
+            <a href="../classes/Module.html#method-i-prepended" name="method-i-prepended" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The equivalent of <code>included</code>, but for prepended modules.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">A</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prepended</span>(<span class="ruby-identifier">mod</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{self} prepended to #{mod}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">module</span> <span class="ruby-constant">Enumerable</span>
+  <span class="ruby-identifier">prepend</span> <span class="ruby-constant">A</span>
+<span class="ruby-keyword">end</span>
+ <span class="ruby-comment"># =&gt; prints &quot;A prepended to Enumerable&quot;</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-prepended_source')" id="l_method-i-prepended_source">show</a>
+                
+              </p>
+              <div id="method-i-prepended_source" class="dyn-source">
+                <pre>static VALUE
+rb_obj_dummy(void)
+{
+    return Qnil;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-private">
+            
+              <b>private                 &rarr; self
+private(symbol, ...)    &rarr; self
+</b>
+            
+            <a href="../classes/Module.html#method-i-private" name="method-i-private" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>With no arguments, sets the default visibility for subsequently defined
+methods to private. With arguments, sets the named methods to have private
+visibility.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Mod</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">a</span>()  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">b</span>()  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">private</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">c</span>()  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">private</span> :<span class="ruby-identifier">a</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">Mod</span>.<span class="ruby-identifier">private_instance_methods</span>   <span class="ruby-comment">#=&gt; [:a, :c]</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-private_source')" id="l_method-i-private_source">show</a>
+                
+              </p>
+              <div id="method-i-private_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_private(int argc, VALUE *argv, VALUE module)
+{
+    secure_visibility(module);
+    if (argc == 0) {
+        SCOPE_SET(NOEX_PRIVATE);
+    }
+    else {
+        set_method_visibility(module, argc, argv, NOEX_PRIVATE);
+    }
+    return module;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-protected">
+            
+              <b>protected                &rarr; self
+protected(symbol, ...)   &rarr; self
+</b>
+            
+            <a href="../classes/Module.html#method-i-protected" name="method-i-protected" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>With no arguments, sets the default visibility for subsequently defined
+methods to protected. With arguments, sets the named methods to have
+protected visibility.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-protected_source')" id="l_method-i-protected_source">show</a>
+                
+              </p>
+              <div id="method-i-protected_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_protected(int argc, VALUE *argv, VALUE module)
+{
+    secure_visibility(module);
+    if (argc == 0) {
+        SCOPE_SET(NOEX_PROTECTED);
+    }
+    else {
+        set_method_visibility(module, argc, argv, NOEX_PROTECTED);
+    }
+    return module;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-public">
+            
+              <b>public                 &rarr; self
+public(symbol, ...)    &rarr; self
+</b>
+            
+            <a href="../classes/Module.html#method-i-public" name="method-i-public" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>With no arguments, sets the default visibility for subsequently defined
+methods to public. With arguments, sets the named methods to have public
+visibility.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-public_source')" id="l_method-i-public_source">show</a>
+                
+              </p>
+              <div id="method-i-public_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_public(int argc, VALUE *argv, VALUE module)
+{
+    secure_visibility(module);
+    if (argc == 0) {
+        SCOPE_SET(NOEX_PUBLIC);
+    }
+    else {
+        set_method_visibility(module, argc, argv, NOEX_PUBLIC);
+    }
+    return module;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-refine">
+            
+              <b>refine(klass) { block }   &rarr; module
+</b>
+            
+            <a href="../classes/Module.html#method-i-refine" name="method-i-refine" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Refine <em>klass</em> in the receiver.</p>
+
+<p>Returns an overlaid module.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-refine_source')" id="l_method-i-refine_source">show</a>
+                
+              </p>
+              <div id="method-i-refine_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_refine(VALUE module, VALUE klass)
+{
+    VALUE refinement;
+    ID id_refinements, id_activated_refinements,
+       id_refined_class, id_defined_at;
+    VALUE refinements, activated_refinements;
+    rb_thread_t *th = GET_THREAD();
+    rb_block_t *block = rb_vm_control_frame_block_ptr(th-&gt;cfp);
+
+    warn_refinements_once();
+    if (!block) {
+        rb_raise(rb_eArgError, &quot;no block given&quot;);
+    }
+    if (block-&gt;proc) {
+        rb_raise(rb_eArgError,
+                 &quot;can&#39;t pass a Proc as a block to Module#refine&quot;);
+    }
+    Check_Type(klass, T_CLASS);
+    CONST_ID(id_refinements, &quot;__refinements__&quot;);
+    refinements = rb_attr_get(module, id_refinements);
+    if (NIL_P(refinements)) {
+        refinements = hidden_identity_hash_new();
+        rb_ivar_set(module, id_refinements, refinements);
+    }
+    CONST_ID(id_activated_refinements, &quot;__activated_refinements__&quot;);
+    activated_refinements = rb_attr_get(module, id_activated_refinements);
+    if (NIL_P(activated_refinements)) {
+        activated_refinements = hidden_identity_hash_new();
+        rb_ivar_set(module, id_activated_refinements,
+                    activated_refinements);
+    }
+    refinement = rb_hash_lookup(refinements, klass);
+    if (NIL_P(refinement)) {
+        refinement = rb_module_new();
+        RCLASS_SUPER(refinement) = klass;
+        FL_SET(refinement, RMODULE_IS_REFINEMENT);
+        CONST_ID(id_refined_class, &quot;__refined_class__&quot;);
+        rb_ivar_set(refinement, id_refined_class, klass);
+        CONST_ID(id_defined_at, &quot;__defined_at__&quot;);
+        rb_ivar_set(refinement, id_defined_at, module);
+        rb_hash_aset(refinements, klass, refinement);
+        add_activated_refinement(activated_refinements, klass, refinement);
+    }
+    rb_yield_refine_block(refinement, activated_refinements);
+    return refinement;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-remove_const">
+            
+              <b>remove_const(sym)   &rarr; obj
+</b>
+            
+            <a href="../classes/Module.html#method-i-remove_const" name="method-i-remove_const" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Removes the definition of the given constant, returning that constant&#39;s
+previous value.  If that constant referred to a module, this will not
+change that module&#39;s name and can lead to confusion.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-remove_const_source')" id="l_method-i-remove_const_source">show</a>
+                
+              </p>
+              <div id="method-i-remove_const_source" class="dyn-source">
+                <pre>VALUE
+rb_mod_remove_const(VALUE mod, VALUE name)
+{
+    const ID id = rb_check_id(&amp;name);
+
+    if (!id) {
+	if (rb_is_const_name(name)) {
+	    rb_name_error_str(name, &quot;constant %&quot;PRIsVALUE&quot;::%&quot;PRIsVALUE&quot; not defined&quot;,
+			      rb_class_name(mod), name);
+	}
+	else {
+	    rb_name_error_str(name, &quot;`%&quot;PRIsVALUE&quot;&#39; is not allowed as a constant name&quot;,
+			      QUOTE(name));
+	}
+    }
+    if (!rb_is_const_id(id)) {
+	rb_name_error(id, &quot;`%&quot;PRIsVALUE&quot;&#39; is not allowed as a constant name&quot;,
+		      QUOTE_ID(id));
+    }
+    return rb_const_remove(mod, id);
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-remove_method">
+            
+              <b>remove_method(symbol)   &rarr; self
+</b>
+            
+            <a href="../classes/Module.html#method-i-remove_method" name="method-i-remove_method" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Removes the method identified by <em>symbol</em> from the current class.
+For an example, see <code>Module.undef_method</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-remove_method_source')" id="l_method-i-remove_method_source">show</a>
+                
+              </p>
+              <div id="method-i-remove_method_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_remove_method(int argc, VALUE *argv, VALUE mod)
+{
+    int i;
+
+    for (i = 0; i &lt; argc; i++) {
+        VALUE v = argv[i];
+        ID id = rb_check_id(&amp;v);
+        if (!id) {
+            rb_name_error_str(v, &quot;method `%s&#39; not defined in %s&quot;,
+                              RSTRING_PTR(v), rb_class2name(mod));
+        }
+        remove_method(mod, id);
+    }
+    return mod;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-undef_method">
+            
+              <b>undef_method(symbol)    &rarr; self
+</b>
+            
+            <a href="../classes/Module.html#method-i-undef_method" name="method-i-undef_method" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Prevents the current class from responding to calls to the named method.
+Contrast this with <code>remove_method</code>, which deletes the method
+from the particular class; Ruby will still search superclasses and mixed-in
+modules for a possible receiver.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Parent</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">hello</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;In parent&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Child</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Parent</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">hello</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;In child&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">c</span> = <span class="ruby-constant">Child</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">c</span>.<span class="ruby-identifier">hello</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Child</span>
+  <span class="ruby-identifier">remove_method</span> :<span class="ruby-identifier">hello</span>  <span class="ruby-comment"># remove from child, still in parent</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">c</span>.<span class="ruby-identifier">hello</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Child</span>
+  <span class="ruby-identifier">undef_method</span> :<span class="ruby-identifier">hello</span>   <span class="ruby-comment"># prevent any calls to &#39;hello&#39;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">c</span>.<span class="ruby-identifier">hello</span>
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>In child
+In parent
+prog.rb:23: undefined method `hello&#39; for #&lt;Child:0x401b3bb4&gt; (NoMethodError)</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-undef_method_source')" id="l_method-i-undef_method_source">show</a>
+                
+              </p>
+              <div id="method-i-undef_method_source" class="dyn-source">
+                <pre>static VALUE
+rb_mod_undef_method(int argc, VALUE *argv, VALUE mod)
+{
+    int i;
+    for (i = 0; i &lt; argc; i++) {
+        VALUE v = argv[i];
+        ID id = rb_check_id(&amp;v);
+        if (!id) {
+            rb_method_name_error(mod, v);
+        }
+        rb_undef(mod, id);
+    }
+    return mod;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-used">
+            
+              <b>used</b>(p1)
+            
+            <a href="../classes/Module.html#method-i-used" name="method-i-used" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Not documented</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-used_source')" id="l_method-i-used_source">show</a>
+                
+              </p>
+              <div id="method-i-used_source" class="dyn-source">
+                <pre>static VALUE
+rb_obj_dummy(void)
+{
+    return Qnil;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

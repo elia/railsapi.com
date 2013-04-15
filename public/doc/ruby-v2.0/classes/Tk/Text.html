@@ -1,0 +1,3726 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Tk::Text</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Tk::Text 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../TkTextWin.html">TkTextWin</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/ext/tk/lib/tk/text_rb.html">ext/tk/lib/tk/text.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="Text/IndexModMethods.html">Tk::Text::IndexModMethods</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Text/IndexString.html">Tk::Text::IndexString</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-__destroy_hook__">__destroy_hook__</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-__strval_optkeys">__strval_optkeys</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_addcmd">_addcmd</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_addtag">_addtag</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add_tag">add_tag</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-addtag">addtag</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-at">at</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-at">at</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-backspace">backspace</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-bbox">bbox</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-clear">clear</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-compare">compare</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-count">count</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-count_info">count_info</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-create_self">create_self</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-current_image_configinfo">current_image_configinfo</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-debug">debug</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-debug-3D">debug=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-delete_tag">delete_tag</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-deltag">deltag</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-destroy">destroy</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-dlineinfo">dlineinfo</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-edit_redo">edit_redo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-edit_reset">edit_reset</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-edit_separator">edit_separator</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-edit_undo">edit_undo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-erase">erase</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-get_displaychars">get_displaychars</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-image_cget">image_cget</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-image_cget_strict">image_cget_strict</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-image_configinfo">image_configinfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-image_configure">image_configure</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-image_names">image_names</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-index">index</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-init_instance_variable">init_instance_variable</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-insert">insert</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-mark_gravity">mark_gravity</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-mark_names">mark_names</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-mark_next">mark_next</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-mark_previous">mark_previous</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-mark_set">mark_set</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-mark_unset">mark_unset</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-modified">modified</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-modified-3D">modified=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-modified-3F">modified?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-next_mark">next_mark</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-peer_names">peer_names</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-previous_mark">previous_mark</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-replace">replace</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-set_current">set_current</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-set_insert">set_insert</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-set_mark">set_mark</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-tag_add">tag_add</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tag_bind">tag_bind</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tag_bind_append">tag_bind_append</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tag_bind_remove">tag_bind_remove</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tag_bindinfo">tag_bindinfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tag_delete">tag_delete</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tag_lower">tag_lower</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tag_names">tag_names</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tag_nextrange">tag_nextrange</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tag_prevrange">tag_prevrange</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tag_raise">tag_raise</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tag_ranges">tag_ranges</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tag_remove">tag_remove</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tagid">tagid</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tagid2obj">tagid2obj</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-text_copy">text_copy</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-text_cut">text_cut</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-text_paste">text_paste</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-unset_mark">unset_mark</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-value">value</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-value-3D">value=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>X</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-xview_pickplace">xview_pickplace</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>Y</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-yview_pickplace">yview_pickplace</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../TkTextTagConfig.html">
+              TkTextTagConfig
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="Scrollable.html">
+              Tk::Scrollable
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">ItemConfCMD</td>
+            <td>=</td>
+            <td class="attr-value">[&#39;tag&#39;.freeze, &#39;configure&#39;.freeze].freeze</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">TkCommandNames</td>
+            <td>=</td>
+            <td class="attr-value">[&#39;text&#39;.freeze].freeze</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">WidgetClassName</td>
+            <td>=</td>
+            <td class="attr-value">&#39;Text&#39;.freeze</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-at">
+            
+              <b>at</b>(x, y)
+            
+            <a href="../../classes/Tk/Text.html#method-c-at" name="method-c-at" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-at_source')" id="l_method-c-at_source">show</a>
+                
+              </p>
+              <div id="method-c-at_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">at</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-constant">Tk</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span><span class="ruby-operator">::</span><span class="ruby-constant">IndexString</span>.<span class="ruby-identifier">at</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(*args, &amp;block)
+            
+            <a href="../../classes/Tk/Text.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">obj</span> = <span class="ruby-keyword">super</span>(*<span class="ruby-identifier">args</span>){}
+  <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">init_instance_variable</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">TkCore</span><span class="ruby-operator">::</span><span class="ruby-constant">WITH_RUBY_VM</span>  <span class="ruby-comment">### Ruby 1.9 !!!!</span>
+    <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">instance_exec</span>(<span class="ruby-identifier">obj</span>, &amp;<span class="ruby-identifier">block</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">instance_eval</span>(&amp;<span class="ruby-identifier">block</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">obj</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-__destroy_hook__">
+            
+              <b>__destroy_hook__</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-__destroy_hook__" name="method-i-__destroy_hook__" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-__destroy_hook___source')" id="l_method-i-__destroy_hook___source">show</a>
+                
+              </p>
+              <div id="method-i-__destroy_hook___source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 278</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">__destroy_hook__</span>
+  <span class="ruby-constant">TkTextTag</span><span class="ruby-operator">::</span><span class="ruby-constant">TTagID_TBL</span>.<span class="ruby-identifier">mutex</span>.<span class="ruby-identifier">synchronize</span>{
+    <span class="ruby-constant">TkTextTag</span><span class="ruby-operator">::</span><span class="ruby-constant">TTagID_TBL</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-ivar">@path</span>)
+  }
+  <span class="ruby-constant">TkTextTag</span><span class="ruby-operator">::</span><span class="ruby-constant">TMarkID_TBL</span>.<span class="ruby-identifier">mutex</span>.<span class="ruby-identifier">synchronize</span>{
+    <span class="ruby-constant">TkTextMark</span><span class="ruby-operator">::</span><span class="ruby-constant">TMarkID_TBL</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-ivar">@path</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_addcmd">
+            
+              <b>_addcmd</b>(cmd)
+            
+            <a href="../../classes/Tk/Text.html#method-i-_addcmd" name="method-i-_addcmd" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_addcmd_source')" id="l_method-i-_addcmd_source">show</a>
+                
+              </p>
+              <div id="method-i-_addcmd_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 340</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_addcmd</span>(<span class="ruby-identifier">cmd</span>)
+  <span class="ruby-ivar">@cmdtbl</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">cmd</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_addtag">
+            
+              <b>_addtag</b>(name, obj)
+            
+            <a href="../../classes/Tk/Text.html#method-i-_addtag" name="method-i-_addtag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_addtag_source')" id="l_method-i-_addtag_source">show</a>
+                
+              </p>
+              <div id="method-i-_addtag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 344</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_addtag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-ivar">@tags</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">obj</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_tag">
+            
+              <b>add_tag</b>(tag, index1, index2=None)
+            
+            <a href="../../classes/Tk/Text.html#method-i-add_tag" name="method-i-add_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-addtag">
+            
+              <b>addtag</b>(tag, index1, index2=None)
+            
+            <a href="../../classes/Tk/Text.html#method-i-addtag" name="method-i-addtag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-at">
+            
+              <b>at</b>(x, y)
+            
+            <a href="../../classes/Tk/Text.html#method-i-at" name="method-i-at" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-at_source')" id="l_method-i-at_source">show</a>
+                
+              </p>
+              <div id="method-i-at_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 310</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">at</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-constant">Tk</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span><span class="ruby-operator">::</span><span class="ruby-constant">IndexString</span>.<span class="ruby-identifier">at</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-backspace">
+            
+              <b>backspace</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-backspace" name="method-i-backspace" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-backspace_source')" id="l_method-i-backspace_source">show</a>
+                
+              </p>
+              <div id="method-i-backspace_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 620</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">backspace</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">&#39;insert&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-bbox">
+            
+              <b>bbox</b>(index)
+            
+            <a href="../../classes/Tk/Text.html#method-i-bbox" name="method-i-bbox" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-bbox_source')" id="l_method-i-bbox_source">show</a>
+                
+              </p>
+              <div id="method-i-bbox_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 624</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">bbox</span>(<span class="ruby-identifier">index</span>)
+  <span class="ruby-identifier">list</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;bbox&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>)))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-clear">
+            
+              <b>clear</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-clear" name="method-i-clear" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Text.html#method-i-erase">erase</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-clear_source')" id="l_method-i-clear_source">show</a>
+                
+              </p>
+              <div id="method-i-clear_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 334</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">clear</span>
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;delete&#39;</span>, <span class="ruby-string">&quot;1.0&quot;</span>, <span class="ruby-string">&#39;end&#39;</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-compare">
+            
+              <b>compare</b>(idx1, op, idx2)
+            
+            <a href="../../classes/Tk/Text.html#method-i-compare" name="method-i-compare" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-compare_source')" id="l_method-i-compare_source">show</a>
+                
+              </p>
+              <div id="method-i-compare_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 628</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">compare</span>(<span class="ruby-identifier">idx1</span>, <span class="ruby-identifier">op</span>, <span class="ruby-identifier">idx2</span>)
+  <span class="ruby-identifier">bool</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;compare&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">idx1</span>),
+                           <span class="ruby-identifier">op</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">idx2</span>)))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-count">
+            
+              <b>count</b>(idx1, idx2, *opts)
+            
+            <a href="../../classes/Tk/Text.html#method-i-count" name="method-i-count" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-count_source')" id="l_method-i-count_source">show</a>
+                
+              </p>
+              <div id="method-i-count_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 633</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">count</span>(<span class="ruby-identifier">idx1</span>, <span class="ruby-identifier">idx2</span>, *<span class="ruby-identifier">opts</span>)
+  <span class="ruby-comment"># opts are Tk8.5 feature</span>
+  <span class="ruby-identifier">cnt</span> = <span class="ruby-number">0</span>
+  <span class="ruby-identifier">args</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">str</span> = <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-identifier">cnt</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;update&#39;</span>
+    <span class="ruby-string">&#39;-&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">str</span>
+  }
+  <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">idx1</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">idx2</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cnt</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-number">1</span>
+    <span class="ruby-identifier">number</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;count&#39;</span>, *<span class="ruby-identifier">opts</span>))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">list</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;count&#39;</span>, *<span class="ruby-identifier">opts</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-count_info">
+            
+              <b>count_info</b>(idx1, idx2, update=true)
+            
+            <a href="../../classes/Tk/Text.html#method-i-count_info" name="method-i-count_info" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-count_info_source')" id="l_method-i-count_info_source">show</a>
+                
+              </p>
+              <div id="method-i-count_info_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 649</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">count_info</span>(<span class="ruby-identifier">idx1</span>, <span class="ruby-identifier">idx2</span>, <span class="ruby-identifier">update</span>=<span class="ruby-keyword">true</span>)
+  <span class="ruby-comment"># Tk8.5 feature</span>
+  <span class="ruby-identifier">opts</span> = [
+    <span class="ruby-value">:chars</span>, <span class="ruby-value">:displaychars</span>, <span class="ruby-value">:displayindices</span>, <span class="ruby-value">:displaylines</span>,
+    <span class="ruby-value">:indices</span>, <span class="ruby-value">:lines</span>, <span class="ruby-value">:xpixels</span>, <span class="ruby-value">:ypixels</span>
+  ]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">update</span>
+    <span class="ruby-identifier">lst</span> = <span class="ruby-identifier">count</span>(<span class="ruby-identifier">idx1</span>, <span class="ruby-identifier">idx2</span>, <span class="ruby-value">:update</span>, *<span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">lst</span> = <span class="ruby-identifier">count</span>(<span class="ruby-identifier">idx1</span>, <span class="ruby-identifier">idx2</span>, *<span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">info</span> = {}
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">each_with_index</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span> <span class="ruby-identifier">info</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">lst</span>[<span class="ruby-identifier">idx</span>]}
+  <span class="ruby-identifier">info</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-current_image_configinfo">
+            
+              <b>current_image_configinfo</b>(index, slot = nil)
+            
+            <a href="../../classes/Tk/Text.html#method-i-current_image_configinfo" name="method-i-current_image_configinfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-current_image_configinfo_source')" id="l_method-i-current_image_configinfo_source">show</a>
+                
+              </p>
+              <div id="method-i-current_image_configinfo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 555</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">current_image_configinfo</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">slot</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">TkComm</span><span class="ruby-operator">::</span><span class="ruby-constant">GET_CONFIGINFO_AS_ARRAY</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">slot</span>
+      <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">image_configinfo</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">slot</span>)
+      {<span class="ruby-identifier">conf</span>[<span class="ruby-number">0</span>] =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">conf</span>[<span class="ruby-number">4</span>]}
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ret</span> = {}
+      <span class="ruby-identifier">image_configinfo</span>(<span class="ruby-identifier">index</span>).<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">conf</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">ret</span>[<span class="ruby-identifier">conf</span>[<span class="ruby-number">0</span>]] = <span class="ruby-identifier">conf</span>[<span class="ruby-number">4</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">2</span>
+      }
+      <span class="ruby-identifier">ret</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span> <span class="ruby-comment"># ! TkComm::GET_CONFIGINFO_AS_ARRAY</span>
+    <span class="ruby-identifier">ret</span> = {}
+    <span class="ruby-identifier">image_configinfo</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">slot</span>).<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">conf</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">ret</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">conf</span>[<span class="ruby-number">-1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+    }
+    <span class="ruby-identifier">ret</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-debug">
+            
+              <b>debug</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-debug" name="method-i-debug" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-debug_source')" id="l_method-i-debug_source">show</a>
+                
+              </p>
+              <div id="method-i-debug_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 675</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">debug</span>
+  <span class="ruby-identifier">bool</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;debug&#39;</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-debug-3D">
+            
+              <b>debug=</b>(boolean)
+            
+            <a href="../../classes/Tk/Text.html#method-i-debug-3D" name="method-i-debug-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-debug-3D_source')" id="l_method-i-debug-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-debug-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 678</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">debug=</span>(<span class="ruby-identifier">boolean</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;debug&#39;</span>, <span class="ruby-identifier">boolean</span>)
+  <span class="ruby-comment">#self</span>
+  <span class="ruby-identifier">boolean</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-delete_tag">
+            
+              <b>delete_tag</b>(*tags)
+            
+            <a href="../../classes/Tk/Text.html#method-i-delete_tag" name="method-i-delete_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-deltag">
+            
+              <b>deltag</b>(*tags)
+            
+            <a href="../../classes/Tk/Text.html#method-i-deltag" name="method-i-deltag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-destroy">
+            
+              <b>destroy</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-destroy" name="method-i-destroy" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-destroy_source')" id="l_method-i-destroy_source">show</a>
+                
+              </p>
+              <div id="method-i-destroy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 612</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">destroy</span>
+  <span class="ruby-ivar">@tags</span> = {} <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@tags</span>
+  <span class="ruby-ivar">@tags</span>.<span class="ruby-identifier">each_value</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">destroy</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">super</span>()
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-dlineinfo">
+            
+              <b>dlineinfo</b>(index)
+            
+            <a href="../../classes/Tk/Text.html#method-i-dlineinfo" name="method-i-dlineinfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-dlineinfo_source')" id="l_method-i-dlineinfo_source">show</a>
+                
+              </p>
+              <div id="method-i-dlineinfo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 684</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">dlineinfo</span>(<span class="ruby-identifier">index</span>)
+  <span class="ruby-identifier">list</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;dlineinfo&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>)))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-edit_redo">
+            
+              <b>edit_redo</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-edit_redo" name="method-i-edit_redo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-edit_redo_source')" id="l_method-i-edit_redo_source">show</a>
+                
+              </p>
+              <div id="method-i-edit_redo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 700</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">edit_redo</span>
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;edit&#39;</span>, <span class="ruby-string">&#39;redo&#39;</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-edit_reset">
+            
+              <b>edit_reset</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-edit_reset" name="method-i-edit_reset" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-edit_reset_source')" id="l_method-i-edit_reset_source">show</a>
+                
+              </p>
+              <div id="method-i-edit_reset_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 704</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">edit_reset</span>
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;edit&#39;</span>, <span class="ruby-string">&#39;reset&#39;</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-edit_separator">
+            
+              <b>edit_separator</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-edit_separator" name="method-i-edit_separator" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-edit_separator_source')" id="l_method-i-edit_separator_source">show</a>
+                
+              </p>
+              <div id="method-i-edit_separator_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 708</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">edit_separator</span>
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;edit&#39;</span>, <span class="ruby-string">&#39;separator&#39;</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-edit_undo">
+            
+              <b>edit_undo</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-edit_undo" name="method-i-edit_undo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-edit_undo_source')" id="l_method-i-edit_undo_source">show</a>
+                
+              </p>
+              <div id="method-i-edit_undo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 712</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">edit_undo</span>
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;edit&#39;</span>, <span class="ruby-string">&#39;undo&#39;</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-erase">
+            
+              <b>erase</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-erase" name="method-i-erase" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_displaychars">
+            
+              <b>get_displaychars</b>(*index)
+            
+            <a href="../../classes/Tk/Text.html#method-i-get_displaychars" name="method-i-get_displaychars" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_displaychars_source')" id="l_method-i-get_displaychars_source">show</a>
+                
+              </p>
+              <div id="method-i-get_displaychars_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 319</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_displaychars</span>(*<span class="ruby-identifier">index</span>)
+  <span class="ruby-comment"># Tk8.5 feature</span>
+  <span class="ruby-identifier">get</span>(<span class="ruby-string">&#39;-displaychars&#39;</span>, *<span class="ruby-identifier">index</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-image_cget">
+            
+              <b>image_cget</b>(index, slot)
+            
+            <a href="../../classes/Tk/Text.html#method-i-image_cget" name="method-i-image_cget" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-image_cget_source')" id="l_method-i-image_cget_source">show</a>
+                
+              </p>
+              <div id="method-i-image_cget_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 430</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">image_cget</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">slot</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">TkItemConfigMethod</span>.<span class="ruby-identifier">__IGNORE_UNKNOWN_CONFIGURE_OPTION__</span>
+    <span class="ruby-identifier">image_cget_strict</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">slot</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">image_cget_strict</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">slot</span>)
+    <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_image_configinfo</span>(<span class="ruby-identifier">index</span>).<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">slot</span>.<span class="ruby-identifier">to_s</span>)
+          <span class="ruby-comment"># not tag error &amp; option is known -&gt; error on known option</span>
+          <span class="ruby-identifier">fail</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-comment"># not tag error &amp; option is unknown</span>
+          <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">rescue</span>
+        <span class="ruby-identifier">fail</span> <span class="ruby-identifier">e</span>  <span class="ruby-comment"># tag error</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-image_cget_strict">
+            
+              <b>image_cget_strict</b>(index, slot)
+            
+            <a href="../../classes/Tk/Text.html#method-i-image_cget_strict" name="method-i-image_cget_strict" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-image_cget_strict_source')" id="l_method-i-image_cget_strict_source">show</a>
+                
+              </p>
+              <div id="method-i-image_cget_strict_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 418</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">image_cget_strict</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">slot</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">slot</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;text&#39;</span>, <span class="ruby-string">&#39;label&#39;</span>, <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-string">&#39;data&#39;</span>, <span class="ruby-string">&#39;file&#39;</span>
+    <span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;image&#39;</span>, <span class="ruby-string">&#39;cget&#39;</span>,
+                                  <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>), <span class="ruby-node">&quot;-#{slot}&quot;</span>))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">tk_tcl2ruby</span>(<span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;image&#39;</span>, <span class="ruby-string">&#39;cget&#39;</span>,
+                                              <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>),
+                                              <span class="ruby-node">&quot;-#{slot}&quot;</span>)))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-image_configinfo">
+            
+              <b>image_configinfo</b>(index, slot = nil)
+            
+            <a href="../../classes/Tk/Text.html#method-i-image_configinfo" name="method-i-image_configinfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-image_configinfo_source')" id="l_method-i-image_configinfo_source">show</a>
+                
+              </p>
+              <div id="method-i-image_configinfo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 466</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">image_configinfo</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">slot</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">TkComm</span><span class="ruby-operator">::</span><span class="ruby-constant">GET_CONFIGINFO_AS_ARRAY</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">slot</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">slot</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;text&#39;</span>, <span class="ruby-string">&#39;label&#39;</span>, <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-string">&#39;data&#39;</span>, <span class="ruby-string">&#39;file&#39;</span>
+        <span class="ruby-comment">#conf = tk_split_simplelist(_fromUTF8(tk_send_without_enc(&#39;image&#39;, &#39;configure&#39;, _get_eval_enc_str(index), &quot;-#{slot}&quot;)))</span>
+        <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;image&#39;</span>, <span class="ruby-string">&#39;configure&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>), <span class="ruby-node">&quot;-#{slot}&quot;</span>), <span class="ruby-keyword">false</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-comment">#conf = tk_split_list(_fromUTF8(tk_send_without_enc(&#39;image&#39;, &#39;configure&#39;, _get_eval_enc_str(index), &quot;-#{slot}&quot;)))</span>
+        <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tk_split_list</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;image&#39;</span>, <span class="ruby-string">&#39;configure&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>), <span class="ruby-node">&quot;-#{slot}&quot;</span>), <span class="ruby-number">0</span>, <span class="ruby-keyword">false</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">conf</span>[<span class="ruby-number">0</span>] = <span class="ruby-identifier">conf</span>[<span class="ruby-number">0</span>][<span class="ruby-number">1</span><span class="ruby-operator">..</span><span class="ruby-number">-1</span>]
+      <span class="ruby-identifier">conf</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># tk_split_simplelist(_fromUTF8(tk_send_without_enc(&#39;image&#39;, &#39;configure&#39;, _get_eval_enc_str(index)))).collect{|conflist|</span>
+      <span class="ruby-comment">#  conf = tk_split_simplelist(conflist)</span>
+      <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;image&#39;</span>, <span class="ruby-string">&#39;configure&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>)), <span class="ruby-keyword">false</span>, <span class="ruby-keyword">false</span>).<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">conflist</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">conflist</span>, <span class="ruby-keyword">false</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">conf</span>[<span class="ruby-number">0</span>] = <span class="ruby-identifier">conf</span>[<span class="ruby-number">0</span>][<span class="ruby-number">1</span><span class="ruby-operator">..</span><span class="ruby-number">-1</span>]
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">conf</span>[<span class="ruby-number">0</span>]
+        <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;text&#39;</span>, <span class="ruby-string">&#39;label&#39;</span>, <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-string">&#39;data&#39;</span>, <span class="ruby-string">&#39;file&#39;</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-number">3</span>]
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-number">3</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;{&#39;</span>)
+              <span class="ruby-identifier">conf</span>[<span class="ruby-number">3</span>] = <span class="ruby-identifier">tk_split_list</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-number">3</span>])
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">conf</span>[<span class="ruby-number">3</span>] = <span class="ruby-identifier">tk_tcl2ruby</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-number">3</span>])
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-number">4</span>]
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-number">4</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;{&#39;</span>)
+              <span class="ruby-identifier">conf</span>[<span class="ruby-number">4</span>] = <span class="ruby-identifier">tk_split_list</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-number">4</span>])
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">conf</span>[<span class="ruby-number">4</span>] = <span class="ruby-identifier">tk_tcl2ruby</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-number">4</span>])
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">conf</span>[<span class="ruby-number">1</span>] = <span class="ruby-identifier">conf</span>[<span class="ruby-number">1</span>][<span class="ruby-number">1</span><span class="ruby-operator">..</span><span class="ruby-number">-1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-number">2</span> <span class="ruby-comment"># alias info</span>
+        <span class="ruby-identifier">conf</span>
+      }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span> <span class="ruby-comment"># ! TkComm::GET_CONFIGINFO_AS_ARRAY</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">slot</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">slot</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;text&#39;</span>, <span class="ruby-string">&#39;label&#39;</span>, <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-string">&#39;data&#39;</span>, <span class="ruby-string">&#39;file&#39;</span>
+        <span class="ruby-comment">#conf = tk_split_simplelist(_fromUTF8(tk_send_without_enc(&#39;image&#39;, &#39;configure&#39;, _get_eval_enc_str(index), &quot;-#{slot}&quot;)))</span>
+        <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;image&#39;</span>, <span class="ruby-string">&#39;configure&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>), <span class="ruby-node">&quot;-#{slot}&quot;</span>), <span class="ruby-keyword">false</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-comment">#conf = tk_split_list(_fromUTF8(tk_send_without_enc(&#39;image&#39;, &#39;configure&#39;, _get_eval_enc_str(index), &quot;-#{slot}&quot;)))</span>
+        <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tk_split_list</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;image&#39;</span>, <span class="ruby-string">&#39;configure&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>), <span class="ruby-node">&quot;-#{slot}&quot;</span>), <span class="ruby-number">0</span>, <span class="ruby-keyword">false</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">key</span> = <span class="ruby-identifier">conf</span>.<span class="ruby-identifier">shift</span>[<span class="ruby-number">1</span><span class="ruby-operator">..</span><span class="ruby-number">-1</span>]
+      { <span class="ruby-identifier">key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">conf</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ret</span> = {}
+      <span class="ruby-comment">#tk_split_simplelist(_fromUTF8(tk_send_without_enc(&#39;image&#39;, &#39;configure&#39;, _get_eval_enc_str(index)))).each{|conflist|</span>
+      <span class="ruby-comment">#  conf = tk_split_simplelist(conflist)</span>
+      <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;image&#39;</span>, <span class="ruby-string">&#39;configure&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>)), <span class="ruby-keyword">false</span>, <span class="ruby-keyword">false</span>).<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">conflist</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">conflist</span>, <span class="ruby-keyword">false</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">conf</span>.<span class="ruby-identifier">shift</span>[<span class="ruby-number">1</span><span class="ruby-operator">..</span><span class="ruby-number">-1</span>]
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">key</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;text&#39;</span>, <span class="ruby-string">&#39;label&#39;</span>, <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-string">&#39;data&#39;</span>, <span class="ruby-string">&#39;file&#39;</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-number">2</span>]
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-number">2</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;{&#39;</span>)
+              <span class="ruby-identifier">conf</span>[<span class="ruby-number">2</span>] = <span class="ruby-identifier">tk_split_list</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-number">2</span>])
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">conf</span>[<span class="ruby-number">2</span>] = <span class="ruby-identifier">tk_tcl2ruby</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-number">2</span>])
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-number">3</span>]
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-number">3</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;{&#39;</span>)
+              <span class="ruby-identifier">conf</span>[<span class="ruby-number">3</span>] = <span class="ruby-identifier">tk_split_list</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-number">3</span>])
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">conf</span>[<span class="ruby-number">3</span>] = <span class="ruby-identifier">tk_tcl2ruby</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-number">3</span>])
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-number">1</span>
+          <span class="ruby-identifier">ret</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">conf</span>[<span class="ruby-number">0</span>][<span class="ruby-number">1</span><span class="ruby-operator">..</span><span class="ruby-number">-1</span>]  <span class="ruby-comment"># alias info</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">ret</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">conf</span>
+        <span class="ruby-keyword">end</span>
+      }
+      <span class="ruby-identifier">ret</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-image_configure">
+            
+              <b>image_configure</b>(index, slot, value=None)
+            
+            <a href="../../classes/Tk/Text.html#method-i-image_configure" name="method-i-image_configure" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-image_configure_source')" id="l_method-i-image_configure_source">show</a>
+                
+              </p>
+              <div id="method-i-image_configure_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 452</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">image_configure</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">slot</span>, <span class="ruby-identifier">value</span>=<span class="ruby-constant">None</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">slot</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;image&#39;</span>, <span class="ruby-string">&#39;configure&#39;</span>,
+                                  <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>),
+                                  *<span class="ruby-identifier">hash_kv</span>(<span class="ruby-identifier">slot</span>, <span class="ruby-keyword">true</span>)))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;image&#39;</span>, <span class="ruby-string">&#39;configure&#39;</span>,
+                                  <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>),
+                                  <span class="ruby-node">&quot;-#{slot}&quot;</span>,
+                                  <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">value</span>)))
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-image_names">
+            
+              <b>image_names</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-image_names" name="method-i-image_names" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-image_names_source')" id="l_method-i-image_names_source">show</a>
+                
+              </p>
+              <div id="method-i-image_names_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 576</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">image_names</span>
+  <span class="ruby-comment">#tk_split_simplelist(_fromUTF8(tk_send_without_enc(&#39;image&#39;, &#39;names&#39;))).collect{|elt|</span>
+  <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;image&#39;</span>, <span class="ruby-string">&#39;names&#39;</span>), <span class="ruby-keyword">false</span>, <span class="ruby-keyword">true</span>).<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">elt</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">tagid2obj</span>(<span class="ruby-identifier">elt</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-index">
+            
+              <b>index</b>(idx)
+            
+            <a href="../../classes/Tk/Text.html#method-i-index" name="method-i-index" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-index_source')" id="l_method-i-index_source">show</a>
+                
+              </p>
+              <div id="method-i-index_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 314</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">index</span>(<span class="ruby-identifier">idx</span>)
+  <span class="ruby-constant">Tk</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span><span class="ruby-operator">::</span><span class="ruby-constant">IndexString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;index&#39;</span>,
+                                                <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">idx</span>)))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-init_instance_variable">
+            
+              <b>init_instance_variable</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-init_instance_variable" name="method-i-init_instance_variable" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-init_instance_variable_source')" id="l_method-i-init_instance_variable_source">show</a>
+                
+              </p>
+              <div id="method-i-init_instance_variable_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 273</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">init_instance_variable</span>
+  <span class="ruby-ivar">@cmdtbl</span> = []
+  <span class="ruby-ivar">@tags</span> = {}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-insert">
+            
+              <b>insert</b>(index, chars, *tags)
+            
+            <a href="../../classes/Tk/Text.html#method-i-insert" name="method-i-insert" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-insert_source')" id="l_method-i-insert_source">show</a>
+                
+              </p>
+              <div id="method-i-insert_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 593</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">insert</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">chars</span>, *<span class="ruby-identifier">tags</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">tags</span>[<span class="ruby-number">0</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-comment"># multiple chars-taglist argument :: str, [tag,...], str, [tag,...], ...</span>
+    <span class="ruby-identifier">args</span> = [<span class="ruby-identifier">chars</span>]
+    <span class="ruby-keyword">while</span> <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>
+      <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">shift</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span><span class="ruby-identifier">_get_eval_string</span>(<span class="ruby-identifier">x</span>)}.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)  <span class="ruby-comment"># taglist</span>
+      <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">shift</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>                           <span class="ruby-comment"># chars</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">index</span>, *<span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># single chars-taglist argument :: str, tag, tag, ...</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+      <span class="ruby-keyword">super</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">chars</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">super</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">chars</span>, <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span><span class="ruby-identifier">_get_eval_string</span>(<span class="ruby-identifier">x</span>)}.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>))
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mark_gravity">
+            
+              <b>mark_gravity</b>(mark, direction=nil)
+            
+            <a href="../../classes/Tk/Text.html#method-i-mark_gravity" name="method-i-mark_gravity" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mark_gravity_source')" id="l_method-i-mark_gravity_source">show</a>
+                
+              </p>
+              <div id="method-i-mark_gravity_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 382</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mark_gravity</span>(<span class="ruby-identifier">mark</span>, <span class="ruby-identifier">direction</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">direction</span>
+    <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;mark&#39;</span>, <span class="ruby-string">&#39;gravity&#39;</span>,
+                        <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">mark</span>), <span class="ruby-identifier">direction</span>)
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;mark&#39;</span>, <span class="ruby-string">&#39;gravity&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">mark</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mark_names">
+            
+              <b>mark_names</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-mark_names" name="method-i-mark_names" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mark_names_source')" id="l_method-i-mark_names_source">show</a>
+                
+              </p>
+              <div id="method-i-mark_names_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 375</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mark_names</span>
+  <span class="ruby-comment">#tk_split_simplelist(_fromUTF8(tk_send_without_enc(&#39;mark&#39;, &#39;names&#39;))).collect{|elt|</span>
+  <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;mark&#39;</span>, <span class="ruby-string">&#39;names&#39;</span>), <span class="ruby-keyword">false</span>, <span class="ruby-keyword">true</span>).<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">elt</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">tagid2obj</span>(<span class="ruby-identifier">elt</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mark_next">
+            
+              <b>mark_next</b>(index)
+            
+            <a href="../../classes/Tk/Text.html#method-i-mark_next" name="method-i-mark_next" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Text.html#method-i-next_mark">next_mark</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mark_next_source')" id="l_method-i-mark_next_source">show</a>
+                
+              </p>
+              <div id="method-i-mark_next_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 406</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mark_next</span>(<span class="ruby-identifier">index</span>)
+  <span class="ruby-identifier">tagid2obj</span>(<span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;mark&#39;</span>, <span class="ruby-string">&#39;next&#39;</span>,
+                                          <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>))))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mark_previous">
+            
+              <b>mark_previous</b>(index)
+            
+            <a href="../../classes/Tk/Text.html#method-i-mark_previous" name="method-i-mark_previous" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Text.html#method-i-previous_mark">previous_mark</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mark_previous_source')" id="l_method-i-mark_previous_source">show</a>
+                
+              </p>
+              <div id="method-i-mark_previous_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 412</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mark_previous</span>(<span class="ruby-identifier">index</span>)
+  <span class="ruby-identifier">tagid2obj</span>(<span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;mark&#39;</span>, <span class="ruby-string">&#39;previous&#39;</span>,
+                                          <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>))))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mark_set">
+            
+              <b>mark_set</b>(mark, index)
+            
+            <a href="../../classes/Tk/Text.html#method-i-mark_set" name="method-i-mark_set" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Text.html#method-i-set_mark">set_mark</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mark_set_source')" id="l_method-i-mark_set_source">show</a>
+                
+              </p>
+              <div id="method-i-mark_set_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 392</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mark_set</span>(<span class="ruby-identifier">mark</span>, <span class="ruby-identifier">index</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;mark&#39;</span>, <span class="ruby-string">&#39;set&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">mark</span>),
+                      <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>))
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mark_unset">
+            
+              <b>mark_unset</b>(*marks)
+            
+            <a href="../../classes/Tk/Text.html#method-i-mark_unset" name="method-i-mark_unset" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Text.html#method-i-unset_mark">unset_mark</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mark_unset_source')" id="l_method-i-mark_unset_source">show</a>
+                
+              </p>
+              <div id="method-i-mark_unset_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 399</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mark_unset</span>(*<span class="ruby-identifier">marks</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;mark&#39;</span>, <span class="ruby-string">&#39;unset&#39;</span>,
+                      *(<span class="ruby-identifier">marks</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">mark</span><span class="ruby-operator">|</span> <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">mark</span>)}))
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-modified">
+            
+              <b>modified</b>(mode)
+            
+            <a href="../../classes/Tk/Text.html#method-i-modified" name="method-i-modified" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-modified_source')" id="l_method-i-modified_source">show</a>
+                
+              </p>
+              <div id="method-i-modified_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 691</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">modified</span>(<span class="ruby-identifier">mode</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;edit&#39;</span>, <span class="ruby-string">&#39;modified&#39;</span>, <span class="ruby-identifier">mode</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-modified-3D">
+            
+              <b>modified=</b>(mode)
+            
+            <a href="../../classes/Tk/Text.html#method-i-modified-3D" name="method-i-modified-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-modified-3D_source')" id="l_method-i-modified-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-modified-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 695</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">modified=</span>(<span class="ruby-identifier">mode</span>)
+  <span class="ruby-identifier">modified</span>(<span class="ruby-identifier">mode</span>)
+  <span class="ruby-identifier">mode</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-modified-3F">
+            
+              <b>modified?</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-modified-3F" name="method-i-modified-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-modified-3F_source')" id="l_method-i-modified-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-modified-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 688</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">modified?</span>
+  <span class="ruby-identifier">bool</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;edit&#39;</span>, <span class="ruby-string">&#39;modified&#39;</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-next_mark">
+            
+              <b>next_mark</b>(index)
+            
+            <a href="../../classes/Tk/Text.html#method-i-next_mark" name="method-i-next_mark" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-peer_names">
+            
+              <b>peer_names</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-peer_names" name="method-i-peer_names" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-peer_names_source')" id="l_method-i-peer_names_source">show</a>
+                
+              </p>
+              <div id="method-i-peer_names_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 665</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">peer_names</span>()
+  <span class="ruby-comment"># Tk8.5 feature</span>
+  <span class="ruby-identifier">list</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;peer&#39;</span>, <span class="ruby-string">&#39;names&#39;</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-previous_mark">
+            
+              <b>previous_mark</b>(index)
+            
+            <a href="../../classes/Tk/Text.html#method-i-previous_mark" name="method-i-previous_mark" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-replace">
+            
+              <b>replace</b>(idx1, idx2, *opts)
+            
+            <a href="../../classes/Tk/Text.html#method-i-replace" name="method-i-replace" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-replace_source')" id="l_method-i-replace_source">show</a>
+                
+              </p>
+              <div id="method-i-replace_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 670</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">replace</span>(<span class="ruby-identifier">idx1</span>, <span class="ruby-identifier">idx2</span>, *<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">tk_send</span>(<span class="ruby-string">&#39;replace&#39;</span>, <span class="ruby-identifier">idx1</span>, <span class="ruby-identifier">idx2</span>, *<span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-set_current">
+            
+              <b>set_current</b>(index)
+            
+            <a href="../../classes/Tk/Text.html#method-i-set_current" name="method-i-set_current" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-set_current_source')" id="l_method-i-set_current_source">show</a>
+                
+              </p>
+              <div id="method-i-set_current_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 588</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">set_current</span>(<span class="ruby-identifier">index</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;mark&#39;</span>,<span class="ruby-string">&#39;set&#39;</span>,<span class="ruby-string">&#39;current&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>))
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-set_insert">
+            
+              <b>set_insert</b>(index)
+            
+            <a href="../../classes/Tk/Text.html#method-i-set_insert" name="method-i-set_insert" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-set_insert_source')" id="l_method-i-set_insert_source">show</a>
+                
+              </p>
+              <div id="method-i-set_insert_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 583</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">set_insert</span>(<span class="ruby-identifier">index</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;mark&#39;</span>,<span class="ruby-string">&#39;set&#39;</span>,<span class="ruby-string">&#39;insert&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>))
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-set_mark">
+            
+              <b>set_mark</b>(mark, index)
+            
+            <a href="../../classes/Tk/Text.html#method-i-set_mark" name="method-i-set_mark" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_add">
+            
+              <b>tag_add</b>(tag, index1, index2=None)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tag_add" name="method-i-tag_add" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Text.html#method-i-addtag">addtag</a>, <a href="Text.html#method-i-add_tag">add_tag</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_add_source')" id="l_method-i-tag_add_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_add_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 745</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_add</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">index1</span>, <span class="ruby-identifier">index2</span>=<span class="ruby-constant">None</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;add&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>),
+                      <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index1</span>),
+                      <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index2</span>))
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_bind">
+            
+              <b>tag_bind</b>(tag, seq, *args)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tag_bind" name="method-i-tag_bind" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>def <a href="Text.html#method-i-tag_bind">#tag_bind</a>(tag, seq, cmd=<a
+href="../Proc.html#method-c-new">Proc.new</a>, *args)</p>
+
+<pre>_bind([@path, &#39;tag&#39;, &#39;bind&#39;, tag], seq, cmd, *args)
+self</pre>
+
+<p>end</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_bind_source')" id="l_method-i-tag_bind_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_bind_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 777</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_bind</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">seq</span>, *<span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># if args[0].kind_of?(Proc) || args[0].kind_of?(Method)</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">TkComm</span>.<span class="ruby-identifier">_callback_entry?</span>(<span class="ruby-identifier">args</span>[<span class="ruby-number">0</span>]) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">cmd</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">cmd</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">_bind</span>([<span class="ruby-ivar">@path</span>, <span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;bind&#39;</span>, <span class="ruby-identifier">tag</span>], <span class="ruby-identifier">seq</span>, <span class="ruby-identifier">cmd</span>, *<span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_bind_append">
+            
+              <b>tag_bind_append</b>(tag, seq, *args)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tag_bind_append" name="method-i-tag_bind_append" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>def <a href="Text.html#method-i-tag_bind_append">#tag_bind_append</a>(tag,
+seq, cmd=<a href="../Proc.html#method-c-new">Proc.new</a>, *args)</p>
+
+<pre>_bind_append([@path, &#39;tag&#39;, &#39;bind&#39;, tag], seq, cmd, *args)
+self</pre>
+
+<p>end</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_bind_append_source')" id="l_method-i-tag_bind_append_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_bind_append_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 792</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_bind_append</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">seq</span>, *<span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># if args[0].kind_of?(Proc) || args[0].kind_of?(Method)</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">TkComm</span>.<span class="ruby-identifier">_callback_entry?</span>(<span class="ruby-identifier">args</span>[<span class="ruby-number">0</span>]) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">cmd</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">cmd</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">_bind_append</span>([<span class="ruby-ivar">@path</span>, <span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;bind&#39;</span>, <span class="ruby-identifier">tag</span>], <span class="ruby-identifier">seq</span>, <span class="ruby-identifier">cmd</span>, *<span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_bind_remove">
+            
+              <b>tag_bind_remove</b>(tag, seq)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tag_bind_remove" name="method-i-tag_bind_remove" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_bind_remove_source')" id="l_method-i-tag_bind_remove_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_bind_remove_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 803</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_bind_remove</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">seq</span>)
+  <span class="ruby-identifier">_bind_remove</span>([<span class="ruby-ivar">@path</span>, <span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;bind&#39;</span>, <span class="ruby-identifier">tag</span>], <span class="ruby-identifier">seq</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_bindinfo">
+            
+              <b>tag_bindinfo</b>(tag, context=nil)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tag_bindinfo" name="method-i-tag_bindinfo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_bindinfo_source')" id="l_method-i-tag_bindinfo_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_bindinfo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 808</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_bindinfo</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">context</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">_bindinfo</span>([<span class="ruby-ivar">@path</span>, <span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;bind&#39;</span>, <span class="ruby-identifier">tag</span>], <span class="ruby-identifier">context</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_delete">
+            
+              <b>tag_delete</b>(*tags)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tag_delete" name="method-i-tag_delete" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Text.html#method-i-deltag">deltag</a>, <a href="Text.html#method-i-delete_tag">delete_tag</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_delete_source')" id="l_method-i-tag_delete_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_delete_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 754</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_delete</span>(*<span class="ruby-identifier">tags</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;delete&#39;</span>,
+                      *(<span class="ruby-identifier">tags</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">tag</span><span class="ruby-operator">|</span> <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>)}))
+  <span class="ruby-constant">TkTextTag</span><span class="ruby-operator">::</span><span class="ruby-constant">TTagID_TBL</span>.<span class="ruby-identifier">mutex</span>.<span class="ruby-identifier">synchronize</span>{
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">TkTextTag</span><span class="ruby-operator">::</span><span class="ruby-constant">TTagID_TBL</span>[<span class="ruby-ivar">@path</span>]
+      <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">tag</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">TkTextTag</span>)
+          <span class="ruby-constant">TkTextTag</span><span class="ruby-operator">::</span><span class="ruby-constant">TTagID_TBL</span>[<span class="ruby-ivar">@path</span>].<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">tag</span>.<span class="ruby-identifier">id</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-constant">TkTextTag</span><span class="ruby-operator">::</span><span class="ruby-constant">TTagID_TBL</span>[<span class="ruby-ivar">@path</span>].<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">tag</span>)
+        <span class="ruby-keyword">end</span>
+      }
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_lower">
+            
+              <b>tag_lower</b>(tag, below=None)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tag_lower" name="method-i-tag_lower" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_lower_source')" id="l_method-i-tag_lower_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_lower_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 994</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_lower</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">below</span>=<span class="ruby-constant">None</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;lower&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>),
+                      <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">below</span>))
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_names">
+            
+              <b>tag_names</b>(index=None)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tag_names" name="method-i-tag_names" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_names_source')" id="l_method-i-tag_names_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_names_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 368</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_names</span>(<span class="ruby-identifier">index</span>=<span class="ruby-constant">None</span>)
+  <span class="ruby-comment">#tk_split_simplelist(_fromUTF8(tk_send_without_enc(&#39;tag&#39;, &#39;names&#39;, _get_eval_enc_str(index)))).collect{|elt|</span>
+  <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;names&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>)), <span class="ruby-keyword">false</span>, <span class="ruby-keyword">true</span>).<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">elt</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">tagid2obj</span>(<span class="ruby-identifier">elt</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_nextrange">
+            
+              <b>tag_nextrange</b>(tag, first, last=None)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tag_nextrange" name="method-i-tag_nextrange" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_nextrange_source')" id="l_method-i-tag_nextrange_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_nextrange_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 1019</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_nextrange</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">first</span>, <span class="ruby-identifier">last</span>=<span class="ruby-constant">None</span>)
+  <span class="ruby-identifier">simplelist</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;nextrange&#39;</span>,
+                                 <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>),
+                                 <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">first</span>),
+                                 <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">last</span>))).<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Tk</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span><span class="ruby-operator">::</span><span class="ruby-constant">IndexString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">idx</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_prevrange">
+            
+              <b>tag_prevrange</b>(tag, first, last=None)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tag_prevrange" name="method-i-tag_prevrange" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_prevrange_source')" id="l_method-i-tag_prevrange_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_prevrange_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 1028</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_prevrange</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">first</span>, <span class="ruby-identifier">last</span>=<span class="ruby-constant">None</span>)
+  <span class="ruby-identifier">simplelist</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;prevrange&#39;</span>,
+                                 <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>),
+                                 <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">first</span>),
+                                 <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">last</span>))).<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Tk</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span><span class="ruby-operator">::</span><span class="ruby-constant">IndexString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">idx</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_raise">
+            
+              <b>tag_raise</b>(tag, above=None)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tag_raise" name="method-i-tag_raise" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>def tag_cget(tag, key)</p>
+
+<pre>case key.to_s
+when &#39;text&#39;, &#39;label&#39;, &#39;show&#39;, &#39;data&#39;, &#39;file&#39;
+  tk_call_without_enc(@path, &#39;tag&#39;, &#39;cget&#39;,
+                      _get_eval_enc_str(tag), &quot;-#{key}&quot;)
+when &#39;font&#39;, &#39;kanjifont&#39;
+  #fnt = tk_tcl2ruby(tk_send(&#39;tag&#39;, &#39;cget&#39;, tag, &quot;-#{key}&quot;))
+  fnt = tk_tcl2ruby(_fromUTF8(tk_send_without_enc(&#39;tag&#39;,&#39;cget&#39;,_get_eval_enc_str(tag),&#39;-font&#39;)))
+  unless fnt.kind_of?(TkFont)
+    fnt = tagfontobj(tag, fnt)
+  end
+  if key.to_s == &#39;kanjifont&#39; &amp;&amp; JAPANIZED_TK &amp;&amp; TK_VERSION =~ /^4\.*/
+    # obsolete; just for compatibility
+    fnt.kanji_font
+  else
+    fnt
+  end
+else
+  tk_tcl2ruby(_fromUTF8(tk_call_without_enc(@path,&#39;tag&#39;,&#39;cget&#39;,_get_eval_enc_str(tag),&quot;-#{key}&quot;)))
+end</pre>
+
+<p>end</p>
+
+<p>def tag_configure(tag, key, val=None)</p>
+
+<pre class="ruby"><span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">_symbolkey2str</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">if</span> ( <span class="ruby-identifier">key</span>[<span class="ruby-string">&#39;font&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">key</span>[<span class="ruby-string">&#39;kanjifont&#39;</span>]        <span class="ruby-operator">||</span> <span class="ruby-identifier">key</span>[<span class="ruby-string">&#39;latinfont&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">key</span>[<span class="ruby-string">&#39;asciifont&#39;</span>] )
+    <span class="ruby-identifier">tagfont_configure</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;configure&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>),
+                        *<span class="ruby-identifier">hash_kv</span>(<span class="ruby-identifier">key</span>, <span class="ruby-keyword">true</span>))
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">else</span>
+  <span class="ruby-keyword">if</span>  <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;font&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> :<span class="ruby-identifier">font</span> <span class="ruby-operator">||</span>
+      <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;kanjifont&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> :<span class="ruby-identifier">kanjifont</span> <span class="ruby-operator">||</span>
+      <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;latinfont&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> :<span class="ruby-identifier">latinfont</span> <span class="ruby-operator">||</span>
+      <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;asciifont&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> :<span class="ruby-identifier">asciifont</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span> <span class="ruby-operator">==</span> <span class="ruby-constant">None</span>
+      <span class="ruby-identifier">tagfontobj</span>(<span class="ruby-identifier">tag</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">tagfont_configure</span>(<span class="ruby-identifier">tag</span>, {<span class="ruby-identifier">key</span>=<span class="ruby-operator">&gt;</span><span class="ruby-identifier">val</span>})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;configure&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>),
+                        <span class="ruby-node">&quot;-#{key}&quot;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">val</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">self</span>
+</pre>
+
+<p>end</p>
+
+<p>def tag_configinfo(tag, key=nil)</p>
+
+<pre class="ruby"><span class="ruby-keyword">if</span> <span class="ruby-constant">TkComm</span><span class="ruby-operator">::</span><span class="ruby-constant">GET_CONFIGINFO_AS_ARRAY</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;text&#39;</span>, <span class="ruby-string">&#39;label&#39;</span>, <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-string">&#39;data&#39;</span>, <span class="ruby-string">&#39;file&#39;</span>
+      <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>,<span class="ruby-string">&#39;configure&#39;</span>,<span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>),<span class="ruby-node">&quot;-#{key}&quot;</span>)))
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;font&#39;</span>, <span class="ruby-string">&#39;kanjifont&#39;</span>
+      <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>,<span class="ruby-string">&#39;configure&#39;</span>,<span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>),<span class="ruby-node">&quot;-#{key}&quot;</span>)))
+      <span class="ruby-identifier">conf</span>[<span class="ruby-value">4</span>] = <span class="ruby-identifier">tagfont_configinfo</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">conf</span>[<span class="ruby-value">4</span>])
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tk_split_list</span>(<span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>,<span class="ruby-string">&#39;configure&#39;</span>,<span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>),<span class="ruby-node">&quot;-#{key}&quot;</span>)))
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">conf</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">conf</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+    <span class="ruby-identifier">conf</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">ret</span> = <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send</span>(<span class="ruby-string">&#39;tag&#39;</span>,<span class="ruby-string">&#39;configure&#39;</span>,<span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>)))).<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">conflist</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">conflist</span>)
+      <span class="ruby-identifier">conf</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">conf</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">conf</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;text&#39;</span>, <span class="ruby-string">&#39;label&#39;</span>, <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-string">&#39;data&#39;</span>, <span class="ruby-string">&#39;file&#39;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-value">3</span>]
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-value">3</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;{&#39;</span>)
+            <span class="ruby-identifier">conf</span>[<span class="ruby-value">3</span>] = <span class="ruby-identifier">tk_split_list</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-value">3</span>])
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">conf</span>[<span class="ruby-value">3</span>] = <span class="ruby-identifier">tk_tcl2ruby</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-value">3</span>])
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-value">4</span>]
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-value">4</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;{&#39;</span>)
+            <span class="ruby-identifier">conf</span>[<span class="ruby-value">4</span>] = <span class="ruby-identifier">tk_split_list</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-value">4</span>])
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">conf</span>[<span class="ruby-value">4</span>] = <span class="ruby-identifier">tk_tcl2ruby</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-value">4</span>])
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">conf</span>[<span class="ruby-value">1</span>] = <span class="ruby-identifier">conf</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span> <span class="ruby-comment"># alias info</span>
+      <span class="ruby-identifier">conf</span>
+    }
+    <span class="ruby-identifier">fontconf</span> = <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">assoc</span>(<span class="ruby-string">&#39;font&#39;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">fontconf</span>
+      <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">delete_if</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">item</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;font&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">item</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;kanjifont&#39;</span>}
+      <span class="ruby-identifier">fontconf</span>[<span class="ruby-value">4</span>] = <span class="ruby-identifier">tagfont_configinfo</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">fontconf</span>[<span class="ruby-value">4</span>])
+      <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">fontconf</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ret</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">else</span> <span class="ruby-comment"># ! TkComm::GET_CONFIGINFO_AS_ARRAY</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;text&#39;</span>, <span class="ruby-string">&#39;label&#39;</span>, <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-string">&#39;data&#39;</span>, <span class="ruby-string">&#39;file&#39;</span>
+      <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>,<span class="ruby-string">&#39;configure&#39;</span>,<span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>),<span class="ruby-node">&quot;-#{key}&quot;</span>)))
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;font&#39;</span>, <span class="ruby-string">&#39;kanjifont&#39;</span>
+      <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>,<span class="ruby-string">&#39;configure&#39;</span>,<span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>),<span class="ruby-node">&quot;-#{key}&quot;</span>)))
+      <span class="ruby-identifier">conf</span>[<span class="ruby-value">4</span>] = <span class="ruby-identifier">tagfont_configinfo</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">conf</span>[<span class="ruby-value">4</span>])
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tk_split_list</span>(<span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>,<span class="ruby-string">&#39;configure&#39;</span>,<span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>),<span class="ruby-node">&quot;-#{key}&quot;</span>)))
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-identifier">conf</span>.<span class="ruby-identifier">shift</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+    { <span class="ruby-identifier">key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">conf</span> }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">ret</span> = {}
+    <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send</span>(<span class="ruby-string">&#39;tag&#39;</span>,<span class="ruby-string">&#39;configure&#39;</span>,<span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>)))).<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">conflist</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">conflist</span>)
+      <span class="ruby-identifier">key</span> = <span class="ruby-identifier">conf</span>.<span class="ruby-identifier">shift</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">key</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;text&#39;</span>, <span class="ruby-string">&#39;label&#39;</span>, <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-string">&#39;data&#39;</span>, <span class="ruby-string">&#39;file&#39;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-value">2</span>]
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;{&#39;</span>)
+            <span class="ruby-identifier">conf</span>[<span class="ruby-value">2</span>] = <span class="ruby-identifier">tk_split_list</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-value">2</span>])
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">conf</span>[<span class="ruby-value">2</span>] = <span class="ruby-identifier">tk_tcl2ruby</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-value">2</span>])
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-value">3</span>]
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>[<span class="ruby-value">3</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;{&#39;</span>)
+            <span class="ruby-identifier">conf</span>[<span class="ruby-value">3</span>] = <span class="ruby-identifier">tk_split_list</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-value">3</span>])
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">conf</span>[<span class="ruby-value">3</span>] = <span class="ruby-identifier">tk_tcl2ruby</span>(<span class="ruby-identifier">conf</span>[<span class="ruby-value">3</span>])
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">ret</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">conf</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]  <span class="ruby-comment"># alias info</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">ret</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">conf</span>
+      <span class="ruby-keyword">end</span>
+    }
+    <span class="ruby-identifier">fontconf</span> = <span class="ruby-identifier">ret</span>[<span class="ruby-string">&#39;font&#39;</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">fontconf</span>
+      <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;font&#39;</span>)
+      <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;kanjifont&#39;</span>)
+      <span class="ruby-identifier">fontconf</span>[<span class="ruby-value">3</span>] = <span class="ruby-identifier">tagfont_configinfo</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">fontconf</span>[<span class="ruby-value">3</span>])
+      <span class="ruby-identifier">ret</span>[<span class="ruby-string">&#39;font&#39;</span>] = <span class="ruby-identifier">fontconf</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">ret</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>end</p>
+
+<p>def current_tag_configinfo(tag, key=nil)</p>
+
+<pre class="ruby"><span class="ruby-keyword">if</span> <span class="ruby-constant">TkComm</span><span class="ruby-operator">::</span><span class="ruby-constant">GET_CONFIGINFO_AS_ARRAY</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-identifier">conf</span> = <span class="ruby-identifier">tag_configinfo</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">key</span>)
+    {<span class="ruby-identifier">conf</span>[<span class="ruby-value">0</span>] =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">conf</span>[<span class="ruby-value">4</span>]}
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">ret</span> = {}
+    <span class="ruby-identifier">tag_configinfo</span>(<span class="ruby-identifier">tag</span>).<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">conf</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">ret</span>[<span class="ruby-identifier">conf</span>[<span class="ruby-value">0</span>]] = <span class="ruby-identifier">conf</span>[<span class="ruby-value">4</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>
+    }
+    <span class="ruby-identifier">ret</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">else</span> <span class="ruby-comment"># ! TkComm::GET_CONFIGINFO_AS_ARRAY</span>
+  <span class="ruby-identifier">ret</span> = {}
+  <span class="ruby-identifier">tag_configinfo</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">key</span>).<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">conf</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">ret</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">conf</span>[<span class="ruby-value">-1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">conf</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+  }
+  <span class="ruby-identifier">ret</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>end</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_raise_source')" id="l_method-i-tag_raise_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_raise_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 988</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_raise</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">above</span>=<span class="ruby-constant">None</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;raise&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>),
+                      <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">above</span>))
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_ranges">
+            
+              <b>tag_ranges</b>(tag)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tag_ranges" name="method-i-tag_ranges" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_ranges_source')" id="l_method-i-tag_ranges_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_ranges_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 1006</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_ranges</span>(<span class="ruby-identifier">tag</span>)
+  <span class="ruby-comment">#l = tk_split_simplelist(tk_send_without_enc(&#39;tag&#39;, &#39;ranges&#39;,</span>
+  <span class="ruby-comment">#                                            _get_eval_enc_str(tag)))</span>
+  <span class="ruby-identifier">l</span> = <span class="ruby-identifier">tk_split_simplelist</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;ranges&#39;</span>,
+                                              <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>)),
+                          <span class="ruby-keyword">false</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">r</span> = []
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">key</span>=<span class="ruby-identifier">l</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-identifier">r</span>.<span class="ruby-identifier">push</span> [<span class="ruby-constant">Tk</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span><span class="ruby-operator">::</span><span class="ruby-constant">IndexString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span>), <span class="ruby-constant">Tk</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span><span class="ruby-operator">::</span><span class="ruby-constant">IndexString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">l</span>.<span class="ruby-identifier">shift</span>)]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">r</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_remove">
+            
+              <b>tag_remove</b>(tag, *indices)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tag_remove" name="method-i-tag_remove" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_remove_source')" id="l_method-i-tag_remove_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_remove_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 1000</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_remove</span>(<span class="ruby-identifier">tag</span>, *<span class="ruby-identifier">indices</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;remove&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">tag</span>),
+                      *(<span class="ruby-identifier">indices</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">idx</span><span class="ruby-operator">|</span> <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">idx</span>)}))
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tagid2obj">
+            
+              <b>tagid2obj</b>(tagid)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tagid2obj" name="method-i-tagid2obj" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tagid2obj_source')" id="l_method-i-tagid2obj_source">show</a>
+                
+              </p>
+              <div id="method-i-tagid2obj_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 360</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tagid2obj</span>(<span class="ruby-identifier">tagid</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tags</span>[<span class="ruby-identifier">tagid</span>]
+    <span class="ruby-ivar">@tags</span>[<span class="ruby-identifier">tagid</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">tagid</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-text_copy">
+            
+              <b>text_copy</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-text_copy" name="method-i-text_copy" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-text_copy_source')" id="l_method-i-text_copy_source">show</a>
+                
+              </p>
+              <div id="method-i-text_copy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 727</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">text_copy</span>
+  <span class="ruby-comment"># Tk8.4 feature</span>
+  <span class="ruby-identifier">tk_call_without_enc</span>(<span class="ruby-string">&#39;tk_textCopy&#39;</span>, <span class="ruby-ivar">@path</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-text_cut">
+            
+              <b>text_cut</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-text_cut" name="method-i-text_cut" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-text_cut_source')" id="l_method-i-text_cut_source">show</a>
+                
+              </p>
+              <div id="method-i-text_cut_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 733</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">text_cut</span>
+  <span class="ruby-comment"># Tk8.4 feature</span>
+  <span class="ruby-identifier">tk_call_without_enc</span>(<span class="ruby-string">&#39;tk_textCut&#39;</span>, <span class="ruby-ivar">@path</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-text_paste">
+            
+              <b>text_paste</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-text_paste" name="method-i-text_paste" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-text_paste_source')" id="l_method-i-text_paste_source">show</a>
+                
+              </p>
+              <div id="method-i-text_paste_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 739</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">text_paste</span>
+  <span class="ruby-comment"># Tk8.4 feature</span>
+  <span class="ruby-identifier">tk_call_without_enc</span>(<span class="ruby-string">&#39;tk_textPaste&#39;</span>, <span class="ruby-ivar">@path</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-unset_mark">
+            
+              <b>unset_mark</b>(*marks)
+            
+            <a href="../../classes/Tk/Text.html#method-i-unset_mark" name="method-i-unset_mark" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-value">
+            
+              <b>value</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-value" name="method-i-value" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-value_source')" id="l_method-i-value_source">show</a>
+                
+              </p>
+              <div id="method-i-value_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 324</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">value</span>
+  <span class="ruby-identifier">_fromUTF8</span>(<span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;get&#39;</span>, <span class="ruby-string">&quot;1.0&quot;</span>, <span class="ruby-string">&quot;end - 1 char&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-value-3D">
+            
+              <b>value=</b>(val)
+            
+            <a href="../../classes/Tk/Text.html#method-i-value-3D" name="method-i-value-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-value-3D_source')" id="l_method-i-value-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-value-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 328</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">value=</span> (<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;delete&#39;</span>, <span class="ruby-string">&quot;1.0&quot;</span>, <span class="ruby-string">&#39;end&#39;</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;insert&#39;</span>, <span class="ruby-string">&quot;1.0&quot;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">val</span>))
+  <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-xview_pickplace">
+            
+              <b>xview_pickplace</b>(index)
+            
+            <a href="../../classes/Tk/Text.html#method-i-xview_pickplace" name="method-i-xview_pickplace" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-xview_pickplace_source')" id="l_method-i-xview_pickplace_source">show</a>
+                
+              </p>
+              <div id="method-i-xview_pickplace_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 717</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">xview_pickplace</span>(<span class="ruby-identifier">index</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;xview&#39;</span>, <span class="ruby-string">&#39;-pickplace&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>))
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-yview_pickplace">
+            
+              <b>yview_pickplace</b>(index)
+            
+            <a href="../../classes/Tk/Text.html#method-i-yview_pickplace" name="method-i-yview_pickplace" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-yview_pickplace_source')" id="l_method-i-yview_pickplace_source">show</a>
+                
+              </p>
+              <div id="method-i-yview_pickplace_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 722</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">yview_pickplace</span>(<span class="ruby-identifier">index</span>)
+  <span class="ruby-identifier">tk_send_without_enc</span>(<span class="ruby-string">&#39;yview&#39;</span>, <span class="ruby-string">&#39;-pickplace&#39;</span>, <span class="ruby-identifier">_get_eval_enc_str</span>(<span class="ruby-identifier">index</span>))
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-__strval_optkeys">
+            
+              <b>__strval_optkeys</b>()
+            
+            <a href="../../classes/Tk/Text.html#method-i-__strval_optkeys" name="method-i-__strval_optkeys" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-__strval_optkeys_source')" id="l_method-i-__strval_optkeys_source">show</a>
+                
+              </p>
+              <div id="method-i-__strval_optkeys_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 301</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">__strval_optkeys</span>
+  <span class="ruby-keyword">super</span>() <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;inactiveseletcionbackground&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create_self">
+            
+              <b>create_self</b>(keys)
+            
+            <a href="../../classes/Tk/Text.html#method-i-create_self" name="method-i-create_self" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_self_source')" id="l_method-i-create_self_source">show</a>
+                
+              </p>
+              <div id="method-i-create_self_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 287</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_self</span>(<span class="ruby-identifier">keys</span>)
+  <span class="ruby-comment">#if keys and keys != None</span>
+  <span class="ruby-comment">#  #tk_call_without_enc(&#39;text&#39;, @path, *hash_kv(keys, true))</span>
+  <span class="ruby-comment">#  tk_call_without_enc(self.class::TkCommandNames[0], @path,</span>
+  <span class="ruby-comment">#                     *hash_kv(keys, true))</span>
+  <span class="ruby-comment">#else</span>
+  <span class="ruby-comment">#  #tk_call_without_enc(&#39;text&#39;, @path)</span>
+  <span class="ruby-comment">#  tk_call_without_enc(self.class::TkCommandNames[0], @path)</span>
+  <span class="ruby-comment">#end</span>
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">init_instance_variable</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tagid">
+            
+              <b>tagid</b>(tag)
+            
+            <a href="../../classes/Tk/Text.html#method-i-tagid" name="method-i-tagid" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tagid_source')" id="l_method-i-tagid_source">show</a>
+                
+              </p>
+              <div id="method-i-tagid_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/text.rb, line 348</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tagid</span>(<span class="ruby-identifier">tag</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">TkTextTag</span>)        <span class="ruby-operator">||</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">TkTextMark</span>)        <span class="ruby-operator">||</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">TkTextImage</span>)        <span class="ruby-operator">||</span> <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">TkTextWindow</span>)
+    <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">tag</span>  <span class="ruby-comment"># maybe an Array of configure paramters</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

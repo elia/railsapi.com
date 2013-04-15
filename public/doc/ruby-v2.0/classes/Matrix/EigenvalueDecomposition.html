@@ -1,0 +1,1583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Matrix::EigenvalueDecomposition</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Matrix::EigenvalueDecomposition 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/matrix/eigenvalue_decomposition_rb.html">lib/matrix/eigenvalue_decomposition.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Eigenvalues and eigenvectors of a real matrix.</p>
+
+<p>Computes the eigenvalues and eigenvectors of a matrix A.</p>
+
+<p>If A is diagonalizable, this provides matrices V and D such that A =
+V*D*V.inv, where D is the diagonal matrix with entries equal to the
+eigenvalues and V is formed by the eigenvectors.</p>
+
+<p>If A is symmetric, then V is orthogonal and thus A = V*D*V.t</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-build_eigenvectors">build_eigenvectors</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-cdiv">cdiv</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-d">d</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-diagonalize">diagonalize</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-eigenvalue_matrix">eigenvalue_matrix</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-eigenvalues">eigenvalues</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-eigenvector_matrix">eigenvector_matrix</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-eigenvector_matrix_inv">eigenvector_matrix_inv</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-eigenvectors">eigenvectors</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-hessenberg_to_real_schur">hessenberg_to_real_schur</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-reduce_to_hessenberg">reduce_to_hessenberg</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to_a">to_a</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-to_ary">to_ary</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tridiagonalize">tridiagonalize</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-v">v</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-v_inv">v_inv</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(a)
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Constructs the eigenvalue decomposition for a square matrix <code>A</code></p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/matrix/eigenvalue_decomposition.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">a</span>)
+  <span class="ruby-comment"># @d, @e: Arrays for internal storage of eigenvalues.</span>
+  <span class="ruby-comment"># @v: Array for internal storage of eigenvectors.</span>
+  <span class="ruby-comment"># @h: Array for internal storage of nonsymmetric Hessenberg form.</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;Expected Matrix but got #{a.class}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Matrix</span>)
+  <span class="ruby-ivar">@size</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">row_count</span>
+  <span class="ruby-ivar">@d</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@size</span>, <span class="ruby-number">0</span>)
+  <span class="ruby-ivar">@e</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@size</span>, <span class="ruby-number">0</span>)
+
+  <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@symmetric</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">symmetric?</span>)
+    <span class="ruby-ivar">@v</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_a</span>
+    <span class="ruby-identifier">tridiagonalize</span>
+    <span class="ruby-identifier">diagonalize</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@v</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@size</span>) { <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@size</span>, <span class="ruby-number">0</span>) }
+    <span class="ruby-ivar">@h</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_a</span>
+    <span class="ruby-ivar">@ort</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@size</span>, <span class="ruby-number">0</span>)
+    <span class="ruby-identifier">reduce_to_hessenberg</span>
+    <span class="ruby-identifier">hessenberg_to_real_schur</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-d">
+            
+              <b>d</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-d" name="method-i-d" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-eigenvalue_matrix">
+            
+              <b>eigenvalue_matrix</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-eigenvalue_matrix" name="method-i-eigenvalue_matrix" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the block diagonal eigenvalue matrix <code>D</code></p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="EigenvalueDecomposition.html#method-i-d">d</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-eigenvalue_matrix_source')" id="l_method-i-eigenvalue_matrix_source">show</a>
+                
+              </p>
+              <div id="method-i-eigenvalue_matrix_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/matrix/eigenvalue_decomposition.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">eigenvalue_matrix</span>
+  <span class="ruby-constant">Matrix</span>.<span class="ruby-identifier">diagonal</span>(*<span class="ruby-identifier">eigenvalues</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-eigenvalues">
+            
+              <b>eigenvalues</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-eigenvalues" name="method-i-eigenvalues" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the eigenvalues in an array</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-eigenvalues_source')" id="l_method-i-eigenvalues_source">show</a>
+                
+              </p>
+              <div id="method-i-eigenvalues_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/matrix/eigenvalue_decomposition.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">eigenvalues</span>
+  <span class="ruby-identifier">values</span> = <span class="ruby-ivar">@d</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-ivar">@e</span>.<span class="ruby-identifier">each_with_index</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">imag</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">values</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-constant">Complex</span>(<span class="ruby-identifier">values</span>[<span class="ruby-identifier">i</span>], <span class="ruby-identifier">imag</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">imag</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>}
+  <span class="ruby-identifier">values</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-eigenvector_matrix">
+            
+              <b>eigenvector_matrix</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-eigenvector_matrix" name="method-i-eigenvector_matrix" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the eigenvector matrix <code>V</code></p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="EigenvalueDecomposition.html#method-i-v">v</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-eigenvector_matrix_source')" id="l_method-i-eigenvector_matrix_source">show</a>
+                
+              </p>
+              <div id="method-i-eigenvector_matrix_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/matrix/eigenvalue_decomposition.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">eigenvector_matrix</span>
+  <span class="ruby-constant">Matrix</span>.<span class="ruby-identifier">send</span> <span class="ruby-value">:new</span>, <span class="ruby-identifier">build_eigenvectors</span>.<span class="ruby-identifier">transpose</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-eigenvector_matrix_inv">
+            
+              <b>eigenvector_matrix_inv</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-eigenvector_matrix_inv" name="method-i-eigenvector_matrix_inv" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the inverse of the eigenvector matrix <code>V</code></p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="EigenvalueDecomposition.html#method-i-v_inv">v_inv</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-eigenvector_matrix_inv_source')" id="l_method-i-eigenvector_matrix_inv_source">show</a>
+                
+              </p>
+              <div id="method-i-eigenvector_matrix_inv_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/matrix/eigenvalue_decomposition.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">eigenvector_matrix_inv</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-constant">Matrix</span>.<span class="ruby-identifier">send</span> <span class="ruby-value">:new</span>, <span class="ruby-identifier">build_eigenvectors</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">transpose</span>.<span class="ruby-identifier">inverse</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@symmetric</span>
+  <span class="ruby-identifier">r</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-eigenvectors">
+            
+              <b>eigenvectors</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-eigenvectors" name="method-i-eigenvectors" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns an array of the eigenvectors</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-eigenvectors_source')" id="l_method-i-eigenvectors_source">show</a>
+                
+              </p>
+              <div id="method-i-eigenvectors_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/matrix/eigenvalue_decomposition.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">eigenvectors</span>
+  <span class="ruby-identifier">build_eigenvectors</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">ev</span><span class="ruby-operator">|</span> <span class="ruby-constant">Vector</span>.<span class="ruby-identifier">send</span> <span class="ruby-value">:new</span>, <span class="ruby-identifier">ev</span>}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_a">
+            
+              <b>to_a</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-to_a" name="method-i-to_a" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_ary">
+            
+              <b>to_ary</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-to_ary" name="method-i-to_ary" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns [<a
+href="EigenvalueDecomposition.html#method-i-eigenvector_matrix">#eigenvector_matrix</a>,
+<a
+href="EigenvalueDecomposition.html#method-i-eigenvalue_matrix">#eigenvalue_matrix</a>,
+<a
+href="EigenvalueDecomposition.html#method-i-eigenvector_matrix_inv">#eigenvector_matrix_inv</a>]</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="EigenvalueDecomposition.html#method-i-to_a">to_a</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_ary_source')" id="l_method-i-to_ary_source">show</a>
+                
+              </p>
+              <div id="method-i-to_ary_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/matrix/eigenvalue_decomposition.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_ary</span>
+  [<span class="ruby-identifier">v</span>, <span class="ruby-identifier">d</span>, <span class="ruby-identifier">v_inv</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-v">
+            
+              <b>v</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-v" name="method-i-v" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-v_inv">
+            
+              <b>v_inv</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-v_inv" name="method-i-v_inv" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-build_eigenvectors">
+            
+              <b>build_eigenvectors</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-build_eigenvectors" name="method-i-build_eigenvectors" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-build_eigenvectors_source')" id="l_method-i-build_eigenvectors_source">show</a>
+                
+              </p>
+              <div id="method-i-build_eigenvectors_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/matrix/eigenvalue_decomposition.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">build_eigenvectors</span>
+  <span class="ruby-comment"># JAMA stores complex eigenvectors in a strange way</span>
+  <span class="ruby-comment"># See http://web.archive.org/web/20111016032731/http://cio.nist.gov/esd/emaildir/lists/jama/msg01021.html</span>
+  <span class="ruby-ivar">@e</span>.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">imag</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">imag</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+      <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@size</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">i</span>]}
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">imag</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>
+      <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@size</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span> <span class="ruby-constant">Complex</span>(<span class="ruby-ivar">@v</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">i</span>], <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>])}
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@size</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span> <span class="ruby-constant">Complex</span>(<span class="ruby-ivar">@v</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>], <span class="ruby-operator">-</span><span class="ruby-ivar">@v</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">i</span>])}
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cdiv">
+            
+              <b>cdiv</b>(xr, xi, yr, yi)
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-cdiv" name="method-i-cdiv" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Complex scalar division.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cdiv_source')" id="l_method-i-cdiv_source">show</a>
+                
+              </p>
+              <div id="method-i-cdiv_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/matrix/eigenvalue_decomposition.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cdiv</span>(<span class="ruby-identifier">xr</span>, <span class="ruby-identifier">xi</span>, <span class="ruby-identifier">yr</span>, <span class="ruby-identifier">yi</span>)
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">yr</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">yi</span>.<span class="ruby-identifier">abs</span>)
+    <span class="ruby-identifier">r</span> = <span class="ruby-identifier">yi</span><span class="ruby-operator">/</span><span class="ruby-identifier">yr</span>
+    <span class="ruby-identifier">d</span> = <span class="ruby-identifier">yr</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">r</span>*<span class="ruby-identifier">yi</span>
+    [(<span class="ruby-identifier">xr</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">r</span>*<span class="ruby-identifier">xi</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">d</span>, (<span class="ruby-identifier">xi</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">r</span>*<span class="ruby-identifier">xr</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">d</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">r</span> = <span class="ruby-identifier">yr</span><span class="ruby-operator">/</span><span class="ruby-identifier">yi</span>
+    <span class="ruby-identifier">d</span> = <span class="ruby-identifier">yi</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">r</span>*<span class="ruby-identifier">yr</span>
+    [(<span class="ruby-identifier">r</span>*<span class="ruby-identifier">xr</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">xi</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">d</span>, (<span class="ruby-identifier">r</span>*<span class="ruby-identifier">xi</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">xr</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">d</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-diagonalize">
+            
+              <b>diagonalize</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-diagonalize" name="method-i-diagonalize" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Symmetric tridiagonal QL algorithm.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-diagonalize_source')" id="l_method-i-diagonalize_source">show</a>
+                
+              </p>
+              <div id="method-i-diagonalize_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/matrix/eigenvalue_decomposition.rb, line 233</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">diagonalize</span>
+  <span class="ruby-comment">#  This is derived from the Algol procedures tql2, by</span>
+  <span class="ruby-comment">#  Bowdler, Martin, Reinsch, and Wilkinson, Handbook for</span>
+  <span class="ruby-comment">#  Auto. Comp., Vol.ii-Linear Algebra, and the corresponding</span>
+  <span class="ruby-comment">#  Fortran subroutine in EISPACK.</span>
+
+  <span class="ruby-number">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@e</span>[<span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-number">0.0</span>
+
+  <span class="ruby-identifier">f</span> = <span class="ruby-number">0.0</span>
+  <span class="ruby-identifier">tst1</span> = <span class="ruby-number">0.0</span>
+  <span class="ruby-identifier">eps</span> = <span class="ruby-constant">Float</span><span class="ruby-operator">::</span><span class="ruby-constant">EPSILON</span>
+  <span class="ruby-ivar">@size</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-comment"># Find small subdiagonal element</span>
+
+    <span class="ruby-identifier">tst1</span> = [<span class="ruby-identifier">tst1</span>, <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">l</span>].<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">l</span>].<span class="ruby-identifier">abs</span>].<span class="ruby-identifier">max</span>
+    <span class="ruby-identifier">m</span> = <span class="ruby-identifier">l</span>
+    <span class="ruby-keyword">while</span> (<span class="ruby-identifier">m</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@size</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@e</span>[<span class="ruby-identifier">m</span>].<span class="ruby-identifier">abs</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">eps</span>*<span class="ruby-identifier">tst1</span>)
+        <span class="ruby-keyword">break</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">m</span><span class="ruby-operator">+=</span><span class="ruby-number">1</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># If m == l, @d[l] is an eigenvalue,</span>
+    <span class="ruby-comment"># otherwise, iterate.</span>
+
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">m</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">l</span>)
+      <span class="ruby-identifier">iter</span> = <span class="ruby-number">0</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">iter</span> = <span class="ruby-identifier">iter</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>  <span class="ruby-comment"># (Could check iteration count here.)</span>
+
+        <span class="ruby-comment"># Compute implicit shift</span>
+
+        <span class="ruby-identifier">g</span> = <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">l</span>]
+        <span class="ruby-identifier">p</span> = (<span class="ruby-ivar">@d</span>[<span class="ruby-identifier">l</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">g</span>) <span class="ruby-operator">/</span> (<span class="ruby-number">2.0</span> * <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">l</span>])
+        <span class="ruby-identifier">r</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">hypot</span>(<span class="ruby-identifier">p</span>, <span class="ruby-number">1.0</span>)
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;</span> <span class="ruby-number">0</span>)
+          <span class="ruby-identifier">r</span> = <span class="ruby-operator">-</span><span class="ruby-identifier">r</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">l</span>] = <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">l</span>] <span class="ruby-operator">/</span> (<span class="ruby-identifier">p</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">r</span>)
+        <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">l</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>] = <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">l</span>] * (<span class="ruby-identifier">p</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">r</span>)
+        <span class="ruby-identifier">dl1</span> = <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">l</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>]
+        <span class="ruby-identifier">h</span> = <span class="ruby-identifier">g</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">l</span>]
+        (<span class="ruby-identifier">l</span><span class="ruby-operator">+</span><span class="ruby-number">2</span>).<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+          <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">-=</span> <span class="ruby-identifier">h</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">f</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">h</span>
+
+        <span class="ruby-comment"># Implicit QL transformation.</span>
+
+        <span class="ruby-identifier">p</span> = <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">m</span>]
+        <span class="ruby-identifier">c</span> = <span class="ruby-number">1.0</span>
+        <span class="ruby-identifier">c2</span> = <span class="ruby-identifier">c</span>
+        <span class="ruby-identifier">c3</span> = <span class="ruby-identifier">c</span>
+        <span class="ruby-identifier">el1</span> = <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">l</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>]
+        <span class="ruby-identifier">s</span> = <span class="ruby-number">0.0</span>
+        <span class="ruby-identifier">s2</span> = <span class="ruby-number">0.0</span>
+        (<span class="ruby-identifier">m</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>).<span class="ruby-identifier">downto</span>(<span class="ruby-identifier">l</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">c3</span> = <span class="ruby-identifier">c2</span>
+          <span class="ruby-identifier">c2</span> = <span class="ruby-identifier">c</span>
+          <span class="ruby-identifier">s2</span> = <span class="ruby-identifier">s</span>
+          <span class="ruby-identifier">g</span> = <span class="ruby-identifier">c</span> * <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>]
+          <span class="ruby-identifier">h</span> = <span class="ruby-identifier">c</span> * <span class="ruby-identifier">p</span>
+          <span class="ruby-identifier">r</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">hypot</span>(<span class="ruby-identifier">p</span>, <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>])
+          <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">s</span> * <span class="ruby-identifier">r</span>
+          <span class="ruby-identifier">s</span> = <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">/</span> <span class="ruby-identifier">r</span>
+          <span class="ruby-identifier">c</span> = <span class="ruby-identifier">p</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">r</span>
+          <span class="ruby-identifier">p</span> = <span class="ruby-identifier">c</span> * <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">s</span> * <span class="ruby-identifier">g</span>
+          <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">h</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">s</span> * (<span class="ruby-identifier">c</span> * <span class="ruby-identifier">g</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">s</span> * <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>])
+
+          <span class="ruby-comment"># Accumulate transformation.</span>
+
+          <span class="ruby-ivar">@size</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">h</span> = <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>]
+            <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">s</span> * <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">i</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">c</span> * <span class="ruby-identifier">h</span>
+            <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">c</span> * <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">i</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">s</span> * <span class="ruby-identifier">h</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">p</span> = <span class="ruby-operator">-</span><span class="ruby-identifier">s</span> * <span class="ruby-identifier">s2</span> * <span class="ruby-identifier">c3</span> * <span class="ruby-identifier">el1</span> * <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">l</span>] <span class="ruby-operator">/</span> <span class="ruby-identifier">dl1</span>
+        <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">l</span>] = <span class="ruby-identifier">s</span> * <span class="ruby-identifier">p</span>
+        <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">l</span>] = <span class="ruby-identifier">c</span> * <span class="ruby-identifier">p</span>
+
+        <span class="ruby-comment"># Check for convergence.</span>
+
+      <span class="ruby-keyword">end</span> <span class="ruby-keyword">while</span> (<span class="ruby-ivar">@e</span>[<span class="ruby-identifier">l</span>].<span class="ruby-identifier">abs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">eps</span>*<span class="ruby-identifier">tst1</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">l</span>] = <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">l</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">f</span>
+    <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">l</span>] = <span class="ruby-number">0.0</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Sort eigenvalues and corresponding vectors.</span>
+
+  <span class="ruby-number">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">2</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">k</span> = <span class="ruby-identifier">i</span>
+    <span class="ruby-identifier">p</span> = <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>]
+    (<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>).<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@d</span>[<span class="ruby-identifier">j</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">p</span>)
+        <span class="ruby-identifier">k</span> = <span class="ruby-identifier">j</span>
+        <span class="ruby-identifier">p</span> = <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">j</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">k</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">i</span>)
+      <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>]
+      <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">p</span>
+      <span class="ruby-ivar">@size</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">p</span> = <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">i</span>]
+        <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">i</span>] = <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">k</span>]
+        <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">p</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-hessenberg_to_real_schur">
+            
+              <b>hessenberg_to_real_schur</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-hessenberg_to_real_schur" name="method-i-hessenberg_to_real_schur" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Nonsymmetric reduction from Hessenberg to real Schur form.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-hessenberg_to_real_schur_source')" id="l_method-i-hessenberg_to_real_schur_source">show</a>
+                
+              </p>
+              <div id="method-i-hessenberg_to_real_schur_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/matrix/eigenvalue_decomposition.rb, line 446</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">hessenberg_to_real_schur</span>
+
+  <span class="ruby-comment">#  This is derived from the Algol procedure hqr2,</span>
+  <span class="ruby-comment">#  by Martin and Wilkinson, Handbook for Auto. Comp.,</span>
+  <span class="ruby-comment">#  Vol.ii-Linear Algebra, and the corresponding</span>
+  <span class="ruby-comment">#  Fortran subroutine in EISPACK.</span>
+
+  <span class="ruby-comment"># Initialize</span>
+
+  <span class="ruby-identifier">nn</span> = <span class="ruby-ivar">@size</span>
+  <span class="ruby-identifier">n</span> = <span class="ruby-identifier">nn</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>
+  <span class="ruby-identifier">low</span> = <span class="ruby-number">0</span>
+  <span class="ruby-identifier">high</span> = <span class="ruby-identifier">nn</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>
+  <span class="ruby-identifier">eps</span> = <span class="ruby-constant">Float</span><span class="ruby-operator">::</span><span class="ruby-constant">EPSILON</span>
+  <span class="ruby-identifier">exshift</span> = <span class="ruby-number">0.0</span>
+  <span class="ruby-identifier">p</span>=<span class="ruby-identifier">q</span>=<span class="ruby-identifier">r</span>=<span class="ruby-identifier">s</span>=<span class="ruby-identifier">z</span>=<span class="ruby-number">0</span>
+
+  <span class="ruby-comment"># Store roots isolated by balanc and compute matrix norm</span>
+
+  <span class="ruby-identifier">norm</span> = <span class="ruby-number">0.0</span>
+  <span class="ruby-identifier">nn</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">low</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">high</span>)
+      <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">i</span>]
+      <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-number">0.0</span>
+    <span class="ruby-keyword">end</span>
+    ([<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>, <span class="ruby-number">0</span>].<span class="ruby-identifier">max</span>).<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">nn</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">norm</span> = <span class="ruby-identifier">norm</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">abs</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Outer loop over eigenvalue index</span>
+
+  <span class="ruby-identifier">iter</span> = <span class="ruby-number">0</span>
+  <span class="ruby-keyword">while</span> (<span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">low</span>) <span class="ruby-keyword">do</span>
+
+    <span class="ruby-comment"># Look for single small sub-diagonal element</span>
+
+    <span class="ruby-identifier">l</span> = <span class="ruby-identifier">n</span>
+    <span class="ruby-keyword">while</span> (<span class="ruby-identifier">l</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">low</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">s</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">l</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">l</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>].<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">l</span>][<span class="ruby-identifier">l</span>].<span class="ruby-identifier">abs</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">s</span> <span class="ruby-operator">==</span> <span class="ruby-number">0.0</span>)
+        <span class="ruby-identifier">s</span> = <span class="ruby-identifier">norm</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@h</span>[<span class="ruby-identifier">l</span>][<span class="ruby-identifier">l</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>].<span class="ruby-identifier">abs</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">eps</span> * <span class="ruby-identifier">s</span>)
+        <span class="ruby-keyword">break</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">l</span><span class="ruby-operator">-=</span><span class="ruby-number">1</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Check for convergence</span>
+    <span class="ruby-comment"># One root found</span>
+
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">l</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">n</span>)
+      <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">exshift</span>
+      <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">n</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span>]
+      <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">n</span>] = <span class="ruby-number">0.0</span>
+      <span class="ruby-identifier">n</span><span class="ruby-operator">-=</span><span class="ruby-number">1</span>
+      <span class="ruby-identifier">iter</span> = <span class="ruby-number">0</span>
+
+    <span class="ruby-comment"># Two roots found</span>
+
+    <span class="ruby-keyword">elsif</span> (<span class="ruby-identifier">l</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>)
+      <span class="ruby-identifier">w</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span>]
+      <span class="ruby-identifier">p</span> = (<span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] <span class="ruby-operator">-</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span>]) <span class="ruby-operator">/</span> <span class="ruby-number">2.0</span>
+      <span class="ruby-identifier">q</span> = <span class="ruby-identifier">p</span> * <span class="ruby-identifier">p</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">w</span>
+      <span class="ruby-identifier">z</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-identifier">q</span>.<span class="ruby-identifier">abs</span>)
+      <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">exshift</span>
+      <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">exshift</span>
+      <span class="ruby-identifier">x</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span>]
+
+      <span class="ruby-comment"># Real pair</span>
+
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">q</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-number">0</span>)
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">p</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-number">0</span>)
+          <span class="ruby-identifier">z</span> = <span class="ruby-identifier">p</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">z</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">z</span> = <span class="ruby-identifier">p</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">z</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">x</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">z</span>
+        <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">n</span>] = <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">z</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0.0</span>)
+          <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">n</span>] = <span class="ruby-identifier">x</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">w</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">z</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-number">0.0</span>
+        <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">n</span>] = <span class="ruby-number">0.0</span>
+        <span class="ruby-identifier">x</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+        <span class="ruby-identifier">s</span> = <span class="ruby-identifier">x</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">z</span>.<span class="ruby-identifier">abs</span>
+        <span class="ruby-identifier">p</span> = <span class="ruby-identifier">x</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">s</span>
+        <span class="ruby-identifier">q</span> = <span class="ruby-identifier">z</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">s</span>
+        <span class="ruby-identifier">r</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-identifier">p</span> * <span class="ruby-identifier">p</span><span class="ruby-operator">+</span><span class="ruby-identifier">q</span> * <span class="ruby-identifier">q</span>)
+        <span class="ruby-identifier">p</span> <span class="ruby-operator">/=</span> <span class="ruby-identifier">r</span>
+        <span class="ruby-identifier">q</span> <span class="ruby-operator">/=</span> <span class="ruby-identifier">r</span>
+
+        <span class="ruby-comment"># Row modification</span>
+
+        (<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>).<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">nn</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">z</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">j</span>]
+          <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">j</span>] = <span class="ruby-identifier">q</span> * <span class="ruby-identifier">z</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">p</span> * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">j</span>]
+          <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">j</span>] = <span class="ruby-identifier">q</span> * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">j</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span> * <span class="ruby-identifier">z</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-comment"># Column modification</span>
+
+        <span class="ruby-number">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">n</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">z</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+          <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">q</span> * <span class="ruby-identifier">z</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">p</span> * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>]
+          <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-identifier">q</span> * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span> * <span class="ruby-identifier">z</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-comment"># Accumulate transformations</span>
+
+        <span class="ruby-identifier">low</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">high</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">z</span> = <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+          <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">q</span> * <span class="ruby-identifier">z</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">p</span> * <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>]
+          <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-identifier">q</span> * <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span> * <span class="ruby-identifier">z</span>
+        <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># Complex pair</span>
+
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">x</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">p</span>
+        <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">n</span>] = <span class="ruby-identifier">x</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">p</span>
+        <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">z</span>
+        <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">n</span>] = <span class="ruby-operator">-</span><span class="ruby-identifier">z</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">n</span> <span class="ruby-operator">-=</span> <span class="ruby-number">2</span>
+      <span class="ruby-identifier">iter</span> = <span class="ruby-number">0</span>
+
+    <span class="ruby-comment"># No convergence yet</span>
+
+    <span class="ruby-keyword">else</span>
+
+      <span class="ruby-comment"># Form shift</span>
+
+      <span class="ruby-identifier">x</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span>]
+      <span class="ruby-identifier">y</span> = <span class="ruby-number">0.0</span>
+      <span class="ruby-identifier">w</span> = <span class="ruby-number">0.0</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">l</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">n</span>)
+        <span class="ruby-identifier">y</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+        <span class="ruby-identifier">w</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span>]
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># Wilkinson&#39;s original ad hoc shift</span>
+
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">iter</span> <span class="ruby-operator">==</span> <span class="ruby-number">10</span>)
+        <span class="ruby-identifier">exshift</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">x</span>
+        <span class="ruby-identifier">low</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">n</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+          <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">i</span>] <span class="ruby-operator">-=</span> <span class="ruby-identifier">x</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">s</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>].<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">2</span>].<span class="ruby-identifier">abs</span>
+        <span class="ruby-identifier">x</span> = <span class="ruby-identifier">y</span> = <span class="ruby-number">0.75</span> * <span class="ruby-identifier">s</span>
+        <span class="ruby-identifier">w</span> = <span class="ruby-number">-0.4375</span> * <span class="ruby-identifier">s</span> * <span class="ruby-identifier">s</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># MATLAB&#39;s new ad hoc shift</span>
+
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">iter</span> <span class="ruby-operator">==</span> <span class="ruby-number">30</span>)
+         <span class="ruby-identifier">s</span> = (<span class="ruby-identifier">y</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">x</span>) <span class="ruby-operator">/</span> <span class="ruby-number">2.0</span>
+         <span class="ruby-identifier">s</span> <span class="ruby-operator">*=</span> <span class="ruby-identifier">s</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">w</span>
+         <span class="ruby-keyword">if</span> (<span class="ruby-identifier">s</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>)
+            <span class="ruby-identifier">s</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-identifier">s</span>)
+            <span class="ruby-keyword">if</span> (<span class="ruby-identifier">y</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">x</span>)
+              <span class="ruby-identifier">s</span> = <span class="ruby-operator">-</span><span class="ruby-identifier">s</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">s</span> = <span class="ruby-identifier">x</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">w</span> <span class="ruby-operator">/</span> ((<span class="ruby-identifier">y</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">x</span>) <span class="ruby-operator">/</span> <span class="ruby-number">2.0</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">s</span>)
+            <span class="ruby-identifier">low</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">n</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+              <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">i</span>] <span class="ruby-operator">-=</span> <span class="ruby-identifier">s</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">exshift</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">s</span>
+            <span class="ruby-identifier">x</span> = <span class="ruby-identifier">y</span> = <span class="ruby-identifier">w</span> = <span class="ruby-number">0.964</span>
+         <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">iter</span> = <span class="ruby-identifier">iter</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>  <span class="ruby-comment"># (Could check iteration count here.)</span>
+
+      <span class="ruby-comment"># Look for two consecutive small sub-diagonal elements</span>
+
+      <span class="ruby-identifier">m</span> = <span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">2</span>
+      <span class="ruby-keyword">while</span> (<span class="ruby-identifier">m</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">l</span>) <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">z</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">m</span>][<span class="ruby-identifier">m</span>]
+        <span class="ruby-identifier">r</span> = <span class="ruby-identifier">x</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">z</span>
+        <span class="ruby-identifier">s</span> = <span class="ruby-identifier">y</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">z</span>
+        <span class="ruby-identifier">p</span> = (<span class="ruby-identifier">r</span> * <span class="ruby-identifier">s</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">w</span>) <span class="ruby-operator">/</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">m</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">m</span>] <span class="ruby-operator">+</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">m</span>][<span class="ruby-identifier">m</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>]
+        <span class="ruby-identifier">q</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">m</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">m</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">z</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">r</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">s</span>
+        <span class="ruby-identifier">r</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">m</span><span class="ruby-operator">+</span><span class="ruby-number">2</span>][<span class="ruby-identifier">m</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>]
+        <span class="ruby-identifier">s</span> = <span class="ruby-identifier">p</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">q</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">abs</span>
+        <span class="ruby-identifier">p</span> <span class="ruby-operator">/=</span> <span class="ruby-identifier">s</span>
+        <span class="ruby-identifier">q</span> <span class="ruby-operator">/=</span> <span class="ruby-identifier">s</span>
+        <span class="ruby-identifier">r</span> <span class="ruby-operator">/=</span> <span class="ruby-identifier">s</span>
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">m</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">l</span>)
+          <span class="ruby-keyword">break</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@h</span>[<span class="ruby-identifier">m</span>][<span class="ruby-identifier">m</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>].<span class="ruby-identifier">abs</span> * (<span class="ruby-identifier">q</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">abs</span>) <span class="ruby-operator">&lt;</span>
+          <span class="ruby-identifier">eps</span> * (<span class="ruby-identifier">p</span>.<span class="ruby-identifier">abs</span> * (<span class="ruby-ivar">@h</span>[<span class="ruby-identifier">m</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">m</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>].<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">z</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span>
+          <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">m</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">m</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>].<span class="ruby-identifier">abs</span>)))
+            <span class="ruby-keyword">break</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">m</span><span class="ruby-operator">-=</span><span class="ruby-number">1</span>
+      <span class="ruby-keyword">end</span>
+
+      (<span class="ruby-identifier">m</span><span class="ruby-operator">+</span><span class="ruby-number">2</span>).<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">n</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-number">2</span>] = <span class="ruby-number">0.0</span>
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">m</span><span class="ruby-operator">+</span><span class="ruby-number">2</span>)
+          <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-number">3</span>] = <span class="ruby-number">0.0</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># Double QR step involving rows l:n and columns m:n</span>
+
+      <span class="ruby-identifier">m</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">notlast</span> = (<span class="ruby-identifier">k</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>)
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">k</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">m</span>)
+          <span class="ruby-identifier">p</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+          <span class="ruby-identifier">q</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+          <span class="ruby-identifier">r</span> = (<span class="ruby-identifier">notlast</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">2</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] <span class="ruby-operator">:</span> <span class="ruby-number">0.0</span>)
+          <span class="ruby-identifier">x</span> = <span class="ruby-identifier">p</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">q</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">abs</span>
+          <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+          <span class="ruby-identifier">p</span> <span class="ruby-operator">/=</span> <span class="ruby-identifier">x</span>
+          <span class="ruby-identifier">q</span> <span class="ruby-operator">/=</span> <span class="ruby-identifier">x</span>
+          <span class="ruby-identifier">r</span> <span class="ruby-operator">/=</span> <span class="ruby-identifier">x</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">s</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-identifier">p</span> * <span class="ruby-identifier">p</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">q</span> * <span class="ruby-identifier">q</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">r</span> * <span class="ruby-identifier">r</span>)
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;</span> <span class="ruby-number">0</span>)
+          <span class="ruby-identifier">s</span> = <span class="ruby-operator">-</span><span class="ruby-identifier">s</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">s</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>)
+          <span class="ruby-keyword">if</span> (<span class="ruby-identifier">k</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">m</span>)
+            <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-operator">-</span><span class="ruby-identifier">s</span> * <span class="ruby-identifier">x</span>
+          <span class="ruby-keyword">elsif</span> (<span class="ruby-identifier">l</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">m</span>)
+            <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-operator">-</span><span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">p</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">s</span>
+          <span class="ruby-identifier">x</span> = <span class="ruby-identifier">p</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">s</span>
+          <span class="ruby-identifier">y</span> = <span class="ruby-identifier">q</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">s</span>
+          <span class="ruby-identifier">z</span> = <span class="ruby-identifier">r</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">s</span>
+          <span class="ruby-identifier">q</span> <span class="ruby-operator">/=</span> <span class="ruby-identifier">p</span>
+          <span class="ruby-identifier">r</span> <span class="ruby-operator">/=</span> <span class="ruby-identifier">p</span>
+
+          <span class="ruby-comment"># Row modification</span>
+
+          <span class="ruby-identifier">k</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">nn</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">p</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">j</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">q</span> * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">j</span>]
+            <span class="ruby-keyword">if</span> (<span class="ruby-identifier">notlast</span>)
+              <span class="ruby-identifier">p</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">r</span> * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">2</span>][<span class="ruby-identifier">j</span>]
+              <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">2</span>][<span class="ruby-identifier">j</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">2</span>][<span class="ruby-identifier">j</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span> * <span class="ruby-identifier">z</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">j</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">j</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span> * <span class="ruby-identifier">x</span>
+            <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">j</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">j</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span> * <span class="ruby-identifier">y</span>
+          <span class="ruby-keyword">end</span>
+
+          <span class="ruby-comment"># Column modification</span>
+
+          <span class="ruby-number">0</span>.<span class="ruby-identifier">upto</span>([<span class="ruby-identifier">n</span>, <span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">3</span>].<span class="ruby-identifier">min</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">p</span> = <span class="ruby-identifier">x</span> * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">y</span> * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>]
+            <span class="ruby-keyword">if</span> (<span class="ruby-identifier">notlast</span>)
+              <span class="ruby-identifier">p</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">z</span> * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">2</span>]
+              <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">2</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">2</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span> * <span class="ruby-identifier">r</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span>
+            <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span> * <span class="ruby-identifier">q</span>
+          <span class="ruby-keyword">end</span>
+
+          <span class="ruby-comment"># Accumulate transformations</span>
+
+          <span class="ruby-identifier">low</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">high</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">p</span> = <span class="ruby-identifier">x</span> * <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">y</span> * <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>]
+            <span class="ruby-keyword">if</span> (<span class="ruby-identifier">notlast</span>)
+              <span class="ruby-identifier">p</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">z</span> * <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">2</span>]
+              <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">2</span>] = <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">2</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span> * <span class="ruby-identifier">r</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span>] = <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span>
+            <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>] = <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span> * <span class="ruby-identifier">q</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>  <span class="ruby-comment"># (s != 0)</span>
+      <span class="ruby-keyword">end</span>  <span class="ruby-comment"># k loop</span>
+    <span class="ruby-keyword">end</span>  <span class="ruby-comment"># check convergence</span>
+  <span class="ruby-keyword">end</span>  <span class="ruby-comment"># while (n &gt;= low)</span>
+
+  <span class="ruby-comment"># Backsubstitute to find vectors of upper triangular form</span>
+
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">norm</span> <span class="ruby-operator">==</span> <span class="ruby-number">0.0</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  (<span class="ruby-identifier">nn</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>).<span class="ruby-identifier">downto</span>(<span class="ruby-number">0</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">p</span> = <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">n</span>]
+    <span class="ruby-identifier">q</span> = <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">n</span>]
+
+    <span class="ruby-comment"># Real vector</span>
+
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">q</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>)
+      <span class="ruby-identifier">l</span> = <span class="ruby-identifier">n</span>
+      <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-number">1.0</span>
+      (<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>).<span class="ruby-identifier">downto</span>(<span class="ruby-number">0</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">w</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">i</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span>
+        <span class="ruby-identifier">r</span> = <span class="ruby-number">0.0</span>
+        <span class="ruby-identifier">l</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">n</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">r</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">n</span>]
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-number">0.0</span>)
+          <span class="ruby-identifier">z</span> = <span class="ruby-identifier">w</span>
+          <span class="ruby-identifier">s</span> = <span class="ruby-identifier">r</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">l</span> = <span class="ruby-identifier">i</span>
+          <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">==</span> <span class="ruby-number">0.0</span>)
+            <span class="ruby-keyword">if</span> (<span class="ruby-identifier">w</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0.0</span>)
+              <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-operator">-</span><span class="ruby-identifier">r</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">w</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-operator">-</span><span class="ruby-identifier">r</span> <span class="ruby-operator">/</span> (<span class="ruby-identifier">eps</span> * <span class="ruby-identifier">norm</span>)
+            <span class="ruby-keyword">end</span>
+
+          <span class="ruby-comment"># Solve real equations</span>
+
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">x</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>]
+            <span class="ruby-identifier">y</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">i</span>]
+            <span class="ruby-identifier">q</span> = (<span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span>) * (<span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>] * <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>]
+            <span class="ruby-identifier">t</span> = (<span class="ruby-identifier">x</span> * <span class="ruby-identifier">s</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">z</span> * <span class="ruby-identifier">r</span>) <span class="ruby-operator">/</span> <span class="ruby-identifier">q</span>
+            <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-identifier">t</span>
+            <span class="ruby-keyword">if</span> (<span class="ruby-identifier">x</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">z</span>.<span class="ruby-identifier">abs</span>)
+              <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span>] = (<span class="ruby-operator">-</span><span class="ruby-identifier">r</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">w</span> * <span class="ruby-identifier">t</span>) <span class="ruby-operator">/</span> <span class="ruby-identifier">x</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span>] = (<span class="ruby-operator">-</span><span class="ruby-identifier">s</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">y</span> * <span class="ruby-identifier">t</span>) <span class="ruby-operator">/</span> <span class="ruby-identifier">z</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+
+          <span class="ruby-comment"># Overflow control</span>
+
+          <span class="ruby-identifier">t</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>].<span class="ruby-identifier">abs</span>
+          <span class="ruby-keyword">if</span> ((<span class="ruby-identifier">eps</span> * <span class="ruby-identifier">t</span>) * <span class="ruby-identifier">t</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">1</span>)
+            <span class="ruby-identifier">i</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">n</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+              <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">n</span>] <span class="ruby-operator">/</span> <span class="ruby-identifier">t</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Complex vector</span>
+
+    <span class="ruby-keyword">elsif</span> (<span class="ruby-identifier">q</span> <span class="ruby-operator">&lt;</span> <span class="ruby-number">0</span>)
+      <span class="ruby-identifier">l</span> = <span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>
+
+      <span class="ruby-comment"># Last vector component imaginary so matrix is triangular</span>
+
+      <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>].<span class="ruby-identifier">abs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span>].<span class="ruby-identifier">abs</span>)
+        <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">q</span> <span class="ruby-operator">/</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+        <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-operator">-</span>(<span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span>) <span class="ruby-operator">/</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">cdivr</span>, <span class="ruby-identifier">cdivi</span> = <span class="ruby-identifier">cdiv</span>(<span class="ruby-number">0.0</span>, <span class="ruby-operator">-</span><span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span>], <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]<span class="ruby-operator">-</span><span class="ruby-identifier">p</span>, <span class="ruby-identifier">q</span>)
+        <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">cdivr</span>
+        <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-identifier">cdivi</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-number">0.0</span>
+      <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">n</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-number">1.0</span>
+      (<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">2</span>).<span class="ruby-identifier">downto</span>(<span class="ruby-number">0</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">ra</span> = <span class="ruby-number">0.0</span>
+        <span class="ruby-identifier">sa</span> = <span class="ruby-number">0.0</span>
+        <span class="ruby-identifier">l</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">n</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">ra</span> = <span class="ruby-identifier">ra</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+          <span class="ruby-identifier">sa</span> = <span class="ruby-identifier">sa</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">n</span>]
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">w</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">i</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span>
+
+        <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-number">0.0</span>)
+          <span class="ruby-identifier">z</span> = <span class="ruby-identifier">w</span>
+          <span class="ruby-identifier">r</span> = <span class="ruby-identifier">ra</span>
+          <span class="ruby-identifier">s</span> = <span class="ruby-identifier">sa</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">l</span> = <span class="ruby-identifier">i</span>
+          <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">==</span> <span class="ruby-number">0</span>)
+            <span class="ruby-identifier">cdivr</span>, <span class="ruby-identifier">cdivi</span> = <span class="ruby-identifier">cdiv</span>(<span class="ruby-operator">-</span><span class="ruby-identifier">ra</span>, <span class="ruby-operator">-</span><span class="ruby-identifier">sa</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">q</span>)
+            <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">cdivr</span>
+            <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-identifier">cdivi</span>
+          <span class="ruby-keyword">else</span>
+
+            <span class="ruby-comment"># Solve complex equations</span>
+
+            <span class="ruby-identifier">x</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>]
+            <span class="ruby-identifier">y</span> = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">i</span>]
+            <span class="ruby-identifier">vr</span> = (<span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span>) * (<span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>] * <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">q</span> * <span class="ruby-identifier">q</span>
+            <span class="ruby-identifier">vi</span> = (<span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span>) * <span class="ruby-number">2.0</span> * <span class="ruby-identifier">q</span>
+            <span class="ruby-keyword">if</span> (<span class="ruby-identifier">vr</span> <span class="ruby-operator">==</span> <span class="ruby-number">0.0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">vi</span> <span class="ruby-operator">==</span> <span class="ruby-number">0.0</span>)
+              <span class="ruby-identifier">vr</span> = <span class="ruby-identifier">eps</span> * <span class="ruby-identifier">norm</span> * (<span class="ruby-identifier">w</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">q</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span>
+              <span class="ruby-identifier">x</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">y</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">z</span>.<span class="ruby-identifier">abs</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">cdivr</span>, <span class="ruby-identifier">cdivi</span> = <span class="ruby-identifier">cdiv</span>(<span class="ruby-identifier">x</span>*<span class="ruby-identifier">r</span><span class="ruby-operator">-</span><span class="ruby-identifier">z</span>*<span class="ruby-identifier">ra</span><span class="ruby-operator">+</span><span class="ruby-identifier">q</span>*<span class="ruby-identifier">sa</span>, <span class="ruby-identifier">x</span>*<span class="ruby-identifier">s</span><span class="ruby-operator">-</span><span class="ruby-identifier">z</span>*<span class="ruby-identifier">sa</span><span class="ruby-operator">-</span><span class="ruby-identifier">q</span>*<span class="ruby-identifier">ra</span>, <span class="ruby-identifier">vr</span>, <span class="ruby-identifier">vi</span>)
+            <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">cdivr</span>
+            <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-identifier">cdivi</span>
+            <span class="ruby-keyword">if</span> (<span class="ruby-identifier">x</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">z</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">q</span>.<span class="ruby-identifier">abs</span>))
+              <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = (<span class="ruby-operator">-</span><span class="ruby-identifier">ra</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">w</span> * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">q</span> * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>]) <span class="ruby-operator">/</span> <span class="ruby-identifier">x</span>
+              <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span>] = (<span class="ruby-operator">-</span><span class="ruby-identifier">sa</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">w</span> * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">q</span> * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]) <span class="ruby-operator">/</span> <span class="ruby-identifier">x</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">cdivr</span>, <span class="ruby-identifier">cdivi</span> = <span class="ruby-identifier">cdiv</span>(<span class="ruby-operator">-</span><span class="ruby-identifier">r</span><span class="ruby-operator">-</span><span class="ruby-identifier">y</span>*<span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>], <span class="ruby-operator">-</span><span class="ruby-identifier">s</span><span class="ruby-operator">-</span><span class="ruby-identifier">y</span>*<span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>], <span class="ruby-identifier">z</span>, <span class="ruby-identifier">q</span>)
+              <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">cdivr</span>
+              <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-identifier">cdivi</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+
+          <span class="ruby-comment"># Overflow control</span>
+
+          <span class="ruby-identifier">t</span> = [<span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>].<span class="ruby-identifier">abs</span>, <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">n</span>].<span class="ruby-identifier">abs</span>].<span class="ruby-identifier">max</span>
+          <span class="ruby-keyword">if</span> ((<span class="ruby-identifier">eps</span> * <span class="ruby-identifier">t</span>) * <span class="ruby-identifier">t</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">1</span>)
+            <span class="ruby-identifier">i</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">n</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+              <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] <span class="ruby-operator">/</span> <span class="ruby-identifier">t</span>
+              <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">n</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">n</span>] <span class="ruby-operator">/</span> <span class="ruby-identifier">t</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Vectors of isolated roots</span>
+
+  <span class="ruby-identifier">nn</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">low</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">high</span>)
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">nn</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Back transformation to get eigenvectors of original matrix</span>
+
+  (<span class="ruby-identifier">nn</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>).<span class="ruby-identifier">downto</span>(<span class="ruby-identifier">low</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">low</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">high</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">z</span> = <span class="ruby-number">0.0</span>
+      <span class="ruby-identifier">low</span>.<span class="ruby-identifier">upto</span>([<span class="ruby-identifier">j</span>, <span class="ruby-identifier">high</span>].<span class="ruby-identifier">min</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">z</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">k</span>] * <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">j</span>]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] = <span class="ruby-identifier">z</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reduce_to_hessenberg">
+            
+              <b>reduce_to_hessenberg</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-reduce_to_hessenberg" name="method-i-reduce_to_hessenberg" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Nonsymmetric reduction to Hessenberg form.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-reduce_to_hessenberg_source')" id="l_method-i-reduce_to_hessenberg_source">show</a>
+                
+              </p>
+              <div id="method-i-reduce_to_hessenberg_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/matrix/eigenvalue_decomposition.rb, line 352</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">reduce_to_hessenberg</span>
+  <span class="ruby-comment">#  This is derived from the Algol procedures orthes and ortran,</span>
+  <span class="ruby-comment">#  by Martin and Wilkinson, Handbook for Auto. Comp.,</span>
+  <span class="ruby-comment">#  Vol.ii-Linear Algebra, and the corresponding</span>
+  <span class="ruby-comment">#  Fortran subroutines in EISPACK.</span>
+
+  <span class="ruby-identifier">low</span> = <span class="ruby-number">0</span>
+  <span class="ruby-identifier">high</span> = <span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>
+
+  (<span class="ruby-identifier">low</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>).<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">high</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-comment"># Scale column.</span>
+
+    <span class="ruby-identifier">scale</span> = <span class="ruby-number">0.0</span>
+    <span class="ruby-identifier">m</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">high</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">scale</span> = <span class="ruby-identifier">scale</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">m</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>].<span class="ruby-identifier">abs</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">scale</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0.0</span>)
+
+      <span class="ruby-comment"># Compute Householder transformation.</span>
+
+      <span class="ruby-identifier">h</span> = <span class="ruby-number">0.0</span>
+      <span class="ruby-identifier">high</span>.<span class="ruby-identifier">downto</span>(<span class="ruby-identifier">m</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">m</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]<span class="ruby-operator">/</span><span class="ruby-identifier">scale</span>
+        <span class="ruby-identifier">h</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">i</span>] * <span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">i</span>]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">g</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-identifier">h</span>)
+      <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">m</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>)
+        <span class="ruby-identifier">g</span> = <span class="ruby-operator">-</span><span class="ruby-identifier">g</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">h</span> <span class="ruby-operator">-=</span> <span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">m</span>] * <span class="ruby-identifier">g</span>
+      <span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">m</span>] = <span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">m</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">g</span>
+
+      <span class="ruby-comment"># Apply Householder similarity transformation</span>
+      <span class="ruby-comment"># @h = (I-u*u&#39;/h)*@h*(I-u*u&#39;)/h)</span>
+
+      <span class="ruby-identifier">m</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">f</span> = <span class="ruby-number">0.0</span>
+        <span class="ruby-identifier">high</span>.<span class="ruby-identifier">downto</span>(<span class="ruby-identifier">m</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">f</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">i</span>]*<span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>]
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">f</span> = <span class="ruby-identifier">f</span><span class="ruby-operator">/</span><span class="ruby-identifier">h</span>
+        <span class="ruby-identifier">m</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">high</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+          <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] <span class="ruby-operator">-=</span> <span class="ruby-identifier">f</span>*<span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">i</span>]
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-number">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">high</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">f</span> = <span class="ruby-number">0.0</span>
+        <span class="ruby-identifier">high</span>.<span class="ruby-identifier">downto</span>(<span class="ruby-identifier">m</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">f</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">j</span>]*<span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>]
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">f</span> = <span class="ruby-identifier">f</span><span class="ruby-operator">/</span><span class="ruby-identifier">h</span>
+        <span class="ruby-identifier">m</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">high</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+          <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] <span class="ruby-operator">-=</span> <span class="ruby-identifier">f</span>*<span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">j</span>]
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">m</span>] = <span class="ruby-identifier">scale</span>*<span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">m</span>]
+      <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">m</span>][<span class="ruby-identifier">m</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">scale</span>*<span class="ruby-identifier">g</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Accumulate transformations (Algol&#39;s ortran).</span>
+
+  <span class="ruby-ivar">@size</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@size</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] = (<span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">j</span> <span class="ruby-operator">?</span> <span class="ruby-number">1.0</span> <span class="ruby-operator">:</span> <span class="ruby-number">0.0</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  (<span class="ruby-identifier">high</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>).<span class="ruby-identifier">downto</span>(<span class="ruby-identifier">low</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@h</span>[<span class="ruby-identifier">m</span>][<span class="ruby-identifier">m</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] <span class="ruby-operator">!=</span> <span class="ruby-number">0.0</span>)
+      (<span class="ruby-identifier">m</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>).<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">high</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">m</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">m</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">high</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">g</span> = <span class="ruby-number">0.0</span>
+        <span class="ruby-identifier">m</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">high</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">g</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">i</span>] * <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>]
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment"># Double division avoids possible underflow</span>
+        <span class="ruby-identifier">g</span> = (<span class="ruby-identifier">g</span> <span class="ruby-operator">/</span> <span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">m</span>]) <span class="ruby-operator">/</span> <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">m</span>][<span class="ruby-identifier">m</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+        <span class="ruby-identifier">m</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">high</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+          <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">g</span> * <span class="ruby-ivar">@ort</span>[<span class="ruby-identifier">i</span>]
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tridiagonalize">
+            
+              <b>tridiagonalize</b>()
+            
+            <a href="../../classes/Matrix/EigenvalueDecomposition.html#method-i-tridiagonalize" name="method-i-tridiagonalize" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Symmetric Householder reduction to tridiagonal form.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tridiagonalize_source')" id="l_method-i-tridiagonalize_source">show</a>
+                
+              </p>
+              <div id="method-i-tridiagonalize_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/matrix/eigenvalue_decomposition.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tridiagonalize</span>
+
+  <span class="ruby-comment">#  This is derived from the Algol procedures tred2 by</span>
+  <span class="ruby-comment">#  Bowdler, Martin, Reinsch, and Wilkinson, Handbook for</span>
+  <span class="ruby-comment">#  Auto. Comp., Vol.ii-Linear Algebra, and the corresponding</span>
+  <span class="ruby-comment">#  Fortran subroutine in EISPACK.</span>
+
+    <span class="ruby-ivar">@size</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">j</span>] = <span class="ruby-ivar">@v</span>[<span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">j</span>]
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Householder reduction to tridiagonal form.</span>
+
+    (<span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>).<span class="ruby-identifier">downto</span>(<span class="ruby-number">0</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+
+      <span class="ruby-comment"># Scale to avoid under/overflow.</span>
+
+      <span class="ruby-identifier">scale</span> = <span class="ruby-number">0.0</span>
+      <span class="ruby-identifier">h</span> = <span class="ruby-number">0.0</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">scale</span> = <span class="ruby-identifier">scale</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">abs</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">scale</span> <span class="ruby-operator">==</span> <span class="ruby-number">0.0</span>)
+        <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+        <span class="ruby-identifier">i</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+          <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">j</span>] = <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">j</span>]
+          <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] = <span class="ruby-number">0.0</span>
+          <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">i</span>] = <span class="ruby-number">0.0</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+
+        <span class="ruby-comment"># Generate Householder vector.</span>
+
+        <span class="ruby-identifier">i</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+          <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">/=</span> <span class="ruby-identifier">scale</span>
+          <span class="ruby-identifier">h</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">k</span>] * <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">k</span>]
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">f</span> = <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>]
+        <span class="ruby-identifier">g</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-identifier">h</span>)
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">f</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>)
+          <span class="ruby-identifier">g</span> = <span class="ruby-operator">-</span><span class="ruby-identifier">g</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">scale</span> * <span class="ruby-identifier">g</span>
+        <span class="ruby-identifier">h</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">f</span> * <span class="ruby-identifier">g</span>
+        <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-identifier">f</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">g</span>
+        <span class="ruby-identifier">i</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+          <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">j</span>] = <span class="ruby-number">0.0</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-comment"># Apply similarity transformation to remaining columns.</span>
+
+        <span class="ruby-identifier">i</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">f</span> = <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">j</span>]
+          <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">f</span>
+          <span class="ruby-identifier">g</span> = <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">j</span>] <span class="ruby-operator">+</span> <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">j</span>][<span class="ruby-identifier">j</span>] * <span class="ruby-identifier">f</span>
+          (<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>).<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">g</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">j</span>] * <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">k</span>]
+            <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">+=</span> <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">j</span>] * <span class="ruby-identifier">f</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">j</span>] = <span class="ruby-identifier">g</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">f</span> = <span class="ruby-number">0.0</span>
+        <span class="ruby-identifier">i</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+          <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">j</span>] <span class="ruby-operator">/=</span> <span class="ruby-identifier">h</span>
+          <span class="ruby-identifier">f</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">j</span>] * <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">j</span>]
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">hh</span> = <span class="ruby-identifier">f</span> <span class="ruby-operator">/</span> (<span class="ruby-identifier">h</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">h</span>)
+        <span class="ruby-identifier">i</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+          <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">j</span>] <span class="ruby-operator">-=</span> <span class="ruby-identifier">hh</span> * <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">j</span>]
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">i</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">f</span> = <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">j</span>]
+          <span class="ruby-identifier">g</span> = <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">j</span>]
+          <span class="ruby-identifier">j</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+            <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">j</span>] <span class="ruby-operator">-=</span> (<span class="ruby-identifier">f</span> * <span class="ruby-ivar">@e</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">g</span> * <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">k</span>])
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">j</span>] = <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">j</span>]
+          <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] = <span class="ruby-number">0.0</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">h</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Accumulate transformations.</span>
+
+    <span class="ruby-number">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">1</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@v</span>[<span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">i</span>] = <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">i</span>]
+      <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">i</span>] = <span class="ruby-number">1.0</span>
+      <span class="ruby-identifier">h</span> = <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>]
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">h</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0.0</span>)
+        <span class="ruby-number">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">i</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+          <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>] <span class="ruby-operator">/</span> <span class="ruby-identifier">h</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-number">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">i</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">g</span> = <span class="ruby-number">0.0</span>
+          <span class="ruby-number">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">i</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">g</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>] * <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">j</span>]
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-number">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">i</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+            <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">j</span>] <span class="ruby-operator">-=</span> <span class="ruby-identifier">g</span> * <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">k</span>]
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-number">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">i</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@v</span>[<span class="ruby-identifier">k</span>][<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-number">1</span>] = <span class="ruby-number">0.0</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@size</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@d</span>[<span class="ruby-identifier">j</span>] = <span class="ruby-ivar">@v</span>[<span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">j</span>]
+      <span class="ruby-ivar">@v</span>[<span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-identifier">j</span>] = <span class="ruby-number">0.0</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@v</span>[<span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>][<span class="ruby-ivar">@size</span><span class="ruby-operator">-</span><span class="ruby-number">1</span>] = <span class="ruby-number">1.0</span>
+    <span class="ruby-ivar">@e</span>[<span class="ruby-number">0</span>] = <span class="ruby-number">0.0</span>
+  <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

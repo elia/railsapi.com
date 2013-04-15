@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TkMenuSpec</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            TkMenuSpec 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/ext/tk/lib/tk/menuspec_rb.html">ext/tk/lib/tk/menuspec.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>tk/menuspec.rb</p>
+
+<pre>Hidethoshi NAGAI (nagai@ai.kyutech.ac.jp)</pre>
+
+<p>based on tkmenubar.rb :</p>
+
+<pre>Copyright (C) 1998 maeda shugo. All rights reserved.
+This file can be distributed under the terms of the Ruby.</pre>
+
+<p>The format of the menu_spec is:</p>
+
+<pre>[ menubutton_info, menubutton_info, ... ]</pre>
+
+<p>The format of the menubutton_info is:</p>
+
+<pre>[ menubutton_info, entry_info, entry_info, ... ]</pre>
+
+<p>And each format of *_info is:</p>
+
+<pre>[
+  [text, underline, configs], # menu button/entry (*1)
+  [label, command, underline, accelerator, configs],   # command entry
+  [label, TkVar_obj, underline, accelerator, configs], # checkbutton entry
+  [label, [TkVar_obj, value],
+                     underline, accelerator, configs], # radiobutton entry
+  [label, [[...menu_info...], [...menu_info...], ...],
+                     underline, accelerator, configs], # cascade entry (*2)
+  &#39;---&#39;, # separator
+  ...
+]</pre>
+
+<p>A menu_info is an array of menu entries:</p>
+
+<pre>[ entry_info, entry_info, ... ]</pre>
+
+<p>underline, accelerator, and configs are optional pearameters. Hashes are OK
+instead of Arrays. Then the entry type (&#39;command&#39;,
+&#39;checkbutton&#39;, &#39;radiobutton&#39; or &#39;cascade&#39;) is given
+by &#39;type&#39; key (e.g. :type=&gt;&#39;cascade&#39;). When type is
+&#39;cascade&#39;, an array of menu_info is acceptable for &#39;menu&#39;
+key (then, create sub-menu).</p>
+
+<p>If the value of underline is true instead of an integer, check whether the
+text/label string contains a &#39;&amp;&#39; character. When includes, the
+first &#39;&amp;&#39; is removed and its following character is converted
+the corresponding &#39;underline&#39; option (first &#39;&amp;&#39; is
+removed). Else if the value of underline is a String or a <a
+href="Regexp.html">Regexp</a>, use the result of label.index(underline) as
+the index of underline (don&#39;t remove matched substring).</p>
+
+<p>NOTE: (*1)</p>
+
+<pre class="ruby"><span class="ruby-constant">If</span> <span class="ruby-identifier">you</span> <span class="ruby-identifier">want</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">make</span> <span class="ruby-identifier">special</span> <span class="ruby-identifier">menus</span> (*.<span class="ruby-identifier">help</span> <span class="ruby-keyword">for</span> <span class="ruby-constant">UNIX</span>, *.<span class="ruby-identifier">system</span> <span class="ruby-keyword">for</span> <span class="ruby-constant">Win</span>,
+<span class="ruby-keyword">and</span> *.<span class="ruby-identifier">apple</span> <span class="ruby-keyword">for</span> <span class="ruby-constant">Mac</span>), <span class="ruby-identifier">append</span> <span class="ruby-string">&#39;menu_name&#39;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-identifier">name</span> (<span class="ruby-identifier">name</span> <span class="ruby-identifier">is</span> <span class="ruby-string">&#39;help&#39;</span> <span class="ruby-keyword">for</span> <span class="ruby-constant">UNIX</span>,
+<span class="ruby-string">&#39;system&#39;</span> <span class="ruby-keyword">for</span> <span class="ruby-constant">Win</span>, <span class="ruby-keyword">and</span> <span class="ruby-string">&#39;apple&#39;</span> <span class="ruby-keyword">for</span> <span class="ruby-constant">Mac</span>) <span class="ruby-identifier">option</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">configs</span> <span class="ruby-identifier">hash</span> <span class="ruby-identifier">of</span>
+<span class="ruby-identifier">menu</span> <span class="ruby-identifier">button</span><span class="ruby-operator">/</span><span class="ruby-identifier">entry</span> <span class="ruby-identifier">information</span>.
+</pre>
+
+<p>NOTE: (*2)</p>
+
+<pre class="ruby"><span class="ruby-constant">If</span> <span class="ruby-identifier">you</span> <span class="ruby-identifier">want</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">configure</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">cascade</span> <span class="ruby-identifier">menu</span>, <span class="ruby-identifier">add</span> :<span class="ruby-identifier">menu_config=</span><span class="ruby-operator">&gt;</span>{<span class="ruby-operator">...</span><span class="ruby-identifier">configs</span><span class="ruby-operator">..</span>}
+<span class="ruby-identifier">to</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">configs</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">cascade</span> <span class="ruby-identifier">entry</span>.
+</pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-_create_menu">_create_menu</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_create_menu_for_menubar">_create_menu_for_menubar</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_create_menubar">_create_menubar</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_create_menubutton">_create_menubutton</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_get_cascade_menus">_get_cascade_menus</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_use_menubar-3F">_use_menubar?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">MENUSPEC_OPTKEYS</td>
+            <td>=</td>
+            <td class="attr-value">[ &#39;layout_proc&#39; ]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-_create_menu">
+            
+              <b>_create_menu</b>(parent, menu_info, menu_name = nil, tearoff = false, default_opts = nil)
+            
+            <a href="../classes/TkMenuSpec.html#method-i-_create_menu" name="method-i-_create_menu" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_create_menu_source')" id="l_method-i-_create_menu_source">show</a>
+                
+              </p>
+              <div id="method-i-_create_menu_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/menuspec.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_create_menu</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">menu_info</span>, <span class="ruby-identifier">menu_name</span> = <span class="ruby-keyword">nil</span>,
+                 <span class="ruby-identifier">tearoff</span> = <span class="ruby-keyword">false</span>, <span class="ruby-identifier">default_opts</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">tearoff</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">default_opts</span> = <span class="ruby-identifier">tearoff</span>
+    <span class="ruby-identifier">tearoff</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">menu_name</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">default_opts</span> = <span class="ruby-identifier">menu_name</span>
+    <span class="ruby-identifier">menu_name</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">tearoff</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">default_opts</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">orig_opts</span> = <span class="ruby-identifier">_symbolkey2str</span>(<span class="ruby-identifier">default_opts</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">orig_opts</span> = {}
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">tearoff</span> = <span class="ruby-identifier">orig_opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;tearoff&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">orig_opts</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&#39;tearoff&#39;</span>)
+  <span class="ruby-identifier">tearoff</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tearoff</span> <span class="ruby-comment"># nil --&gt; false</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">menu_name</span>
+    <span class="ruby-comment">#menu = Tk::Menu.new(parent, :widgetname=&gt;menu_name, :tearoff=&gt;tearoff)</span>
+    <span class="ruby-comment"># --&gt; use current TkMenu class</span>
+    <span class="ruby-identifier">menu</span> = <span class="ruby-constant">TkMenu</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-value">:widgetname=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">menu_name</span>, <span class="ruby-value">:tearoff=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">tearoff</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment">#menu = Tk::Menu.new(parent, :tearoff=&gt;tearoff)</span>
+    <span class="ruby-comment"># --&gt; use current TkMenu class</span>
+    <span class="ruby-identifier">menu</span> = <span class="ruby-constant">TkMenu</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-value">:tearoff=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">tearoff</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">item_info</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">menu_info</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">item_info</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">options</span> = <span class="ruby-identifier">orig_opts</span>.<span class="ruby-identifier">dup</span>
+      <span class="ruby-identifier">options</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">_symbolkey2str</span>(<span class="ruby-identifier">item_info</span>))
+      <span class="ruby-identifier">item_type</span> = (<span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;type&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&#39;command&#39;</span>).<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">menu_name</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;menu_name&#39;</span>)
+      <span class="ruby-identifier">menu_opts</span> = <span class="ruby-identifier">orig_opts</span>.<span class="ruby-identifier">dup</span>
+      <span class="ruby-identifier">menu_opts</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">_symbolkey2str</span>(<span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;menu_config&#39;</span>) <span class="ruby-operator">||</span> {}))
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">item_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;cascade&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;menu&#39;</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+        <span class="ruby-comment"># create cascade menu</span>
+        <span class="ruby-identifier">submenu</span> = <span class="ruby-identifier">_create_menu</span>(<span class="ruby-identifier">menu</span>, <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;menu&#39;</span>], <span class="ruby-identifier">menu_name</span>,
+                               <span class="ruby-identifier">tearoff</span>, <span class="ruby-identifier">menu_opts</span>)
+        <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;menu&#39;</span>] = <span class="ruby-identifier">submenu</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;underline&#39;</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Regexp</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>] <span class="ruby-operator">&amp;&amp;</span>
+            (<span class="ruby-identifier">idx</span> = <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;underline&#39;</span>]))
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-identifier">idx</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-number">-1</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>] <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">idx</span> = <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;&amp;&#39;</span>))
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>].<span class="ruby-identifier">dup</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>][<span class="ruby-identifier">idx</span>] = <span class="ruby-string">&#39;&#39;</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-identifier">idx</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-number">-1</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">menu</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">item_type</span>, <span class="ruby-identifier">options</span>)
+
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">item_info</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+      <span class="ruby-identifier">options</span> = <span class="ruby-identifier">orig_opts</span>.<span class="ruby-identifier">dup</span>
+
+      <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>] = <span class="ruby-identifier">item_info</span>[<span class="ruby-number">0</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">item_info</span>[<span class="ruby-number">0</span>]
+
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">item_info</span>[<span class="ruby-number">1</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">TkVariable</span>
+        <span class="ruby-comment"># checkbutton</span>
+        <span class="ruby-identifier">item_type</span> = <span class="ruby-string">&#39;checkbutton&#39;</span>
+        <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;variable&#39;</span>] = <span class="ruby-identifier">item_info</span>[<span class="ruby-number">1</span>]
+        <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;onvalue&#39;</span>]  = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;offvalue&#39;</span>] = <span class="ruby-keyword">false</span>
+
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>
+        <span class="ruby-comment"># radiobutton or cascade</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">item_info</span>[<span class="ruby-number">1</span>][<span class="ruby-number">0</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">TkVariable</span>)
+          <span class="ruby-comment"># radiobutton</span>
+          <span class="ruby-identifier">item_type</span> = <span class="ruby-string">&#39;radiobutton&#39;</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;variable&#39;</span>] = <span class="ruby-identifier">item_info</span>[<span class="ruby-number">1</span>][<span class="ruby-number">0</span>]
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;value&#39;</span>] = <span class="ruby-identifier">item_info</span>[<span class="ruby-number">1</span>][<span class="ruby-number">1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">item_info</span>[<span class="ruby-number">1</span>][<span class="ruby-number">1</span>]
+
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-comment"># cascade</span>
+          <span class="ruby-identifier">item_type</span> = <span class="ruby-string">&#39;cascade&#39;</span>
+          <span class="ruby-identifier">menu_opts</span> = <span class="ruby-identifier">orig_opts</span>.<span class="ruby-identifier">dup</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">item_info</span>[<span class="ruby-number">4</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">item_info</span>[<span class="ruby-number">4</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+            <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">_symbolkey2str</span>(<span class="ruby-identifier">item_info</span>[<span class="ruby-number">4</span>])
+            <span class="ruby-identifier">menu_name</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;menu_name&#39;</span>)
+            <span class="ruby-identifier">menu_config</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;menu_config&#39;</span>) <span class="ruby-operator">||</span> {}
+            <span class="ruby-identifier">menu_opts</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">_symbolkey2str</span>(<span class="ruby-identifier">menu_config</span>))
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">submenu</span> = <span class="ruby-identifier">_create_menu</span>(<span class="ruby-identifier">menu</span>, <span class="ruby-identifier">item_info</span>[<span class="ruby-number">1</span>], <span class="ruby-identifier">menu_name</span>,
+                                 <span class="ruby-identifier">tearoff</span>, <span class="ruby-identifier">menu_opts</span>)
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;menu&#39;</span>] = <span class="ruby-identifier">submenu</span>
+        <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-comment"># command</span>
+        <span class="ruby-identifier">item_type</span> = <span class="ruby-string">&#39;command&#39;</span>
+        <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;command&#39;</span>] = <span class="ruby-identifier">item_info</span>[<span class="ruby-number">1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">item_info</span>[<span class="ruby-number">1</span>]
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-identifier">item_info</span>[<span class="ruby-number">2</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">item_info</span>[<span class="ruby-number">2</span>]
+      <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;accelerator&#39;</span>] = <span class="ruby-identifier">item_info</span>[<span class="ruby-number">3</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">item_info</span>[<span class="ruby-number">3</span>]
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">item_info</span>[<span class="ruby-number">4</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">item_info</span>[<span class="ruby-number">4</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+        <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">_symbolkey2str</span>(<span class="ruby-identifier">item_info</span>[<span class="ruby-number">4</span>])
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">item_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;cascade&#39;</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;menu_name&#39;</span>)
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;menu_config&#39;</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">options</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">opts</span>)
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;underline&#39;</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Regexp</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>] <span class="ruby-operator">&amp;&amp;</span>
+            (<span class="ruby-identifier">idx</span> = <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;underline&#39;</span>]))
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-identifier">idx</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-number">-1</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>] <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">idx</span> = <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;&amp;&#39;</span>))
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>].<span class="ruby-identifier">dup</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;label&#39;</span>][<span class="ruby-identifier">idx</span>] = <span class="ruby-string">&#39;&#39;</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-identifier">idx</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-number">-1</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">menu</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">item_type</span>, <span class="ruby-identifier">options</span>)
+
+    <span class="ruby-keyword">elsif</span> <span class="ruby-regexp">/^-+$/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">item_info</span>
+      <span class="ruby-identifier">menu</span>.<span class="ruby-identifier">add</span>(<span class="ruby-string">&#39;separator&#39;</span>)
+
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">menu</span>.<span class="ruby-identifier">add</span>(<span class="ruby-string">&#39;command&#39;</span>, <span class="ruby-string">&#39;label&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">item_info</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">menu</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_create_menu_for_menubar">
+            
+              <b>_create_menu_for_menubar</b>(parent)
+            
+            <a href="../classes/TkMenuSpec.html#method-i-_create_menu_for_menubar" name="method-i-_create_menu_for_menubar" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_create_menu_for_menubar_source')" id="l_method-i-_create_menu_for_menubar_source">show</a>
+                
+              </p>
+              <div id="method-i-_create_menu_for_menubar_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/menuspec.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_create_menu_for_menubar</span>(<span class="ruby-identifier">parent</span>)
+  <span class="ruby-comment">#unless (mbar = parent.menu).kind_of?(TkMenu)</span>
+  <span class="ruby-comment"># --&gt; use current TkMenu class</span>
+  <span class="ruby-identifier">mbar</span> = <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">menu</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mbar</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Tk</span><span class="ruby-operator">::</span><span class="ruby-constant">Menu</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">mbar</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">TkMenu</span>)
+    <span class="ruby-comment">#mbar = Tk::Menu.new(parent, :tearoff=&gt;false)</span>
+    <span class="ruby-identifier">mbar</span> = <span class="ruby-constant">TkMenu</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-value">:tearoff=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword">false</span>)
+    <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">menu</span>(<span class="ruby-identifier">mbar</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">mbar</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_create_menubar">
+            
+              <b>_create_menubar</b>(parent, menu_spec, tearoff = false, opts = nil)
+            
+            <a href="../classes/TkMenuSpec.html#method-i-_create_menubar" name="method-i-_create_menubar" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_create_menubar_source')" id="l_method-i-_create_menubar_source">show</a>
+                
+              </p>
+              <div id="method-i-_create_menubar_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/menuspec.rb, line 432</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_create_menubar</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">menu_spec</span>, <span class="ruby-identifier">tearoff</span> = <span class="ruby-keyword">false</span>, <span class="ruby-identifier">opts</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">tearoff</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">tearoff</span>
+    <span class="ruby-identifier">tearoff</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">tearoff</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tearoff</span> <span class="ruby-comment"># nil --&gt; false</span>
+  <span class="ruby-identifier">menu_spec</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">menu_info</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">_create_menubutton</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">menu_info</span>, <span class="ruby-identifier">tearoff</span>, <span class="ruby-identifier">opts</span>)
+  }
+  <span class="ruby-identifier">parent</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_create_menubutton">
+            
+              <b>_create_menubutton</b>(parent, menu_info, tearoff=false, default_opts = {})
+            
+            <a href="../classes/TkMenuSpec.html#method-i-_create_menubutton" name="method-i-_create_menubutton" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_create_menubutton_source')" id="l_method-i-_create_menubutton_source">show</a>
+                
+              </p>
+              <div id="method-i-_create_menubutton_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/menuspec.rb, line 236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_create_menubutton</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">menu_info</span>, <span class="ruby-identifier">tearoff</span>=<span class="ruby-keyword">false</span>, <span class="ruby-identifier">default_opts</span> = {})
+  <span class="ruby-identifier">btn_info</span> = <span class="ruby-identifier">menu_info</span>[<span class="ruby-number">0</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">tearoff</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">default_opts</span> = <span class="ruby-identifier">tearoff</span>
+    <span class="ruby-identifier">tearoff</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">default_opts</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">default_opts</span> = <span class="ruby-identifier">_symbolkey2str</span>(<span class="ruby-identifier">default_opts</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">default_opts</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-string">&#39;layout_proc&#39;</span>)
+      <span class="ruby-identifier">layout_proc</span> = <span class="ruby-identifier">default_opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;layout_proc&#39;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">_vertical_mbar_bind_proc</span> = <span class="ruby-identifier">proc</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">m</span>, <span class="ruby-identifier">dir</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">Tk</span><span class="ruby-operator">::</span><span class="ruby-constant">Menu</span><span class="ruby-operator">::</span><span class="ruby-constant">TkInternalFunction</span>.<span class="ruby-identifier">next_menu</span>(<span class="ruby-identifier">m</span>, <span class="ruby-identifier">dir</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+      <span class="ruby-comment"># ignore error when the internal function doesn&#39;t exist</span>
+    }
+
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">layout_proc</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:vertical</span>, <span class="ruby-string">&#39;vertical&#39;</span>, <span class="ruby-value">:vertical_left</span>, <span class="ruby-string">&#39;vertical_left&#39;</span>
+      <span class="ruby-identifier">layout_proc</span> = <span class="ruby-identifier">proc</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">_parent</span>, <span class="ruby-identifier">_mbtn</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">_mbtn</span>.<span class="ruby-identifier">direction</span> <span class="ruby-value">:right</span>
+        <span class="ruby-identifier">_mbtn</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-value">:side=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">:top</span>, <span class="ruby-value">:fill=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">:x</span>)
+
+        <span class="ruby-identifier">menu</span> = <span class="ruby-identifier">_mbtn</span>.<span class="ruby-identifier">menu</span>
+        <span class="ruby-identifier">menu</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-string">&#39;Tab&#39;</span>, <span class="ruby-identifier">_vertical_mbar_bind_proc</span>, <span class="ruby-value">:widget</span>, <span class="ruby-string">&#39;forward&#39;</span>)
+        <span class="ruby-identifier">menu</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-string">&#39;Alt-Tab&#39;</span>, <span class="ruby-identifier">_vertical_mbar_bind_proc</span>, <span class="ruby-value">:widget</span>, <span class="ruby-string">&#39;backward&#39;</span>)
+      }
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:vertical_right</span>, <span class="ruby-string">&#39;vertical_right&#39;</span>
+      <span class="ruby-identifier">layout_proc</span> = <span class="ruby-identifier">proc</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">_parent</span>, <span class="ruby-identifier">_mbtn</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">_mbtn</span>.<span class="ruby-identifier">direction</span> <span class="ruby-value">:left</span>
+        <span class="ruby-identifier">_mbtn</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-value">:side=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">:top</span>, <span class="ruby-value">:fill=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">:x</span>)
+
+        <span class="ruby-identifier">menu</span> = <span class="ruby-identifier">_mbtn</span>.<span class="ruby-identifier">menu</span>
+        <span class="ruby-identifier">menu</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-string">&#39;Tab&#39;</span>, <span class="ruby-identifier">_vertical_mbar_bind_proc</span>, <span class="ruby-value">:widget</span>, <span class="ruby-string">&#39;forward&#39;</span>)
+        <span class="ruby-identifier">menu</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-string">&#39;Alt-Tab&#39;</span>, <span class="ruby-identifier">_vertical_mbar_bind_proc</span>, <span class="ruby-value">:widget</span>, <span class="ruby-string">&#39;backward&#39;</span>)
+      }
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:horizontal</span>, <span class="ruby-string">&#39;horizontal&#39;</span>
+      <span class="ruby-identifier">layout_proc</span> = <span class="ruby-identifier">proc</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">_parent</span>, <span class="ruby-identifier">_mbtn</span><span class="ruby-operator">|</span> <span class="ruby-identifier">_mbtn</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-value">:side=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">:left</span>)}
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># do nothing</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">keys</span> = (<span class="ruby-identifier">default_opts</span>)<span class="ruby-operator">?</span> <span class="ruby-identifier">default_opts</span>.<span class="ruby-identifier">dup</span><span class="ruby-operator">:</span> {}
+
+  <span class="ruby-identifier">tearoff</span> = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;tearoff&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&#39;tearoff&#39;</span>)
+  <span class="ruby-identifier">tearoff</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tearoff</span> <span class="ruby-comment"># nil --&gt; false</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">_use_menubar?</span>(<span class="ruby-identifier">parent</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">layout_proc</span>
+    <span class="ruby-comment"># menubar by menu entries</span>
+    <span class="ruby-identifier">mbar</span> = <span class="ruby-identifier">_create_menu_for_menubar</span>(<span class="ruby-identifier">parent</span>)
+
+    <span class="ruby-identifier">menu_name</span> = <span class="ruby-keyword">nil</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">btn_info</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">_symbolkey2str</span>(<span class="ruby-identifier">btn_info</span>))
+      <span class="ruby-identifier">menu_name</span> = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;menu_name&#39;</span>)
+      <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;label&#39;</span>] = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;text&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>
+
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Regexp</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span> = <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;label&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>])
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-identifier">idx</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-number">-1</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span> = <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;label&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;&amp;&#39;</span>)
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;label&#39;</span>] = <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;label&#39;</span>].<span class="ruby-identifier">dup</span>
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;label&#39;</span>][<span class="ruby-identifier">idx</span>] = <span class="ruby-string">&#39;&#39;</span>
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-identifier">idx</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-number">-1</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">btn_info</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+      <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;label&#39;</span>] = <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">0</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">0</span>]
+
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">1</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">Integer</span>
+        <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">1</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Regexp</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span> = <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;label&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-identifier">btn_info</span>[<span class="ruby-number">1</span>])
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-identifier">idx</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-number">-1</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span> = <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;label&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;&amp;&#39;</span>)
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;label&#39;</span>] = <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;label&#39;</span>].<span class="ruby-identifier">dup</span>
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;label&#39;</span>][<span class="ruby-identifier">idx</span>] = <span class="ruby-string">&#39;&#39;</span>
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-identifier">idx</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-number">-1</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">2</span>]<span class="ruby-operator">&amp;&amp;</span><span class="ruby-identifier">btn_info</span>[<span class="ruby-number">2</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+        <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">_symbolkey2str</span>(<span class="ruby-identifier">btn_info</span>[<span class="ruby-number">2</span>]))
+        <span class="ruby-identifier">menu_name</span> = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;menu_name&#39;</span>)
+      <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">keys</span> = {<span class="ruby-value">:label=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">btn_info</span>}
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">menu</span> = <span class="ruby-identifier">_create_menu</span>(<span class="ruby-identifier">mbar</span>, <span class="ruby-identifier">menu_info</span>[<span class="ruby-number">1</span><span class="ruby-operator">..</span><span class="ruby-number">-1</span>], <span class="ruby-identifier">menu_name</span>,
+                        <span class="ruby-identifier">tearoff</span>, <span class="ruby-identifier">default_opts</span>)
+    <span class="ruby-identifier">menu</span>.<span class="ruby-identifier">tearoff</span>(<span class="ruby-identifier">tearoff</span>)
+
+    <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;menu&#39;</span>] = <span class="ruby-identifier">menu</span>
+    <span class="ruby-identifier">mbar</span>.<span class="ruby-identifier">add</span>(<span class="ruby-string">&#39;cascade&#39;</span>, <span class="ruby-identifier">keys</span>)
+
+    [<span class="ruby-identifier">mbar</span>, <span class="ruby-identifier">menu</span>]
+
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># menubar by menubuttons</span>
+    <span class="ruby-comment">#mbtn = Tk::Menubutton.new(parent)</span>
+    <span class="ruby-comment"># --&gt; use current TkMenubutton class</span>
+    <span class="ruby-identifier">mbtn</span> = <span class="ruby-constant">TkMenubutton</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">parent</span>)
+
+    <span class="ruby-identifier">menu_name</span> = <span class="ruby-keyword">nil</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">btn_info</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">_symbolkey2str</span>(<span class="ruby-identifier">btn_info</span>))
+      <span class="ruby-identifier">menu_name</span> = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;menu_name&#39;</span>)
+      <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;text&#39;</span>] = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;label&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Regexp</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span> = <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;text&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>])
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-identifier">idx</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-number">-1</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span> = <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;text&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;&amp;&#39;</span>)
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;text&#39;</span>] = <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;text&#39;</span>].<span class="ruby-identifier">dup</span>
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;text&#39;</span>][<span class="ruby-identifier">idx</span>] = <span class="ruby-string">&#39;&#39;</span>
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-identifier">idx</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">keys</span>[<span class="ruby-string">&#39;underline&#39;</span>] = <span class="ruby-number">-1</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">mbtn</span>.<span class="ruby-identifier">configure</span>(<span class="ruby-identifier">keys</span>)
+
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">btn_info</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">1</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Regexp</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">0</span>] <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">idx</span> = <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">0</span>].<span class="ruby-identifier">index</span>(<span class="ruby-identifier">btn_info</span>[<span class="ruby-number">1</span>]))
+          <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">1</span>] = <span class="ruby-identifier">idx</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">1</span>] = <span class="ruby-number">-1</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">0</span>] <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">idx</span> = <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">0</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;&amp;&#39;</span>))
+          <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">0</span>] = <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">0</span>].<span class="ruby-identifier">dup</span>
+          <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">0</span>][<span class="ruby-identifier">idx</span>] = <span class="ruby-string">&#39;&#39;</span>
+          <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">1</span>] = <span class="ruby-identifier">idx</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">1</span>] = <span class="ruby-number">-1</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">mbtn</span>.<span class="ruby-identifier">configure</span>(<span class="ruby-string">&#39;text&#39;</span>, <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">0</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">0</span>]
+      <span class="ruby-identifier">mbtn</span>.<span class="ruby-identifier">configure</span>(<span class="ruby-string">&#39;underline&#39;</span>, <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">1</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">1</span>]
+      <span class="ruby-comment"># mbtn.configure(&#39;accelerator&#39;, btn_info[2]) if btn_info[2]</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">btn_info</span>[<span class="ruby-number">2</span>]<span class="ruby-operator">&amp;&amp;</span><span class="ruby-identifier">btn_info</span>[<span class="ruby-number">2</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+        <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">_symbolkey2str</span>(<span class="ruby-identifier">btn_info</span>[<span class="ruby-number">2</span>]))
+        <span class="ruby-identifier">menu_name</span> = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;menu_name&#39;</span>)
+        <span class="ruby-identifier">mbtn</span>.<span class="ruby-identifier">configure</span>(<span class="ruby-identifier">keys</span>)
+      <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">mbtn</span>.<span class="ruby-identifier">configure</span>(<span class="ruby-string">&#39;text&#39;</span>, <span class="ruby-identifier">btn_info</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">menu</span> = <span class="ruby-identifier">_create_menu</span>(<span class="ruby-identifier">mbtn</span>, <span class="ruby-identifier">menu_info</span>[<span class="ruby-number">1</span><span class="ruby-operator">..</span><span class="ruby-number">-1</span>], <span class="ruby-identifier">menu_name</span>,
+                        <span class="ruby-identifier">tearoff</span>, <span class="ruby-identifier">default_opts</span>)
+    <span class="ruby-identifier">mbtn</span>.<span class="ruby-identifier">menu</span>(<span class="ruby-identifier">menu</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">layout_proc</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Proc</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">layout_proc</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Method</span>)
+      <span class="ruby-comment"># e.g. make a vertical menubar</span>
+      <span class="ruby-comment">#  :layout_proc =&gt; proc{|parent, btn| btn.pack(:side=&gt;:top, :fill=&gt;:x)}</span>
+      <span class="ruby-identifier">layout_proc</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">mbtn</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">mbtn</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;side&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;left&#39;</span>)
+    <span class="ruby-keyword">end</span>
+
+    [<span class="ruby-identifier">mbtn</span>, <span class="ruby-identifier">menu</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_get_cascade_menus">
+            
+              <b>_get_cascade_menus</b>(menu)
+            
+            <a href="../classes/TkMenuSpec.html#method-i-_get_cascade_menus" name="method-i-_get_cascade_menus" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_get_cascade_menus_source')" id="l_method-i-_get_cascade_menus_source">show</a>
+                
+              </p>
+              <div id="method-i-_get_cascade_menus_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/menuspec.rb, line 445</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_get_cascade_menus</span>(<span class="ruby-identifier">menu</span>)
+  <span class="ruby-identifier">menus</span> = []
+  (<span class="ruby-number">0</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">menu</span>.<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;last&#39;</span>))).<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">menu</span>.<span class="ruby-identifier">menutype</span>(<span class="ruby-identifier">idx</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&#39;cascade&#39;</span>
+      <span class="ruby-identifier">submenu</span> = <span class="ruby-identifier">menu</span>.<span class="ruby-identifier">entrycget</span>(<span class="ruby-identifier">idx</span>, <span class="ruby-string">&#39;menu&#39;</span>)
+      <span class="ruby-identifier">menus</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">submenu</span>, <span class="ruby-identifier">_get_cascade_menus</span>(<span class="ruby-identifier">submenu</span>)]
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-identifier">menus</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_use_menubar-3F">
+            
+              <b>_use_menubar?</b>(parent)
+            
+            <a href="../classes/TkMenuSpec.html#method-i-_use_menubar-3F" name="method-i-_use_menubar-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_use_menubar-3F_source')" id="l_method-i-_use_menubar-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-_use_menubar-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File ext/tk/lib/tk/menuspec.rb, line 211</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_use_menubar?</span>(<span class="ruby-identifier">parent</span>)
+  <span class="ruby-identifier">use_menubar</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Tk</span><span class="ruby-operator">::</span><span class="ruby-constant">Root</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Tk</span><span class="ruby-operator">::</span><span class="ruby-constant">Toplevel</span>)
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">current_configinfo</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-string">&#39;menu&#39;</span>)
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

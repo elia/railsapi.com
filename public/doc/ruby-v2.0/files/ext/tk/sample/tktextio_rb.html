@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>tktextio.rb</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            tktextio.rb
+        </h1>
+        <ul class="files">
+            <li>ext/tk/sample/tktextio.rb</li>
+            <li>Last modified: 2013-04-15 17:34:08 +0200</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      <dl class="rdoc-list note-list"><dt><a href="../../../../classes/TkTextIO.html">TkTextIO</a> class 
+<dd>
+<p>handling I/O stream on a TkText widget</p>
+
+<pre>by Hidetoshi NAGAI (nagai@ai.kyutech.ac.jp)</pre>
+</dd></dl>
+
+<p>NOTE: <a href="../../../../classes/TkTextIO.html">TkTextIO</a> supports
+&#39;character&#39; (not &#39;byte&#39;) access only.</p>
+
+<pre class="ruby"><span class="ruby-constant">So</span>, <span class="ruby-keyword">for</span> <span class="ruby-identifier">example</span>, <span class="ruby-constant">TkTextIO</span><span class="ruby-comment">#getc returns a character, TkTextIO#pos</span>
+<span class="ruby-identifier">means</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">character</span> <span class="ruby-identifier">position</span>, <span class="ruby-constant">TkTextIO</span><span class="ruby-comment">#read(size) counts by</span>
+<span class="ruby-identifier">characters</span>, <span class="ruby-keyword">and</span> <span class="ruby-identifier">so</span> <span class="ruby-identifier">on</span>.
+<span class="ruby-constant">Of</span> <span class="ruby-identifier">course</span>, <span class="ruby-identifier">it</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">available</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">make</span> <span class="ruby-constant">TkTextIO</span> <span class="ruby-keyword">class</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">suuport</span>
+<span class="ruby-string">&#39;byte&#39;</span> <span class="ruby-identifier">access</span>. <span class="ruby-constant">However</span>, <span class="ruby-identifier">it</span> <span class="ruby-identifier">may</span> <span class="ruby-keyword">break</span> <span class="ruby-identifier">multi</span><span class="ruby-operator">-</span><span class="ruby-identifier">byte</span> <span class="ruby-identifier">characters</span>.
+<span class="ruby-identifier">and</span> <span class="ruby-keyword">then</span>, <span class="ruby-identifier">displayed</span> <span class="ruby-identifier">string</span> <span class="ruby-identifier">on</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">text</span> <span class="ruby-identifier">widget</span> <span class="ruby-identifier">may</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">garbled</span>.
+<span class="ruby-constant">I</span> <span class="ruby-identifier">think</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">it</span> <span class="ruby-identifier">is</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">good</span> <span class="ruby-identifier">on</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">supposed</span> <span class="ruby-identifier">situation</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">using</span>
+<span class="ruby-constant">TkTextIO</span>.
+</pre>
+
+    </div>
+  
+
+
+  
+    <!-- File only: requires -->
+    <div class="sectiontitle">Required Files</div>
+    <ul>
+      
+        <li>tk</li>
+      
+        <li>tk/text</li>
+      
+        <li>tk/textmark</li>
+      
+        <li>thread</li>
+      
+    </ul>
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="../../../../classes/TkTextIO.html">TkTextIO</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

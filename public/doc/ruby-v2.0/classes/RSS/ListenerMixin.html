@@ -1,0 +1,1290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSS::ListenerMixin</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            RSS::ListenerMixin 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/rss/0_9_rb.html">lib/rss/0.9.rb</a></li>
+            
+            <li><a href="../../files/lib/rss/1_0_rb.html">lib/rss/1.0.rb</a></li>
+            
+            <li><a href="../../files/lib/rss/atom_rb.html">lib/rss/atom.rb</a></li>
+            
+            <li><a href="../../files/lib/rss/parser_rb.html">lib/rss/parser.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-_ns">_ns</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-check_ns">check_ns</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-collect_attributes">collect_attributes</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-initial_start_RDF">initial_start_RDF</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initial_start_entry">initial_start_entry</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initial_start_feed">initial_start_feed</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initial_start_rss">initial_start_rss</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-instruction">instruction</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>K</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-known_class-3F">known_class?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-parse_pi_content">parse_pi_content</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-setup_next_element">setup_next_element</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-setup_next_element_in_unknown_element">setup_next_element_in_unknown_element</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-split_name">split_name</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-start_else_element">start_else_element</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-start_get_text_element">start_get_text_element</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-start_have_something_element">start_have_something_element</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-tag_end">tag_end</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tag_start">tag_start</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-text">text</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>X</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-xmldecl">xmldecl</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">CONTENT_PATTERN</td>
+            <td>=</td>
+            <td class="attr-value">/\s*([^=]+)=([&quot;&#39;])([^\2]+?)\2/</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">NAMESPLIT</td>
+            <td>=</td>
+            <td class="attr-value">/^(?:([\w:][-\w.]*):)?([\w:][-\w.]*)/</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>do_validate</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>ignore_unknown_element</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>rss</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>()
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 267</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>
+  <span class="ruby-ivar">@rss</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@ignore_unknown_element</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@do_validate</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@ns_stack</span> = [{<span class="ruby-string">&quot;xml&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:xml</span>}]
+  <span class="ruby-ivar">@tag_stack</span> = [[]]
+  <span class="ruby-ivar">@text_stack</span> = [<span class="ruby-string">&#39;&#39;</span>]
+  <span class="ruby-ivar">@proc_stack</span> = []
+  <span class="ruby-ivar">@last_element</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@version</span> = <span class="ruby-ivar">@encoding</span> = <span class="ruby-ivar">@standalone</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@xml_stylesheets</span> = []
+  <span class="ruby-ivar">@xml_child_mode</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@xml_element</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@last_xml_element</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-instruction">
+            
+              <b>instruction</b>(name, content)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-instruction" name="method-i-instruction" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-instruction_source')" id="l_method-i-instruction_source">show</a>
+                
+              </p>
+              <div id="method-i-instruction_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">instruction</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">content</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;xml-stylesheet&quot;</span>
+    <span class="ruby-identifier">params</span> = <span class="ruby-identifier">parse_pi_content</span>(<span class="ruby-identifier">content</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-string">&quot;href&quot;</span>)
+      <span class="ruby-ivar">@xml_stylesheets</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">XMLStyleSheet</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_end">
+            
+              <b>tag_end</b>(name)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-tag_end" name="method-i-tag_end" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_end_source')" id="l_method-i-tag_end_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_end_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 350</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_end</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">DEBUG</span>
+    <span class="ruby-identifier">p</span> <span class="ruby-node">&quot;end tag #{name}&quot;</span>
+    <span class="ruby-identifier">p</span> <span class="ruby-ivar">@tag_stack</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">text</span> = <span class="ruby-ivar">@text_stack</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">tags</span> = <span class="ruby-ivar">@tag_stack</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">pr</span> = <span class="ruby-ivar">@proc_stack</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">pr</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">tags</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">pr</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@ns_stack</span>.<span class="ruby-identifier">pop</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tag_start">
+            
+              <b>tag_start</b>(name, attributes)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-tag_start" name="method-i-tag_start" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tag_start_source')" id="l_method-i-tag_start_source">show</a>
+                
+              </p>
+              <div id="method-i-tag_start_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 297</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tag_start</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">attributes</span>)
+  <span class="ruby-ivar">@text_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-string">&#39;&#39;</span>)
+
+  <span class="ruby-identifier">ns</span> = <span class="ruby-ivar">@ns_stack</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">attrs</span> = {}
+  <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-regexp">/\Axmlns(?:\z|:)/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">n</span>
+      <span class="ruby-identifier">ns</span>[<span class="ruby-identifier">$POSTMATCH</span>] = <span class="ruby-identifier">v</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">attrs</span>[<span class="ruby-identifier">n</span>] = <span class="ruby-identifier">v</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@ns_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">ns</span>)
+
+  <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">local</span> = <span class="ruby-identifier">split_name</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-ivar">@tag_stack</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">push</span>([<span class="ruby-identifier">_ns</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-identifier">prefix</span>), <span class="ruby-identifier">local</span>])
+  <span class="ruby-ivar">@tag_stack</span>.<span class="ruby-identifier">push</span>([])
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@xml_child_mode</span>
+    <span class="ruby-identifier">previous</span> = <span class="ruby-ivar">@last_xml_element</span>
+    <span class="ruby-identifier">element_attrs</span> = <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">previous</span>
+      <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ns_prefix</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ns_prefix</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;xml&quot;</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">ns_prefix</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;xmlns&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;xmlns:#{ns_prefix}&quot;</span>
+        <span class="ruby-identifier">element_attrs</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">value</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">next_element</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">local</span>,
+                                    <span class="ruby-identifier">prefix</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">prefix</span>,
+                                    <span class="ruby-identifier">_ns</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-identifier">prefix</span>),
+                                    <span class="ruby-identifier">element_attrs</span>)
+    <span class="ruby-identifier">previous</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">next_element</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">previous</span>
+    <span class="ruby-ivar">@last_xml_element</span> = <span class="ruby-identifier">next_element</span>
+    <span class="ruby-identifier">pr</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">text</span>, <span class="ruby-identifier">tags</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">previous</span>
+        <span class="ruby-ivar">@last_xml_element</span> = <span class="ruby-identifier">previous</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@xml_element</span> = <span class="ruby-ivar">@last_xml_element</span>
+        <span class="ruby-ivar">@last_xml_element</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@proc_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">pr</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-node">&quot;initial_start_#{local}&quot;</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-identifier">__send__</span>(<span class="ruby-node">&quot;initial_start_#{local}&quot;</span>, <span class="ruby-identifier">local</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">dup</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-node">&quot;start_#{local}&quot;</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-identifier">__send__</span>(<span class="ruby-node">&quot;start_#{local}&quot;</span>, <span class="ruby-identifier">local</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">dup</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">start_else_element</span>(<span class="ruby-identifier">local</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">dup</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-text">
+            
+              <b>text</b>(data)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-text" name="method-i-text" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-text_source')" id="l_method-i-text_source">show</a>
+                
+              </p>
+              <div id="method-i-text_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 362</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">text</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@xml_child_mode</span>
+    <span class="ruby-ivar">@last_xml_element</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@last_xml_element</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@text_stack</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-xmldecl">
+            
+              <b>xmldecl</b>(version, encoding, standalone)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-xmldecl" name="method-i-xmldecl" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>set instance vars for version, encoding, standalone</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-xmldecl_source')" id="l_method-i-xmldecl_source">show</a>
+                
+              </p>
+              <div id="method-i-xmldecl_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">xmldecl</span>(<span class="ruby-identifier">version</span>, <span class="ruby-identifier">encoding</span>, <span class="ruby-identifier">standalone</span>)
+  <span class="ruby-ivar">@version</span>, <span class="ruby-ivar">@encoding</span>, <span class="ruby-ivar">@standalone</span> = <span class="ruby-identifier">version</span>, <span class="ruby-identifier">encoding</span>, <span class="ruby-identifier">standalone</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-_ns">
+            
+              <b>_ns</b>(ns, prefix)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-_ns" name="method-i-_ns" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_ns_source')" id="l_method-i-_ns_source">show</a>
+                
+              </p>
+              <div id="method-i-_ns_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 371</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_ns</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-identifier">prefix</span>)
+  <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">prefix</span>, <span class="ruby-string">&quot;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-check_ns">
+            
+              <b>check_ns</b>(tag_name, prefix, ns, require_uri, ignore_unknown_element=nil)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-check_ns" name="method-i-check_ns" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-check_ns_source')" id="l_method-i-check_ns_source">show</a>
+                
+              </p>
+              <div id="method-i-check_ns_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 426</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">check_ns</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">ns</span>, <span class="ruby-identifier">require_uri</span>, <span class="ruby-identifier">ignore_unknown_element</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">_ns</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-identifier">prefix</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">require_uri</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">ignore_unknown_element</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">ignore_unknown_element</span> = <span class="ruby-ivar">@ignore_unknown_element</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">ignore_unknown_element</span>
+      <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@do_validate</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">NSError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">require_uri</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># Force bind required URI with prefix</span>
+      <span class="ruby-ivar">@ns_stack</span>.<span class="ruby-identifier">last</span>[<span class="ruby-identifier">prefix</span>] = <span class="ruby-identifier">require_uri</span>
+      <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-collect_attributes">
+            
+              <b>collect_attributes</b>(tag_name, prefix, attrs, ns, klass)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-collect_attributes" name="method-i-collect_attributes" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-collect_attributes_source')" id="l_method-i-collect_attributes_source">show</a>
+                
+              </p>
+              <div id="method-i-collect_attributes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 476</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">collect_attributes</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">ns</span>, <span class="ruby-identifier">klass</span>)
+  <span class="ruby-identifier">attributes</span> = {}
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">get_attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a_name</span>, <span class="ruby-identifier">a_uri</span>, <span class="ruby-identifier">required</span>, <span class="ruby-identifier">element_name</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_uri</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-keyword">or</span> <span class="ruby-operator">!</span><span class="ruby-identifier">a_uri</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:include?</span>)
+      <span class="ruby-identifier">a_uri</span> = [<span class="ruby-identifier">a_uri</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">a_uri</span> <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;&quot;</span>]
+      <span class="ruby-keyword">for</span> <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">uri</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">ns</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_uri</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">uri</span>)
+          <span class="ruby-identifier">val</span> = <span class="ruby-identifier">attrs</span>[<span class="ruby-node">&quot;#{prefix}:#{a_name}&quot;</span>]
+          <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">a_uri</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;&quot;</span>)
+      <span class="ruby-identifier">val</span> = <span class="ruby-identifier">attrs</span>[<span class="ruby-identifier">a_name</span>]
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@do_validate</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">required</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">a_uri</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;&quot;</span>)
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">uri</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">ns</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_uri</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">uri</span>)
+            <span class="ruby-identifier">a_name</span> = <span class="ruby-node">&quot;#{prefix}:#{a_name}&quot;</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">MissingAttributeError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">a_name</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">attributes</span>[<span class="ruby-identifier">a_name</span>] = <span class="ruby-identifier">val</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">attributes</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initial_start_RDF">
+            
+              <b>initial_start_RDF</b>(tag_name, prefix, attrs, ns)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-initial_start_RDF" name="method-i-initial_start_RDF" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initial_start_RDF_source')" id="l_method-i-initial_start_RDF_source">show</a>
+                
+              </p>
+              <div id="method-i-initial_start_RDF_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/1.0.rb, line 438</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initial_start_RDF</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">ns</span>)
+  <span class="ruby-identifier">check_ns</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">ns</span>, <span class="ruby-constant">RDF</span><span class="ruby-operator">::</span><span class="ruby-constant">URI</span>, <span class="ruby-keyword">false</span>)
+
+  <span class="ruby-ivar">@rss</span> = <span class="ruby-constant">RDF</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@version</span>, <span class="ruby-ivar">@encoding</span>, <span class="ruby-ivar">@standalone</span>)
+  <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">do_validate</span> = <span class="ruby-ivar">@do_validate</span>
+  <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">xml_stylesheets</span> = <span class="ruby-ivar">@xml_stylesheets</span>
+  <span class="ruby-ivar">@last_element</span> = <span class="ruby-ivar">@rss</span>
+  <span class="ruby-identifier">pr</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">text</span>, <span class="ruby-identifier">tags</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">validate_for_stream</span>(<span class="ruby-identifier">tags</span>, <span class="ruby-ivar">@ignore_unknown_element</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@do_validate</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@proc_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">pr</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initial_start_entry">
+            
+              <b>initial_start_entry</b>(tag_name, prefix, attrs, ns)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-initial_start_entry" name="method-i-initial_start_entry" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initial_start_entry_source')" id="l_method-i-initial_start_entry_source">show</a>
+                
+              </p>
+              <div id="method-i-initial_start_entry_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/atom.rb, line 741</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initial_start_entry</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">ns</span>)
+  <span class="ruby-identifier">check_ns</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">ns</span>, <span class="ruby-constant">Atom</span><span class="ruby-operator">::</span><span class="ruby-constant">URI</span>, <span class="ruby-keyword">false</span>)
+
+  <span class="ruby-ivar">@rss</span> = <span class="ruby-constant">Atom</span><span class="ruby-operator">::</span><span class="ruby-constant">Entry</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@version</span>, <span class="ruby-ivar">@encoding</span>, <span class="ruby-ivar">@standalone</span>)
+  <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">do_validate</span> = <span class="ruby-ivar">@do_validate</span>
+  <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">xml_stylesheets</span> = <span class="ruby-ivar">@xml_stylesheets</span>
+  <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">lang</span> = <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&quot;xml:lang&quot;</span>]
+  <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">base</span> = <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&quot;xml:base&quot;</span>]
+  <span class="ruby-ivar">@last_element</span> = <span class="ruby-ivar">@rss</span>
+  <span class="ruby-identifier">pr</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">text</span>, <span class="ruby-identifier">tags</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">validate_for_stream</span>(<span class="ruby-identifier">tags</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@do_validate</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@proc_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">pr</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initial_start_feed">
+            
+              <b>initial_start_feed</b>(tag_name, prefix, attrs, ns)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-initial_start_feed" name="method-i-initial_start_feed" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initial_start_feed_source')" id="l_method-i-initial_start_feed_source">show</a>
+                
+              </p>
+              <div id="method-i-initial_start_feed_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/atom.rb, line 726</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initial_start_feed</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">ns</span>)
+  <span class="ruby-identifier">check_ns</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">ns</span>, <span class="ruby-constant">Atom</span><span class="ruby-operator">::</span><span class="ruby-constant">URI</span>, <span class="ruby-keyword">false</span>)
+
+  <span class="ruby-ivar">@rss</span> = <span class="ruby-constant">Atom</span><span class="ruby-operator">::</span><span class="ruby-constant">Feed</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@version</span>, <span class="ruby-ivar">@encoding</span>, <span class="ruby-ivar">@standalone</span>)
+  <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">do_validate</span> = <span class="ruby-ivar">@do_validate</span>
+  <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">xml_stylesheets</span> = <span class="ruby-ivar">@xml_stylesheets</span>
+  <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">lang</span> = <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&quot;xml:lang&quot;</span>]
+  <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">base</span> = <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&quot;xml:base&quot;</span>]
+  <span class="ruby-ivar">@last_element</span> = <span class="ruby-ivar">@rss</span>
+  <span class="ruby-identifier">pr</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">text</span>, <span class="ruby-identifier">tags</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">validate_for_stream</span>(<span class="ruby-identifier">tags</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@do_validate</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@proc_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">pr</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initial_start_rss">
+            
+              <b>initial_start_rss</b>(tag_name, prefix, attrs, ns)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-initial_start_rss" name="method-i-initial_start_rss" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initial_start_rss_source')" id="l_method-i-initial_start_rss_source">show</a>
+                
+              </p>
+              <div id="method-i-initial_start_rss_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/0.9.rb, line 413</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initial_start_rss</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">ns</span>)
+  <span class="ruby-identifier">check_ns</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">ns</span>, <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-keyword">false</span>)
+
+  <span class="ruby-ivar">@rss</span> = <span class="ruby-constant">Rss</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;version&#39;</span>], <span class="ruby-ivar">@version</span>, <span class="ruby-ivar">@encoding</span>, <span class="ruby-ivar">@standalone</span>)
+  <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">do_validate</span> = <span class="ruby-ivar">@do_validate</span>
+  <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">xml_stylesheets</span> = <span class="ruby-ivar">@xml_stylesheets</span>
+  <span class="ruby-ivar">@last_element</span> = <span class="ruby-ivar">@rss</span>
+  <span class="ruby-identifier">pr</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">text</span>, <span class="ruby-identifier">tags</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@rss</span>.<span class="ruby-identifier">validate_for_stream</span>(<span class="ruby-identifier">tags</span>, <span class="ruby-ivar">@ignore_unknown_element</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@do_validate</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@proc_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">pr</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-known_class-3F">
+            
+              <b>known_class?</b>(target_class, class_name)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-known_class-3F" name="method-i-known_class-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-known_class-3F_source')" id="l_method-i-known_class-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-known_class-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 407</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">known_class?</span>(<span class="ruby-identifier">target_class</span>, <span class="ruby-identifier">class_name</span>)
+  <span class="ruby-identifier">class_name</span> <span class="ruby-keyword">and</span>
+    (<span class="ruby-identifier">target_class</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-identifier">class_name</span>, <span class="ruby-keyword">false</span>) <span class="ruby-keyword">or</span>
+     <span class="ruby-identifier">target_class</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">class_name</span>.<span class="ruby-identifier">to_sym</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-parse_pi_content">
+            
+              <b>parse_pi_content</b>(content)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-parse_pi_content" name="method-i-parse_pi_content" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Extract the first name=“value” pair from content. Works with single quotes
+according to the constant <a
+href="ListenerMixin.html#CONTENT_PATTERN">CONTENT_PATTERN</a>. Return a <a
+href="../Hash.html">Hash</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-parse_pi_content_source')" id="l_method-i-parse_pi_content_source">show</a>
+                
+              </p>
+              <div id="method-i-parse_pi_content_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 379</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">parse_pi_content</span>(<span class="ruby-identifier">content</span>)
+  <span class="ruby-identifier">params</span> = {}
+  <span class="ruby-identifier">content</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">CONTENT_PATTERN</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">quote</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">params</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-setup_next_element">
+            
+              <b>setup_next_element</b>(tag_name, klass, attributes)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-setup_next_element" name="method-i-setup_next_element" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-setup_next_element_source')" id="l_method-i-setup_next_element_source">show</a>
+                
+              </p>
+              <div id="method-i-setup_next_element_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 510</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">setup_next_element</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">klass</span>, <span class="ruby-identifier">attributes</span>)
+  <span class="ruby-identifier">previous</span> = <span class="ruby-ivar">@last_element</span>
+  <span class="ruby-identifier">next_element</span> = <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@do_validate</span>, <span class="ruby-identifier">attributes</span>)
+  <span class="ruby-identifier">previous</span>.<span class="ruby-identifier">set_next_element</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">next_element</span>)
+  <span class="ruby-ivar">@last_element</span> = <span class="ruby-identifier">next_element</span>
+  <span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">parent</span> = <span class="ruby-identifier">previous</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">need_parent?</span>
+  <span class="ruby-ivar">@xml_child_mode</span> = <span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">have_xml_content?</span>
+
+  <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">text</span>, <span class="ruby-identifier">tags</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">p</span>(<span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">class</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">DEBUG</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@xml_child_mode</span>
+      <span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">content</span> = <span class="ruby-ivar">@xml_element</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">xml_setter</span> = <span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">xml_setter</span>
+      <span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">xml_setter</span>, <span class="ruby-ivar">@xml_element</span>)
+      <span class="ruby-ivar">@xml_element</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-ivar">@xml_child_mode</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">have_content?</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">need_base64_encode?</span>
+          <span class="ruby-identifier">text</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">lstrip</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;m&quot;</span>).<span class="ruby-identifier">first</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">content</span> = <span class="ruby-identifier">text</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@do_validate</span>
+      <span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">validate_for_stream</span>(<span class="ruby-identifier">tags</span>, <span class="ruby-ivar">@ignore_unknown_element</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@last_element</span> = <span class="ruby-identifier">previous</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-setup_next_element_in_unknown_element">
+            
+              <b>setup_next_element_in_unknown_element</b>()
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-setup_next_element_in_unknown_element" name="method-i-setup_next_element_in_unknown_element" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-setup_next_element_in_unknown_element_source')" id="l_method-i-setup_next_element_in_unknown_element_source">show</a>
+                
+              </p>
+              <div id="method-i-setup_next_element_in_unknown_element_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 541</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">setup_next_element_in_unknown_element</span>
+  <span class="ruby-identifier">current_element</span>, <span class="ruby-ivar">@last_element</span> = <span class="ruby-ivar">@last_element</span>, <span class="ruby-keyword">nil</span>
+  <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> {<span class="ruby-ivar">@last_element</span> = <span class="ruby-identifier">current_element</span>}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-split_name">
+            
+              <b>split_name</b>(name)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-split_name" name="method-i-split_name" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-split_name_source')" id="l_method-i-split_name_source">show</a>
+                
+              </p>
+              <div id="method-i-split_name_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 421</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">split_name</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">NAMESPLIT</span>
+  [<span class="ruby-node">$1</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-node">$2</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-start_else_element">
+            
+              <b>start_else_element</b>(local, prefix, attrs, ns)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-start_else_element" name="method-i-start_else_element" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-start_else_element_source')" id="l_method-i-start_else_element_source">show</a>
+                
+              </p>
+              <div id="method-i-start_else_element_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 387</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">start_else_element</span>(<span class="ruby-identifier">local</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">ns</span>)
+  <span class="ruby-identifier">class_name</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">class_name</span>(<span class="ruby-identifier">_ns</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-identifier">prefix</span>), <span class="ruby-identifier">local</span>)
+  <span class="ruby-identifier">current_class</span> = <span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">class</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">known_class?</span>(<span class="ruby-identifier">current_class</span>, <span class="ruby-identifier">class_name</span>)
+    <span class="ruby-identifier">next_class</span> = <span class="ruby-identifier">current_class</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">class_name</span>)
+    <span class="ruby-identifier">start_have_something_element</span>(<span class="ruby-identifier">local</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">ns</span>, <span class="ruby-identifier">next_class</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@do_validate</span> <span class="ruby-keyword">or</span> <span class="ruby-ivar">@ignore_unknown_element</span>
+      <span class="ruby-ivar">@proc_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">setup_next_element_in_unknown_element</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">parent</span> = <span class="ruby-string">&quot;ROOT ELEMENT???&quot;</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_class</span>.<span class="ruby-identifier">tag_name</span>
+        <span class="ruby-identifier">parent</span> = <span class="ruby-identifier">current_class</span>.<span class="ruby-identifier">tag_name</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotExpectedTagError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">local</span>, <span class="ruby-identifier">_ns</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-identifier">prefix</span>), <span class="ruby-identifier">parent</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-start_get_text_element">
+            
+              <b>start_get_text_element</b>(tag_name, prefix, ns, required_uri)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-start_get_text_element" name="method-i-start_get_text_element" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-start_get_text_element_source')" id="l_method-i-start_get_text_element_source">show</a>
+                
+              </p>
+              <div id="method-i-start_get_text_element_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 446</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">start_get_text_element</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">ns</span>, <span class="ruby-identifier">required_uri</span>)
+  <span class="ruby-identifier">pr</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">text</span>, <span class="ruby-identifier">tags</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">setter</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">setter</span>(<span class="ruby-identifier">required_uri</span>, <span class="ruby-identifier">tag_name</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">setter</span> <span class="ruby-keyword">and</span> <span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">setter</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@do_validate</span>
+        <span class="ruby-identifier">getter</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">getter</span>(<span class="ruby-identifier">required_uri</span>, <span class="ruby-identifier">tag_name</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">getter</span>)
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">TooMuchTagError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">tag_name</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">setter</span>, <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@do_validate</span> <span class="ruby-keyword">and</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@ignore_unknown_element</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotExpectedTagError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">_ns</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-identifier">prefix</span>),
+                                      <span class="ruby-ivar">@last_element</span>.<span class="ruby-identifier">tag_name</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@proc_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">pr</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-start_have_something_element">
+            
+              <b>start_have_something_element</b>(tag_name, prefix, attrs, ns, klass)
+            
+            <a href="../../classes/RSS/ListenerMixin.html#method-i-start_have_something_element" name="method-i-start_have_something_element" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-start_have_something_element_source')" id="l_method-i-start_have_something_element_source">show</a>
+                
+              </p>
+              <div id="method-i-start_have_something_element_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rss/parser.rb, line 467</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">start_have_something_element</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">ns</span>, <span class="ruby-identifier">klass</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">check_ns</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">ns</span>, <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">required_uri</span>)
+    <span class="ruby-identifier">attributes</span> = <span class="ruby-identifier">collect_attributes</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">ns</span>, <span class="ruby-identifier">klass</span>)
+    <span class="ruby-ivar">@proc_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">setup_next_element</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">klass</span>, <span class="ruby-identifier">attributes</span>))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@proc_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">setup_next_element_in_unknown_element</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

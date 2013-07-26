@@ -81,6 +81,24 @@
     
 
     
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">FileEntry</td>
+            <td>=</td>
+            <td class="attr-value">FileUtils::Entry_</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
 
 
     
@@ -116,16 +134,50 @@
                 
               </p>
               <div id="method-c-build_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/ext/ext_conf_builder.rb, line 12</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/ext/ext_conf_builder.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">extension</span>, <span class="ruby-identifier">directory</span>, <span class="ruby-identifier">dest_path</span>, <span class="ruby-identifier">results</span>, <span class="ruby-identifier">args</span>=[])
-  <span class="ruby-identifier">cmd</span> = <span class="ruby-node">&quot;#{Gem.ruby} #{File.basename extension}&quot;</span>
-  <span class="ruby-identifier">cmd</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; #{args.join &#39; &#39;}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">tmp_dest</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mktmpdir</span>(<span class="ruby-string">&quot;.gem.&quot;</span>, <span class="ruby-string">&quot;.&quot;</span>)
 
-  <span class="ruby-identifier">run</span> <span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">results</span>
+  <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">open</span> <span class="ruby-node">%wsiteconf .rb&quot;</span>, <span class="ruby-string">&quot;.&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">siteconf</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">siteconf</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;require &#39;rbconfig&#39;&quot;</span>
+    <span class="ruby-identifier">siteconf</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;dest_path = #{(tmp_dest || dest_path).dump}&quot;</span>
+    <span class="ruby-node">%w[sitearchdir sitelibdir]</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dir</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">siteconf</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;RbConfig::MAKEFILE_CONFIG[&#39;#{dir}&#39;] = dest_path&quot;</span>
+      <span class="ruby-identifier">siteconf</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;RbConfig::CONFIG[&#39;#{dir}&#39;] = dest_path&quot;</span>
+    <span class="ruby-keyword">end</span>
 
-  <span class="ruby-identifier">make</span> <span class="ruby-identifier">dest_path</span>, <span class="ruby-identifier">results</span>
+    <span class="ruby-identifier">siteconf</span>.<span class="ruby-identifier">flush</span>
 
-  <span class="ruby-identifier">results</span>
+    <span class="ruby-identifier">siteconf_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span> <span class="ruby-identifier">siteconf</span>.<span class="ruby-identifier">path</span>
+
+    <span class="ruby-identifier">rubyopt</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;RUBYOPT&quot;</span>]
+    <span class="ruby-identifier">destdir</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;DESTDIR&quot;</span>]
+
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;RUBYOPT&quot;</span>] = [<span class="ruby-node">&quot;-r#{siteconf_path}&quot;</span>, <span class="ruby-identifier">rubyopt</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+      <span class="ruby-identifier">cmd</span> = [<span class="ruby-constant">Gem</span>.<span class="ruby-identifier">ruby</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">extension</span>), *<span class="ruby-identifier">args</span>].<span class="ruby-identifier">join</span> <span class="ruby-string">&#39; &#39;</span>
+
+      <span class="ruby-identifier">run</span> <span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">results</span>
+
+      <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;DESTDIR&quot;</span>] = <span class="ruby-keyword">nil</span>
+
+      <span class="ruby-identifier">make</span> <span class="ruby-identifier">dest_path</span>, <span class="ruby-identifier">results</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">tmp_dest</span>
+        <span class="ruby-constant">FileEntry</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tmp_dest</span>).<span class="ruby-identifier">traverse</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ent</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">destent</span> = <span class="ruby-identifier">ent</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dest_path</span>, <span class="ruby-identifier">ent</span>.<span class="ruby-identifier">rel</span>)
+          <span class="ruby-identifier">destent</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-keyword">or</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">rename</span>(<span class="ruby-identifier">ent</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">destent</span>.<span class="ruby-identifier">path</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">results</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;RUBYOPT&quot;</span>] = <span class="ruby-identifier">rubyopt</span>
+      <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;DESTDIR&quot;</span>] = <span class="ruby-identifier">destdir</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-identifier">tmp_dest</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">tmp_dest</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>

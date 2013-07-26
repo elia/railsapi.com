@@ -520,8 +520,10 @@ rb_stat_init(VALUE obj, VALUE fname)
           
           
             <div class="description">
-              <p>Compares <code>File::Stat</code> objects by comparing their respective
-modification times.</p>
+              <p>Compares <a href="Stat.html">File::Stat</a> objects by comparing their
+respective modification times.</p>
+
+<p><code>nil</code> is returned if the two values are incomparable.</p>
 
 <pre class="ruby"><span class="ruby-identifier">f1</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;f1&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>)
 <span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>
@@ -976,6 +978,8 @@ rb_stat_dev_minor(VALUE self)
             <div class="description">
               <p>Returns <code>true</code> if the named file is a directory, or a symlink
 that points at a directory, and <code>false</code> otherwise.</p>
+
+<p><em>file_name</em> can be an <a href="../IO.html">IO</a> object.</p>
 
 <pre>File.directory?(&quot;.&quot;)</pre>
             </div>

@@ -109,6 +109,11 @@ RubyGems checkout or tarball.</p>
             
               
               <li>
+                <a href="#method-i-install_file">install_file</a>,
+              </li>
+            
+              
+              <li>
                 <a href="#method-i-install_lib">install_lib</a>,
               </li>
             
@@ -139,6 +144,18 @@ RubyGems checkout or tarball.</p>
               
               <li>
                 <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-pem_files_in">pem_files_in</a>
               </li>
             
           </ul>
@@ -327,6 +344,8 @@ RubyGems checkout or tarball.</p>
 
     <span class="ruby-identifier">options</span>[<span class="ruby-value">:document</span>].<span class="ruby-identifier">uniq!</span>
   <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@verbose</span> = <span class="ruby-keyword">nil</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
@@ -361,7 +380,7 @@ RubyGems checkout or tarball.</p>
                 
               </p>
               <div id="method-i-check_ruby_version_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 82</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 84</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">check_ruby_version</span>
   <span class="ruby-identifier">required_version</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Requirement</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;&gt;= 1.8.7&#39;</span>
 
@@ -401,7 +420,7 @@ RubyGems checkout or tarball.</p>
                 
               </p>
               <div id="method-i-execute_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 113</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 115</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">execute</span>
   <span class="ruby-ivar">@verbose</span> = <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">really_verbose</span>
 
@@ -543,7 +562,7 @@ RubyGems checkout or tarball.</p>
                 
               </p>
               <div id="method-i-generate_default_dirs_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 352</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 363</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">generate_default_dirs</span>(<span class="ruby-identifier">install_destdir</span>)
   <span class="ruby-identifier">prefix</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:prefix</span>]
   <span class="ruby-identifier">site_or_vendor</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:site_or_vendor</span>]
@@ -606,7 +625,7 @@ RubyGems checkout or tarball.</p>
                 
               </p>
               <div id="method-i-install_executables_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 224</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 226</span>
   <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">install_executables</span>(<span class="ruby-identifier">bin_dir</span>)
     <span class="ruby-identifier">say</span> <span class="ruby-string">&quot;Installing gem executable&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@verbose</span>
 
@@ -670,6 +689,45 @@ TEXT</span>
           </div>
         
         <div class="method">
+          <div class="title method-title" id="method-i-install_file">
+            
+              <b>install_file</b>(file, dest_dir)
+            
+            <a href="../../../classes/Gem/Commands/SetupCommand.html#method-i-install_file" name="method-i-install_file" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-install_file_source')" id="l_method-i-install_file_source">show</a>
+                
+              </p>
+              <div id="method-i-install_file_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">install_file</span> <span class="ruby-identifier">file</span>, <span class="ruby-identifier">dest_dir</span>
+  <span class="ruby-identifier">dest_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">dest_dir</span>, <span class="ruby-identifier">file</span>
+  <span class="ruby-identifier">dest_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span> <span class="ruby-identifier">dest_file</span>
+  <span class="ruby-identifier">mkdir_p</span> <span class="ruby-identifier">dest_dir</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span> <span class="ruby-identifier">dest_dir</span>
+
+  <span class="ruby-identifier">install</span> <span class="ruby-identifier">file</span>, <span class="ruby-identifier">dest_file</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0644</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
           <div class="title method-title" id="method-i-install_lib">
             
               <b>install_lib</b>(lib_dir)
@@ -695,19 +753,20 @@ TEXT</span>
                 
               </p>
               <div id="method-i-install_lib_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 282</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 292</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">install_lib</span>(<span class="ruby-identifier">lib_dir</span>)
   <span class="ruby-identifier">say</span> <span class="ruby-string">&quot;Installing RubyGems&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@verbose</span>
 
   <span class="ruby-identifier">lib_files</span> = <span class="ruby-identifier">rb_files_in</span> <span class="ruby-string">&#39;lib&#39;</span>
+  <span class="ruby-identifier">pem_files</span> = <span class="ruby-identifier">pem_files_in</span> <span class="ruby-string">&#39;lib&#39;</span>
 
   <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span> <span class="ruby-string">&#39;lib&#39;</span> <span class="ruby-keyword">do</span>
     <span class="ruby-identifier">lib_files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lib_file</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">dest_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">lib_dir</span>, <span class="ruby-identifier">lib_file</span>
-      <span class="ruby-identifier">dest_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span> <span class="ruby-identifier">dest_file</span>
-      <span class="ruby-identifier">mkdir_p</span> <span class="ruby-identifier">dest_dir</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span> <span class="ruby-identifier">dest_dir</span>
+      <span class="ruby-identifier">install_file</span> <span class="ruby-identifier">lib_file</span>, <span class="ruby-identifier">lib_dir</span>
+    <span class="ruby-keyword">end</span>
 
-      <span class="ruby-identifier">install</span> <span class="ruby-identifier">lib_file</span>, <span class="ruby-identifier">dest_file</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0644</span>
+    <span class="ruby-identifier">pem_files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pem_file</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">install_file</span> <span class="ruby-identifier">pem_file</span>, <span class="ruby-identifier">lib_dir</span>
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
@@ -742,7 +801,7 @@ TEXT</span>
                 
               </p>
               <div id="method-i-install_rdoc_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 298</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 309</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">install_rdoc</span>
   <span class="ruby-identifier">gem_doc_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">dir</span>, <span class="ruby-string">&#39;doc&#39;</span>
   <span class="ruby-identifier">rubygems_name</span> = <span class="ruby-node">&quot;rubygems-#{Gem::VERSION}&quot;</span>
@@ -814,7 +873,7 @@ TEXT</span>
                 
               </p>
               <div id="method-i-make_destination_dirs_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 339</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 350</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">make_destination_dirs</span>(<span class="ruby-identifier">install_destdir</span>)
   <span class="ruby-identifier">lib_dir</span>, <span class="ruby-identifier">bin_dir</span> = <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">default_rubygems_dirs</span>
 
@@ -826,6 +885,43 @@ TEXT</span>
   <span class="ruby-identifier">mkdir_p</span> <span class="ruby-identifier">bin_dir</span>
 
   <span class="ruby-keyword">return</span> <span class="ruby-identifier">lib_dir</span>, <span class="ruby-identifier">bin_dir</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-pem_files_in">
+            
+              <b>pem_files_in</b>(dir)
+            
+            <a href="../../../classes/Gem/Commands/SetupCommand.html#method-i-pem_files_in" name="method-i-pem_files_in" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-pem_files_in_source')" id="l_method-i-pem_files_in_source">show</a>
+                
+              </p>
+              <div id="method-i-pem_files_in_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 395</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">pem_files_in</span> <span class="ruby-identifier">dir</span>
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span> <span class="ruby-identifier">dir</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;**&#39;</span>, <span class="ruby-string">&#39;*pem&#39;</span>)]
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
@@ -858,7 +954,7 @@ TEXT</span>
                 
               </p>
               <div id="method-i-rb_files_in_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 384</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 401</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">rb_files_in</span> <span class="ruby-identifier">dir</span>
   <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span> <span class="ruby-identifier">dir</span> <span class="ruby-keyword">do</span>
     <span class="ruby-constant">Dir</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;**&#39;</span>, <span class="ruby-string">&#39;*rb&#39;</span>)]
@@ -895,7 +991,7 @@ TEXT</span>
                 
               </p>
               <div id="method-i-remove_old_bin_files_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 390</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 407</span>
   <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">remove_old_bin_files</span>(<span class="ruby-identifier">bin_dir</span>)
     <span class="ruby-identifier">old_bin_files</span> = {
       <span class="ruby-string">&#39;gem_mirror&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;gem mirror&#39;</span>,
@@ -958,15 +1054,20 @@ abort &quot;#{deprecation_message}&quot;
                 
               </p>
               <div id="method-i-remove_old_lib_files_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 422</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 439</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">remove_old_lib_files</span> <span class="ruby-identifier">lib_dir</span>
-  <span class="ruby-identifier">lib_files</span> = <span class="ruby-identifier">rb_files_in</span> <span class="ruby-string">&#39;lib&#39;</span>
+  <span class="ruby-identifier">rubygems_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">lib_dir</span>, <span class="ruby-string">&#39;rubygems&#39;</span>
+  <span class="ruby-identifier">lib_files</span> = <span class="ruby-identifier">rb_files_in</span> <span class="ruby-string">&#39;lib/rubygems&#39;</span>
 
-  <span class="ruby-identifier">old_lib_files</span> = <span class="ruby-identifier">rb_files_in</span> <span class="ruby-identifier">lib_dir</span>
+  <span class="ruby-identifier">old_lib_files</span> = <span class="ruby-identifier">rb_files_in</span> <span class="ruby-identifier">rubygems_dir</span>
 
   <span class="ruby-identifier">to_remove</span> = <span class="ruby-identifier">old_lib_files</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">lib_files</span>
 
-  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span> <span class="ruby-identifier">lib_dir</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">to_remove</span>.<span class="ruby-identifier">delete_if</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">file</span>.<span class="ruby-identifier">start_with?</span> <span class="ruby-string">&#39;defaults&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span> <span class="ruby-identifier">rubygems_dir</span> <span class="ruby-keyword">do</span>
     <span class="ruby-identifier">to_remove</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
       <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_f</span> <span class="ruby-identifier">file</span>
 
@@ -1006,7 +1107,7 @@ abort &quot;#{deprecation_message}&quot;
                 
               </p>
               <div id="method-i-uninstall_old_gemcutter_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 439</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/setup_command.rb, line 461</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">uninstall_old_gemcutter</span>
   <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;rubygems/uninstaller&#39;</span>
 

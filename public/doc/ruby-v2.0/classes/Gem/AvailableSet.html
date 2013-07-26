@@ -259,7 +259,7 @@
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 5</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 4</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>
   <span class="ruby-ivar">@set</span> = []
   <span class="ruby-ivar">@sorted</span> = <span class="ruby-keyword">nil</span>
@@ -297,21 +297,21 @@
                 
               </p>
               <div id="method-i-3C-3C_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 18</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;&lt;</span>(<span class="ruby-keyword ruby-title">o</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">o</span>
-  <span class="ruby-keyword">when</span> <span class="ruby-constant">AvailableSet</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">AvailableSet</span>
     <span class="ruby-identifier">s</span> = <span class="ruby-identifier">o</span>.<span class="ruby-identifier">set</span>
   <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>
     <span class="ruby-identifier">s</span> = <span class="ruby-identifier">o</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sp</span>,<span class="ruby-identifier">so</span><span class="ruby-operator">|</span>
-      <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">sp</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Specification</span>) <span class="ruby-keyword">or</span> <span class="ruby-operator">!</span><span class="ruby-identifier">so</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Source</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">sp</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>) <span class="ruby-keyword">or</span> <span class="ruby-operator">!</span><span class="ruby-identifier">so</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span>)
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-string">&quot;Array must be in [[spec, source], ...] form&quot;</span>
       <span class="ruby-keyword">end</span>
 
       <span class="ruby-constant">Tuple</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">sp</span>,<span class="ruby-identifier">so</span>)
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-string">&quot;Must be an AvailableSet&quot;</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-string">&quot;must be a Gem::AvailableSet&quot;</span>
   <span class="ruby-keyword">end</span>
 
   <span class="ruby-ivar">@set</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">s</span>
@@ -350,7 +350,7 @@
                 
               </p>
               <div id="method-i-add_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 12</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">source</span>)
   <span class="ruby-ivar">@set</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Tuple</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">source</span>)
   <span class="ruby-ivar">@sorted</span> = <span class="ruby-keyword">nil</span>
@@ -387,7 +387,7 @@
                 
               </p>
               <div id="method-i-all_specs_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 44</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">all_specs</span>
   <span class="ruby-ivar">@set</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">spec</span> }
 <span class="ruby-keyword">end</span></pre>
@@ -422,7 +422,7 @@
                 
               </p>
               <div id="method-i-empty-3F_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 40</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">empty?</span>
   <span class="ruby-ivar">@set</span>.<span class="ruby-identifier">empty?</span>
 <span class="ruby-keyword">end</span></pre>
@@ -457,7 +457,7 @@
                 
               </p>
               <div id="method-i-inject_into_list_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 91</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 90</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">inject_into_list</span>(<span class="ruby-identifier">dep_list</span>)
   <span class="ruby-ivar">@set</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">dep_list</span>.<span class="ruby-identifier">add</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">spec</span> }
 <span class="ruby-keyword">end</span></pre>
@@ -492,7 +492,7 @@
                 
               </p>
               <div id="method-i-match_platform-21_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 48</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">match_platform!</span>
   <span class="ruby-ivar">@set</span>.<span class="ruby-identifier">reject!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Platform</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">platform</span>) }
   <span class="ruby-ivar">@sorted</span> = <span class="ruby-keyword">nil</span>
@@ -529,7 +529,7 @@
                 
               </p>
               <div id="method-i-pick_best-21_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 70</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">pick_best!</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">empty?</span>
 
@@ -568,7 +568,7 @@
                 
               </p>
               <div id="method-i-remove_installed-21_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 78</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 77</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">remove_installed!</span>(<span class="ruby-identifier">dep</span>)
   <span class="ruby-ivar">@set</span>.<span class="ruby-identifier">reject!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
     <span class="ruby-comment"># already locally installed</span>
@@ -612,7 +612,7 @@
                 
               </p>
               <div id="method-i-size_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 61</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 60</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">size</span>
   <span class="ruby-ivar">@set</span>.<span class="ruby-identifier">size</span>
 <span class="ruby-keyword">end</span></pre>
@@ -647,7 +647,7 @@
                 
               </p>
               <div id="method-i-sorted_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 54</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 53</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">sorted</span>
   <span class="ruby-ivar">@sorted</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@set</span>.<span class="ruby-identifier">sort</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">i</span> = <span class="ruby-identifier">b</span>.<span class="ruby-identifier">spec</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">spec</span>
@@ -685,7 +685,7 @@
                 
               </p>
               <div id="method-i-source_for_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 65</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/available_set.rb, line 64</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">source_for</span>(<span class="ruby-identifier">spec</span>)
   <span class="ruby-identifier">f</span> = <span class="ruby-ivar">@set</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">spec</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">spec</span> }
   <span class="ruby-identifier">f</span>.<span class="ruby-identifier">source</span>

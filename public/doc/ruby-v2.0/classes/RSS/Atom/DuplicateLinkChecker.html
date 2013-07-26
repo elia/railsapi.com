@@ -94,7 +94,11 @@
           
           
             <div class="description">
-              
+              <p>Checks if there are duplicate links with the same type and hreflang
+attributes that have an alternate (or empty) rel attribute</p>
+
+<p>Raises a <a href="../TooMuchTagError.html">TooMuchTagError</a> if there are
+duplicates found</p>
             </div>
           
           
@@ -110,7 +114,7 @@
                 
               </p>
               <div id="method-i-validate_duplicate_links_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rss/atom.rb, line 200</span>
+                <pre><span class="ruby-comment"># File lib/rss/atom.rb, line 233</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_duplicate_links</span>(<span class="ruby-identifier">links</span>)
   <span class="ruby-identifier">link_infos</span> = {}
   <span class="ruby-identifier">links</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span>

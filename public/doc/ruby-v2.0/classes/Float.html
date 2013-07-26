@@ -60,7 +60,7 @@ should know its esoteric system. see following:</p>
 href="http://docs.sun.com/source/806-3568/ncg_goldberg.html">docs.sun.com/source/806-3568/ncg_goldberg.html</a></p>
 </li><li>
 <p><a
-href="http://wiki.github.com/rdp/ruby_tutorials_core/ruby-talk-faq#floats_imprecise">wiki.github.com/rdp/ruby_tutorials_core/ruby-talk-faq#floats_imprecise</a></p>
+href="http://wiki.github.com/rdp/ruby_tutorials_core/ruby-talk-faq#wiki-floats_imprecise">wiki.github.com/rdp/ruby_tutorials_core/ruby-talk-faq#wiki-floats_imprecise</a></p>
 </li><li>
 <p><a
 href="http://en.wikipedia.org/wiki/Floating_point#Accuracy_problems">en.wikipedia.org/wiki/Floating_point#Accuracy_problems</a></p>
@@ -646,8 +646,8 @@ number.</p>
         <div class="method">
           <div class="title method-title" id="method-i-25">
             
-              <b>flt % other        &rarr;  float
-flt.modulo(other)  &rarr;  float
+              <b>float % other        &rarr;  float
+float.modulo(other)  &rarr;  float
 </b>
             
             <a href="../classes/Float.html#method-i-25" name="method-i-25" class="permalink">Link</a>
@@ -655,7 +655,8 @@ flt.modulo(other)  &rarr;  float
           
           
             <div class="description">
-              <p>Return the modulo after division of <code>flt</code> by <code>other</code>.</p>
+              <p>Return the modulo after division of <code>float</code> by
+<code>other</code>.</p>
 
 <pre class="ruby"><span class="ruby-value">6543.21</span>.<span class="ruby-identifier">modulo</span>(<span class="ruby-value">137</span>)      <span class="ruby-comment">#=&gt; 104.21</span>
 <span class="ruby-value">6543.21</span>.<span class="ruby-identifier">modulo</span>(<span class="ruby-value">137.24</span>)   <span class="ruby-comment">#=&gt; 92.9299999999996</span>
@@ -1122,7 +1123,7 @@ flo_le(VALUE x, VALUE y)
         <div class="method">
           <div class="title method-title" id="method-i-3C-3D-3E">
             
-              <b>flt <=> real  &rarr;  -1, 0, +1 or nil
+              <b>float <=> real  &rarr;  -1, 0, +1 or nil
 </b>
             
             <a href="../classes/Float.html#method-i-3C-3D-3E" name="method-i-3C-3D-3E" class="permalink">Link</a>
@@ -1130,10 +1131,14 @@ flo_le(VALUE x, VALUE y)
           
           
             <div class="description">
-              <p>Returns -1, 0, +1 or nil depending on whether <em>flt</em> is less than,
-equal to, or greater than <em>real</em>. This is the basis for the tests in
-<code>Comparable</code>. The result of <code>NaN &lt;=&gt; NaN</code> is
-undefined, so the implementation-dependent value is returned.</p>
+              <p>Returns -1, 0, +1 or nil depending on whether <code>float</code> is less
+than, equal to, or greater than <code>real</code>. This is the basis for
+the tests in <a href="Comparable.html">Comparable</a>.</p>
+
+<p>The result of <code>NaN &lt;=&gt; NaN</code> is undefined, so the
+implementation-dependent value is returned.</p>
+
+<p><code>nil</code> is returned if the two values are incomparable.</p>
             </div>
           
           
@@ -1748,7 +1753,7 @@ float_denominator(VALUE self)
         <div class="method">
           <div class="title method-title" id="method-i-divmod">
             
-              <b>flt.divmod(numeric)  &rarr;  array
+              <b>float.divmod(numeric)  &rarr;  array
 </b>
             
             <a href="../classes/Float.html#method-i-divmod" name="method-i-divmod" class="permalink">Link</a>
@@ -1756,7 +1761,11 @@ float_denominator(VALUE self)
           
           
             <div class="description">
-              <p>See <code>Numeric#divmod</code>.</p>
+              <p>See <a href="Numeric.html#method-i-divmod">Numeric#divmod</a>.</p>
+
+<pre class="ruby"><span class="ruby-value">42.0</span>.<span class="ruby-identifier">divmod</span> <span class="ruby-value">6</span> <span class="ruby-comment">#=&gt; [7, 0.0]</span>
+<span class="ruby-value">42.0</span>.<span class="ruby-identifier">divmod</span> <span class="ruby-value">5</span> <span class="ruby-comment">#=&gt; [8, 2.0]</span>
+</pre>
             </div>
           
           
@@ -2146,8 +2155,8 @@ flo_abs(VALUE flt)
         <div class="method">
           <div class="title method-title" id="method-i-modulo">
             
-              <b>flt % other        &rarr;  float
-flt.modulo(other)  &rarr;  float
+              <b>float % other        &rarr;  float
+float.modulo(other)  &rarr;  float
 </b>
             
             <a href="../classes/Float.html#method-i-modulo" name="method-i-modulo" class="permalink">Link</a>
@@ -2155,7 +2164,8 @@ flt.modulo(other)  &rarr;  float
           
           
             <div class="description">
-              <p>Return the modulo after division of <code>flt</code> by <code>other</code>.</p>
+              <p>Return the modulo after division of <code>float</code> by
+<code>other</code>.</p>
 
 <pre class="ruby"><span class="ruby-value">6543.21</span>.<span class="ruby-identifier">modulo</span>(<span class="ruby-value">137</span>)      <span class="ruby-comment">#=&gt; 104.21</span>
 <span class="ruby-value">6543.21</span>.<span class="ruby-identifier">modulo</span>(<span class="ruby-value">137.24</span>)   <span class="ruby-comment">#=&gt; 92.9299999999996</span>

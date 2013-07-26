@@ -30,8 +30,8 @@ class SDocSite::Automation::Ruby
   end
 
   def build_doc version
-    @tmp_path = @automation.temp_dir
-    doc_dir = @automation.temp_dir
+    @tmp_path = @automation.temp_dir("ruby-#{version}-src", false)
+    doc_dir   = @automation.temp_dir("ruby-#{version}-doc", false)
     puts 'temp_dir: '+@tmp_path
     case version.minor
     when '8'
@@ -45,7 +45,7 @@ class SDocSite::Automation::Ruby
         run_sdoc_1_9 doc_dir
       end
     when '0'
-      `svn checkout http://svn.ruby-lang.org/repos/ruby/tags/v2_0_0_0 #{@tmp_path}`
+      `svn checkout http://svn.ruby-lang.org/repos/ruby/tags/v2_0_0_247 #{@tmp_path}` unless File.directory? @tmp_path
       in_tmp do
         run_sdoc_2_0 doc_dir
       end
@@ -135,7 +135,7 @@ protected
     file_list.include('lib/**/*.{c,h,rb}')
     file_list.include('ext/**/*.{c,h,rb}')
     file_list.exclude('ext/win32ole')
-    file_list.exclude('ext/tk')
+    file_list.exclude(%r{^(ext|lib)/tk/})
     file_list.exclude('lib/drb')
     file_list.exclude('lib/irb')
     file_list.exclude('lib/rake')

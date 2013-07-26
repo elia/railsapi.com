@@ -407,7 +407,11 @@ limit is set to 10000.</p>
           
           
             <div class="description">
-              <p>Get the entity expansion limit. By default the limit is set to 10000.</p>
+              <p>Get the entity expansion limit. By default the limit is set to 10240.</p>
+
+<p>Deprecated. Use <a
+href="../REXML.html#method-c-entity_expansion_text_limit">REXML.entity_expansion_text_limit</a>
+instead.</p>
             </div>
           
           
@@ -423,9 +427,9 @@ limit is set to 10000.</p>
                 
               </p>
               <div id="method-c-entity_expansion_text_limit_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rexml/document.rb, line 266</span>
+                <pre><span class="ruby-comment"># File lib/rexml/document.rb, line 268</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">Document</span><span class="ruby-operator">::</span><span class="ruby-identifier">entity_expansion_text_limit</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">@@entity_expansion_text_limit</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">REXML</span>.<span class="ruby-identifier">entity_expansion_text_limit</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
@@ -444,6 +448,10 @@ limit is set to 10000.</p>
             <div class="description">
               <p><a href="../Set.html">Set</a> the entity expansion limit. By default the
 limit is set to 10240.</p>
+
+<p>Deprecated. Use <a
+href="../REXML.html#method-c-entity_expansion_text_limit-3D">REXML.entity_expansion_text_limit=</a>
+instead.</p>
             </div>
           
           
@@ -461,7 +469,7 @@ limit is set to 10240.</p>
               <div id="method-c-entity_expansion_text_limit-3D_source" class="dyn-source">
                 <pre><span class="ruby-comment"># File lib/rexml/document.rb, line 261</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">Document</span><span class="ruby-operator">::</span><span class="ruby-identifier">entity_expansion_text_limit=</span>( <span class="ruby-identifier">val</span> )
-  <span class="ruby-identifier">@@entity_expansion_text_limit</span> = <span class="ruby-identifier">val</span>
+  <span class="ruby-constant">REXML</span>.<span class="ruby-identifier">entity_expansion_text_limit</span> = <span class="ruby-identifier">val</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
@@ -910,7 +918,7 @@ expanded name</p>
                 
               </p>
               <div id="method-i-record_entity_expansion_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rexml/document.rb, line 272</span>
+                <pre><span class="ruby-comment"># File lib/rexml/document.rb, line 274</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">record_entity_expansion</span>
   <span class="ruby-ivar">@entity_expansion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@entity_expansion_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">@@entity_expansion_limit</span>
@@ -1235,7 +1243,7 @@ returned.</p>
                 
               </p>
               <div id="method-i-build_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rexml/document.rb, line 280</span>
+                <pre><span class="ruby-comment"># File lib/rexml/document.rb, line 282</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">build</span>( <span class="ruby-identifier">source</span> )
   <span class="ruby-constant">Parsers</span><span class="ruby-operator">::</span><span class="ruby-constant">TreeParser</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">source</span>, <span class="ruby-keyword">self</span> ).<span class="ruby-identifier">parse</span>
 <span class="ruby-keyword">end</span></pre>

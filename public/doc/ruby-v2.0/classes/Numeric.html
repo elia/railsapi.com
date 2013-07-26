@@ -587,7 +587,7 @@ num_uminus(VALUE num)
         <div class="method">
           <div class="title method-title" id="method-i-3C-3D-3E">
             
-              <b>num <=> other  &rarr;  0 or nil
+              <b>number <=> other  &rarr;  0 or nil
 </b>
             
             <a href="../classes/Numeric.html#method-i-3C-3D-3E" name="method-i-3C-3D-3E" class="permalink">Link</a>
@@ -595,8 +595,8 @@ num_uminus(VALUE num)
           
           
             <div class="description">
-              <p>Returns zero if <em>num</em> equals <em>other</em>, <code>nil</code>
-otherwise.</p>
+              <p>Returns zero if <code>number</code> equals <code>other</code>, otherwise
+<code>nil</code> is returned if the two values are incomparable.</p>
             </div>
           
           
@@ -1363,8 +1363,12 @@ numeric_imag(VALUE self)
           
           
             <div class="description">
-              <p>Returns <code>true</code> if <em>num</em> is an <code>Integer</code>
-(including <code>Fixnum</code> and <code>Bignum</code>).</p>
+              <p>Returns <code>true</code> if <code>num</code> is an <a
+href="Integer.html">Integer</a> (including Fixnum and Bignum).</p>
+
+<pre class="ruby">(<span class="ruby-value">1.0</span>).<span class="ruby-identifier">integer?</span> <span class="ruby-comment">#=&gt; false</span>
+(<span class="ruby-value">1</span>).<span class="ruby-identifier">integer?</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
             </div>
           
           
@@ -2122,7 +2126,12 @@ numeric_to_c(VALUE self)
           
             <div class="description">
               <p>Invokes the child class&#39;s <code>to_i</code> method to convert
-<em>num</em> to an integer.</p>
+<code>num</code> to an integer.</p>
+
+<pre class="ruby"><span class="ruby-value">1.0</span>.<span class="ruby-identifier">class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Float</span>
+<span class="ruby-value">1.0</span>.<span class="ruby-identifier">to_int</span>.<span class="ruby-identifier">class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Fixnum</span>
+<span class="ruby-value">1.0</span>.<span class="ruby-identifier">to_i</span>.<span class="ruby-identifier">class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Fixnum</span>
+</pre>
             </div>
           
           

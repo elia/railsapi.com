@@ -172,12 +172,12 @@ certificates or paths to certificates.</p>
   <span class="ruby-ivar">@key</span>        = <span class="ruby-identifier">key</span>
 
   <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@key</span> <span class="ruby-keyword">then</span>
-    <span class="ruby-identifier">default_key</span>  = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">user_home</span>, <span class="ruby-string">&#39;gem-private_key.pem&#39;</span>
+    <span class="ruby-identifier">default_key</span>  = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">default_key_path</span>
     <span class="ruby-ivar">@key</span> = <span class="ruby-identifier">default_key</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">default_key</span>
   <span class="ruby-keyword">end</span>
 
   <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@cert_chain</span> <span class="ruby-keyword">then</span>
-    <span class="ruby-identifier">default_cert</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">user_home</span>, <span class="ruby-string">&#39;gem-public_cert.pem&#39;</span>
+    <span class="ruby-identifier">default_cert</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">default_cert_path</span>
     <span class="ruby-ivar">@cert_chain</span> = [<span class="ruby-identifier">default_cert</span>] <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">default_cert</span>
   <span class="ruby-keyword">end</span>
 

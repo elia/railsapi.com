@@ -493,7 +493,7 @@ rb_mutex_synchronize_m(VALUE self, VALUE args)
         rb_raise(rb_eThreadError, &quot;must be called with a block&quot;);
     }
 
-    return rb_mutex_synchronize(self, rb_yield, Qnil);
+    return rb_mutex_synchronize(self, rb_yield, Qundef);
 }</pre>
               </div>
             </div>

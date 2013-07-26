@@ -701,7 +701,7 @@ EOM</span>
                 
               </p>
               <div id="method-i-read_checksums_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/package.rb, line 412</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/package.rb, line 416</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">read_checksums</span> <span class="ruby-identifier">gem</span>
   <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">load_yaml</span>
 
@@ -743,7 +743,7 @@ certificate and key are not present only checksum generation is set up.</p>
                 
               </p>
               <div id="method-i-setup_signer_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/package.rb, line 426</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/package.rb, line 430</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">setup_signer</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@spec</span>.<span class="ruby-identifier">signing_key</span> <span class="ruby-keyword">then</span>
     <span class="ruby-ivar">@signer</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Security</span><span class="ruby-operator">::</span><span class="ruby-constant">Signer</span>.<span class="ruby-identifier">new</span> <span class="ruby-ivar">@spec</span>.<span class="ruby-identifier">signing_key</span>, <span class="ruby-ivar">@spec</span>.<span class="ruby-identifier">cert_chain</span>
@@ -790,7 +790,7 @@ returned.</p>
                 
               </p>
               <div id="method-i-spec_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/package.rb, line 445</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/package.rb, line 449</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">spec</span>
   <span class="ruby-identifier">verify</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@spec</span>
 
@@ -837,7 +837,7 @@ href="Package.html#method-i-spec">spec</a></p>
                 
               </p>
               <div id="method-i-verify_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/package.rb, line 461</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/package.rb, line 465</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">verify</span>
   <span class="ruby-ivar">@files</span>     = []
   <span class="ruby-ivar">@spec</span>      = <span class="ruby-keyword">nil</span>
@@ -896,7 +896,7 @@ href="Package.html#method-i-spec">spec</a></p>
                 
               </p>
               <div id="method-i-verify_files_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/package.rb, line 511</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/package.rb, line 515</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">verify_files</span> <span class="ruby-identifier">gem</span>
   <span class="ruby-identifier">gem</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">file_name</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">full_name</span>

@@ -181,7 +181,7 @@ would be activated.</p>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 288</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 299</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">dependency</span>, <span class="ruby-identifier">activated</span>, <span class="ruby-identifier">failed_dep</span>=<span class="ruby-identifier">dependency</span>)
   <span class="ruby-ivar">@dependency</span> = <span class="ruby-identifier">dependency</span>
   <span class="ruby-ivar">@activated</span> = <span class="ruby-identifier">activated</span>
@@ -220,7 +220,7 @@ would be activated.</p>
                 
               </p>
               <div id="method-i-conflicting_dependencies_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 308</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 319</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">conflicting_dependencies</span>
   [<span class="ruby-ivar">@failed_dep</span>.<span class="ruby-identifier">dependency</span>, <span class="ruby-ivar">@activated</span>.<span class="ruby-identifier">request</span>.<span class="ruby-identifier">dependency</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -255,7 +255,7 @@ would be activated.</p>
                 
               </p>
               <div id="method-i-for_spec-3F_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 302</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 313</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">for_spec?</span>(<span class="ruby-identifier">spec</span>)
   <span class="ruby-ivar">@dependency</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">name</span>
 <span class="ruby-keyword">end</span></pre>
@@ -291,7 +291,7 @@ the dependency</p>
                 
               </p>
               <div id="method-i-requester_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 298</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 309</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">requester</span>
   <span class="ruby-ivar">@failed_dep</span>.<span class="ruby-identifier">requester</span>
 <span class="ruby-keyword">end</span></pre>

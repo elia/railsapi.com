@@ -48,7 +48,7 @@ from Strings or <a href="IO.html">IO</a> objects, as needed.</p>
 
 <h3 id="label-From+a+File">From a <a href="File.html">File</a></h3>
 
-<h4 id="label-A+Line+at+a+Time">A <a href="TkcLine.html">Line</a> at a <a href="Time.html">Time</a></h4>
+<h4 id="label-A+Line+at+a+Time">A Line at a <a href="Time.html">Time</a></h4>
 
 <pre class="ruby"><span class="ruby-constant">CSV</span>.<span class="ruby-identifier">foreach</span>(<span class="ruby-string">&quot;path/to/file.csv&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
   <span class="ruby-comment"># use row here...</span>
@@ -61,7 +61,7 @@ from Strings or <a href="IO.html">IO</a> objects, as needed.</p>
 
 <h3 id="label-From+a+String">From a String</h3>
 
-<h4 id="label-A+Line+at+a+Time">A <a href="TkcLine.html">Line</a> at a <a href="Time.html">Time</a></h4>
+<h4 id="label-A+Line+at+a+Time">A Line at a <a href="Time.html">Time</a></h4>
 
 <pre class="ruby"><span class="ruby-constant">CSV</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;CSV,data,String&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
   <span class="ruby-comment"># use row here...</span>
@@ -92,7 +92,7 @@ from Strings or <a href="IO.html">IO</a> objects, as needed.</p>
 <span class="ruby-keyword">end</span>
 </pre>
 
-<h2 id="label-Convert+a+Single+Line">Convert a Single <a href="TkcLine.html">Line</a></h2>
+<h2 id="label-Convert+a+Single+Line">Convert a Single Line</h2>
 
 <pre>csv_string = [&quot;CSV&quot;, &quot;data&quot;].to_csv   # to CSV
 csv_array  = &quot;CSV,String&quot;.parse_csv   # from CSV</pre>

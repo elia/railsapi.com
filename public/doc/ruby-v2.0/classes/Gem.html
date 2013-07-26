@@ -27,8 +27,6 @@
             
             <li><a href="../files/lib/rubygems_rb.html">lib/rubygems.rb</a></li>
             
-            <li><a href="../files/lib/rubygems/available_set_rb.html">lib/rubygems/available_set.rb</a></li>
-            
             <li><a href="../files/lib/rubygems/compatibility_rb.html">lib/rubygems/compatibility.rb</a></li>
             
             <li><a href="../files/lib/rubygems/defaults_rb.html">lib/rubygems/defaults.rb</a></li>
@@ -646,12 +644,22 @@ on GitHub</p>
             
               
               <li>
+                <a href="#method-c-default_cert_path">default_cert_path</a>,
+              </li>
+            
+              
+              <li>
                 <a href="#method-c-default_dir">default_dir</a>,
               </li>
             
               
               <li>
                 <a href="#method-c-default_exec_format">default_exec_format</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-default_key_path">default_key_path</a>,
               </li>
             
               
@@ -1101,7 +1109,7 @@ on GitHub</p>
           <tr valign='top'>
             <td class="attr-name">VERSION</td>
             <td>=</td>
-            <td class="attr-value">&#39;2.0.0&#39;</td>
+            <td class="attr-value">&#39;2.0.3&#39;</td>
           </tr>
           
             <tr valign='top'>
@@ -1478,7 +1486,7 @@ specify specific gem versions.</p>
                 
               </p>
               <div id="method-c-clear_default_specs_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 992</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 1001</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">clear_default_specs</span>
   <span class="ruby-ivar">@path_to_default_spec_map</span>.<span class="ruby-identifier">clear</span>
 <span class="ruby-keyword">end</span></pre>
@@ -1715,6 +1723,41 @@ is not available as a gem, return nil.</p>
           </div>
         
         <div class="method">
+          <div class="title method-title" id="method-c-default_cert_path">
+            
+              <b>default_cert_path</b>()
+            
+            <a href="../classes/Gem.html#method-c-default_cert_path" name="method-c-default_cert_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The default signing certificate chain path</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-default_cert_path_source')" id="l_method-c-default_cert_path_source">show</a>
+                
+              </p>
+              <div id="method-c-default_cert_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rubygems/defaults.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">default_cert_path</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">user_home</span>, <span class="ruby-string">&quot;.gem&quot;</span>, <span class="ruby-string">&quot;gem-public_cert.pem&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
           <div class="title method-title" id="method-c-default_dir">
             
               <b>default_dir</b>()
@@ -1807,6 +1850,41 @@ specified in the environment</p>
   <span class="ruby-keyword">end</span>
 
   <span class="ruby-identifier">exec_format</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-default_key_path">
+            
+              <b>default_key_path</b>()
+            
+            <a href="../classes/Gem.html#method-c-default_key_path" name="method-c-default_key_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The default signing key path</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-default_key_path_source')" id="l_method-c-default_key_path_source">show</a>
+                
+              </p>
+              <div id="method-c-default_key_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rubygems/defaults.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">default_key_path</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">user_home</span>, <span class="ruby-string">&quot;.gem&quot;</span>, <span class="ruby-string">&quot;gem-private_key.pem&quot;</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
@@ -1915,7 +1993,7 @@ specified in the environment</p>
               <div id="method-c-default_sources_source" class="dyn-source">
                 <pre><span class="ruby-comment"># File lib/rubygems/defaults.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">default_sources</span>
-  <span class="ruby-node">%w[http://rubygems.org/]</span>
+  <span class="ruby-node">%w[https://rubygems.org/]</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
@@ -2100,7 +2178,7 @@ is complete</p>
                 
               </p>
               <div id="method-c-done_installing_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 663</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 671</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">done_installing</span>(&amp;<span class="ruby-identifier">hook</span>)
   <span class="ruby-ivar">@done_installing_hooks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">hook</span>
 <span class="ruby-keyword">end</span></pre>
@@ -2112,16 +2190,21 @@ is complete</p>
         <div class="method">
           <div class="title method-title" id="method-c-ensure_gem_subdirectories">
             
-              <b>ensure_gem_subdirectories</b>(dir = Gem.dir)
+              <b>ensure_gem_subdirectories</b>(dir = Gem.dir, mode = nil)
             
             <a href="../classes/Gem.html#method-c-ensure_gem_subdirectories" name="method-c-ensure_gem_subdirectories" class="permalink">Link</a>
           </div>
           
           
             <div class="description">
-              <p>Quietly ensure the named Gem directory contains all the proper
+              <p>Quietly ensure the Gem directory <code>dir</code> contains all the proper
 subdirectories.  If we can&#39;t create a directory due to a permission
 problem, then we will silently continue.</p>
+
+<p>If <code>mode</code> is given, missing directories are created with this
+mode.</p>
+
+<p>World-writable directories will never be created.</p>
             </div>
           
           
@@ -2137,17 +2220,21 @@ problem, then we will silently continue.</p>
                 
               </p>
               <div id="method-c-ensure_gem_subdirectories_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 382</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">ensure_gem_subdirectories</span> <span class="ruby-identifier">dir</span> = <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">dir</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 386</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">ensure_gem_subdirectories</span> <span class="ruby-identifier">dir</span> = <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">mode</span> = <span class="ruby-keyword">nil</span>
   <span class="ruby-identifier">old_umask</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">umask</span>
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">umask</span> <span class="ruby-identifier">old_umask</span> <span class="ruby-operator">|</span> <span class="ruby-number">002</span>
 
   <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fileutils&#39;</span>
 
+  <span class="ruby-identifier">options</span> = {}
+
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:mode</span>] = <span class="ruby-identifier">mode</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">mode</span>
+
   <span class="ruby-constant">REPOSITORY_SUBDIRECTORIES</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">subdir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">dir</span>, <span class="ruby-identifier">name</span>
     <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">subdir</span>
-    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span> <span class="ruby-identifier">subdir</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span> <span class="ruby-comment"># in case of perms issues -- lame</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span> <span class="ruby-identifier">subdir</span>, <span class="ruby-identifier">options</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">ensure</span>
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">umask</span> <span class="ruby-identifier">old_umask</span>
@@ -2194,7 +2281,7 @@ return all files even if they are from different versions of the same gem.</p>
                 
               </p>
               <div id="method-c-find_files_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 409</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 417</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">find_files</span>(<span class="ruby-identifier">glob</span>, <span class="ruby-identifier">check_load_path</span>=<span class="ruby-keyword">true</span>)
   <span class="ruby-identifier">files</span> = []
 
@@ -2247,7 +2334,7 @@ href="Gem/Specification.html">Gem::Specification</a> of default gem from
                 
               </p>
               <div id="method-c-find_unresolved_default_spec_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 971</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 980</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">find_unresolved_default_spec</span>(<span class="ruby-identifier">path</span>)
   <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">suffixes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">suffix</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">spec</span> = <span class="ruby-ivar">@path_to_default_spec_map</span>[<span class="ruby-node">&quot;#{path}#{suffix}&quot;</span>]
@@ -2326,7 +2413,7 @@ href="Gem/Specification.html">Gem::Specification</a> of default gem from
                 
               </p>
               <div id="method-c-gunzip_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 472</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 480</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">gunzip</span>(<span class="ruby-identifier">data</span>)
   <span class="ruby-comment"># TODO: move to utils</span>
   <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;stringio&#39;</span>
@@ -2369,7 +2456,7 @@ href="Gem/Specification.html">Gem::Specification</a> of default gem from
                 
               </p>
               <div id="method-c-gzip_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 486</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 494</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">gzip</span>(<span class="ruby-identifier">data</span>)
   <span class="ruby-comment"># TODO: move to utils</span>
   <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;stringio&#39;</span>
@@ -2413,7 +2500,7 @@ href="Gem/Specification.html">Gem::Specification</a> of default gem from
                 
               </p>
               <div id="method-c-host_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 526</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 534</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">host</span>
   <span class="ruby-comment"># TODO: move to utils</span>
   <span class="ruby-ivar">@host</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_HOST</span>
@@ -2449,7 +2536,7 @@ href="Gem/Specification.html">Gem::Specification</a> of default gem from
                 
               </p>
               <div id="method-c-host-3D_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 533</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 541</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">host=</span> <span class="ruby-identifier">host</span>
   <span class="ruby-comment"># TODO: move to utils</span>
   <span class="ruby-ivar">@host</span> = <span class="ruby-identifier">host</span>
@@ -2486,7 +2573,7 @@ wrapper</p>
                 
               </p>
               <div id="method-c-inflate_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 501</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 509</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">inflate</span>(<span class="ruby-identifier">data</span>)
   <span class="ruby-comment"># TODO: move to utils</span>
   <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;zlib&#39;</span>
@@ -2529,7 +2616,7 @@ wrapper</p>
                 
               </p>
               <div id="method-c-install_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 515</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 523</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">install</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">version</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Requirement</span>.<span class="ruby-identifier">default</span>
   <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;rubygems/dependency_installer&quot;</span>
   <span class="ruby-identifier">inst</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">DependencyInstaller</span>.<span class="ruby-identifier">new</span>
@@ -2567,7 +2654,7 @@ wrapper</p>
                 
               </p>
               <div id="method-c-latest_rubygems_version_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 769</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 777</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">latest_rubygems_version</span>
   <span class="ruby-identifier">latest_version_for</span>(<span class="ruby-string">&#39;rubygems-update&#39;</span>) <span class="ruby-keyword">or</span>
     <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Can&#39;t find &#39;rubygems-update&#39; in any repo. Check `gem source list`.&quot;</span>
@@ -2604,7 +2691,7 @@ wrapper</p>
                 
               </p>
               <div id="method-c-latest_spec_for_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 756</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 764</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">latest_spec_for</span> <span class="ruby-identifier">name</span>
   <span class="ruby-identifier">dependency</span>   = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Dependency</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">name</span>
   <span class="ruby-identifier">fetcher</span>      = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">SpecFetcher</span>.<span class="ruby-identifier">fetcher</span>
@@ -2645,7 +2732,7 @@ wrapper</p>
                 
               </p>
               <div id="method-c-latest_version_for_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 777</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 785</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">latest_version_for</span> <span class="ruby-identifier">name</span>
   <span class="ruby-identifier">spec</span> = <span class="ruby-identifier">latest_spec_for</span> <span class="ruby-identifier">name</span>
   <span class="ruby-identifier">spec</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">version</span>
@@ -2682,7 +2769,7 @@ $LOAD_PATH and load them</p>
                 
               </p>
               <div id="method-c-load_env_plugins_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 934</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 943</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">load_env_plugins</span>
   <span class="ruby-identifier">path</span> = <span class="ruby-string">&quot;rubygems_plugin&quot;</span>
 
@@ -2732,7 +2819,7 @@ paths so you can override the gem_prelude.rb default $LOAD_PATH paths.</p>
                 
               </p>
               <div id="method-c-load_path_insert_index_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 545</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 553</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">load_path_insert_index</span>
   <span class="ruby-identifier">index</span> = <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">index</span> <span class="ruby-constant">ConfigMap</span>[<span class="ruby-value">:sitelibdir</span>]
 
@@ -2769,7 +2856,7 @@ paths so you can override the gem_prelude.rb default $LOAD_PATH paths.</p>
                 
               </p>
               <div id="method-c-load_plugin_files_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 907</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 916</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">load_plugin_files</span>(<span class="ruby-identifier">plugins</span>)
   <span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">plugin</span><span class="ruby-operator">|</span>
 
@@ -2818,7 +2905,7 @@ installed gems and load them</p>
                 
               </p>
               <div id="method-c-load_plugins_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 927</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 936</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">load_plugins</span>
   <span class="ruby-identifier">load_plugin_files</span> <span class="ruby-identifier">find_files</span>(<span class="ruby-string">&#39;rubygems_plugin&#39;</span>, <span class="ruby-keyword">false</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -2853,7 +2940,7 @@ installed gems and load them</p>
                 
               </p>
               <div id="method-c-load_yaml_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 556</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 564</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">load_yaml</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@yaml_loaded</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-identifier">gem</span>)
@@ -2930,7 +3017,7 @@ installed gems and load them</p>
                 
               </p>
               <div id="method-c-location_of_caller_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 605</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 613</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">location_of_caller</span>
   <span class="ruby-identifier">caller</span>[<span class="ruby-number">1</span>] <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(.*?):(\d+).*?$/</span>
   <span class="ruby-identifier">file</span> = <span class="ruby-node">$1</span>
@@ -2970,7 +3057,7 @@ installed gems and load them</p>
                 
               </p>
               <div id="method-c-marshal_version_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 617</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 625</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">marshal_version</span>
   <span class="ruby-node">&quot;#{Marshal::MAJOR_VERSION}.#{Marshal::MINOR_VERSION}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3187,7 +3274,7 @@ installed gems and load them</p>
                 
               </p>
               <div id="method-c-platforms_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 631</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 639</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">platforms</span>
   <span class="ruby-ivar">@platforms</span> <span class="ruby-operator">||=</span> []
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@platforms</span>.<span class="ruby-identifier">empty?</span>
@@ -3227,7 +3314,7 @@ installed gems and load them</p>
                 
               </p>
               <div id="method-c-platforms-3D_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 624</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 632</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">platforms=</span>(<span class="ruby-identifier">platforms</span>)
   <span class="ruby-ivar">@platforms</span> = <span class="ruby-identifier">platforms</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3268,7 +3355,7 @@ removed and the install will be aborted.</p>
                 
               </p>
               <div id="method-c-post_build_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 646</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 654</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">post_build</span>(&amp;<span class="ruby-identifier">hook</span>)
   <span class="ruby-ivar">@post_build_hooks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">hook</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3306,7 +3393,7 @@ called</p>
                 
               </p>
               <div id="method-c-post_install_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 654</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 662</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">post_install</span>(&amp;<span class="ruby-identifier">hook</span>)
   <span class="ruby-ivar">@post_install_hooks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">hook</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3343,7 +3430,7 @@ is run.</p>
                 
               </p>
               <div id="method-c-post_reset_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 671</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 679</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">post_reset</span>(&amp;<span class="ruby-identifier">hook</span>)
   <span class="ruby-ivar">@post_reset_hooks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">hook</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3382,7 +3469,7 @@ is called</p>
                 
               </p>
               <div id="method-c-post_uninstall_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 680</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 688</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">post_uninstall</span>(&amp;<span class="ruby-identifier">hook</span>)
   <span class="ruby-ivar">@post_uninstall_hooks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">hook</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3421,7 +3508,7 @@ aborted.</p>
                 
               </p>
               <div id="method-c-pre_install_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 689</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 697</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">pre_install</span>(&amp;<span class="ruby-identifier">hook</span>)
   <span class="ruby-ivar">@pre_install_hooks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">hook</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3458,7 +3545,7 @@ is run.</p>
                 
               </p>
               <div id="method-c-pre_reset_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 697</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 705</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">pre_reset</span>(&amp;<span class="ruby-identifier">hook</span>)
   <span class="ruby-ivar">@pre_reset_hooks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">hook</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3497,7 +3584,7 @@ is called</p>
                 
               </p>
               <div id="method-c-pre_uninstall_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 706</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 714</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">pre_uninstall</span>(&amp;<span class="ruby-identifier">hook</span>)
   <span class="ruby-ivar">@pre_uninstall_hooks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">hook</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3534,7 +3621,7 @@ be), then prefix returns nil.</p>
                 
               </p>
               <div id="method-c-prefix_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 715</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 723</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">prefix</span>
   <span class="ruby-identifier">prefix</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span> <span class="ruby-constant">RUBYGEMS_DIR</span>
 
@@ -3575,7 +3662,7 @@ be), then prefix returns nil.</p>
                 
               </p>
               <div id="method-c-read_binary_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 735</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 743</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">read_binary</span>(<span class="ruby-identifier">path</span>)
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span> <span class="ruby-identifier">path</span>, <span class="ruby-identifier">binary_mode</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">read</span> <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3610,7 +3697,7 @@ be), then prefix returns nil.</p>
                 
               </p>
               <div id="method-c-refresh_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 728</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 736</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">refresh</span>
   <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">reset</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3646,7 +3733,7 @@ default gem</p>
                 
               </p>
               <div id="method-c-register_default_spec_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 962</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 971</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">register_default_spec</span>(<span class="ruby-identifier">spec</span>)
   <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
     <span class="ruby-ivar">@path_to_default_spec_map</span>[<span class="ruby-identifier">file</span>] = <span class="ruby-identifier">spec</span>
@@ -3684,7 +3771,7 @@ default gem from unresolved default gem list</p>
                 
               </p>
               <div id="method-c-remove_unresolved_default_spec_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 983</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 992</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">remove_unresolved_default_spec</span>(<span class="ruby-identifier">spec</span>)
   <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
     <span class="ruby-ivar">@path_to_default_spec_map</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">file</span>)
@@ -3721,7 +3808,7 @@ default gem from unresolved default gem list</p>
                 
               </p>
               <div id="method-c-ruby_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 742</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 750</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">ruby</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ruby</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">then</span>
     <span class="ruby-ivar">@ruby</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">ConfigMap</span>[<span class="ruby-value">:bindir</span>],
@@ -3764,7 +3851,7 @@ default gem from unresolved default gem list</p>
                 
               </p>
               <div id="method-c-ruby-3D_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/test_case.rb, line 57</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/test_case.rb, line 58</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">ruby=</span> <span class="ruby-identifier">ruby</span>
   <span class="ruby-ivar">@ruby</span> = <span class="ruby-identifier">ruby</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3839,7 +3926,7 @@ ruby.</p>
                 
               </p>
               <div id="method-c-ruby_version_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 785</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 793</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">ruby_version</span>
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@ruby_version</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@ruby_version</span>
   <span class="ruby-identifier">version</span> = <span class="ruby-constant">RUBY_VERSION</span>.<span class="ruby-identifier">dup</span>
@@ -3884,7 +3971,7 @@ RubyGems</p>
                 
               </p>
               <div id="method-c-rubygems_version_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 801</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 809</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">rubygems_version</span>
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@rubygems_version</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@rubygems_version</span>
   <span class="ruby-ivar">@rubygems_version</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span>
@@ -3921,7 +4008,7 @@ requiring &#39;rubygems/test_case&#39;</p>
                 
               </p>
               <div id="method-c-searcher-3D_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/test_case.rb, line 41</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/test_case.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">searcher=</span>(<span class="ruby-identifier">searcher</span>)
   <span class="ruby-ivar">@searcher</span> = <span class="ruby-identifier">searcher</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3958,7 +4045,7 @@ sources list is empty.</p>
                 
               </p>
               <div id="method-c-sources_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 810</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 818</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">sources</span>
   <span class="ruby-ivar">@sources</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">SourceList</span>.<span class="ruby-identifier">from</span>(<span class="ruby-identifier">default_sources</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -3998,7 +4085,7 @@ more of a code comment about the implementation.</p>
                 
               </p>
               <div id="method-c-sources-3D_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 821</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 829</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">sources=</span> <span class="ruby-identifier">new_sources</span>
   <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">new_sources</span>
     <span class="ruby-ivar">@sources</span> = <span class="ruby-keyword">nil</span>
@@ -4037,7 +4124,7 @@ more of a code comment about the implementation.</p>
                 
               </p>
               <div id="method-c-suffix_pattern_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 832</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 840</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">suffix_pattern</span>
   <span class="ruby-ivar">@suffix_pattern</span> <span class="ruby-operator">||=</span> <span class="ruby-node">&quot;{#{suffixes.join(&#39;,&#39;)}}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -4072,7 +4159,7 @@ more of a code comment about the implementation.</p>
                 
               </p>
               <div id="method-c-suffixes_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 839</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 847</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">suffixes</span>
   <span class="ruby-ivar">@suffixes</span> <span class="ruby-operator">||=</span> [<span class="ruby-string">&#39;&#39;</span>,
                  <span class="ruby-string">&#39;.rb&#39;</span>,
@@ -4115,7 +4202,7 @@ UI output.</p>
                 
               </p>
               <div id="method-c-time_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 854</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 862</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">time</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">width</span> = <span class="ruby-number">0</span>, <span class="ruby-identifier">display</span> = <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">verbose</span>)
   <span class="ruby-identifier">now</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
 
@@ -4212,7 +4299,7 @@ returns the default UI.</p>
                 
               </p>
               <div id="method-c-ui_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 869</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 877</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">ui</span>
   <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;rubygems/user_interaction&#39;</span>
 
@@ -4252,7 +4339,7 @@ provide environment isolation.</p>
                 
               </p>
               <div id="method-c-use_paths_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 879</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 887</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">use_paths</span>(<span class="ruby-identifier">home</span>, *<span class="ruby-identifier">paths</span>)
   <span class="ruby-identifier">paths</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">paths</span> <span class="ruby-operator">==</span> [<span class="ruby-keyword">nil</span>]
   <span class="ruby-identifier">paths</span> = <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Array</span> <span class="ruby-operator">===</span> <span class="ruby-constant">Array</span>(<span class="ruby-identifier">paths</span>).<span class="ruby-identifier">first</span>
@@ -4325,7 +4412,7 @@ provide environment isolation.</p>
                 
               </p>
               <div id="method-c-user_home_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 889</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 897</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">user_home</span>
   <span class="ruby-ivar">@user_home</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">find_home</span>.<span class="ruby-identifier">untaint</span>
 <span class="ruby-keyword">end</span></pre>
@@ -4361,7 +4448,7 @@ provide environment isolation.</p>
                 
               </p>
               <div id="method-c-win_platform-3D_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/test_case.rb, line 49</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/test_case.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">win_platform=</span>(<span class="ruby-identifier">val</span>)
   <span class="ruby-identifier">@@win_platform</span> = <span class="ruby-identifier">val</span>
 <span class="ruby-keyword">end</span></pre>
@@ -4396,10 +4483,11 @@ provide environment isolation.</p>
                 
               </p>
               <div id="method-c-win_platform-3F_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 896</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 904</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">win_platform?</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">@@win_platform</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">then</span>
-    <span class="ruby-identifier">@@win_platform</span> = <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-constant">WIN_PATTERNS</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-constant">RUBY_PLATFORM</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">r</span> }
+    <span class="ruby-identifier">ruby_platform</span> = <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&#39;host_os&#39;</span>]
+    <span class="ruby-identifier">@@win_platform</span> = <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-constant">WIN_PATTERNS</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">ruby_platform</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">r</span> }
   <span class="ruby-keyword">end</span>
 
   <span class="ruby-identifier">@@win_platform</span>
@@ -4437,7 +4525,7 @@ provide environment isolation.</p>
                 
               </p>
               <div id="method-c-find_home_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 446</span>
+                <pre><span class="ruby-comment"># File lib/rubygems.rb, line 454</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">find_home</span>
   <span class="ruby-identifier">windows</span> = <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">ALT_SEPARATOR</span>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">windows</span> <span class="ruby-keyword">or</span> <span class="ruby-constant">RUBY_VERSION</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-string">&#39;1.9&#39;</span> <span class="ruby-keyword">then</span>

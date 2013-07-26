@@ -209,15 +209,17 @@ class SDocSite::Automation
   end
 
   # Unique temporary directory name
-  def temp_dir
-    name = 'tmp_' + rand.to_s.gsub(/\D/, '')
+  def temp_dir prefix = nil, use_random = true
+    name = "tmp"
+    name << "_#{prefix}" if prefix
+    name << '_'+rand.to_s.gsub(/\D/, '') if use_random
     # File.join(@temp_root, name)
-    File.join(__dir__, "../../tmp", name)
+    File.expand_path(File.join(__dir__, "../../tmp", name))
   end
 
   # Cleans all temp dirs
   def clean_up
-    FileUtils.rm_rf @temp_root
+    # FileUtils.rm_rf @temp_root
   end
 
   # Outputs a +msg+ if debug is on

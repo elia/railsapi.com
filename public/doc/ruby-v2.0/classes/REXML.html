@@ -409,6 +409,29 @@ href="http://www.germane-software.com/software/rexml/docs/tutorial.html">online<
 
 
   
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-entity_expansion_text_limit">entity_expansion_text_limit</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-entity_expansion_text_limit-3D">entity_expansion_text_limit=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
 
   
 
@@ -464,7 +487,7 @@ href="http://www.germane-software.com/software/rexml/docs/tutorial.html">online<
           <tr valign='top'>
             <td class="attr-name">REVISION</td>
             <td>=</td>
-            <td class="attr-value">%w$Revision: 26193 $[1] || &#39;&#39;</td>
+            <td class="attr-value">%w$Revision: 39952 $[1] || &#39;&#39;</td>
           </tr>
           
             <tr valign='top'>
@@ -505,7 +528,80 @@ href="http://www.germane-software.com/software/rexml/docs/tutorial.html">online<
 
 
     <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-entity_expansion_text_limit">
+            
+              <b>entity_expansion_text_limit</b>()
+            
+            <a href="../classes/REXML.html#method-c-entity_expansion_text_limit" name="method-c-entity_expansion_text_limit" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Get the entity expansion limit. By default the limit is set to 10240.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-entity_expansion_text_limit_source')" id="l_method-c-entity_expansion_text_limit_source">show</a>
+                
+              </p>
+              <div id="method-c-entity_expansion_text_limit_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rexml/rexml.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">entity_expansion_text_limit</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">@@entity_expansion_text_limit</span>
+<span class="ruby-keyword">end</span></pre>
               </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-entity_expansion_text_limit-3D">
+            
+              <b>entity_expansion_text_limit=</b>( val )
+            
+            <a href="../classes/REXML.html#method-c-entity_expansion_text_limit-3D" name="method-c-entity_expansion_text_limit-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="Set.html">Set</a> the entity expansion limit. By default the limit
+is set to 10240.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-entity_expansion_text_limit-3D_source')" id="l_method-c-entity_expansion_text_limit-3D_source">show</a>
+                
+              </p>
+              <div id="method-c-entity_expansion_text_limit-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rexml/rexml.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">entity_expansion_text_limit=</span>( <span class="ruby-identifier">val</span> )
+  <span class="ruby-identifier">@@entity_expansion_text_limit</span> = <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                        </div>
 
     </div>
   </body>

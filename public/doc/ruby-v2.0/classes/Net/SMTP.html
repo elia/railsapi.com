@@ -43,9 +43,8 @@
 <h2 id="label-What+is+This+Library%3F">What is This Library?</h2>
 
 <p>This library provides functionality to send internet mail via <a
-href="SMTP.html">SMTP</a>, the Simple <a href="../Mail.html">Mail</a>
-Transfer Protocol. For details of <a href="SMTP.html">SMTP</a> itself, see
-[RFC2821] (<a
+href="SMTP.html">SMTP</a>, the Simple Mail Transfer Protocol. For details
+of <a href="SMTP.html">SMTP</a> itself, see [RFC2821] (<a
 href="http://www.ietf.org/rfc/rfc2821.txt">www.ietf.org/rfc/rfc2821.txt</a>).</p>
 
 <h2 id="label-What+is+This+Library+NOT%3F">What is This Library NOT?</h2>
@@ -687,7 +686,7 @@ Net::SMTP.start(&#39;your.smtp.server&#39;, 25, &#39;mail.from.domain&#39;,
           <tr valign='top'>
             <td class="attr-name">Revision</td>
             <td>=</td>
-            <td class="attr-value">%q$Revision: 39018 $.split[1]</td>
+            <td class="attr-value">%q$Revision: 40295 $.split[1]</td>
           </tr>
           
             <tr valign='top'>
@@ -796,7 +795,8 @@ href="SMTP.html">SMTP</a> mode and retry (but not vice versa).</p></td>
             <td class='attr-name'>open_timeout</td>
             <td class='attr-desc'><p>Seconds to wait while attempting to open a connection. If the connection
 cannot be opened within this time, a <a
-href="OpenTimeout.html">Net::OpenTimeout</a> is raised.</p></td>
+href="OpenTimeout.html">Net::OpenTimeout</a> is raised. The default value
+is 30 seconds.</p></td>
           </tr>
         
           <tr valign='top'>
@@ -814,7 +814,8 @@ href="OpenTimeout.html">Net::OpenTimeout</a> is raised.</p></td>
             <td class='attr-name'>read_timeout</td>
             <td class='attr-desc'><p>Seconds to wait while reading one block (by one read(2) call). If the
 read(2) call does not complete within this time, a <a
-href="ReadTimeout.html">Net::ReadTimeout</a> is raised.</p></td>
+href="ReadTimeout.html">Net::ReadTimeout</a> is raised. The default value
+is 60 seconds.</p></td>
           </tr>
         
       </table>

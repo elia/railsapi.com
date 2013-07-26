@@ -140,7 +140,7 @@
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File ext/dl/lib/dl/func.rb, line 218</span>
+                <pre><span class="ruby-comment"># File ext/dl/lib/dl/func.rb, line 221</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">cfunc</span>, <span class="ruby-identifier">argtypes</span>, <span class="ruby-identifier">n</span>)
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">cfunc</span>, <span class="ruby-identifier">argtypes</span>)
   <span class="ruby-ivar">@carrier</span> = []
@@ -180,7 +180,7 @@
                 
               </p>
               <div id="method-i-bind_at_call_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File ext/dl/lib/dl/func.rb, line 233</span>
+                <pre><span class="ruby-comment"># File ext/dl/lib/dl/func.rb, line 236</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">bind_at_call</span>(&amp;<span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">userdata</span> = <span class="ruby-ivar">@carrier</span>[<span class="ruby-number">-1</span>]
   <span class="ruby-identifier">userdata</span>[<span class="ruby-number">0</span>].<span class="ruby-identifier">push</span>(<span class="ruby-identifier">block</span>)
@@ -226,7 +226,7 @@
                 
               </p>
               <div id="method-i-create_carrier_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File ext/dl/lib/dl/func.rb, line 225</span>
+                <pre><span class="ruby-comment"># File ext/dl/lib/dl/func.rb, line 228</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_carrier</span>(<span class="ruby-identifier">data</span>)
   <span class="ruby-identifier">ary</span> = []
   <span class="ruby-identifier">userdata</span> = [<span class="ruby-identifier">ary</span>, <span class="ruby-identifier">data</span>]

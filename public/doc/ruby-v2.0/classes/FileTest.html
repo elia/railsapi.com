@@ -314,6 +314,8 @@ this is not done by inclusion: the interpreter cheats).</p>
           
             <div class="description">
               <p>Returns <code>true</code> if the named file is a block device.</p>
+
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
             </div>
           
           
@@ -366,6 +368,8 @@ rb_file_blockdev_p(VALUE obj, VALUE fname)
           
             <div class="description">
               <p>Returns <code>true</code> if the named file is a character device.</p>
+
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
             </div>
           
           
@@ -413,6 +417,8 @@ rb_file_chardev_p(VALUE obj, VALUE fname)
             <div class="description">
               <p>Returns <code>true</code> if the named file is a directory, or a symlink
 that points at a directory, and <code>false</code> otherwise.</p>
+
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
 
 <pre>File.directory?(&quot;.&quot;)</pre>
             </div>
@@ -524,7 +530,7 @@ rb_file_executable_real_p(VALUE obj, VALUE fname)
     rb_secure(2);
     FilePathValue(fname);
     fname = rb_str_encode_ospath(fname);
-    if (access_internal(StringValueCStr(fname), X_OK) &lt; 0) return Qfalse;
+    if (access(StringValueCStr(fname), X_OK) &lt; 0) return Qfalse;
     return Qtrue;
 }</pre>
               </div>
@@ -545,6 +551,10 @@ File.exists?(file_name)   &rarr;  true or false
           
             <div class="description">
               <p>Return <code>true</code> if the named file exists.</p>
+
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
+
+<p>“file exists” means that stat() or fstat() system call is successful.</p>
             </div>
           
           
@@ -586,6 +596,10 @@ File.exists?(file_name)   &rarr;  true or false
           
             <div class="description">
               <p>Return <code>true</code> if the named file exists.</p>
+
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
+
+<p>“file exists” means that stat() or fstat() system call is successful.</p>
             </div>
           
           
@@ -626,6 +640,8 @@ rb_file_exist_p(VALUE obj, VALUE fname)
           
             <div class="description">
               <p>Returns <code>true</code> if the named file exists and is a regular file.</p>
+
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
             </div>
           
           
@@ -669,6 +685,8 @@ rb_file_file_p(VALUE obj, VALUE fname)
               <p>Returns <code>true</code> if the named file exists and the effective group
 id of the calling process is the owner of the file. Returns
 <code>false</code> on Windows.</p>
+
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
             </div>
           
           
@@ -712,6 +730,9 @@ rb_file_grpowned_p(VALUE obj, VALUE fname)
           
             <div class="description">
               <p>Returns <code>true</code> if the named files are identical.</p>
+
+<p><em>file_1</em> and <em>file_2</em> can be an <a href="IO.html">IO</a>
+object.</p>
 
 <pre class="ruby"><span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>) {}
 <span class="ruby-identifier">p</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">identical?</span>(<span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;a&quot;</span>)      <span class="ruby-comment">#=&gt; true</span>
@@ -803,6 +824,8 @@ rb_file_identical_p(VALUE obj, VALUE fname1, VALUE fname2)
             <div class="description">
               <p>Returns <code>true</code> if the named file exists and the effective used
 id of the calling process is the owner of the file.</p>
+
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
             </div>
           
           
@@ -844,6 +867,8 @@ rb_file_owned_p(VALUE obj, VALUE fname)
           
             <div class="description">
               <p>Returns <code>true</code> if the named file is a pipe.</p>
+
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
             </div>
           
           
@@ -956,7 +981,7 @@ rb_file_readable_real_p(VALUE obj, VALUE fname)
     rb_secure(2);
     FilePathValue(fname);
     fname = rb_str_encode_ospath(fname);
-    if (access_internal(StringValueCStr(fname), R_OK) &lt; 0) return Qfalse;
+    if (access(StringValueCStr(fname), R_OK) &lt; 0) return Qfalse;
     return Qtrue;
 }</pre>
               </div>
@@ -1058,6 +1083,8 @@ rb_file_suid_p(VALUE obj, VALUE fname)
           
             <div class="description">
               <p>Returns the size of <code>file_name</code>.</p>
+
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
             </div>
           
           
@@ -1102,6 +1129,8 @@ rb_file_s_size(VALUE klass, VALUE fname)
             <div class="description">
               <p>Returns <code>nil</code> if <code>file_name</code> doesn&#39;t exist or has
 zero size, the size of the file otherwise.</p>
+
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
             </div>
           
           
@@ -1143,6 +1172,8 @@ rb_file_size_p(VALUE obj, VALUE fname)
           
             <div class="description">
               <p>Returns <code>true</code> if the named file is a socket.</p>
+
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
             </div>
           
           
@@ -1307,6 +1338,8 @@ representing the file permission bits of <em>file_name</em>. Returns
 <code>nil</code> otherwise. The meaning of the bits is platform dependent;
 on Unix systems, see <code>stat(2)</code>.</p>
 
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
+
 <pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">world_readable?</span>(<span class="ruby-string">&quot;/etc/passwd&quot;</span>)           <span class="ruby-comment">#=&gt; 420</span>
 <span class="ruby-identifier">m</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">world_readable?</span>(<span class="ruby-string">&quot;/etc/passwd&quot;</span>)
 <span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&quot;%o&quot;</span>, <span class="ruby-identifier">m</span>)                              <span class="ruby-comment">#=&gt; &quot;644&quot;</span>
@@ -1359,6 +1392,8 @@ rb_file_world_readable_p(VALUE obj, VALUE fname)
 representing the file permission bits of <em>file_name</em>. Returns
 <code>nil</code> otherwise. The meaning of the bits is platform dependent;
 on Unix systems, see <code>stat(2)</code>.</p>
+
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
 
 <pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">world_writable?</span>(<span class="ruby-string">&quot;/tmp&quot;</span>)                  <span class="ruby-comment">#=&gt; 511</span>
 <span class="ruby-identifier">m</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">world_writable?</span>(<span class="ruby-string">&quot;/tmp&quot;</span>)
@@ -1473,7 +1508,7 @@ rb_file_writable_real_p(VALUE obj, VALUE fname)
     rb_secure(2);
     FilePathValue(fname);
     fname = rb_str_encode_ospath(fname);
-    if (access_internal(StringValueCStr(fname), W_OK) &lt; 0) return Qfalse;
+    if (access(StringValueCStr(fname), W_OK) &lt; 0) return Qfalse;
     return Qtrue;
 }</pre>
               </div>
@@ -1493,6 +1528,8 @@ rb_file_writable_real_p(VALUE obj, VALUE fname)
           
             <div class="description">
               <p>Returns <code>true</code> if the named file exists and has a zero size.</p>
+
+<p><em>file_name</em> can be an <a href="IO.html">IO</a> object.</p>
             </div>
           
           

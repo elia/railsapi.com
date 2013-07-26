@@ -222,7 +222,7 @@ queries only against the already installed gems.</p>
                 
               </p>
               <div id="method-c-for_current_gems_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 259</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 270</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">for_current_gems</span>(<span class="ruby-identifier">needed</span>)
   <span class="ruby-identifier">new</span> <span class="ruby-identifier">needed</span>, <span class="ruby-constant">CurrentSet</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -264,7 +264,7 @@ rubygems.org.</p>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 249</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 260</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">needed</span>, <span class="ruby-identifier">set</span>=<span class="ruby-constant">IndexSet</span>.<span class="ruby-identifier">new</span>)
   <span class="ruby-ivar">@set</span> = <span class="ruby-identifier">set</span> <span class="ruby-operator">||</span> <span class="ruby-constant">IndexSet</span>.<span class="ruby-identifier">new</span> <span class="ruby-comment"># Allow nil to mean IndexSet</span>
   <span class="ruby-ivar">@needed</span> = <span class="ruby-identifier">needed</span>
@@ -304,7 +304,7 @@ rubygems.org.</p>
                 
               </p>
               <div id="method-i-requests_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 424</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 437</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">requests</span>(<span class="ruby-identifier">s</span>, <span class="ruby-identifier">act</span>)
   <span class="ruby-identifier">reqs</span> = []
   <span class="ruby-identifier">s</span>.<span class="ruby-identifier">dependencies</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span>
@@ -349,7 +349,7 @@ objects.</p>
                 
               </p>
               <div id="method-i-resolve_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 270</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 281</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">resolve</span>
   <span class="ruby-ivar">@conflicts</span> = []
 
@@ -400,7 +400,7 @@ objects.</p>
                 
               </p>
               <div id="method-i-resolve_for_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 440</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 453</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">resolve_for</span>(<span class="ruby-identifier">needed</span>, <span class="ruby-identifier">specs</span>)
   <span class="ruby-keyword">until</span> <span class="ruby-identifier">needed</span>.<span class="ruby-identifier">empty?</span>
     <span class="ruby-identifier">dep</span> = <span class="ruby-identifier">needed</span>.<span class="ruby-identifier">shift</span>

@@ -32,6 +32,20 @@
     <div id="bodyContent">
         <div id="content">
   
+    <div class="description">
+      
+<p><a href="../Element.html">Element</a> used to describe an <a
+href="../Atom.html">Atom</a> date and time in the ISO 8601 format</p>
+
+<p>Examples:</p>
+<ul><li>
+<p>2013-03-04T15:30:02Z</p>
+</li><li>
+<p>2013-03-04T10:30:02-05:00</p>
+</li></ul>
+
+    </div>
+  
 
 
   
@@ -129,7 +143,7 @@
                 
               </p>
               <div id="method-c-append_features_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rss/atom.rb, line 186</span>
+                <pre><span class="ruby-comment"># File lib/rss/atom.rb, line 214</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">append_features</span>(<span class="ruby-identifier">klass</span>)
   <span class="ruby-keyword">super</span>
   <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-keyword">do</span>
@@ -154,7 +168,8 @@
           
           
             <div class="description">
-              
+              <p>Raises <a href="../NotAvailableValueError.html">NotAvailableValueError</a>
+if element content is nil</p>
             </div>
           
           
@@ -170,7 +185,7 @@
                 
               </p>
               <div id="method-i-atom_validate_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rss/atom.rb, line 194</span>
+                <pre><span class="ruby-comment"># File lib/rss/atom.rb, line 223</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">atom_validate</span>(<span class="ruby-identifier">ignore_unknown_element</span>, <span class="ruby-identifier">tags</span>, <span class="ruby-identifier">uri</span>)
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotAvailableValueError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-string">&quot;&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">content</span>.<span class="ruby-identifier">nil?</span>
 <span class="ruby-keyword">end</span></pre>

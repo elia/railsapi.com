@@ -3555,9 +3555,27 @@ curses_cols(void)
           
           
             <div class="description">
-              <p>Put the terminal into normal mode (out of cbreak mode).</p>
+              <p>Put the terminal into cbreak mode.</p>
 
-<p>See <a href="Curses.html#method-c-cbreak">::cbreak</a> for more detail.</p>
+<p>Normally, the tty driver buffers typed characters until a newline or
+carriage return is typed. The <a
+href="Curses.html#method-c-cbreak">::cbreak</a> routine disables line
+buffering and erase/kill character-processing (interrupt and flow control
+characters are unaffected), making characters typed by the user immediately
+available to the program.</p>
+
+<p>The <a href="Curses.html#method-c-nocbreak">::nocbreak</a> routine returns
+the terminal to normal (cooked) mode.</p>
+
+<p>Initially the terminal may or may not be in cbreak mode, as the mode is
+inherited; therefore, a program should call <a
+href="Curses.html#method-c-cbreak">::cbreak</a> or <a
+href="Curses.html#method-c-nocbreak">::nocbreak</a> explicitly. Most
+interactive programs using curses set the cbreak mode. Note that <a
+href="Curses.html#method-c-cbreak">::cbreak</a> overrides <a
+href="Curses.html#method-c-raw">::raw</a>.</p>
+
+<p>see also <a href="Curses.html#method-c-raw">::raw</a></p>
             </div>
           
           
@@ -3574,10 +3592,10 @@ curses_cols(void)
               </p>
               <div id="method-c-crmode_source" class="dyn-source">
                 <pre>static VALUE
-curses_nocbreak(VALUE obj)
+curses_cbreak(VALUE obj)
 {
     curses_stdscr();
-    nocbreak();
+    cbreak();
     return Qnil;
 }</pre>
               </div>

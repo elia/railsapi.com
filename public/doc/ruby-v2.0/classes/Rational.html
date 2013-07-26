@@ -784,7 +784,7 @@ nurat_div(VALUE self, VALUE other)
         <div class="method">
           <div class="title method-title" id="method-i-3C-3D-3E">
             
-              <b>rat <=> numeric  &rarr;  -1, 0, +1 or nil
+              <b>rational <=> numeric  &rarr;  -1, 0, +1 or nil
 </b>
             
             <a href="../classes/Rational.html#method-i-3C-3D-3E" name="method-i-3C-3D-3E" class="permalink">Link</a>
@@ -793,6 +793,8 @@ nurat_div(VALUE self, VALUE other)
           
             <div class="description">
               <p>Performs comparison and returns -1, 0, or +1.</p>
+
+<p><code>nil</code> is returned if the two values are incomparable.</p>
 
 <pre class="ruby"><span class="ruby-constant">Rational</span>(<span class="ruby-value">2</span>, <span class="ruby-value">3</span>)  <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-constant">Rational</span>(<span class="ruby-value">2</span>, <span class="ruby-value">3</span>)  <span class="ruby-comment">#=&gt; 0</span>
 <span class="ruby-constant">Rational</span>(<span class="ruby-value">5</span>)     <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-value">5</span>               <span class="ruby-comment">#=&gt; 0</span>

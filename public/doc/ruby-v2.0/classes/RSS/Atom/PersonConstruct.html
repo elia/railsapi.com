@@ -32,6 +32,19 @@
     <div id="bodyContent">
         <div id="content">
   
+    <div class="description">
+      
+<p>The <a href="PersonConstruct.html">PersonConstruct</a> module is used to
+define a Person <a href="../Atom.html">Atom</a> element that can be used to
+describe a person, corporation, or similar entity</p>
+
+<p>The <a href="PersonConstruct.html">PersonConstruct</a> has a <a
+href="PersonConstruct/Name.html">Name</a>, <a
+href="PersonConstruct/Uri.html">Uri</a>, and <a
+href="PersonConstruct/Email.html">Email</a> child elements</p>
+
+    </div>
+  
 
 
   
@@ -127,7 +140,7 @@
           
           
             <div class="description">
-              
+              <p>Adds attributes for name, uri, and email to the <code>klass</code></p>
             </div>
           
           
@@ -143,7 +156,7 @@
                 
               </p>
               <div id="method-c-append_features_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rss/atom.rb, line 152</span>
+                <pre><span class="ruby-comment"># File lib/rss/atom.rb, line 172</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">append_features</span>(<span class="ruby-identifier">klass</span>)
   <span class="ruby-keyword">super</span>
   <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-keyword">do</span>
@@ -189,7 +202,7 @@
                 
               </p>
               <div id="method-i-maker_target_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rss/atom.rb, line 165</span>
+                <pre><span class="ruby-comment"># File lib/rss/atom.rb, line 185</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">maker_target</span>(<span class="ruby-identifier">target</span>)
   <span class="ruby-identifier">target</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-node">&quot;new_#{self.class.name.split(/::/).last.downcase}&quot;</span>)
 <span class="ruby-keyword">end</span></pre>

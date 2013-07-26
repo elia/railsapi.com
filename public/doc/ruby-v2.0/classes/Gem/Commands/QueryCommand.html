@@ -416,7 +416,7 @@
         <div class="method">
           <div class="title method-title" id="method-i-entry_details">
             
-              <b>entry_details</b>(entry, spec, specs, platforms)
+              <b>entry_details</b>(entry, detail_tuple, specs, platforms)
             
             <a href="../../../classes/Gem/Commands/QueryCommand.html#method-i-entry_details" name="method-i-entry_details" class="permalink">Link</a>
           </div>
@@ -440,8 +440,12 @@
               </p>
               <div id="method-i-entry_details_source" class="dyn-source">
                 <pre><span class="ruby-comment"># File lib/rubygems/commands/query_command.rb, line 195</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">entry_details</span> <span class="ruby-identifier">entry</span>, <span class="ruby-identifier">spec</span>, <span class="ruby-identifier">specs</span>, <span class="ruby-identifier">platforms</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">entry_details</span> <span class="ruby-identifier">entry</span>, <span class="ruby-identifier">detail_tuple</span>, <span class="ruby-identifier">specs</span>, <span class="ruby-identifier">platforms</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:details</span>]
+
+  <span class="ruby-identifier">name_tuple</span>, <span class="ruby-identifier">spec</span> = <span class="ruby-identifier">detail_tuple</span>
+
+  <span class="ruby-identifier">spec</span> = <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">fetch_spec</span> <span class="ruby-identifier">name_tuple</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">spec</span>
 
   <span class="ruby-identifier">entry</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
 
@@ -483,7 +487,7 @@
                 
               </p>
               <div id="method-i-entry_versions_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/commands/query_command.rb, line 208</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/query_command.rb, line 212</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">entry_versions</span> <span class="ruby-identifier">entry</span>, <span class="ruby-identifier">name_tuples</span>, <span class="ruby-identifier">platforms</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:versions</span>]
 
@@ -570,22 +574,18 @@
                 
               </p>
               <div id="method-i-make_entry_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/commands/query_command.rb, line 229</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/commands/query_command.rb, line 233</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">make_entry</span> <span class="ruby-identifier">entry_tuples</span>, <span class="ruby-identifier">platforms</span>
   <span class="ruby-identifier">detail_tuple</span> = <span class="ruby-identifier">entry_tuples</span>.<span class="ruby-identifier">first</span>
-  <span class="ruby-identifier">name_tuple</span>, <span class="ruby-identifier">latest_spec</span> = <span class="ruby-identifier">detail_tuple</span>
-
-  <span class="ruby-identifier">latest_spec</span> = <span class="ruby-identifier">latest_spec</span>.<span class="ruby-identifier">fetch_spec</span> <span class="ruby-identifier">name_tuple</span> <span class="ruby-keyword">unless</span>
-    <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">latest_spec</span>
 
   <span class="ruby-identifier">name_tuples</span>, <span class="ruby-identifier">specs</span> = <span class="ruby-identifier">entry_tuples</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">partition</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
     <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">NameTuple</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">item</span>
   <span class="ruby-keyword">end</span>
 
-  <span class="ruby-identifier">entry</span> = [<span class="ruby-identifier">latest_spec</span>.<span class="ruby-identifier">name</span>]
+  <span class="ruby-identifier">entry</span> = [<span class="ruby-identifier">name_tuples</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">name</span>]
 
   <span class="ruby-identifier">entry_versions</span> <span class="ruby-identifier">entry</span>, <span class="ruby-identifier">name_tuples</span>, <span class="ruby-identifier">platforms</span>
-  <span class="ruby-identifier">entry_details</span>  <span class="ruby-identifier">entry</span>, <span class="ruby-identifier">latest_spec</span>, <span class="ruby-identifier">specs</span>, <span class="ruby-identifier">platforms</span>
+  <span class="ruby-identifier">entry_details</span>  <span class="ruby-identifier">entry</span>, <span class="ruby-identifier">detail_tuple</span>, <span class="ruby-identifier">specs</span>, <span class="ruby-identifier">platforms</span>
 
   <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">join</span>
 <span class="ruby-keyword">end</span></pre>

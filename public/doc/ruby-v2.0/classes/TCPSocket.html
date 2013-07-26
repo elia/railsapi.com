@@ -199,7 +199,7 @@ tcp_s_gethostbyname(VALUE obj, VALUE host)
               <div id="method-c-new_source" class="dyn-source">
                 <pre><span class="ruby-comment"># File lib/resolv-replace.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">host</span>, <span class="ruby-identifier">serv</span>, *<span class="ruby-identifier">rest</span>)
-  <span class="ruby-identifier">rest</span>[<span class="ruby-number">0</span>] = <span class="ruby-constant">IPSocket</span>.<span class="ruby-identifier">getaddress</span>(<span class="ruby-identifier">rest</span>[<span class="ruby-number">0</span>]) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">rest</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">rest</span>[<span class="ruby-number">0</span>] = <span class="ruby-constant">IPSocket</span>.<span class="ruby-identifier">getaddress</span>(<span class="ruby-identifier">rest</span>[<span class="ruby-number">0</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">rest</span>[<span class="ruby-number">0</span>]
   <span class="ruby-identifier">original_resolv_initialize</span>(<span class="ruby-constant">IPSocket</span>.<span class="ruby-identifier">getaddress</span>(<span class="ruby-identifier">host</span>), <span class="ruby-identifier">serv</span>, *<span class="ruby-identifier">rest</span>)
 <span class="ruby-keyword">end</span></pre>
               </div>

@@ -204,7 +204,7 @@
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File ext/openssl/lib/openssl/ssl.rb, line 147</span>
+                <pre><span class="ruby-comment"># File ext/openssl/lib/openssl/ssl.rb, line 155</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">svr</span>, <span class="ruby-identifier">ctx</span>)
   <span class="ruby-ivar">@svr</span> = <span class="ruby-identifier">svr</span>
   <span class="ruby-ivar">@ctx</span> = <span class="ruby-identifier">ctx</span>
@@ -249,7 +249,7 @@
                 
               </p>
               <div id="method-i-accept_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File ext/openssl/lib/openssl/ssl.rb, line 171</span>
+                <pre><span class="ruby-comment"># File ext/openssl/lib/openssl/ssl.rb, line 179</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">accept</span>
   <span class="ruby-identifier">sock</span> = <span class="ruby-ivar">@svr</span>.<span class="ruby-identifier">accept</span>
   <span class="ruby-keyword">begin</span>
@@ -293,7 +293,7 @@
                 
               </p>
               <div id="method-i-close_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File ext/openssl/lib/openssl/ssl.rb, line 184</span>
+                <pre><span class="ruby-comment"># File ext/openssl/lib/openssl/ssl.rb, line 192</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">close</span>
   <span class="ruby-ivar">@svr</span>.<span class="ruby-identifier">close</span>
 <span class="ruby-keyword">end</span></pre>
@@ -328,7 +328,7 @@
                 
               </p>
               <div id="method-i-listen_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File ext/openssl/lib/openssl/ssl.rb, line 163</span>
+                <pre><span class="ruby-comment"># File ext/openssl/lib/openssl/ssl.rb, line 171</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">listen</span>(<span class="ruby-identifier">backlog</span>=<span class="ruby-number">5</span>)
   <span class="ruby-ivar">@svr</span>.<span class="ruby-identifier">listen</span>(<span class="ruby-identifier">backlog</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -363,7 +363,7 @@
                 
               </p>
               <div id="method-i-shutdown_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File ext/openssl/lib/openssl/ssl.rb, line 167</span>
+                <pre><span class="ruby-comment"># File ext/openssl/lib/openssl/ssl.rb, line 175</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">shutdown</span>(<span class="ruby-identifier">how</span>=<span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">SHUT_RDWR</span>)
   <span class="ruby-ivar">@svr</span>.<span class="ruby-identifier">shutdown</span>(<span class="ruby-identifier">how</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -398,7 +398,7 @@
                 
               </p>
               <div id="method-i-to_io_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File ext/openssl/lib/openssl/ssl.rb, line 159</span>
+                <pre><span class="ruby-comment"># File ext/openssl/lib/openssl/ssl.rb, line 167</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_io</span>
   <span class="ruby-ivar">@svr</span>
 <span class="ruby-keyword">end</span></pre>

@@ -107,12 +107,12 @@
             
               
               <li>
-                <a href="#method-i-abort_on_exception">abort_on_exception</a>,
+                <a href="#method-c-abort_on_exception">abort_on_exception</a>,
               </li>
             
               
               <li>
-                <a href="#method-c-abort_on_exception">abort_on_exception</a>,
+                <a href="#method-i-abort_on_exception">abort_on_exception</a>,
               </li>
             
               
@@ -265,12 +265,12 @@
             
               
               <li>
-                <a href="#method-i-kill">kill</a>,
+                <a href="#method-c-kill">kill</a>,
               </li>
             
               
               <li>
-                <a href="#method-c-kill">kill</a>
+                <a href="#method-i-kill">kill</a>
               </li>
             
           </ul>
@@ -300,6 +300,18 @@
           </ul>
         </dd>
       
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
         <dt>P</dt>
         <dd>
           <ul>
@@ -311,12 +323,12 @@
             
               
               <li>
-                <a href="#method-c-pending_interrupt-3F">pending_interrupt?</a>,
+                <a href="#method-i-pending_interrupt-3F">pending_interrupt?</a>,
               </li>
             
               
               <li>
-                <a href="#method-i-pending_interrupt-3F">pending_interrupt?</a>,
+                <a href="#method-c-pending_interrupt-3F">pending_interrupt?</a>,
               </li>
             
               
@@ -790,9 +802,10 @@ Thread.fork([args]*) {|args| block }    &rarr; thread
           
           
             <div class="description">
-              <p>Basically the same as <code>Thread::new</code>. However, if class
-<code>Thread</code> is subclassed, then calling <code>start</code> in that
-subclass will not invoke the subclass&#39;s <code>initialize</code> method.</p>
+              <p>Basically the same as <a href="Thread.html#method-c-new">::new</a>.
+However, if class <a href="Thread.html">Thread</a> is subclassed, then
+calling <code>start</code> in that subclass will not invoke the
+subclass&#39;s <code>initialize</code> method.</p>
             </div>
           
           
@@ -1147,6 +1160,73 @@ rb_thread_s_main(VALUE klass)
           </div>
         
         <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>Thread.new { ... }                  &rarr; thread
+Thread.new(*args, &proc)            &rarr; thread
+Thread.new(*args) { |args| ... }    &rarr; thread
+</b>
+            
+            <a href="../classes/Thread.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Creates a new thread executing the given block.</p>
+
+<p>Any <code>args</code> given to <a href="Thread.html#method-c-new">::new</a>
+will be passed to the block:</p>
+
+<pre class="ruby"><span class="ruby-identifier">arr</span> = []
+<span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span>, <span class="ruby-identifier">c</span> = <span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span>,<span class="ruby-identifier">c</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span>,<span class="ruby-identifier">e</span>,<span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">arr</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">d</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">f</span> }.<span class="ruby-identifier">join</span>
+<span class="ruby-identifier">arr</span> <span class="ruby-comment">#=&gt; [1, 2, 3]</span>
+</pre>
+
+<p>A <a href="ThreadError.html">ThreadError</a> exception is raised if <a
+href="Thread.html#method-c-new">::new</a> is called without a block.</p>
+
+<p>If you&#39;re going to subclass <a href="Thread.html">Thread</a>, be sure
+to call super in your <code>initialize</code> method, otherwise a <a
+href="ThreadError.html">ThreadError</a> will be raised.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre>static VALUE
+thread_s_new(int argc, VALUE *argv, VALUE klass)
+{
+    rb_thread_t *th;
+    VALUE thread = rb_thread_alloc(klass);
+
+    if (GET_VM()-&gt;main_thread-&gt;status == THREAD_KILLED)
+        rb_raise(rb_eThreadError, &quot;can&#39;t alloc thread&quot;);
+
+    rb_obj_call_init(thread, argc, argv);
+    GetThreadPtr(thread, th);
+    if (!th-&gt;first_args) {
+        rb_raise(rb_eThreadError, &quot;uninitialized thread - check `%s#initialize&#39;&quot;,
+                 rb_class2name(klass));
+    }
+    return thread;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
           <div class="title method-title" id="method-c-pass">
             
               <b>Thread.pass   &rarr; nil
@@ -1291,9 +1371,10 @@ Thread.fork([args]*) {|args| block }    &rarr; thread
           
           
             <div class="description">
-              <p>Basically the same as <code>Thread::new</code>. However, if class
-<code>Thread</code> is subclassed, then calling <code>start</code> in that
-subclass will not invoke the subclass&#39;s <code>initialize</code> method.</p>
+              <p>Basically the same as <a href="Thread.html#method-c-new">::new</a>.
+However, if class <a href="Thread.html">Thread</a> is subclassed, then
+calling <code>start</code> in that subclass will not invoke the
+subclass&#39;s <code>initialize</code> method.</p>
             </div>
           
           

@@ -182,7 +182,7 @@ authenticate().</p>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/net/imap.rb, line 3510</span>
+                <pre><span class="ruby-comment"># File lib/net/imap.rb, line 3511</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>, <span class="ruby-identifier">authname</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-ivar">@user</span>, <span class="ruby-ivar">@password</span>, <span class="ruby-ivar">@authname</span> = <span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>, <span class="ruby-identifier">authname</span>
   <span class="ruby-ivar">@nc</span>, <span class="ruby-ivar">@stage</span> = {}, <span class="ruby-constant">STAGE_ONE</span>
@@ -220,7 +220,7 @@ authenticate().</p>
                 
               </p>
               <div id="method-i-process_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/net/imap.rb, line 3445</span>
+                <pre><span class="ruby-comment"># File lib/net/imap.rb, line 3446</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">process</span>(<span class="ruby-identifier">challenge</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-ivar">@stage</span>
   <span class="ruby-keyword">when</span> <span class="ruby-constant">STAGE_ONE</span>
@@ -318,7 +318,7 @@ authenticate().</p>
                 
               </p>
               <div id="method-i-nc_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/net/imap.rb, line 3520</span>
+                <pre><span class="ruby-comment"># File lib/net/imap.rb, line 3521</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">nc</span>(<span class="ruby-identifier">nonce</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@nc</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">nonce</span>
     <span class="ruby-ivar">@nc</span>[<span class="ruby-identifier">nonce</span>] = <span class="ruby-ivar">@nc</span>[<span class="ruby-identifier">nonce</span>] <span class="ruby-operator">+</span> <span class="ruby-number">1</span>
@@ -358,7 +358,7 @@ authenticate().</p>
                 
               </p>
               <div id="method-i-qdval_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/net/imap.rb, line 3530</span>
+                <pre><span class="ruby-comment"># File lib/net/imap.rb, line 3531</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">qdval</span>(<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">nil?</span>
   <span class="ruby-keyword">if</span> <span class="ruby-node">%wusername authzid realm nonce cnonce digest-uri qop&quot;</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">k</span>

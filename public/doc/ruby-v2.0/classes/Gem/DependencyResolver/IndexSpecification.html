@@ -192,7 +192,7 @@ needed.</p>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 152</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 163</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">set</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">version</span>, <span class="ruby-identifier">source</span>, <span class="ruby-identifier">plat</span>)
   <span class="ruby-ivar">@set</span> = <span class="ruby-identifier">set</span>
   <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
@@ -235,7 +235,7 @@ needed.</p>
                 
               </p>
               <div id="method-i-dependencies_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 172</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 183</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">dependencies</span>
   <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">dependencies</span>
 <span class="ruby-keyword">end</span></pre>
@@ -270,7 +270,7 @@ needed.</p>
                 
               </p>
               <div id="method-i-full_name_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 164</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 175</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">full_name</span>
   <span class="ruby-node">&quot;#{@name}-#{@version}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -305,7 +305,7 @@ needed.</p>
                 
               </p>
               <div id="method-i-spec_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 168</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 179</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">spec</span>
   <span class="ruby-ivar">@spec</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@set</span>.<span class="ruby-identifier">load_spec</span>(<span class="ruby-ivar">@name</span>, <span class="ruby-ivar">@version</span>, <span class="ruby-ivar">@source</span>)
 <span class="ruby-keyword">end</span></pre>

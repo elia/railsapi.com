@@ -125,7 +125,7 @@
                 
               </p>
               <div id="method-i-fu_blksize_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fileutils.rb, line 1245</span>
+                <pre><span class="ruby-comment"># File lib/fileutils.rb, line 1177</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fu_blksize</span>(<span class="ruby-identifier">st</span>)
   <span class="ruby-identifier">s</span> = <span class="ruby-identifier">st</span>.<span class="ruby-identifier">blksize</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">s</span>
@@ -163,7 +163,7 @@
                 
               </p>
               <div id="method-i-fu_default_blksize_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fileutils.rb, line 1252</span>
+                <pre><span class="ruby-comment"># File lib/fileutils.rb, line 1184</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fu_default_blksize</span>
   <span class="ruby-number">1024</span>
 <span class="ruby-keyword">end</span></pre>
@@ -198,7 +198,7 @@
                 
               </p>
               <div id="method-i-fu_stream_blksize_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fileutils.rb, line 1236</span>
+                <pre><span class="ruby-comment"># File lib/fileutils.rb, line 1168</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fu_stream_blksize</span>(*<span class="ruby-identifier">streams</span>)
   <span class="ruby-identifier">streams</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:stat</span>)
@@ -238,7 +238,7 @@
                 
               </p>
               <div id="method-i-fu_windows-3F_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fileutils.rb, line 1228</span>
+                <pre><span class="ruby-comment"># File lib/fileutils.rb, line 1160</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fu_windows?</span>
   <span class="ruby-regexp">/mswin|mingw|bccwin|emx/</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">RUBY_PLATFORM</span>
 <span class="ruby-keyword">end</span></pre>

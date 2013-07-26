@@ -463,7 +463,7 @@ href="Symbol.html">Symbol</a></p>
         <div class="method">
           <div class="title method-title" id="method-i-3C-3D-3E">
             
-              <b>str <=> other       &rarr; -1, 0, +1 or nil
+              <b>symbol <=> other_symbol       &rarr; -1, 0, +1 or nil
 </b>
             
             <a href="../classes/Symbol.html#method-i-3C-3D-3E" name="method-i-3C-3D-3E" class="permalink">Link</a>
@@ -471,7 +471,14 @@ href="Symbol.html">Symbol</a></p>
           
           
             <div class="description">
-              <p>Compares <em>sym</em> with <em>other</em> in string form.</p>
+              <p>Compares <code>symbol</code> with <code>other_symbol</code> after calling
+<a href="Symbol.html#method-i-to_s">to_s</a> on each of the symbols.
+Returns -1, 0, +1 or nil depending on whether <code>symbol</code> is less
+than, equal to, or greater than <code>other_symbol</code>.</p>
+
+<pre>+nil+ is returned if the two values are incomparable.</pre>
+
+<p>See String#&lt;=&gt; for more information.</p>
             </div>
           
           

@@ -190,7 +190,7 @@ href="POP3.html">Net::POP3</a>.APOP(). For example:</p>
 end
 </span></pre>
 
-<h3 id="label-Fetch+Only+Selected+Mail+Using+%27UIDL%27+POP+Command">Fetch Only Selected <a href="../Mail.html">Mail</a> Using &#39;UIDL&#39; POP Command</h3>
+<h3 id="label-Fetch+Only+Selected+Mail+Using+%27UIDL%27+POP+Command">Fetch Only Selected Mail Using &#39;UIDL&#39; POP Command</h3>
 
 <p>If your POP server provides UIDL functionality, you can grab only selected
 mails from the POP server. e.g.</p>
@@ -534,7 +534,7 @@ unique-id is a hash of the message.</p>
           <tr valign='top'>
             <td class="attr-name">Revision</td>
             <td>=</td>
-            <td class="attr-value">%q$Revision: 39017 $.split[1]</td>
+            <td class="attr-value">%q$Revision: 40295 $.split[1]</td>
           </tr>
           
             <tr valign='top'>
@@ -567,7 +567,8 @@ unique-id is a hash of the message.</p>
             <td class='attr-name'>open_timeout</td>
             <td class='attr-desc'><p>Seconds to wait until a connection is opened. If the <a
 href="POP3.html">POP3</a> object cannot open a connection within this time,
-it raises a <a href="OpenTimeout.html">Net::OpenTimeout</a> exception.</p></td>
+it raises a <a href="OpenTimeout.html">Net::OpenTimeout</a> exception. The
+default value is 30 seconds.</p></td>
           </tr>
         
           <tr valign='top'>
@@ -577,7 +578,8 @@ it raises a <a href="OpenTimeout.html">Net::OpenTimeout</a> exception.</p></td>
             <td class='attr-name'>read_timeout</td>
             <td class='attr-desc'><p>Seconds to wait until reading one block (by one read(1) call). If the <a
 href="POP3.html">POP3</a> object cannot complete a read() within this time,
-it raises a <a href="ReadTimeout.html">Net::ReadTimeout</a> exception.</p></td>
+it raises a <a href="ReadTimeout.html">Net::ReadTimeout</a> exception. The
+default value is 60 seconds.</p></td>
           </tr>
         
       </table>

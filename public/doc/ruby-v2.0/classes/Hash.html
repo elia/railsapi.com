@@ -35,8 +35,6 @@
             
             <li><a href="../files/lib/pp_rb.html">lib/pp.rb</a></li>
             
-            <li><a href="../files/ext/tk/sample/tkextlib/treectrl/demo_rb.html">ext/tk/sample/tkextlib/treectrl/demo.rb</a></li>
-            
         </ul>
     </div>
     <div id="bodyContent">
@@ -166,8 +164,6 @@ data while <code>eql?</code> is usually aliased to the overridden
 
 <p>See also <a href="Object.html#method-i-hash">Object#hash</a> and <a
 href="Object.html#method-i-eql-3F">Object#eql?</a></p>
-
-<p>ruby 1.8.x –&gt; use Hash#index</p>
 
     </div>
   
@@ -1222,6 +1218,67 @@ rb_hash_compare_by_id_p(VALUE hash)
         return Qtrue;
     }
     return Qfalse;
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-default">
+            
+              <b>hsh.default(key=nil)   &rarr; obj
+</b>
+            
+            <a href="../classes/Hash.html#method-i-default" name="method-i-default" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the default value, the value that would be returned by <em><a
+href="http://key">hsh</a></em> if <em>key</em> did not exist in
+<em>hsh</em>. See also <code>Hash::new</code> and
+<code>Hash#default=</code>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">h</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>                            <span class="ruby-comment">#=&gt; {}</span>
+<span class="ruby-identifier">h</span>.<span class="ruby-identifier">default</span>                               <span class="ruby-comment">#=&gt; nil</span>
+<span class="ruby-identifier">h</span>.<span class="ruby-identifier">default</span>(<span class="ruby-value">2</span>)                            <span class="ruby-comment">#=&gt; nil</span>
+
+<span class="ruby-identifier">h</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;cat&quot;</span>)                     <span class="ruby-comment">#=&gt; {}</span>
+<span class="ruby-identifier">h</span>.<span class="ruby-identifier">default</span>                               <span class="ruby-comment">#=&gt; &quot;cat&quot;</span>
+<span class="ruby-identifier">h</span>.<span class="ruby-identifier">default</span>(<span class="ruby-value">2</span>)                            <span class="ruby-comment">#=&gt; &quot;cat&quot;</span>
+
+<span class="ruby-identifier">h</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">h</span>,<span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_i</span>*<span class="ruby-value">10</span>}   <span class="ruby-comment">#=&gt; {}</span>
+<span class="ruby-identifier">h</span>.<span class="ruby-identifier">default</span>                               <span class="ruby-comment">#=&gt; nil</span>
+<span class="ruby-identifier">h</span>.<span class="ruby-identifier">default</span>(<span class="ruby-value">2</span>)                            <span class="ruby-comment">#=&gt; 20</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-default_source')" id="l_method-i-default_source">show</a>
+                
+              </p>
+              <div id="method-i-default_source" class="dyn-source">
+                <pre>static VALUE
+rb_hash_default(int argc, VALUE *argv, VALUE hash)
+{
+    VALUE key, ifnone;
+
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;key);
+    ifnone = RHASH_IFNONE(hash);
+    if (FL_TEST(hash, HASH_PROC_DEFAULT)) {
+        if (argc == 0) return Qnil;
+        return rb_funcall(ifnone, id_yield, 2, hash, key);
+    }
+    return ifnone;
 }</pre>
               </div>
             </div>
@@ -3605,69 +3662,6 @@ rb_hash_values_at(int argc, VALUE *argv, VALUE hash)
         rb_ary_push(result, rb_hash_aref(hash, argv[i]));
     }
     return result;
-}</pre>
-              </div>
-            </div>
-            
-          </div>
-              
-      <div class="sectiontitle">Instance Private methods</div>
-      
-        <div class="method">
-          <div class="title method-title" id="method-i-default">
-            
-              <b>hsh.default(key=nil)   &rarr; obj
-</b>
-            
-            <a href="../classes/Hash.html#method-i-default" name="method-i-default" class="permalink">Link</a>
-          </div>
-          
-          
-            <div class="description">
-              <p>Returns the default value, the value that would be returned by <em><a
-href="http://key">hsh</a></em> if <em>key</em> did not exist in
-<em>hsh</em>. See also <code>Hash::new</code> and
-<code>Hash#default=</code>.</p>
-
-<pre class="ruby"><span class="ruby-identifier">h</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>                            <span class="ruby-comment">#=&gt; {}</span>
-<span class="ruby-identifier">h</span>.<span class="ruby-identifier">default</span>                               <span class="ruby-comment">#=&gt; nil</span>
-<span class="ruby-identifier">h</span>.<span class="ruby-identifier">default</span>(<span class="ruby-value">2</span>)                            <span class="ruby-comment">#=&gt; nil</span>
-
-<span class="ruby-identifier">h</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;cat&quot;</span>)                     <span class="ruby-comment">#=&gt; {}</span>
-<span class="ruby-identifier">h</span>.<span class="ruby-identifier">default</span>                               <span class="ruby-comment">#=&gt; &quot;cat&quot;</span>
-<span class="ruby-identifier">h</span>.<span class="ruby-identifier">default</span>(<span class="ruby-value">2</span>)                            <span class="ruby-comment">#=&gt; &quot;cat&quot;</span>
-
-<span class="ruby-identifier">h</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">h</span>,<span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_i</span>*<span class="ruby-value">10</span>}   <span class="ruby-comment">#=&gt; {}</span>
-<span class="ruby-identifier">h</span>.<span class="ruby-identifier">default</span>                               <span class="ruby-comment">#=&gt; nil</span>
-<span class="ruby-identifier">h</span>.<span class="ruby-identifier">default</span>(<span class="ruby-value">2</span>)                            <span class="ruby-comment">#=&gt; 20</span>
-</pre>
-            </div>
-          
-          
-          
-          
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source: 
-                <a href="javascript:toggleSource('method-i-default_source')" id="l_method-i-default_source">show</a>
-                
-              </p>
-              <div id="method-i-default_source" class="dyn-source">
-                <pre>static VALUE
-rb_hash_default(int argc, VALUE *argv, VALUE hash)
-{
-    VALUE key, ifnone;
-
-    rb_scan_args(argc, argv, &quot;01&quot;, &amp;key);
-    ifnone = RHASH_IFNONE(hash);
-    if (FL_TEST(hash, HASH_PROC_DEFAULT)) {
-        if (argc == 0) return Qnil;
-        return rb_funcall(ifnone, id_yield, 2, hash, key);
-    }
-    return ifnone;
 }</pre>
               </div>
             </div>

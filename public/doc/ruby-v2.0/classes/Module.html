@@ -256,12 +256,12 @@ symbol, which is either a quoted string or a <code>Symbol</code> (such as
             
               
               <li>
-                <a href="#method-i-constants">constants</a>,
+                <a href="#method-c-constants">constants</a>,
               </li>
             
               
               <li>
-                <a href="#method-c-constants">constants</a>
+                <a href="#method-i-constants">constants</a>
               </li>
             
           </ul>
@@ -566,12 +566,7 @@ symbol, which is either a quoted string or a <code>Symbol</code> (such as
             
               
               <li>
-                <a href="#method-i-undef_method">undef_method</a>,
-              </li>
-            
-              
-              <li>
-                <a href="#method-i-used">used</a>
+                <a href="#method-i-undef_method">undef_method</a>
               </li>
             
           </ul>
@@ -887,6 +882,7 @@ rb_class_inherited_p(VALUE mod, VALUE arg)
     if (!CLASS_OR_MODULE_P(arg)) {
         rb_raise(rb_eTypeError, &quot;compared with non class/module&quot;);
     }
+    arg = RCLASS_ORIGIN(arg);
     while (mod) {
         if (RCLASS_M_TBL(mod) == RCLASS_M_TBL(arg))
             return Qtrue;
@@ -908,7 +904,7 @@ rb_class_inherited_p(VALUE mod, VALUE arg)
         <div class="method">
           <div class="title method-title" id="method-i-3C-3D-3E">
             
-              <b>mod <=> other_mod   &rarr; -1, 0, +1, or nil
+              <b>module <=> other_module   &rarr; -1, 0, +1, or nil
 </b>
             
             <a href="../classes/Module.html#method-i-3C-3D-3E" name="method-i-3C-3D-3E" class="permalink">Link</a>
@@ -916,11 +912,14 @@ rb_class_inherited_p(VALUE mod, VALUE arg)
           
           
             <div class="description">
-              <p>Comparison—Returns -1 if <em>mod</em> includes <em>other_mod</em>, 0 if
-<em>mod</em> is the same as <em>other_mod</em>, and +1 if <em>mod</em> is
-included by <em>other_mod</em>. Returns <code>nil</code> if <em>mod</em>
-has no relationship with <em>other_mod</em> or if <em>other_mod</em> is not
-a module.</p>
+              <p>Comparison—Returns -1, 0, +1 or nil depending on whether
+<code>module</code> includes <code>other_module</code>, they are the same,
+or if <code>module</code> is included by <code>other_module</code>. This is
+the basis for the tests in <a href="Comparable.html">Comparable</a>.</p>
+
+<p>Returns <code>nil</code> if <code>module</code> has no relationship with
+<code>other_module</code>, if <code>other_module</code> is not a module, or
+if the two values are incomparable.</p>
             </div>
           
           
@@ -2207,10 +2206,13 @@ rb_mod_included_modules(VALUE mod)
 {
     VALUE ary = rb_ary_new();
     VALUE p;
+    VALUE origin = RCLASS_ORIGIN(mod);
 
     for (p = RCLASS_SUPER(mod); p; p = RCLASS_SUPER(p)) {
-	if (BUILTIN_TYPE(p) == T_ICLASS) {
-	    rb_ary_push(ary, RBASIC(p)-&gt;klass);
+	if (p != origin &amp;&amp; BUILTIN_TYPE(p) == T_ICLASS) {
+	    VALUE m = RBASIC(p)-&gt;klass;
+	    if (RB_TYPE_P(m, T_MODULE))
+		rb_ary_push(ary, m);
 	}
     }
     return ary;
@@ -2614,7 +2616,7 @@ constructor <code>new</code>.</p>
                 <pre>static VALUE
 rb_mod_private_method(int argc, VALUE *argv, VALUE obj)
 {
-    set_method_visibility(CLASS_OF(obj), argc, argv, NOEX_PRIVATE);
+    set_method_visibility(rb_singleton_class(obj), argc, argv, NOEX_PRIVATE);
     return obj;
 }</pre>
               </div>
@@ -2933,7 +2935,7 @@ rb_mod_protected_method_defined(VALUE mod, VALUE mid)
                 <pre>static VALUE
 rb_mod_public_method(int argc, VALUE *argv, VALUE obj)
 {
-    set_method_visibility(CLASS_OF(obj), argc, argv, NOEX_PUBLIC);
+    set_method_visibility(rb_singleton_class(obj), argc, argv, NOEX_PUBLIC);
     return obj;
 }</pre>
               </div>
@@ -4774,42 +4776,6 @@ rb_mod_undef_method(int argc, VALUE *argv, VALUE mod)
         rb_undef(mod, id);
     }
     return mod;
-}</pre>
-              </div>
-            </div>
-            
-          </div>
-        
-        <div class="method">
-          <div class="title method-title" id="method-i-used">
-            
-              <b>used</b>(p1)
-            
-            <a href="../classes/Module.html#method-i-used" name="method-i-used" class="permalink">Link</a>
-          </div>
-          
-          
-            <div class="description">
-              <p>Not documented</p>
-            </div>
-          
-          
-          
-          
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source: 
-                <a href="javascript:toggleSource('method-i-used_source')" id="l_method-i-used_source">show</a>
-                
-              </p>
-              <div id="method-i-used_source" class="dyn-source">
-                <pre>static VALUE
-rb_obj_dummy(void)
-{
-    return Qnil;
 }</pre>
               </div>
             </div>

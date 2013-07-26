@@ -158,7 +158,7 @@
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 181</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 192</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>
   <span class="ruby-ivar">@f</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">SpecFetcher</span>.<span class="ruby-identifier">fetcher</span>
 
@@ -208,7 +208,7 @@ objects matching <a href="DependencyRequest.html">DependencyRequest</a>
                 
               </p>
               <div id="method-i-find_all_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 199</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 210</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">find_all</span>(<span class="ruby-identifier">req</span>)
   <span class="ruby-identifier">res</span> = []
 
@@ -255,7 +255,7 @@ a true <a href="../Specification.html">Specification</a> object.</p>
                 
               </p>
               <div id="method-i-load_spec_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 223</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 234</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">load_spec</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">ver</span>, <span class="ruby-identifier">source</span>)
   <span class="ruby-identifier">key</span> = <span class="ruby-node">&quot;#{name}-#{ver}&quot;</span>
   <span class="ruby-ivar">@specs</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">source</span>.<span class="ruby-identifier">fetch_spec</span>(<span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">NameTuple</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">ver</span>))
@@ -291,7 +291,7 @@ a true <a href="../Specification.html">Specification</a> object.</p>
                 
               </p>
               <div id="method-i-prefetch_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 217</span>
+                <pre><span class="ruby-comment"># File lib/rubygems/dependency_resolver.rb, line 228</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">prefetch</span>(<span class="ruby-identifier">gems</span>)
 <span class="ruby-keyword">end</span></pre>
               </div>

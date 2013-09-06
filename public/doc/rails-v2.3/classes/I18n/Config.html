@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>I18n::Config</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            I18n::Config 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/activesupport/lib/active_support/vendor/i18n-0_4_1/i18n/config_rb.html">activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-available_locales">available_locales</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-available_locales-3D">available_locales=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-backend">backend</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-backend-3D">backend=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-default_locale">default_locale</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-default_locale-3D">default_locale=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-default_separator">default_separator</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-default_separator-3D">default_separator=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-exception_handler">exception_handler</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-exception_handler-3D">exception_handler=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-load_path">load_path</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-load_path-3D">load_path=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-locale">locale</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-locale-3D">locale=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-available_locales">
+            
+              <b>available_locales</b>()
+            
+            <a href="../../classes/I18n/Config.html#method-i-available_locales" name="method-i-available_locales" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns an array of locales for which translations are available. Unless
+you explicitely set the these through I18n.available_locales= the call will
+be delegated to the backend and memoized on the <a
+href="../I18n.html">I18n</a> module.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-available_locales_source')" id="l_method-i-available_locales_source">show</a>
+                
+              </p>
+              <div id="method-i-available_locales_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">available_locales</span>
+  <span class="ruby-identifier">@@available_locales</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">available_locales</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-available_locales-3D">
+            
+              <b>available_locales=</b>(locales)
+            
+            <a href="../../classes/I18n/Config.html#method-i-available_locales-3D" name="method-i-available_locales-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets the available locales.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-available_locales-3D_source')" id="l_method-i-available_locales-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-available_locales-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">available_locales=</span>(<span class="ruby-identifier">locales</span>)
+  <span class="ruby-identifier">@@available_locales</span> = <span class="ruby-identifier">locales</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-backend">
+            
+              <b>backend</b>()
+            
+            <a href="../../classes/I18n/Config.html#method-i-backend" name="method-i-backend" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the current backend. Defaults to +Backend::Simple+.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-backend_source')" id="l_method-i-backend_source">show</a>
+                
+              </p>
+              <div id="method-i-backend_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">backend</span>
+  <span class="ruby-identifier">@@backend</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Backend</span><span class="ruby-operator">::</span><span class="ruby-constant">Simple</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-backend-3D">
+            
+              <b>backend=</b>(backend)
+            
+            <a href="../../classes/I18n/Config.html#method-i-backend-3D" name="method-i-backend-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets the current backend. Used to set a custom backend.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-backend-3D_source')" id="l_method-i-backend-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-backend-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">backend=</span>(<span class="ruby-identifier">backend</span>)
+  <span class="ruby-identifier">@@backend</span> = <span class="ruby-identifier">backend</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-default_locale">
+            
+              <b>default_locale</b>()
+            
+            <a href="../../classes/I18n/Config.html#method-i-default_locale" name="method-i-default_locale" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the current default locale. Defaults to :&#39;en&#39;</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-default_locale_source')" id="l_method-i-default_locale_source">show</a>
+                
+              </p>
+              <div id="method-i-default_locale_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">default_locale</span>
+  <span class="ruby-identifier">@@default_locale</span> <span class="ruby-operator">||=</span> <span class="ruby-value">:en</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-default_locale-3D">
+            
+              <b>default_locale=</b>(locale)
+            
+            <a href="../../classes/I18n/Config.html#method-i-default_locale-3D" name="method-i-default_locale-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets the current default locale. Used to set a custom default locale.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-default_locale-3D_source')" id="l_method-i-default_locale-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-default_locale-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">default_locale=</span>(<span class="ruby-identifier">locale</span>)
+  <span class="ruby-identifier">@@default_locale</span> = <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-default_separator">
+            
+              <b>default_separator</b>()
+            
+            <a href="../../classes/I18n/Config.html#method-i-default_separator" name="method-i-default_separator" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the current default scope separator. Defaults to &#39;.&#39;</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-default_separator_source')" id="l_method-i-default_separator_source">show</a>
+                
+              </p>
+              <div id="method-i-default_separator_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">default_separator</span>
+  <span class="ruby-identifier">@@default_separator</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&#39;.&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-default_separator-3D">
+            
+              <b>default_separator=</b>(separator)
+            
+            <a href="../../classes/I18n/Config.html#method-i-default_separator-3D" name="method-i-default_separator-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets the current default scope separator.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-default_separator-3D_source')" id="l_method-i-default_separator-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-default_separator-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">default_separator=</span>(<span class="ruby-identifier">separator</span>)
+  <span class="ruby-identifier">@@default_separator</span> = <span class="ruby-identifier">separator</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-exception_handler">
+            
+              <b>exception_handler</b>()
+            
+            <a href="../../classes/I18n/Config.html#method-i-exception_handler" name="method-i-exception_handler" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Return the current exception handler. Defaults to
+:default_exception_handler.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-exception_handler_source')" id="l_method-i-exception_handler_source">show</a>
+                
+              </p>
+              <div id="method-i-exception_handler_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">exception_handler</span>
+  <span class="ruby-identifier">@@exception_handler</span> <span class="ruby-operator">||=</span> <span class="ruby-value">:default_exception_handler</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-exception_handler-3D">
+            
+              <b>exception_handler=</b>(exception_handler)
+            
+            <a href="../../classes/I18n/Config.html#method-i-exception_handler-3D" name="method-i-exception_handler-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets the exception handler.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-exception_handler-3D_source')" id="l_method-i-exception_handler-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-exception_handler-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">exception_handler=</span>(<span class="ruby-identifier">exception_handler</span>)
+  <span class="ruby-identifier">@@exception_handler</span> = <span class="ruby-identifier">exception_handler</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-load_path">
+            
+              <b>load_path</b>()
+            
+            <a href="../../classes/I18n/Config.html#method-i-load_path" name="method-i-load_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Allow clients to register paths providing translation data sources. The
+backend defines acceptable sources.</p>
+
+<p>E.g. the provided SimpleBackend accepts a list of paths to translation
+files which are either named *.rb and contain plain Ruby Hashes or are
+named *.yml and contain YAML data. So for the SimpleBackend clients may
+register translation files like this:</p>
+
+<pre>I18n.load_path &lt;&lt; &#39;path/to/locale/en.yml&#39;</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-load_path_source')" id="l_method-i-load_path_source">show</a>
+                
+              </p>
+              <div id="method-i-load_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">load_path</span>
+  <span class="ruby-identifier">@@load_path</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-load_path-3D">
+            
+              <b>load_path=</b>(load_path)
+            
+            <a href="../../classes/I18n/Config.html#method-i-load_path-3D" name="method-i-load_path-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets the load path instance. Custom implementations are expected to behave
+like a Ruby Array.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-load_path-3D_source')" id="l_method-i-load_path-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-load_path-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">load_path=</span>(<span class="ruby-identifier">load_path</span>)
+  <span class="ruby-identifier">@@load_path</span> = <span class="ruby-identifier">load_path</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-locale">
+            
+              <b>locale</b>()
+            
+            <a href="../../classes/I18n/Config.html#method-i-locale" name="method-i-locale" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The only configuration value that is not global and scoped to thread is
+:locale. It defaults to the default_locale.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-locale_source')" id="l_method-i-locale_source">show</a>
+                
+              </p>
+              <div id="method-i-locale_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">locale</span>
+  <span class="ruby-ivar">@locale</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">default_locale</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-locale-3D">
+            
+              <b>locale=</b>(locale)
+            
+            <a href="../../classes/I18n/Config.html#method-i-locale-3D" name="method-i-locale-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets the current locale pseudo-globally, i.e. in the Thread.current hash.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-locale-3D_source')" id="l_method-i-locale-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-locale-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/config.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">locale=</span>(<span class="ruby-identifier">locale</span>)
+  <span class="ruby-ivar">@locale</span> = <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

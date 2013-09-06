@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActiveRecord::AssociationPreload::ClassMethods</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            ActiveRecord::AssociationPreload::ClassMethods 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/activerecord/lib/active_record/association_preload_rb.html">activerecord/lib/active_record/association_preload.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Implements the details of eager loading of <a
+href="../../ActiveRecord.html">ActiveRecord</a> associations. Application
+developers should not use this module directly.</p>
+
+<p><a href="../Base.html">ActiveRecord::Base</a> is extended with this module.
+The source code in <a href="../Base.html">ActiveRecord::Base</a> references
+methods defined in this module.</p>
+
+<p>Note that &#39;eager loading&#39; and &#39;preloading&#39; are actually the
+same thing. However, there are two different eager loading strategies.</p>
+
+<p>The first one is by using table joins. This was only strategy available
+prior to <a href="../../Rails.html">Rails</a> 2.1. Suppose that you have an
+Author model with columns &#39;name&#39; and &#39;age&#39;, and a Book
+model with columns &#39;name&#39; and &#39;sales&#39;. Using this strategy,
+<a href="../../ActiveRecord.html">ActiveRecord</a> would try to retrieve
+all data for an author and all of its books via a single query:</p>
+
+<pre>SELECT * FROM authors
+LEFT OUTER JOIN books ON authors.id = books.id
+WHERE authors.name = &#39;Ken Akamatsu&#39;</pre>
+
+<p>However, this could result in many rows that contain redundant data. After
+having received the first row, we already have enough data to instantiate
+the Author object. In all subsequent rows, only the data for the joined
+&#39;books&#39; table is useful; the joined &#39;authors&#39; data is just
+redundant, and processing this redundant data takes memory and CPU time.
+The problem quickly becomes worse and worse as the level of eager loading
+increases (i.e. if <a href="../../ActiveRecord.html">ActiveRecord</a> is to
+eager load the associations&#39; assocations as well).</p>
+
+<p>The second strategy is to use multiple database queries, one for each level
+of association. Since <a href="../../Rails.html">Rails</a> 2.1, this is the
+default strategy. In situations where a table join is necessary (e.g. when
+the <code>:conditions</code> option references an association&#39;s
+column), it will fallback to the table join strategy.</p>
+
+<p>See also <a
+href="../Associations/ClassMethods.html">ActiveRecord::Associations::ClassMethods</a>,
+which explains eager loading in a more high-level (application
+developer-friendly) manner.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-preload_associations">preload_associations</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Protected methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-preload_associations">
+            
+              <b>preload_associations</b>(records, associations, preload_options={})
+            
+            <a href="../../../classes/ActiveRecord/AssociationPreload/ClassMethods.html#method-i-preload_associations" name="method-i-preload_associations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Eager loads the named associations for the given <a
+href="../../ActiveRecord.html">ActiveRecord</a> record(s).</p>
+
+<p>In this description, &#39;association name&#39; shall refer to the name
+passed to an association creation method. For example, a model that
+specifies <code>belongs_to :author</code>, <code>has_many :buyers</code>
+has association names <code>:author</code> and <code>:buyers</code>.</p>
+
+<h2 id="method-i-preload_associations-label-Parameters">Parameters</h2>
+
+<p><code>records</code> is an array of <a
+href="../Base.html">ActiveRecord::Base</a>. This array needs not be flat,
+i.e. <code>records</code> itself may also contain arrays of records. In any
+case, <code>preload_associations</code> will preload the associations all
+records by flattening <code>records</code>.</p>
+
+<p><code>associations</code> specifies one or more associations that you want
+to preload. It may be:</p>
+<ul><li>
+<p>a <a href="../../Symbol.html">Symbol</a> or a <a
+href="../../String.html">String</a> which specifies a single association
+name. For example, specifiying <code>:books</code> allows this method to
+preload all books for an Author.</p>
+</li><li>
+<p>an Array which specifies multiple association names. This array is
+processed recursively. For example, specifying <code>[:avatar,
+:books]</code> allows this method to preload an author&#39;s avatar as well
+as all of his books.</p>
+</li><li>
+<p>a <a href="../../Hash.html">Hash</a> which specifies multiple association
+names, as well as association names for the to-be-preloaded association
+objects. For example, specifying <code>{ :author =&gt; :avatar }</code>
+will preload a book&#39;s author, as well as that author&#39;s avatar.</p>
+</li></ul>
+
+<p><code>:associations</code> has the same format as the <code>:include</code>
+option for <code>ActiveRecord::Base.find</code>. So
+<code>associations</code> could look like this:</p>
+
+<pre class="ruby">:<span class="ruby-identifier">books</span>
+[ :<span class="ruby-identifier">books</span>, :<span class="ruby-identifier">author</span> ]
+{ :<span class="ruby-identifier">author</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">avatar</span> }
+[ :<span class="ruby-identifier">books</span>, { :<span class="ruby-identifier">author</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">avatar</span> } ]
+</pre>
+
+<p><code>preload_options</code> contains options that will be passed to
+ActiveRecord#find (which is called under the hood for preloading records).
+But it is passed only one level deep in the <code>associations</code>
+argument, i.e. it&#39;s not passed to the child associations when
+<code>associations</code> is a <a href="../../Hash.html">Hash</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-preload_associations_source')" id="l_method-i-preload_associations_source">show</a>
+                
+              </p>
+              <div id="method-i-preload_associations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/association_preload.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">preload_associations</span>(<span class="ruby-identifier">records</span>, <span class="ruby-identifier">associations</span>, <span class="ruby-identifier">preload_options</span>={})
+  <span class="ruby-identifier">records</span> = [<span class="ruby-identifier">records</span>].<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">uniq</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">records</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">associations</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">association</span><span class="ruby-operator">|</span> <span class="ruby-identifier">preload_associations</span>(<span class="ruby-identifier">records</span>, <span class="ruby-identifier">association</span>, <span class="ruby-identifier">preload_options</span>)}
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Symbol</span>, <span class="ruby-constant">String</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">preload_one_association</span>(<span class="ruby-identifier">records</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">preload_options</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">parent</span>, <span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;parent must be an association name&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+      <span class="ruby-identifier">preload_associations</span>(<span class="ruby-identifier">records</span>, <span class="ruby-identifier">parent</span>, <span class="ruby-identifier">preload_options</span>)
+      <span class="ruby-identifier">reflection</span> = <span class="ruby-identifier">reflections</span>[<span class="ruby-identifier">parent</span>]
+      <span class="ruby-identifier">parents</span> = <span class="ruby-identifier">records</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">record</span><span class="ruby-operator">|</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">name</span>)}.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">compact</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">parents</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">parents</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">preload_associations</span>(<span class="ruby-identifier">parents</span>, <span class="ruby-identifier">child</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

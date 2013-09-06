@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActionController::Routing::OptionalFormatSegment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            ActionController::Routing::OptionalFormatSegment 
+            
+                <span class="parent">&lt; 
+                    
+                    ActionController::Routing::DynamicSegment
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/actionpack/lib/action_controller/routing/segments_rb.html">actionpack/lib/action_controller/routing/segments.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>The <a href="OptionalFormatSegment.html">OptionalFormatSegment</a> allows
+for any resource route to have an optional :format, which decreases the
+amount of routes created by 50%.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-extract_value">extract_value</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-interpolation_chunk">interpolation_chunk</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-match_extraction">match_extraction</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-regexp_chunk">regexp_chunk</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to_s">to_s</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(key = nil, options = {})
+            
+            <a href="../../../classes/ActionController/Routing/OptionalFormatSegment.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/segments.rb, line 312</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">key</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">super</span>(<span class="ruby-value">:format</span>, {<span class="ruby-value">:optional</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>))            
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-extract_value">
+            
+              <b>extract_value</b>()
+            
+            <a href="../../../classes/ActionController/Routing/OptionalFormatSegment.html#method-i-extract_value" name="method-i-extract_value" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extract_value_source')" id="l_method-i-extract_value_source">show</a>
+                
+              </p>
+              <div id="method-i-extract_value_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/segments.rb, line 328</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extract_value</span>
+  <span class="ruby-node">&quot;#{local_name} = options[:#{key}] &amp;&amp; options[:#{key}].to_s.downcase&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-interpolation_chunk">
+            
+              <b>interpolation_chunk</b>()
+            
+            <a href="../../../classes/ActionController/Routing/OptionalFormatSegment.html#method-i-interpolation_chunk" name="method-i-interpolation_chunk" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-interpolation_chunk_source')" id="l_method-i-interpolation_chunk_source">show</a>
+                
+              </p>
+              <div id="method-i-interpolation_chunk_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/segments.rb, line 316</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">interpolation_chunk</span>
+  <span class="ruby-string">&quot;.&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-match_extraction">
+            
+              <b>match_extraction</b>(next_capture)
+            
+            <a href="../../../classes/ActionController/Routing/OptionalFormatSegment.html#method-i-match_extraction" name="method-i-match_extraction" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>the value should not include the period (.)</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-match_extraction_source')" id="l_method-i-match_extraction_source">show</a>
+                
+              </p>
+              <div id="method-i-match_extraction_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/segments.rb, line 333</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">match_extraction</span>(<span class="ruby-identifier">next_capture</span>)
+  <span class="ruby-node">%Q[
+    if (m = match[#{next_capture}])
+      params[:#{key}] = URI.unescape(m.from(1))
+    end
+  ]</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-regexp_chunk">
+            
+              <b>regexp_chunk</b>()
+            
+            <a href="../../../classes/ActionController/Routing/OptionalFormatSegment.html#method-i-regexp_chunk" name="method-i-regexp_chunk" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-regexp_chunk_source')" id="l_method-i-regexp_chunk_source">show</a>
+                
+              </p>
+              <div id="method-i-regexp_chunk_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/segments.rb, line 320</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">regexp_chunk</span>
+  <span class="ruby-string">&#39;/|(\.[^/?\.]+)?&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_s">
+            
+              <b>to_s</b>()
+            
+            <a href="../../../classes/ActionController/Routing/OptionalFormatSegment.html#method-i-to_s" name="method-i-to_s" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_s_source')" id="l_method-i-to_s_source">show</a>
+                
+              </p>
+              <div id="method-i-to_s_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/segments.rb, line 324</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_s</span>
+  <span class="ruby-string">&#39;(.:format)?&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

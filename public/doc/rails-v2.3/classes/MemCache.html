@@ -1,0 +1,2488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>MemCache</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            MemCache 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/activesupport/lib/active_support/vendor/memcache-client-1_7_4/memcache_rb.html">activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>A Ruby client library for memcached.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="MemCache/MemCacheError.html">MemCache::MemCacheError</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="MemCache/Server.html">MemCache::Server</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-5B-5D">[]</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-5B-5D-3D">[]=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-active-3F">active?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add">add</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-append">append</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-cache_decr">cache_decr</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cache_get">cache_get</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cache_get_multi">cache_get_multi</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cache_incr">cache_incr</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cas">cas</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-check_multithread_status-21">check_multithread_status!</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-create_continuum_for">create_continuum_for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-decr">decr</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-delete">delete</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-entry_count_for">entry_count_for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-fetch">fetch</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-flush_all">flush_all</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-get">get</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-get_multi">get_multi</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-get_server_for_key">get_server_for_key</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-gets">gets</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-handle_error">handle_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-hash_for">hash_for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-incr">incr</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-inspect">inspect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-make_cache_key">make_cache_key</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-noreply">noreply</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-prepend">prepend</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-raise_on_error_response-21">raise_on_error_response!</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-readonly-3F">readonly?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-replace">replace</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-request_setup">request_setup</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-reset">reset</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-servers-3D">servers=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-set">set</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-stats">stats</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-with_server">with_server</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-with_socket_management">with_socket_management</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">VERSION</td>
+            <td>=</td>
+            <td class="attr-value">&#39;1.7.4&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>The version of <a href="MemCache.html">MemCache</a> you are using.</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">DEFAULT_OPTIONS</td>
+            <td>=</td>
+            <td class="attr-value">{
+:namespace   =&gt; nil,
+:readonly    =&gt; false,
+:multithread =&gt; true,
+:failover    =&gt; true,
+:timeout     =&gt; 0.5,
+:logger      =&gt; nil,
+:no_reply    =&gt; false,
+}</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Default options for the cache object.</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">DEFAULT_PORT</td>
+            <td>=</td>
+            <td class="attr-value">11211</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Default memcached port.</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">DEFAULT_WEIGHT</td>
+            <td>=</td>
+            <td class="attr-value">1</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Default memcached server weight.</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">ONE_MB</td>
+            <td>=</td>
+            <td class="attr-value">1024 * 1024</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Add <code>key</code> to the cache with value <code>value</code> that
+expires in <code>expiry</code> seconds.  If <code>raw</code> is true,
+<code>value</code> will not be Marshalled.</p>
+
+<p>Warning: Readers should not call this method in the event of a cache miss;
+see <a href="MemCache.html#method-i-add">#add</a>.</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>failover</td>
+            <td class='attr-desc'><p>Should the client try to failover to another server if the first server is
+down?  Defaults to true.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>logger</td>
+            <td class='attr-desc'><p>Log debug/info/warn/error to the given <a href="Logger.html">Logger</a>,
+defaults to nil.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>multithread</td>
+            <td class='attr-desc'><p>The multithread setting for this instance</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>namespace</td>
+            <td class='attr-desc'><p>The namespace for this instance</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>no_reply</td>
+            <td class='attr-desc'><p>Don&#39;t send or look for a reply from the memcached server for write
+operations. Please note this feature only works in memcached 1.2.5 and
+later.  Earlier versions will reply with “ERROR”.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>servers</td>
+            <td class='attr-desc'><p>The servers this client talks to.  Play at your own peril.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>timeout</td>
+            <td class='attr-desc'><p>Socket timeout limit with this client, defaults to 0.5 sec. Set to nil to
+disable timeouts.</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(*args)
+            
+            <a href="../classes/MemCache.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Accepts a list of <code>servers</code> and a list of <code>opts</code>. 
+<code>servers</code> may be omitted.  See <code>servers=</code> for
+acceptable server list arguments.</p>
+
+<p>Valid options for <code>opts</code> are:</p>
+
+<pre>[:namespace]   Prepends this value to all keys added or retrieved.
+[:readonly]    Raises an exception on cache writes when true.
+[:multithread] Wraps cache access in a Mutex for thread safety. Defaults to true.
+[:failover]    Should the client try to failover to another server if the
+               first server is down?  Defaults to true.
+[:timeout]     Time to use as the socket read timeout.  Defaults to 0.5 sec,
+               set to nil to disable timeouts (this is a major performance penalty in Ruby 1.8,
+               &quot;gem install SystemTimer&#39; to remove most of the penalty).
+[:logger]      Logger to use for info/debug output, defaults to nil
+[:no_reply]    Don&#39;t bother looking for a reply for write operations (i.e. they
+               become &#39;fire and forget&#39;), memcached 1.2.5 and later only, speeds up
+               set/add/delete/incr/decr significantly.</pre>
+
+<p>Other options are ignored.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">servers</span> = []
+  <span class="ruby-identifier">opts</span> = {}
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-number">0</span> <span class="ruby-keyword">then</span> <span class="ruby-comment"># NOP</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-number">1</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">arg</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">arg</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>   <span class="ruby-keyword">then</span> <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">arg</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>  <span class="ruby-keyword">then</span> <span class="ruby-identifier">servers</span> = <span class="ruby-identifier">arg</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">servers</span> = [<span class="ruby-identifier">arg</span>]
+    <span class="ruby-keyword">else</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;first argument must be Array, Hash or String&#39;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-number">2</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">servers</span>, <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">args</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;wrong number of arguments (#{args.length} for 2)&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span> = <span class="ruby-constant">DEFAULT_OPTIONS</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">opts</span>
+  <span class="ruby-ivar">@namespace</span>   = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:namespace</span>]
+  <span class="ruby-ivar">@readonly</span>    = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:readonly</span>]
+  <span class="ruby-ivar">@multithread</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:multithread</span>]
+  <span class="ruby-ivar">@timeout</span>     = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:timeout</span>]
+  <span class="ruby-ivar">@failover</span>    = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:failover</span>]
+  <span class="ruby-ivar">@logger</span>      = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:logger</span>]
+  <span class="ruby-ivar">@no_reply</span>    = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:no_reply</span>]
+  <span class="ruby-ivar">@mutex</span>       = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@multithread</span>
+
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> { <span class="ruby-node">&quot;memcache-client #{VERSION} #{Array(servers).inspect}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:memcache_client</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">object_id</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@multithread</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">servers</span> = <span class="ruby-identifier">servers</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-5B-5D">
+            
+              <b>[]</b>(key, raw = false)
+            
+            <a href="../classes/MemCache.html#method-i-5B-5D" name="method-i-5B-5D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Shortcut to get a value from the cache.</p>
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-5B-5D-3D">
+            
+              <b>[]=</b>(key, value)
+            
+            <a href="../classes/MemCache.html#method-i-5B-5D-3D" name="method-i-5B-5D-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Shortcut to save a value in the cache.  This method does not set an
+expiration on the entry.  Use set to specify an explicit expiry.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-5B-5D-3D_source')" id="l_method-i-5B-5D-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-5B-5D-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 613</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-keyword ruby-title">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">set</span> <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-active-3F">
+            
+              <b>active?</b>()
+            
+            <a href="../classes/MemCache.html#method-i-active-3F" name="method-i-active-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns whether there is at least one active server for the object.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-active-3F_source')" id="l_method-i-active-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-active-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">active?</span>
+  <span class="ruby-keyword">not</span> <span class="ruby-ivar">@servers</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add">
+            
+              <b>add</b>(key, value, expiry = 0, raw = false)
+            
+            <a href="../classes/MemCache.html#method-i-add" name="method-i-add" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Add <code>key</code> to the cache with value <code>value</code> that
+expires in <code>expiry</code> seconds, but only if <code>key</code> does
+not already exist in the cache. If <code>raw</code> is true,
+<code>value</code> will not be Marshalled.</p>
+
+<p>Readers should call this method in the event of a cache miss, not <a
+href="MemCache.html#method-i-set">#set</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_source')" id="l_method-i-add_source">show</a>
+                
+              </p>
+              <div id="method-i-add_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 393</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">expiry</span> = <span class="ruby-number">0</span>, <span class="ruby-identifier">raw</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;Update of readonly cache&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@readonly</span>
+  <span class="ruby-identifier">with_server</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span> <span class="ruby-identifier">value</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">raw</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;add #{key} to #{server}: #{value ? value.to_s.size : &#39;nil&#39;}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+    <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;add #{cache_key} 0 #{expiry} #{value.to_s.size}#{noreply}\r\n#{value}\r\n&quot;</span>
+
+    <span class="ruby-identifier">with_socket_management</span>(<span class="ruby-identifier">server</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">command</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@no_reply</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+      <span class="ruby-identifier">raise_on_error_response!</span> <span class="ruby-identifier">result</span>
+      <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-append">
+            
+              <b>append</b>(key, value)
+            
+            <a href="../classes/MemCache.html#method-i-append" name="method-i-append" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Append - &#39;add this data to an existing key after existing data&#39;
+Please note the value is always passed to memcached as raw since it
+doesn&#39;t make a lot of sense to concatenate marshalled data together.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-append_source')" id="l_method-i-append_source">show</a>
+                
+              </p>
+              <div id="method-i-append_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 435</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">append</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;Update of readonly cache&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@readonly</span>
+  <span class="ruby-identifier">with_server</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;append #{key} to #{server}: #{value ? value.to_s.size : &#39;nil&#39;}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+    <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;append #{cache_key} 0 0 #{value.to_s.size}#{noreply}\r\n#{value}\r\n&quot;</span>
+
+    <span class="ruby-identifier">with_socket_management</span>(<span class="ruby-identifier">server</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">command</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@no_reply</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+      <span class="ruby-identifier">raise_on_error_response!</span> <span class="ruby-identifier">result</span>
+      <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cas">
+            
+              <b>cas</b>(key, expiry=0, raw=false)
+            
+            <a href="../classes/MemCache.html#method-i-cas" name="method-i-cas" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>“cas” is a check and set operation which means “store this data but only if
+no one else has updated since I last fetched it.”  This can be used as a
+form of optimistic locking.</p>
+
+<p>Works in block form like so:</p>
+
+<pre class="ruby"><span class="ruby-identifier">cache</span>.<span class="ruby-identifier">cas</span>(<span class="ruby-string">&#39;some-key&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">value</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Returns: <code>nil</code> if the value was not found on the memcached
+server. <code>STORED</code> if the value was updated successfully
+<code>EXISTS</code> if the value was updated by someone else since last
+fetch</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cas_source')" id="l_method-i-cas_source">show</a>
+                
+              </p>
+              <div id="method-i-cas_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 355</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cas</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">expiry</span>=<span class="ruby-number">0</span>, <span class="ruby-identifier">raw</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;Update of readonly cache&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@readonly</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;A block is required&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+
+  (<span class="ruby-identifier">value</span>, <span class="ruby-identifier">token</span>) = <span class="ruby-identifier">gets</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">raw</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-identifier">updated</span> = <span class="ruby-keyword">yield</span> <span class="ruby-identifier">value</span>
+
+  <span class="ruby-identifier">with_server</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-identifier">value</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span> <span class="ruby-identifier">updated</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">raw</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;cas #{key} to #{server.inspect}: #{value.to_s.size}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+    <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;cas #{cache_key} 0 #{expiry} #{value.to_s.size} #{token}#{noreply}\r\n#{value}\r\n&quot;</span>
+
+    <span class="ruby-identifier">with_socket_management</span>(<span class="ruby-identifier">server</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">command</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@no_reply</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+      <span class="ruby-identifier">raise_on_error_response!</span> <span class="ruby-identifier">result</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">close</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-node">&quot;lost connection to #{server.host}:#{server.port}&quot;</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-decr">
+            
+              <b>decr</b>(key, amount = 1)
+            
+            <a href="../classes/MemCache.html#method-i-decr" name="method-i-decr" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Decrements the value for <code>key</code> by <code>amount</code> and
+returns the new value. <code>key</code> must already exist.  If
+<code>key</code> is not an integer, it is assumed to be</p>
+<ol><li>
+<p><code>key</code> can not be decremented below 0.</p>
+</li></ol>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-decr_source')" id="l_method-i-decr_source">show</a>
+                
+              </p>
+              <div id="method-i-decr_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">decr</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">amount</span> = <span class="ruby-number">1</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;Update of readonly cache&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@readonly</span>
+  <span class="ruby-identifier">with_server</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">cache_decr</span> <span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span>, <span class="ruby-identifier">amount</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">TypeError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+  <span class="ruby-identifier">handle_error</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">err</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-delete">
+            
+              <b>delete</b>(key, expiry = 0)
+            
+            <a href="../classes/MemCache.html#method-i-delete" name="method-i-delete" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Removes <code>key</code> from the cache in <code>expiry</code> seconds.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-delete_source')" id="l_method-i-delete_source">show</a>
+                
+              </p>
+              <div id="method-i-delete_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 474</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">delete</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">expiry</span> = <span class="ruby-number">0</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;Update of readonly cache&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@readonly</span>
+  <span class="ruby-identifier">with_server</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">with_socket_management</span>(<span class="ruby-identifier">server</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;delete #{cache_key} on #{server}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-node">&quot;delete #{cache_key} #{expiry}#{noreply}\r\n&quot;</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@no_reply</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+      <span class="ruby-identifier">raise_on_error_response!</span> <span class="ruby-identifier">result</span>
+      <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-fetch">
+            
+              <b>fetch</b>(key, expiry = 0, raw = false)
+            
+            <a href="../classes/MemCache.html#method-i-fetch" name="method-i-fetch" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Performs a <code>get</code> with the given <code>key</code>.  If  the value
+does not exist and a block was given, the block will be called and the
+result saved via <code>add</code>.</p>
+
+<p>If you do not provide a block, using this method is the same as using
+<code>get</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-fetch_source')" id="l_method-i-fetch_source">show</a>
+                
+              </p>
+              <div id="method-i-fetch_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 226</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fetch</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">expiry</span> = <span class="ruby-number">0</span>, <span class="ruby-identifier">raw</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">get</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">raw</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-keyword">yield</span>
+    <span class="ruby-identifier">add</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">expiry</span>, <span class="ruby-identifier">raw</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-flush_all">
+            
+              <b>flush_all</b>(delay=0)
+            
+            <a href="../classes/MemCache.html#method-i-flush_all" name="method-i-flush_all" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Flush the cache from all memcache servers. A non-zero value for
+<code>delay</code> will ensure that the flush is propogated slowly through
+your memcached server farm. The Nth server will be flushed N*delay seconds
+from now, asynchronously so this method returns quickly. This prevents a
+huge database spike due to a total flush all at once.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-flush_all_source')" id="l_method-i-flush_all_source">show</a>
+                
+              </p>
+              <div id="method-i-flush_all_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 497</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">flush_all</span>(<span class="ruby-identifier">delay</span>=<span class="ruby-number">0</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&#39;No active servers&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">active?</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;Update of readonly cache&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@readonly</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">delay_time</span> = <span class="ruby-number">0</span>
+    <span class="ruby-ivar">@servers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">with_socket_management</span>(<span class="ruby-identifier">server</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;flush_all #{delay_time} on #{server}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">delay</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span> <span class="ruby-comment"># older versions of memcached will fail silently otherwise</span>
+          <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-node">&quot;flush_all#{noreply}\r\n&quot;</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-node">&quot;flush_all #{delay_time}#{noreply}\r\n&quot;</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">break</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@no_reply</span>
+        <span class="ruby-identifier">result</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+        <span class="ruby-identifier">raise_on_error_response!</span> <span class="ruby-identifier">result</span>
+        <span class="ruby-identifier">result</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">delay_time</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">delay</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">IndexError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+    <span class="ruby-identifier">handle_error</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">err</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get">
+            
+              <b>get</b>(key, raw = false)
+            
+            <a href="../classes/MemCache.html#method-i-get" name="method-i-get" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Retrieves <code>key</code> from memcache.  If <code>raw</code> is false,
+the value will be unmarshalled.</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="MemCache.html#method-i-5B-5D">[]</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_source')" id="l_method-i-get_source">show</a>
+                
+              </p>
+              <div id="method-i-get_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 206</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">raw</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">with_server</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;get #{key} from #{server.inspect}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">cache_get</span> <span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span> <span class="ruby-identifier">value</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">raw</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">TypeError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+  <span class="ruby-identifier">handle_error</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">err</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_multi">
+            
+              <b>get_multi</b>(*keys)
+            
+            <a href="../classes/MemCache.html#method-i-get_multi" name="method-i-get_multi" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Retrieves multiple values from memcached in parallel, if possible.</p>
+
+<p>The memcached protocol supports the ability to retrieve multiple keys in a
+single request.  Pass in an array of keys to this method and it will:</p>
+<ol><li>
+<p>map the key to the appropriate memcached server</p>
+</li><li>
+<p>send a single request to each server that has one or more key values</p>
+</li></ol>
+
+<p>Returns a hash of values.</p>
+
+<pre class="ruby"><span class="ruby-identifier">cache</span>[<span class="ruby-string">&quot;a&quot;</span>] = <span class="ruby-value">1</span>
+<span class="ruby-identifier">cache</span>[<span class="ruby-string">&quot;b&quot;</span>] = <span class="ruby-value">2</span>
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">get_multi</span> <span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span> <span class="ruby-comment"># =&gt; { &quot;a&quot; =&gt; 1, &quot;b&quot; =&gt; 2 }</span>
+</pre>
+
+<p>Note that <a href="MemCache.html#method-i-get_multi">#get_multi</a> assumes
+the values are marshalled.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_multi_source')" id="l_method-i-get_multi_source">show</a>
+                
+              </p>
+              <div id="method-i-get_multi_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 255</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_multi</span>(*<span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&#39;No active servers&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">active?</span>
+
+  <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">flatten!</span>
+  <span class="ruby-identifier">key_count</span> = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">cache_keys</span> = {}
+  <span class="ruby-identifier">server_keys</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>,<span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>] = [] }
+
+  <span class="ruby-comment"># map keys to servers</span>
+  <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span> = <span class="ruby-identifier">request_setup</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-identifier">cache_keys</span>[<span class="ruby-identifier">cache_key</span>] = <span class="ruby-identifier">key</span>
+    <span class="ruby-identifier">server_keys</span>[<span class="ruby-identifier">server</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">cache_key</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">results</span> = {}
+
+  <span class="ruby-identifier">server_keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span>, <span class="ruby-identifier">keys_for_server</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">keys_for_server_str</span> = <span class="ruby-identifier">keys_for_server</span>.<span class="ruby-identifier">join</span> <span class="ruby-string">&#39; &#39;</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">values</span> = <span class="ruby-identifier">cache_get_multi</span> <span class="ruby-identifier">server</span>, <span class="ruby-identifier">keys_for_server_str</span>
+      <span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">results</span>[<span class="ruby-identifier">cache_keys</span>[<span class="ruby-identifier">key</span>]] = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span> <span class="ruby-identifier">value</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">IndexError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-comment"># Ignore this server and try the others</span>
+      <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> { <span class="ruby-node">&quot;Unable to retrieve #{keys_for_server.size} elements from #{server.inspect}: #{e.message}&quot;</span>} <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">results</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">TypeError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+  <span class="ruby-identifier">handle_error</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">err</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-incr">
+            
+              <b>incr</b>(key, amount = 1)
+            
+            <a href="../classes/MemCache.html#method-i-incr" name="method-i-incr" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Increments the value for <code>key</code> by <code>amount</code> and
+returns the new value. <code>key</code> must already exist.  If
+<code>key</code> is not an integer, it is assumed to be 0.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-incr_source')" id="l_method-i-incr_source">show</a>
+                
+              </p>
+              <div id="method-i-incr_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 295</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">incr</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">amount</span> = <span class="ruby-number">1</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;Update of readonly cache&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@readonly</span>
+  <span class="ruby-identifier">with_server</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">cache_incr</span> <span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span>, <span class="ruby-identifier">amount</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">TypeError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+  <span class="ruby-identifier">handle_error</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">err</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inspect">
+            
+              <b>inspect</b>()
+            
+            <a href="../classes/MemCache.html#method-i-inspect" name="method-i-inspect" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns a string representation of the cache object.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-inspect_source')" id="l_method-i-inspect_source">show</a>
+                
+              </p>
+              <div id="method-i-inspect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">inspect</span>
+  <span class="ruby-string">&quot;&lt;MemCache: %d servers, ns: %p, ro: %p&gt;&quot;</span> <span class="ruby-operator">%</span>
+    [<span class="ruby-ivar">@servers</span>.<span class="ruby-identifier">length</span>, <span class="ruby-ivar">@namespace</span>, <span class="ruby-ivar">@readonly</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prepend">
+            
+              <b>prepend</b>(key, value)
+            
+            <a href="../classes/MemCache.html#method-i-prepend" name="method-i-prepend" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Prepend - &#39;add this data to an existing key before existing data&#39;
+Please note the value is always passed to memcached as raw since it
+doesn&#39;t make a lot of sense to concatenate marshalled data together.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-prepend_source')" id="l_method-i-prepend_source">show</a>
+                
+              </p>
+              <div id="method-i-prepend_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 455</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">prepend</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;Update of readonly cache&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@readonly</span>
+  <span class="ruby-identifier">with_server</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;prepend #{key} to #{server}: #{value ? value.to_s.size : &#39;nil&#39;}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+    <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;prepend #{cache_key} 0 0 #{value.to_s.size}#{noreply}\r\n#{value}\r\n&quot;</span>
+
+    <span class="ruby-identifier">with_socket_management</span>(<span class="ruby-identifier">server</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">command</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@no_reply</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+      <span class="ruby-identifier">raise_on_error_response!</span> <span class="ruby-identifier">result</span>
+      <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-readonly-3F">
+            
+              <b>readonly?</b>()
+            
+            <a href="../classes/MemCache.html#method-i-readonly-3F" name="method-i-readonly-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns whether or not the cache object was created read only.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-readonly-3F_source')" id="l_method-i-readonly-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-readonly-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">readonly?</span>
+  <span class="ruby-ivar">@readonly</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-replace">
+            
+              <b>replace</b>(key, value, expiry = 0, raw = false)
+            
+            <a href="../classes/MemCache.html#method-i-replace" name="method-i-replace" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Add <code>key</code> to the cache with value <code>value</code> that
+expires in <code>expiry</code> seconds, but only if <code>key</code>
+already exists in the cache. If <code>raw</code> is true,
+<code>value</code> will not be Marshalled.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-replace_source')" id="l_method-i-replace_source">show</a>
+                
+              </p>
+              <div id="method-i-replace_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 414</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">replace</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">expiry</span> = <span class="ruby-number">0</span>, <span class="ruby-identifier">raw</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;Update of readonly cache&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@readonly</span>
+  <span class="ruby-identifier">with_server</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span> <span class="ruby-identifier">value</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">raw</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;replace #{key} to #{server}: #{value ? value.to_s.size : &#39;nil&#39;}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+    <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;replace #{cache_key} 0 #{expiry} #{value.to_s.size}#{noreply}\r\n#{value}\r\n&quot;</span>
+
+    <span class="ruby-identifier">with_socket_management</span>(<span class="ruby-identifier">server</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">command</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@no_reply</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+      <span class="ruby-identifier">raise_on_error_response!</span> <span class="ruby-identifier">result</span>
+      <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reset">
+            
+              <b>reset</b>()
+            
+            <a href="../classes/MemCache.html#method-i-reset" name="method-i-reset" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Reset the connection to all memcache servers.  This should be called if
+there is a problem with a cache lookup that might have left the connection
+in a corrupted state.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-reset_source')" id="l_method-i-reset_source">show</a>
+                
+              </p>
+              <div id="method-i-reset_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 528</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">reset</span>
+  <span class="ruby-ivar">@servers</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">server</span><span class="ruby-operator">|</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">close</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-servers-3D">
+            
+              <b>servers=</b>(servers)
+            
+            <a href="../classes/MemCache.html#method-i-servers-3D" name="method-i-servers-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Set the servers that the requests will be distributed between.  Entries can
+be either strings of the form “hostname:port” or “hostname:port:weight” or
+<a href="MemCache/Server.html">MemCache::Server</a> objects.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-servers-3D_source')" id="l_method-i-servers-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-servers-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">servers=</span>(<span class="ruby-identifier">servers</span>)
+  <span class="ruby-comment"># Create the server objects.</span>
+  <span class="ruby-ivar">@servers</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">servers</span>).<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">server</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+      <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>, <span class="ruby-identifier">weight</span> = <span class="ruby-identifier">server</span>.<span class="ruby-identifier">split</span> <span class="ruby-string">&#39;:&#39;</span>, <span class="ruby-number">3</span>
+      <span class="ruby-identifier">port</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">DEFAULT_PORT</span>
+      <span class="ruby-identifier">weight</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">DEFAULT_WEIGHT</span>
+      <span class="ruby-constant">Server</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">self</span>, <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>, <span class="ruby-identifier">weight</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">server</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;Servers now: #{@servers.inspect}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+
+  <span class="ruby-comment"># There&#39;s no point in doing this if there&#39;s only one server</span>
+  <span class="ruby-ivar">@continuum</span> = <span class="ruby-identifier">create_continuum_for</span>(<span class="ruby-ivar">@servers</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@servers</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">1</span>
+
+  <span class="ruby-ivar">@servers</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-set">
+            
+              <b>set</b>(key, value, expiry = 0, raw = false)
+            
+            <a href="../classes/MemCache.html#method-i-set" name="method-i-set" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-set_source')" id="l_method-i-set_source">show</a>
+                
+              </p>
+              <div id="method-i-set_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 313</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">set</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">expiry</span> = <span class="ruby-number">0</span>, <span class="ruby-identifier">raw</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;Update of readonly cache&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@readonly</span>
+  <span class="ruby-identifier">with_server</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-identifier">value</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span> <span class="ruby-identifier">value</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">raw</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;set #{key} to #{server.inspect}: #{value.to_s.size}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;Value too large, memcached can only store 1MB of data per key&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">ONE_MB</span>
+
+    <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;set #{cache_key} 0 #{expiry} #{value.to_s.size}#{noreply}\r\n#{value}\r\n&quot;</span>
+
+    <span class="ruby-identifier">with_socket_management</span>(<span class="ruby-identifier">server</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">command</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@no_reply</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+      <span class="ruby-identifier">raise_on_error_response!</span> <span class="ruby-identifier">result</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">close</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-node">&quot;lost connection to #{server.host}:#{server.port}&quot;</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-stats">
+            
+              <b>stats</b>()
+            
+            <a href="../classes/MemCache.html#method-i-stats" name="method-i-stats" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns statistics for each memcached server.  An explanation of the
+statistics can be found in the memcached docs:</p>
+
+<p><a
+href="http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt">code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt</a></p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">pp</span> <span class="ruby-constant">CACHE</span>.<span class="ruby-identifier">stats</span>
+{<span class="ruby-string">&quot;localhost:11211&quot;</span>=<span class="ruby-operator">&gt;</span>
+  {<span class="ruby-string">&quot;bytes&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">4718</span>,
+   <span class="ruby-string">&quot;pid&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">20188</span>,
+   <span class="ruby-string">&quot;connection_structures&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">4</span>,
+   <span class="ruby-string">&quot;time&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">1162278121</span>,
+   <span class="ruby-string">&quot;pointer_size&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">32</span>,
+   <span class="ruby-string">&quot;limit_maxbytes&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">67108864</span>,
+   <span class="ruby-string">&quot;cmd_get&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">14532</span>,
+   <span class="ruby-string">&quot;version&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;1.2.0&quot;</span>,
+   <span class="ruby-string">&quot;bytes_written&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">432583</span>,
+   <span class="ruby-string">&quot;cmd_set&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">32</span>,
+   <span class="ruby-string">&quot;get_misses&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">0</span>,
+   <span class="ruby-string">&quot;total_connections&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">19</span>,
+   <span class="ruby-string">&quot;curr_connections&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">3</span>,
+   <span class="ruby-string">&quot;curr_items&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">4</span>,
+   <span class="ruby-string">&quot;uptime&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">1557</span>,
+   <span class="ruby-string">&quot;get_hits&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">14532</span>,
+   <span class="ruby-string">&quot;total_items&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">32</span>,
+   <span class="ruby-string">&quot;rusage_system&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">0.313952</span>,
+   <span class="ruby-string">&quot;rusage_user&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">0.119981</span>,
+   <span class="ruby-string">&quot;bytes_read&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">190619</span>}}
+=<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-stats_source')" id="l_method-i-stats_source">show</a>
+                
+              </p>
+              <div id="method-i-stats_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 564</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">stats</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;No active servers&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">active?</span>
+  <span class="ruby-identifier">server_stats</span> = {}
+
+  <span class="ruby-ivar">@servers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">alive?</span>
+
+    <span class="ruby-identifier">with_socket_management</span>(<span class="ruby-identifier">server</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">value</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-string">&quot;stats\r\n&quot;</span>
+      <span class="ruby-identifier">stats</span> = {}
+      <span class="ruby-keyword">while</span> <span class="ruby-identifier">line</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">raise_on_error_response!</span> <span class="ruby-identifier">line</span>
+        <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;END\r\n&quot;</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\ASTAT ([\S]+) ([\w\.\:]+)/</span> <span class="ruby-keyword">then</span>
+          <span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span> = <span class="ruby-node">$1</span>, <span class="ruby-node">$2</span>
+          <span class="ruby-identifier">stats</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-keyword">case</span> <span class="ruby-identifier">name</span>
+                        <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;version&#39;</span>
+                          <span class="ruby-identifier">value</span>
+                        <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;rusage_user&#39;</span>, <span class="ruby-string">&#39;rusage_system&#39;</span> <span class="ruby-keyword">then</span>
+                          <span class="ruby-identifier">seconds</span>, <span class="ruby-identifier">microseconds</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/:/</span>, <span class="ruby-number">2</span>)
+                          <span class="ruby-identifier">microseconds</span> <span class="ruby-operator">||=</span> <span class="ruby-number">0</span>
+                          <span class="ruby-constant">Float</span>(<span class="ruby-identifier">seconds</span>) <span class="ruby-operator">+</span> (<span class="ruby-constant">Float</span>(<span class="ruby-identifier">microseconds</span>) <span class="ruby-operator">/</span> <span class="ruby-number">1_000_000</span>)
+                        <span class="ruby-keyword">else</span>
+                          <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\A\d+\Z/</span> <span class="ruby-keyword">then</span>
+                            <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span>
+                          <span class="ruby-keyword">else</span>
+                            <span class="ruby-identifier">value</span>
+                          <span class="ruby-keyword">end</span>
+                        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">server_stats</span>[<span class="ruby-node">&quot;#{server.host}:#{server.port}&quot;</span>] = <span class="ruby-identifier">stats</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;No active servers&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">server_stats</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">server_stats</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Protected methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-cache_decr">
+            
+              <b>cache_decr</b>(server, cache_key, amount)
+            
+            <a href="../classes/MemCache.html#method-i-cache_decr" name="method-i-cache_decr" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Performs a raw decr for <code>cache_key</code> from <code>server</code>. 
+Returns nil if not found.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cache_decr_source')" id="l_method-i-cache_decr_source">show</a>
+                
+              </p>
+              <div id="method-i-cache_decr_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 666</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cache_decr</span>(<span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span>, <span class="ruby-identifier">amount</span>)
+  <span class="ruby-identifier">with_socket_management</span>(<span class="ruby-identifier">server</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-node">&quot;decr #{cache_key} #{amount}#{noreply}\r\n&quot;</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@no_reply</span>
+    <span class="ruby-identifier">text</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+    <span class="ruby-identifier">raise_on_error_response!</span> <span class="ruby-identifier">text</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">text</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;NOT_FOUND\r\n&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cache_get">
+            
+              <b>cache_get</b>(server, cache_key)
+            
+            <a href="../classes/MemCache.html#method-i-cache_get" name="method-i-cache_get" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Fetches the raw data for <code>cache_key</code> from <code>server</code>. 
+Returns nil on cache miss.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cache_get_source')" id="l_method-i-cache_get_source">show</a>
+                
+              </p>
+              <div id="method-i-cache_get_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 681</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cache_get</span>(<span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span>)
+  <span class="ruby-identifier">with_socket_management</span>(<span class="ruby-identifier">server</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-node">&quot;get #{cache_key}\r\n&quot;</span>
+    <span class="ruby-identifier">keyline</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span> <span class="ruby-comment"># &quot;VALUE &lt;key&gt; &lt;flags&gt; &lt;bytes&gt;\r\n&quot;</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">keyline</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">server</span>.<span class="ruby-identifier">close</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-node">&quot;lost connection to #{server.host}:#{server.port}&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">raise_on_error_response!</span> <span class="ruby-identifier">keyline</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">keyline</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;END\r\n&quot;</span>
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">keyline</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(\d+)\r/</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">server</span>.<span class="ruby-identifier">close</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-node">&quot;unexpected response #{keyline.inspect}&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">read</span> <span class="ruby-node">$1</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">read</span> <span class="ruby-number">2</span> <span class="ruby-comment"># &quot;\r\n&quot;</span>
+    <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>   <span class="ruby-comment"># &quot;END\r\n&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cache_get_multi">
+            
+              <b>cache_get_multi</b>(server, cache_keys)
+            
+            <a href="../classes/MemCache.html#method-i-cache_get_multi" name="method-i-cache_get_multi" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Fetches <code>cache_keys</code> from <code>server</code> using a multi-get.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cache_get_multi_source')" id="l_method-i-cache_get_multi_source">show</a>
+                
+              </p>
+              <div id="method-i-cache_get_multi_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 740</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cache_get_multi</span>(<span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_keys</span>)
+  <span class="ruby-identifier">with_socket_management</span>(<span class="ruby-identifier">server</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">values</span> = {}
+    <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-node">&quot;get #{cache_keys}\r\n&quot;</span>
+
+    <span class="ruby-keyword">while</span> <span class="ruby-identifier">keyline</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">values</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">keyline</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;END\r\n&quot;</span>
+      <span class="ruby-identifier">raise_on_error_response!</span> <span class="ruby-identifier">keyline</span>
+
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">keyline</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\AVALUE (.+) (.+) (.+)/</span> <span class="ruby-keyword">then</span>
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">close</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-node">&quot;unexpected response #{keyline.inspect}&quot;</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">key</span>, <span class="ruby-identifier">data_length</span> = <span class="ruby-node">$1</span>, <span class="ruby-node">$3</span>
+      <span class="ruby-identifier">values</span>[<span class="ruby-node">$1</span>] = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">read</span> <span class="ruby-identifier">data_length</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">read</span>(<span class="ruby-number">2</span>) <span class="ruby-comment"># &quot;\r\n&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">server</span>.<span class="ruby-identifier">close</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-node">&quot;lost connection to #{server.host}:#{server.port}&quot;</span> <span class="ruby-comment"># TODO: retry here too</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cache_incr">
+            
+              <b>cache_incr</b>(server, cache_key, amount)
+            
+            <a href="../classes/MemCache.html#method-i-cache_incr" name="method-i-cache_incr" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Performs a raw incr for <code>cache_key</code> from <code>server</code>. 
+Returns nil if not found.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cache_incr_source')" id="l_method-i-cache_incr_source">show</a>
+                
+              </p>
+              <div id="method-i-cache_incr_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 768</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cache_incr</span>(<span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span>, <span class="ruby-identifier">amount</span>)
+  <span class="ruby-identifier">with_socket_management</span>(<span class="ruby-identifier">server</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-node">&quot;incr #{cache_key} #{amount}#{noreply}\r\n&quot;</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@no_reply</span>
+    <span class="ruby-identifier">text</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+    <span class="ruby-identifier">raise_on_error_response!</span> <span class="ruby-identifier">text</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">text</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;NOT_FOUND\r\n&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-check_multithread_status-21">
+            
+              <b>check_multithread_status!</b>()
+            
+            <a href="../classes/MemCache.html#method-i-check_multithread_status-21" name="method-i-check_multithread_status-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-check_multithread_status-21_source')" id="l_method-i-check_multithread_status-21_source">show</a>
+                
+              </p>
+              <div id="method-i-check_multithread_status-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 891</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">check_multithread_status!</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@multithread</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:memcache_client</span>] <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">object_id</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-value">&lt;&lt;-EOM
+      You are accessing this memcache-client instance from multiple threads but have not enabled multithread support.
+      Normally:  MemCache.new([&#39;localhost:11211&#39;], :multithread =&gt; true)
+      In Rails:  config.cache_store = [:mem_cache_store, &#39;localhost:11211&#39;, { :multithread =&gt; true }]
+    EOM</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create_continuum_for">
+            
+              <b>create_continuum_for</b>(servers)
+            
+            <a href="../classes/MemCache.html#method-i-create_continuum_for" name="method-i-create_continuum_for" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_continuum_for_source')" id="l_method-i-create_continuum_for_source">show</a>
+                
+              </p>
+              <div id="method-i-create_continuum_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 872</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_continuum_for</span>(<span class="ruby-identifier">servers</span>)
+  <span class="ruby-identifier">total_weight</span> = <span class="ruby-identifier">servers</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-number">0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>, <span class="ruby-identifier">srv</span><span class="ruby-operator">|</span> <span class="ruby-identifier">memo</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">srv</span>.<span class="ruby-identifier">weight</span> }
+  <span class="ruby-identifier">continuum</span> = []
+
+  <span class="ruby-identifier">servers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">entry_count_for</span>(<span class="ruby-identifier">server</span>, <span class="ruby-identifier">servers</span>.<span class="ruby-identifier">size</span>, <span class="ruby-identifier">total_weight</span>).<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">hash</span> = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-node">&quot;#{server.host}:#{server.port}:#{idx}&quot;</span>)
+      <span class="ruby-identifier">value</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-node">&quot;0x#{hash[0..7]}&quot;</span>)
+      <span class="ruby-identifier">continuum</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Continuum</span><span class="ruby-operator">::</span><span class="ruby-constant">Entry</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">server</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">continuum</span>.<span class="ruby-identifier">sort</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">value</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">value</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-entry_count_for">
+            
+              <b>entry_count_for</b>(server, total_servers, total_weight)
+            
+            <a href="../classes/MemCache.html#method-i-entry_count_for" name="method-i-entry_count_for" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-entry_count_for_source')" id="l_method-i-entry_count_for_source">show</a>
+                
+              </p>
+              <div id="method-i-entry_count_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 887</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">entry_count_for</span>(<span class="ruby-identifier">server</span>, <span class="ruby-identifier">total_servers</span>, <span class="ruby-identifier">total_weight</span>)
+  ((<span class="ruby-identifier">total_servers</span> * <span class="ruby-constant">Continuum</span><span class="ruby-operator">::</span><span class="ruby-constant">POINTS_PER_SERVER</span> * <span class="ruby-identifier">server</span>.<span class="ruby-identifier">weight</span>) <span class="ruby-operator">/</span> <span class="ruby-constant">Float</span>(<span class="ruby-identifier">total_weight</span>)).<span class="ruby-identifier">floor</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_server_for_key">
+            
+              <b>get_server_for_key</b>(key, options = {})
+            
+            <a href="../classes/MemCache.html#method-i-get_server_for_key" name="method-i-get_server_for_key" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Pick a server to handle the request based on a hash of the key.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_server_for_key_source')" id="l_method-i-get_server_for_key_source">show</a>
+                
+              </p>
+              <div id="method-i-get_server_for_key_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 642</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_server_for_key</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;illegal character in key #{key.inspect}&quot;</span> <span class="ruby-keyword">if</span>
+    <span class="ruby-identifier">key</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\s/</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;key too long #{key.inspect}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">250</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;No servers available&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@servers</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@servers</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@servers</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-number">1</span>
+
+  <span class="ruby-identifier">hkey</span> = <span class="ruby-identifier">hash_for</span>(<span class="ruby-identifier">key</span>)
+
+  <span class="ruby-number">20</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">try</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">entryidx</span> = <span class="ruby-constant">Continuum</span>.<span class="ruby-identifier">binary_search</span>(<span class="ruby-ivar">@continuum</span>, <span class="ruby-identifier">hkey</span>)
+    <span class="ruby-identifier">server</span> = <span class="ruby-ivar">@continuum</span>[<span class="ruby-identifier">entryidx</span>].<span class="ruby-identifier">server</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">server</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">alive?</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">failover</span>
+    <span class="ruby-identifier">hkey</span> = <span class="ruby-identifier">hash_for</span> <span class="ruby-node">&quot;#{try}#{key}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&quot;No servers available&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-gets">
+            
+              <b>gets</b>(key, raw = false)
+            
+            <a href="../classes/MemCache.html#method-i-gets" name="method-i-gets" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-gets_source')" id="l_method-i-gets_source">show</a>
+                
+              </p>
+              <div id="method-i-gets_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 705</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">gets</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">raw</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">with_server</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-node">&quot;gets #{key} from #{server.inspect}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">with_socket_management</span>(<span class="ruby-identifier">server</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">write</span> <span class="ruby-node">&quot;gets #{cache_key}\r\n&quot;</span>
+      <span class="ruby-identifier">keyline</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span> <span class="ruby-comment"># &quot;VALUE &lt;key&gt; &lt;flags&gt; &lt;bytes&gt; &lt;cas token&gt;\r\n&quot;</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">keyline</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">then</span>
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">close</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-node">&quot;lost connection to #{server.host}:#{server.port}&quot;</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">raise_on_error_response!</span> <span class="ruby-identifier">keyline</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">keyline</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;END\r\n&quot;</span>
+
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">keyline</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(\d+) (\w+)\r/</span> <span class="ruby-keyword">then</span>
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">close</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-node">&quot;unexpected response #{keyline.inspect}&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">value</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">read</span> <span class="ruby-node">$1</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">read</span> <span class="ruby-number">2</span> <span class="ruby-comment"># &quot;\r\n&quot;</span>
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>   <span class="ruby-comment"># &quot;END\r\n&quot;</span>
+      [<span class="ruby-identifier">value</span>, <span class="ruby-node">$2</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-number">0</span>] = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span> <span class="ruby-identifier">result</span>[<span class="ruby-number">0</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">raw</span>
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">TypeError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+  <span class="ruby-identifier">handle_error</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">err</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-handle_error">
+            
+              <b>handle_error</b>(server, error)
+            
+            <a href="../classes/MemCache.html#method-i-handle_error" name="method-i-handle_error" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Handles <code>error</code> from <code>server</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-handle_error_source')" id="l_method-i-handle_error_source">show</a>
+                
+              </p>
+              <div id="method-i-handle_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 843</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">handle_error</span>(<span class="ruby-identifier">server</span>, <span class="ruby-identifier">error</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">error</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">MemCacheError</span>)
+  <span class="ruby-identifier">server</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">server</span>
+  <span class="ruby-identifier">new_error</span> = <span class="ruby-constant">MemCacheError</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">message</span>
+  <span class="ruby-identifier">new_error</span>.<span class="ruby-identifier">set_backtrace</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">backtrace</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">new_error</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-hash_for">
+            
+              <b>hash_for</b>(key)
+            
+            <a href="../classes/MemCache.html#method-i-hash_for" name="method-i-hash_for" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns an interoperable hash value for <code>key</code>.  (I think, docs
+are sketchy for down servers).</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-hash_for_source')" id="l_method-i-hash_for_source">show</a>
+                
+              </p>
+              <div id="method-i-hash_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 635</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">hash_for</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-constant">Zlib</span>.<span class="ruby-identifier">crc32</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-make_cache_key">
+            
+              <b>make_cache_key</b>(key)
+            
+            <a href="../classes/MemCache.html#method-i-make_cache_key" name="method-i-make_cache_key" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Create a key for the cache, incorporating the namespace qualifier if
+requested.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-make_cache_key_source')" id="l_method-i-make_cache_key_source">show</a>
+                
+              </p>
+              <div id="method-i-make_cache_key_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 623</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">make_cache_key</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">namespace</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">key</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;#{@namespace}:#{key}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-noreply">
+            
+              <b>noreply</b>()
+            
+            <a href="../classes/MemCache.html#method-i-noreply" name="method-i-noreply" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-noreply_source')" id="l_method-i-noreply_source">show</a>
+                
+              </p>
+              <div id="method-i-noreply_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 851</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">noreply</span>
+  <span class="ruby-ivar">@no_reply</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39; noreply&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_on_error_response-21">
+            
+              <b>raise_on_error_response!</b>(response)
+            
+            <a href="../classes/MemCache.html#method-i-raise_on_error_response-21" name="method-i-raise_on_error_response-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-raise_on_error_response-21_source')" id="l_method-i-raise_on_error_response-21_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_on_error_response-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 866</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">raise_on_error_response!</span>(<span class="ruby-identifier">response</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\A(?:CLIENT_|SERVER_)?ERROR(.*)/</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-node">$1</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-request_setup">
+            
+              <b>request_setup</b>(key)
+            
+            <a href="../classes/MemCache.html#method-i-request_setup" name="method-i-request_setup" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Performs setup for making a request with <code>key</code> from memcached. 
+Returns the server to fetch the key from and the complete key to use.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-request_setup_source')" id="l_method-i-request_setup_source">show</a>
+                
+              </p>
+              <div id="method-i-request_setup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 859</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">request_setup</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-string">&#39;No active servers&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">active?</span>
+  <span class="ruby-identifier">cache_key</span> = <span class="ruby-identifier">make_cache_key</span> <span class="ruby-identifier">key</span>
+  <span class="ruby-identifier">server</span> = <span class="ruby-identifier">get_server_for_key</span> <span class="ruby-identifier">cache_key</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-with_server">
+            
+              <b>with_server</b>(key)
+            
+            <a href="../classes/MemCache.html#method-i-with_server" name="method-i-with_server" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-with_server_source')" id="l_method-i-with_server_source">show</a>
+                
+              </p>
+              <div id="method-i-with_server_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 824</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">with_server</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">retried</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span> = <span class="ruby-identifier">request_setup</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">server</span>, <span class="ruby-identifier">cache_key</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">IndexError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> { <span class="ruby-node">&quot;Server failed: #{e.class.name}: #{e.message}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">retried</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@servers</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">1</span>
+      <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> { <span class="ruby-node">&quot;Connection to server #{server.inspect} DIED! Retrying operation...&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+      <span class="ruby-identifier">retried</span> = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">retry</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">handle_error</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">e</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-with_socket_management">
+            
+              <b>with_socket_management</b>(server, &amp;block)
+            
+            <a href="../classes/MemCache.html#method-i-with_socket_management" name="method-i-with_socket_management" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Gets or creates a socket connected to the given server, and yields it to
+the block, wrapped in a mutex synchronization if @multithread is true.</p>
+
+<p>If a socket error (SocketError, SystemCallError, IOError) or protocol error
+(<a href="MemCache/MemCacheError.html">MemCacheError</a>) is raised by the
+block, closes the socket, attempts to connect again, and retries the block
+(once).  If an error is again raised, reraises it as <a
+href="MemCache/MemCacheError.html">MemCacheError</a>.</p>
+
+<p>If unable to connect to the server (or if in the reconnect wait period),
+raises <a href="MemCache/MemCacheError.html">MemCacheError</a>.  Note that
+the socket connect code marks a server dead for a timeout period, so
+retrying does not apply to connection attempt failures (but does still
+apply to unexpectedly lost connections etc.).</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-with_socket_management_source')" id="l_method-i-with_socket_management_source">show</a>
+                
+              </p>
+              <div id="method-i-with_socket_management_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/memcache-client-1.7.4/memcache.rb, line 793</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">with_socket_management</span>(<span class="ruby-identifier">server</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">check_multithread_status!</span>
+
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">lock</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@multithread</span>
+  <span class="ruby-identifier">retried</span> = <span class="ruby-keyword">false</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">socket</span> = <span class="ruby-identifier">server</span>.<span class="ruby-identifier">socket</span>
+
+    <span class="ruby-comment"># Raise an IndexError to show this server is out of whack. If were inside</span>
+    <span class="ruby-comment"># a with_server block, we&#39;ll catch it and attempt to restart the operation.</span>
+
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IndexError</span>, <span class="ruby-node">&quot;No connection to server (#{server.status})&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">nil?</span>
+
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">socket</span>)
+
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">SocketError</span>, <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EAGAIN</span>, <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> { <span class="ruby-node">&quot;Socket failure: #{err.message}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+    <span class="ruby-identifier">server</span>.<span class="ruby-identifier">mark_dead</span>(<span class="ruby-identifier">err</span>)
+    <span class="ruby-identifier">handle_error</span>(<span class="ruby-identifier">server</span>, <span class="ruby-identifier">err</span>)
+
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">MemCacheError</span>, <span class="ruby-constant">SystemCallError</span>, <span class="ruby-constant">IOError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> { <span class="ruby-node">&quot;Generic failure: #{err.class.name}: #{err.message}&quot;</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+    <span class="ruby-identifier">handle_error</span>(<span class="ruby-identifier">server</span>, <span class="ruby-identifier">err</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">retried</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">retried</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">retry</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">unlock</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@multithread</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

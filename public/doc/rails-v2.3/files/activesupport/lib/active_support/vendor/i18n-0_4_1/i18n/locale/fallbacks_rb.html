@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>fallbacks.rb</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            fallbacks.rb
+        </h1>
+        <ul class="files">
+            <li>activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/locale/fallbacks.rb</li>
+            <li>Last modified: 2013-09-06 16:46:51 +0200</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Locale Fallbacks</p>
+
+<p>Extends the <a href="../../../../../../../../classes/I18n.html">I18n</a>
+module to hold a fallbacks instance which is set to an instance of <a
+href="../../../../../../../../classes/I18n/Locale/Fallbacks.html">I18n::Locale::Fallbacks</a>
+by default but can be swapped with a different implementation.</p>
+
+<p>Locale fallbacks will compute a number of fallback locales for a given
+locale. For example:</p>
+
+<p>&lt;pre&gt;<code> I18n.fallbacks[:"es-MX"] # =&gt; [:&quot;es-MX&quot;,
+:es, :en] </code>&lt;/pre&gt;</p>
+
+<p>Locale fallbacks always fall back to</p>
+
+<pre>* all parent locales of a given locale (e.g. :es for :&quot;es-MX&quot;) first,
+* the current default locales and all of their parents second</pre>
+
+<p>The default locales are set to [I18n.default_locale] by default but can be
+set to something else.</p>
+
+<p>One can additionally add any number of additional fallback locales
+manually. These will be added before the default locales to the fallback
+chain. For example:</p>
+
+<pre class="ruby"><span class="ruby-comment"># using the default locale as default fallback locale</span>
+
+<span class="ruby-constant">I18n</span>.<span class="ruby-identifier">default_locale</span> = :<span class="ruby-string">&quot;en-US&quot;</span>
+<span class="ruby-constant">I18n</span>.<span class="ruby-identifier">fallbacks</span> = <span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Fallbacks</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-string">&quot;de-AT&quot;</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-string">&quot;de-DE&quot;</span>)
+<span class="ruby-constant">I18n</span>.<span class="ruby-identifier">fallbacks</span>[:<span class="ruby-string">&quot;de-AT&quot;</span>] <span class="ruby-comment"># =&gt; [:&quot;de-AT&quot;, :&quot;de-DE&quot;, :de, :&quot;en-US&quot;, :en]</span>
+
+<span class="ruby-comment"># using a custom locale as default fallback locale</span>
+
+<span class="ruby-constant">I18n</span>.<span class="ruby-identifier">fallbacks</span> = <span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Fallbacks</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-string">&quot;en-GB&quot;</span>, :<span class="ruby-string">&quot;de-AT&quot;</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">de</span>, :<span class="ruby-string">&quot;de-CH&quot;</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">de</span>)
+<span class="ruby-constant">I18n</span>.<span class="ruby-identifier">fallbacks</span>[:<span class="ruby-string">&quot;de-AT&quot;</span>] <span class="ruby-comment"># =&gt; [:&quot;de-AT&quot;, :de, :&quot;en-GB&quot;, :en]</span>
+<span class="ruby-constant">I18n</span>.<span class="ruby-identifier">fallbacks</span>[:<span class="ruby-string">&quot;de-CH&quot;</span>] <span class="ruby-comment"># =&gt; [:&quot;de-CH&quot;, :de, :&quot;en-GB&quot;, :en]</span>
+
+<span class="ruby-comment"># mapping fallbacks to an existing instance</span>
+
+<span class="ruby-comment"># people speaking Catalan also speak Spanish as spoken in Spain</span>
+<span class="ruby-identifier">fallbacks</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">fallbacks</span>
+<span class="ruby-identifier">fallbacks</span>.<span class="ruby-identifier">map</span>(:<span class="ruby-identifier">ca</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-string">&quot;es-ES&quot;</span>)
+<span class="ruby-identifier">fallbacks</span>[:<span class="ruby-identifier">ca</span>] <span class="ruby-comment"># =&gt; [:ca, :&quot;es-ES&quot;, :es, :&quot;en-US&quot;, :en]</span>
+
+<span class="ruby-comment"># people speaking Arabian as spoken in Palestine also speak Hebrew as spoken in Israel</span>
+<span class="ruby-identifier">fallbacks</span>.<span class="ruby-identifier">map</span>(:<span class="ruby-string">&quot;ar-PS&quot;</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-string">&quot;he-IL&quot;</span>)
+<span class="ruby-identifier">fallbacks</span>[:<span class="ruby-string">&quot;ar-PS&quot;</span>] <span class="ruby-comment"># =&gt; [:&quot;ar-PS&quot;, :ar, :&quot;he-IL&quot;, :he, :&quot;en-US&quot;, :en]</span>
+<span class="ruby-identifier">fallbacks</span>[:<span class="ruby-string">&quot;ar-EG&quot;</span>] <span class="ruby-comment"># =&gt; [:&quot;ar-EG&quot;, :ar, :&quot;en-US&quot;, :en]</span>
+
+<span class="ruby-comment"># people speaking Sami as spoken in Finnland also speak Swedish and Finnish as spoken in Finnland</span>
+<span class="ruby-identifier">fallbacks</span>.<span class="ruby-identifier">map</span>(:<span class="ruby-identifier">sms</span> =<span class="ruby-operator">&gt;</span> [:<span class="ruby-string">&quot;se-FI&quot;</span>, :<span class="ruby-string">&quot;fi-FI&quot;</span>])
+<span class="ruby-identifier">fallbacks</span>[:<span class="ruby-identifier">sms</span>] <span class="ruby-comment"># =&gt; [:sms, :&quot;se-FI&quot;, :se, :&quot;fi-FI&quot;, :fi, :&quot;en-US&quot;, :en]</span>
+</pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="../../../../../../../../classes/I18n.html">I18n</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="../../../../../../../../classes/I18n/Locale.html">I18n::Locale</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="../../../../../../../../classes/I18n/Locale/Fallbacks.html">I18n::Locale::Fallbacks</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

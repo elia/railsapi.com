@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActionController::Routing::Optimisation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            ActionController::Routing::Optimisation 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/actionpack/lib/action_controller/routing/optimisations_rb.html">actionpack/lib/action_controller/routing/optimisations.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Much of the slow performance from routes comes from the complexity of
+expiry, <code>:requirements</code> matching, defaults providing and
+figuring out which url pattern to use.  With named routes we can avoid the
+expense of finding the right route.  So if they&#39;ve provided the right
+number of arguments, and have no <code>:requirements</code>, we can just
+build up a string and return it.</p>
+
+<p>To support building optimisations for other common cases, the generation
+code is separated into several classes</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Optimisation/Optimiser.html">ActionController::Routing::Optimisation::Optimiser</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Optimisation/PositionalArguments.html">ActionController::Routing::Optimisation::PositionalArguments</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Optimisation/PositionalArgumentsWithAdditionalParams.html">ActionController::Routing::Optimisation::PositionalArgumentsWithAdditionalParams</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-generate_optimisation_block">generate_optimisation_block</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">OPTIMISERS</td>
+            <td>=</td>
+            <td class="attr-value">[PositionalArguments, PositionalArgumentsWithAdditionalParams]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-generate_optimisation_block">
+            
+              <b>generate_optimisation_block</b>(route, kind)
+            
+            <a href="../../../classes/ActionController/Routing/Optimisation.html#method-i-generate_optimisation_block" name="method-i-generate_optimisation_block" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-generate_optimisation_block_source')" id="l_method-i-generate_optimisation_block_source">show</a>
+                
+              </p>
+              <div id="method-i-generate_optimisation_block_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/optimisations.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">generate_optimisation_block</span>(<span class="ruby-identifier">route</span>, <span class="ruby-identifier">kind</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">route</span>.<span class="ruby-identifier">optimise?</span>
+  <span class="ruby-constant">OPTIMISERS</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-string">&quot;&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>, <span class="ruby-identifier">klazz</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">memo</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">klazz</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">route</span>, <span class="ruby-identifier">kind</span>).<span class="ruby-identifier">source_code</span>
+    <span class="ruby-identifier">memo</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

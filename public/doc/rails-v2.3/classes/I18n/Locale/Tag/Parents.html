@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>I18n::Locale::Tag::Parents</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            I18n::Locale::Tag::Parents 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/activesupport/lib/active_support/vendor/i18n-0_4_1/i18n/locale/tag/parents_rb.html">activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/locale/tag/parents.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-parent">parent</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-parents">parents</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-self_and_parents">self_and_parents</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-parent">
+            
+              <b>parent</b>()
+            
+            <a href="../../../../classes/I18n/Locale/Tag/Parents.html#method-i-parent" name="method-i-parent" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-parent_source')" id="l_method-i-parent_source">show</a>
+                
+              </p>
+              <div id="method-i-parent_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/locale/tag/parents.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">parent</span>
+  <span class="ruby-ivar">@parent</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">segs</span> = <span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">compact</span>
+    <span class="ruby-identifier">segs</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">1</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">tag</span>(*<span class="ruby-identifier">segs</span>[<span class="ruby-number">0</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">segs</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">-</span><span class="ruby-number">2</span>)].<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;-&#39;</span>)) <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-parents">
+            
+              <b>parents</b>()
+            
+            <a href="../../../../classes/I18n/Locale/Tag/Parents.html#method-i-parents" name="method-i-parents" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-parents_source')" id="l_method-i-parents_source">show</a>
+                
+              </p>
+              <div id="method-i-parents_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/locale/tag/parents.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">parents</span>
+  <span class="ruby-ivar">@parents</span> <span class="ruby-operator">||=</span> ([<span class="ruby-identifier">parent</span>] <span class="ruby-operator">+</span> (<span class="ruby-identifier">parent</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">parents</span> <span class="ruby-operator">:</span> [])).<span class="ruby-identifier">compact</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-self_and_parents">
+            
+              <b>self_and_parents</b>()
+            
+            <a href="../../../../classes/I18n/Locale/Tag/Parents.html#method-i-self_and_parents" name="method-i-self_and_parents" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-self_and_parents_source')" id="l_method-i-self_and_parents_source">show</a>
+                
+              </p>
+              <div id="method-i-self_and_parents_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/locale/tag/parents.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self_and_parents</span>
+  <span class="ruby-ivar">@self_and_parents</span> <span class="ruby-operator">||=</span> [<span class="ruby-keyword">self</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">parents</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

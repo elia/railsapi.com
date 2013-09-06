@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Kernel</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Kernel 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/activesupport/lib/active_support/core_ext/kernel/daemonizing_rb.html">activesupport/lib/active_support/core_ext/kernel/daemonizing.rb</a></li>
+            
+            <li><a href="../files/activesupport/lib/active_support/core_ext/kernel/debugger_rb.html">activesupport/lib/active_support/core_ext/kernel/debugger.rb</a></li>
+            
+            <li><a href="../files/activesupport/lib/active_support/core_ext/kernel/reporting_rb.html">activesupport/lib/active_support/core_ext/kernel/reporting.rb</a></li>
+            
+            <li><a href="../files/activesupport/lib/active_support/core_ext/kernel/requires_rb.html">activesupport/lib/active_support/core_ext/kernel/requires.rb</a></li>
+            
+            <li><a href="../files/activesupport/lib/active_support/core_ext/kernel/singleton_class_rb.html">activesupport/lib/active_support/core_ext/kernel/singleton_class.rb</a></li>
+            
+            <li><a href="../files/activesupport/lib/active_support/vendor/builder-2_1_2/blankslate_rb.html">activesupport/lib/active_support/vendor/builder-2.1.2/blankslate.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Since Ruby is very dynamic, methods added to the ancestors of <a
+href="BlankSlate.html">BlankSlate</a> <em>after <a
+href="BlankSlate.html">BlankSlate</a> is defined</em> will show up in the
+list of available <a href="BlankSlate.html">BlankSlate</a> methods.  We
+handle this by defining a hook in the <a href="Object.html">Object</a> and
+<a href="Kernel.html">Kernel</a> classes that will hide any method defined
+after <a href="BlankSlate.html">BlankSlate</a> has been loaded.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-blank_slate_method_added">blank_slate_method_added</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-breakpoint">breakpoint</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-class_eval">class_eval</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-daemonize">daemonize</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-debugger">debugger</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-enable_warnings">enable_warnings</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-method_added">method_added</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-require_library_or_gem">require_library_or_gem</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-silence_stream">silence_stream</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-silence_warnings">silence_warnings</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-singleton_class">singleton_class</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-suppress">suppress</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-blank_slate_method_added">
+            
+              <b>blank_slate_method_added</b>(name)
+            
+            <a href="../classes/Kernel.html#method-c-blank_slate_method_added" name="method-c-blank_slate_method_added" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-method_added">
+            
+              <b>method_added</b>(name)
+            
+            <a href="../classes/Kernel.html#method-c-method_added" name="method-c-method_added" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Detect method additions to <a href="Kernel.html">Kernel</a> and remove them
+in the <a href="BlankSlate.html">BlankSlate</a> class.</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Kernel.html#method-c-blank_slate_method_added">blank_slate_method_added</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-method_added_source')" id="l_method-c-method_added_source">show</a>
+                
+              </p>
+              <div id="method-c-method_added_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/builder-2.1.2/blankslate.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">method_added</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">blank_slate_method_added</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Kernel</span>
+  <span class="ruby-constant">BlankSlate</span>.<span class="ruby-identifier">hide</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-breakpoint">
+            
+              <b>breakpoint</b>()
+            
+            <a href="../classes/Kernel.html#method-i-breakpoint" name="method-i-breakpoint" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-breakpoint_source')" id="l_method-i-breakpoint_source">show</a>
+                
+              </p>
+              <div id="method-i-breakpoint_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/kernel/debugger.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">breakpoint</span>
+  <span class="ruby-identifier">message</span> = <span class="ruby-string">&quot;\n***** The &#39;breakpoint&#39; command has been renamed &#39;debugger&#39; -- please change *****\n&quot;</span>
+  <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">Rails</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-identifier">message</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">debugger</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-class_eval">
+            
+              <b>class_eval</b>(*args, &amp;block)
+            
+            <a href="../classes/Kernel.html#method-i-class_eval" name="method-i-class_eval" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="Kernel.html#method-i-class_eval">#class_eval</a> on an object acts
+like singleton_class.class_eval.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-class_eval_source')" id="l_method-i-class_eval_source">show</a>
+                
+              </p>
+              <div id="method-i-class_eval_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/kernel/singleton_class.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">class_eval</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">singleton_class</span>.<span class="ruby-identifier">class_eval</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-daemonize">
+            
+              <b>daemonize</b>()
+            
+            <a href="../classes/Kernel.html#method-i-daemonize" name="method-i-daemonize" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Turns the current script into a daemon process that detaches from the
+console. It can be shut down with a TERM signal.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-daemonize_source')" id="l_method-i-daemonize_source">show</a>
+                
+              </p>
+              <div id="method-i-daemonize_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/kernel/daemonizing.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">daemonize</span>
+  <span class="ruby-constant">Process</span>.<span class="ruby-identifier">daemon</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-debugger">
+            
+              <b>debugger</b>()
+            
+            <a href="../classes/Kernel.html#method-i-debugger" name="method-i-debugger" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Starts a debugging session if ruby-debug has been loaded (call
+script/server –debugger to do load it).</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-debugger_source')" id="l_method-i-debugger_source">show</a>
+                
+              </p>
+              <div id="method-i-debugger_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/kernel/debugger.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">debugger</span>
+  <span class="ruby-identifier">message</span> = <span class="ruby-string">&quot;\n***** Debugger requested, but was not available: Start server with --debugger to enable *****\n&quot;</span>
+  <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">Rails</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-identifier">message</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-identifier">message</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-enable_warnings">
+            
+              <b>enable_warnings</b>()
+            
+            <a href="../classes/Kernel.html#method-i-enable_warnings" name="method-i-enable_warnings" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets $VERBOSE to true for the duration of the block and back to its
+original value afterwards.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-enable_warnings_source')" id="l_method-i-enable_warnings_source">show</a>
+                
+              </p>
+              <div id="method-i-enable_warnings_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/kernel/reporting.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">enable_warnings</span>
+  <span class="ruby-identifier">old_verbose</span>, <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">$VERBOSE</span>, <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">old_verbose</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-require_library_or_gem">
+            
+              <b>require_library_or_gem</b>(library_name)
+            
+            <a href="../classes/Kernel.html#method-i-require_library_or_gem" name="method-i-require_library_or_gem" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Require a library with fallback to RubyGems.  Warnings during library
+loading are silenced to increase signal/noise for application warnings.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-require_library_or_gem_source')" id="l_method-i-require_library_or_gem_source">show</a>
+                
+              </p>
+              <div id="method-i-require_library_or_gem_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/kernel/requires.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">require_library_or_gem</span>(<span class="ruby-identifier">library_name</span>)
+  <span class="ruby-identifier">silence_warnings</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-identifier">library_name</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cannot_require</span>
+      <span class="ruby-comment"># 1. Requiring the module is unsuccessful, maybe it&#39;s a gem and nobody required rubygems yet. Try.</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;rubygems&#39;</span>
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">rubygems_not_installed</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-identifier">cannot_require</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment"># 2. Rubygems is installed and loaded. Try to load the library again</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">require</span> <span class="ruby-identifier">library_name</span>
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">gem_not_installed</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-identifier">cannot_require</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-silence_stream">
+            
+              <b>silence_stream</b>(stream)
+            
+            <a href="../classes/Kernel.html#method-i-silence_stream" name="method-i-silence_stream" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Silences any stream for the duration of the block.</p>
+
+<pre>silence_stream(STDOUT) do
+  puts &#39;This will never be seen&#39;
+end
+
+puts &#39;But this will&#39;</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-silence_stream_source')" id="l_method-i-silence_stream_source">show</a>
+                
+              </p>
+              <div id="method-i-silence_stream_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/kernel/reporting.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">silence_stream</span>(<span class="ruby-identifier">stream</span>)
+  <span class="ruby-identifier">old_stream</span> = <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">reopen</span>(<span class="ruby-constant">RUBY_PLATFORM</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(:?mswin|mingw)/</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;NUL:&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;/dev/null&#39;</span>)
+  <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">sync</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">reopen</span>(<span class="ruby-identifier">old_stream</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-silence_warnings">
+            
+              <b>silence_warnings</b>()
+            
+            <a href="../classes/Kernel.html#method-i-silence_warnings" name="method-i-silence_warnings" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets $VERBOSE to nil for the duration of the block and back to its original
+value afterwards.</p>
+
+<pre>silence_warnings do
+  value = noisy_call # no warning voiced
+end
+
+noisy_call # warning voiced</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-silence_warnings_source')" id="l_method-i-silence_warnings_source">show</a>
+                
+              </p>
+              <div id="method-i-silence_warnings_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/kernel/reporting.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">silence_warnings</span>
+  <span class="ruby-identifier">old_verbose</span>, <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">$VERBOSE</span>, <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">old_verbose</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-singleton_class">
+            
+              <b>singleton_class</b>()
+            
+            <a href="../classes/Kernel.html#method-i-singleton_class" name="method-i-singleton_class" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the object&#39;s singleton class.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-singleton_class_source')" id="l_method-i-singleton_class_source">show</a>
+                
+              </p>
+              <div id="method-i-singleton_class_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/kernel/singleton_class.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">singleton_class</span>
+  <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword ruby-title">self</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-suppress">
+            
+              <b>suppress</b>(*exception_classes)
+            
+            <a href="../classes/Kernel.html#method-i-suppress" name="method-i-suppress" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Blocks and ignores any exception passed as argument if raised within the
+block.</p>
+
+<pre>suppress(ZeroDivisionError) do
+  1/0
+  puts &quot;This code is NOT reached&quot;
+end
+
+puts &quot;This code gets executed and nothing related to ZeroDivisionError was seen&quot;</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-suppress_source')" id="l_method-i-suppress_source">show</a>
+                
+              </p>
+              <div id="method-i-suppress_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/kernel/reporting.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">suppress</span>(*<span class="ruby-identifier">exception_classes</span>)
+  <span class="ruby-keyword">begin</span> <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">exception_classes</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cls</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-identifier">cls</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,1226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TZInfo::TimezonePeriod</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            TZInfo::TimezonePeriod 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/activesupport/lib/active_support/vendor/tzinfo-0_3_12/tzinfo/timezone_period_rb.html">activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>A period of time in a timezone where the same offset from UTC applies.</p>
+
+<p>All the methods that take times accept instances of <a
+href="../Time.html">Time</a>, <a href="../DateTime.html">DateTime</a> or
+integer timestamps.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-3D-3D">==</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-abbreviation">abbreviation</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-dst-3F">dst?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-eql-3F">eql?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-hash">hash</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-inspect">inspect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-local_after_start-3F">local_after_start?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-local_before_end-3F">local_before_end?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-local_end">local_end</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-local_start">local_start</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-std_offset">std_offset</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to_local">to_local</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-to_utc">to_utc</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-utc_after_start-3F">utc_after_start?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-utc_before_end-3F">utc_before_end?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-utc_end">utc_end</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-utc_offset">utc_offset</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-utc_start">utc_start</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-utc_total_offset">utc_total_offset</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-utc_total_offset_rational">utc_total_offset_rational</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-valid_for_local-3F">valid_for_local?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-valid_for_utc-3F">valid_for_utc?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>Z</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-zone_identifier">zone_identifier</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>end_transition</td>
+            <td class='attr-desc'><p>The TimezoneTransitionInfo that defines the end of this <a
+href="TimezonePeriod.html">TimezonePeriod</a> (may be nil if unbounded).</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>offset</td>
+            <td class='attr-desc'><p>The TimezoneOffsetInfo for this period.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>start_transition</td>
+            <td class='attr-desc'><p>The TimezoneTransitionInfo that defines the start of this <a
+href="TimezonePeriod.html">TimezonePeriod</a>  (may be nil if unbounded).</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(start_transition, end_transition, offset = nil)
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes a new <a href="TimezonePeriod.html">TimezonePeriod</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">start_transition</span>, <span class="ruby-identifier">end_transition</span>, <span class="ruby-identifier">offset</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@start_transition</span> = <span class="ruby-identifier">start_transition</span>
+  <span class="ruby-ivar">@end_transition</span> = <span class="ruby-identifier">end_transition</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">offset</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;Offset specified with transitions&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@end_transition</span>
+    <span class="ruby-ivar">@offset</span> = <span class="ruby-identifier">offset</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@start_transition</span> 
+      <span class="ruby-ivar">@offset</span> = <span class="ruby-ivar">@start_transition</span>.<span class="ruby-identifier">offset</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@end_transition</span>
+      <span class="ruby-ivar">@offset</span> = <span class="ruby-ivar">@end_transition</span>.<span class="ruby-identifier">previous_offset</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;No offset specified and no transitions to determine it from&#39;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-ivar">@utc_total_offset_rational</span> = <span class="ruby-keyword">nil</span>      
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-3D-3D">
+            
+              <b>==</b>(p)
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-3D-3D" name="method-i-3D-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns true if this <a href="TimezonePeriod.html">TimezonePeriod</a> is
+equal to p. This compares the  <a
+href="TimezonePeriod.html#attribute-i-start_transition">#start_transition</a>,
+<a
+href="TimezonePeriod.html#attribute-i-end_transition">#end_transition</a>
+and offset using ==.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-3D-3D_source')" id="l_method-i-3D-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-3D-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-keyword ruby-title">p</span>)
+  <span class="ruby-identifier">p</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:start_transition</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:end_transition</span>) <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:offset</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">start_transition</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">start_transition</span> <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">end_transition</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">end_transition</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">offset</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">offset</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-abbreviation">
+            
+              <b>abbreviation</b>()
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-abbreviation" name="method-i-abbreviation" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The identifier of this period, e.g. “GMT” (Greenwich Mean <a
+href="../Time.html">Time</a>) or “BST” (British Summer <a
+href="../Time.html">Time</a>) for “Europe/London”. The returned identifier
+is a  symbol.</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="TimezonePeriod.html#method-i-zone_identifier">zone_identifier</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-abbreviation_source')" id="l_method-i-abbreviation_source">show</a>
+                
+              </p>
+              <div id="method-i-abbreviation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">abbreviation</span>
+  <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">abbreviation</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-dst-3F">
+            
+              <b>dst?</b>()
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-dst-3F" name="method-i-dst-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>true if daylight savings is in effect for this period; otherwise false.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-dst-3F_source')" id="l_method-i-dst-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-dst-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">dst?</span>
+  <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">dst?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-eql-3F">
+            
+              <b>eql?</b>(p)
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-eql-3F" name="method-i-eql-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns true if this TimezonePeriods is equal to p. This compares the <a
+href="TimezonePeriod.html#attribute-i-start_transition">#start_transition</a>,
+<a
+href="TimezonePeriod.html#attribute-i-end_transition">#end_transition</a>
+and offset using eql?</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-eql-3F_source')" id="l_method-i-eql-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-eql-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">eql?</span>(<span class="ruby-identifier">p</span>)
+  <span class="ruby-identifier">p</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:start_transition</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:end_transition</span>) <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:offset</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">start_transition</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">start_transition</span>) <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">end_transition</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">end_transition</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">offset</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">offset</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-hash">
+            
+              <b>hash</b>()
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-hash" name="method-i-hash" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns a hash of this <a href="TimezonePeriod.html">TimezonePeriod</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-hash_source')" id="l_method-i-hash_source">show</a>
+                
+              </p>
+              <div id="method-i-hash_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">hash</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@start_transition</span>.<span class="ruby-identifier">hash</span> <span class="ruby-operator">^</span> <span class="ruby-ivar">@end_transition</span>.<span class="ruby-identifier">hash</span>
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">^=</span> <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">hash</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@end_transition</span>
+  <span class="ruby-identifier">result</span>       
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inspect">
+            
+              <b>inspect</b>()
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-inspect" name="method-i-inspect" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns internal object state as a programmer-readable string.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-inspect_source')" id="l_method-i-inspect_source">show</a>
+                
+              </p>
+              <div id="method-i-inspect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">inspect</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-node">&quot;#&lt;#{self.class}: #{@start_transition.inspect},#{@end_transition.inspect}&quot;</span>
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;,#{@offset.inspect}&gt;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@end_transition</span>
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;&gt;&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-local_after_start-3F">
+            
+              <b>local_after_start?</b>(local)
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-local_after_start-3F" name="method-i-local_after_start-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>true if the given local <a href="../DateTime.html">DateTime</a> is after
+the start of the period  (inclusive); otherwise false.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-local_after_start-3F_source')" id="l_method-i-local_after_start-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-local_after_start-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">local_after_start?</span>(<span class="ruby-identifier">local</span>)
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@start_transition</span>.<span class="ruby-identifier">local_start</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">local</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-local_before_end-3F">
+            
+              <b>local_before_end?</b>(local)
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-local_before_end-3F" name="method-i-local_before_end-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>true if the given local <a href="../DateTime.html">DateTime</a> is before
+the end of the period  (exclusive); otherwise false.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-local_before_end-3F_source')" id="l_method-i-local_before_end-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-local_before_end-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">local_before_end?</span>(<span class="ruby-identifier">local</span>)
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@end_transition</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@end_transition</span>.<span class="ruby-identifier">local_end</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">local</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-local_end">
+            
+              <b>local_end</b>()
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-local_end" name="method-i-local_end" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The end time of the period in local time as a <a
+href="../DateTime.html">DateTime</a>. May be nil if  unbounded.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-local_end_source')" id="l_method-i-local_end_source">show</a>
+                
+              </p>
+              <div id="method-i-local_end_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">local_end</span>
+  <span class="ruby-ivar">@end_transition</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@end_transition</span>.<span class="ruby-identifier">local_end</span>.<span class="ruby-identifier">to_datetime</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-local_start">
+            
+              <b>local_start</b>()
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-local_start" name="method-i-local_start" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The start time of the period in local time as a <a
+href="../DateTime.html">DateTime</a>. May be nil if  unbounded.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-local_start_source')" id="l_method-i-local_start_source">show</a>
+                
+              </p>
+              <div id="method-i-local_start_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">local_start</span>
+  <span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@start_transition</span>.<span class="ruby-identifier">local_start</span>.<span class="ruby-identifier">to_datetime</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-std_offset">
+            
+              <b>std_offset</b>()
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-std_offset" name="method-i-std_offset" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Offset from the local time where daylight savings is in effect (seconds).
+E.g.: <a href="TimezonePeriod.html#method-i-utc_offset">#utc_offset</a>
+could be -5 hours. Normally, <a
+href="TimezonePeriod.html#method-i-std_offset">#std_offset</a> would be 0. 
+During daylight savings, <a
+href="TimezonePeriod.html#method-i-std_offset">#std_offset</a> would
+typically become +1 hours.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-std_offset_source')" id="l_method-i-std_offset_source">show</a>
+                
+              </p>
+              <div id="method-i-std_offset_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">std_offset</span>
+  <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">std_offset</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_local">
+            
+              <b>to_local</b>(utc)
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-to_local" name="method-i-to_local" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Converts a UTC <a href="../DateTime.html">DateTime</a> to local time based
+on the offset of this period.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_local_source')" id="l_method-i-to_local_source">show</a>
+                
+              </p>
+              <div id="method-i-to_local_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_local</span>(<span class="ruby-identifier">utc</span>)
+  <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">to_local</span>(<span class="ruby-identifier">utc</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_utc">
+            
+              <b>to_utc</b>(local)
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-to_utc" name="method-i-to_utc" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Converts a local <a href="../DateTime.html">DateTime</a> to UTC based on
+the offset of this period.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_utc_source')" id="l_method-i-to_utc_source">show</a>
+                
+              </p>
+              <div id="method-i-to_utc_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_utc</span>(<span class="ruby-identifier">local</span>)
+  <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">to_utc</span>(<span class="ruby-identifier">local</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-utc_after_start-3F">
+            
+              <b>utc_after_start?</b>(utc)
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-utc_after_start-3F" name="method-i-utc_after_start-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>true if the given UTC <a href="../DateTime.html">DateTime</a> is after the
+start of the period  (inclusive); otherwise false.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-utc_after_start-3F_source')" id="l_method-i-utc_after_start-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-utc_after_start-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">utc_after_start?</span>(<span class="ruby-identifier">utc</span>)
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@start_transition</span>.<span class="ruby-identifier">at</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">utc</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-utc_before_end-3F">
+            
+              <b>utc_before_end?</b>(utc)
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-utc_before_end-3F" name="method-i-utc_before_end-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>true if the given UTC <a href="../DateTime.html">DateTime</a> is before the
+end of the period  (exclusive); otherwise false.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-utc_before_end-3F_source')" id="l_method-i-utc_before_end-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-utc_before_end-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">utc_before_end?</span>(<span class="ruby-identifier">utc</span>)
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@end_transition</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@end_transition</span>.<span class="ruby-identifier">at</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">utc</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-utc_end">
+            
+              <b>utc_end</b>()
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-utc_end" name="method-i-utc_end" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The end time of the period in UTC as a <a
+href="../DateTime.html">DateTime</a>. May be nil if unbounded.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-utc_end_source')" id="l_method-i-utc_end_source">show</a>
+                
+              </p>
+              <div id="method-i-utc_end_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">utc_end</span>
+  <span class="ruby-ivar">@end_transition</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@end_transition</span>.<span class="ruby-identifier">at</span>.<span class="ruby-identifier">to_datetime</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-utc_offset">
+            
+              <b>utc_offset</b>()
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-utc_offset" name="method-i-utc_offset" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Base offset of the timezone from UTC (seconds).</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-utc_offset_source')" id="l_method-i-utc_offset_source">show</a>
+                
+              </p>
+              <div id="method-i-utc_offset_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">utc_offset</span>
+  <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">utc_offset</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-utc_start">
+            
+              <b>utc_start</b>()
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-utc_start" name="method-i-utc_start" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The start time of the period in UTC as a <a
+href="../DateTime.html">DateTime</a>. May be nil if unbounded.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-utc_start_source')" id="l_method-i-utc_start_source">show</a>
+                
+              </p>
+              <div id="method-i-utc_start_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">utc_start</span>
+  <span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@start_transition</span>.<span class="ruby-identifier">at</span>.<span class="ruby-identifier">to_datetime</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-utc_total_offset">
+            
+              <b>utc_total_offset</b>()
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-utc_total_offset" name="method-i-utc_total_offset" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Total offset from UTC (seconds). Equal to <a
+href="TimezonePeriod.html#method-i-utc_offset">#utc_offset</a> +
+std_offset.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-utc_total_offset_source')" id="l_method-i-utc_total_offset_source">show</a>
+                
+              </p>
+              <div id="method-i-utc_total_offset_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">utc_total_offset</span>
+  <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">utc_total_offset</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-utc_total_offset_rational">
+            
+              <b>utc_total_offset_rational</b>()
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-utc_total_offset_rational" name="method-i-utc_total_offset_rational" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Total offset from UTC (days). Result is a Rational.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-utc_total_offset_rational_source')" id="l_method-i-utc_total_offset_rational_source">show</a>
+                
+              </p>
+              <div id="method-i-utc_total_offset_rational_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">utc_total_offset_rational</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@utc_total_offset_rational</span>
+    <span class="ruby-ivar">@utc_total_offset_rational</span> = <span class="ruby-constant">OffsetRationals</span>.<span class="ruby-identifier">rational_for_offset</span>(<span class="ruby-identifier">utc_total_offset</span>) 
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@utc_total_offset_rational</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-valid_for_local-3F">
+            
+              <b>valid_for_local?</b>(local)
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-valid_for_local-3F" name="method-i-valid_for_local-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>true if this period is valid for the given local <a
+href="../DateTime.html">DateTime</a>; otherwise false.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-valid_for_local-3F_source')" id="l_method-i-valid_for_local-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-valid_for_local-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">valid_for_local?</span>(<span class="ruby-identifier">local</span>)      
+  <span class="ruby-identifier">local_after_start?</span>(<span class="ruby-identifier">local</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">local_before_end?</span>(<span class="ruby-identifier">local</span>) 
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-valid_for_utc-3F">
+            
+              <b>valid_for_utc?</b>(utc)
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-valid_for_utc-3F" name="method-i-valid_for_utc-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>true if this period is valid for the given UTC <a
+href="../DateTime.html">DateTime</a>; otherwise false.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-valid_for_utc-3F_source')" id="l_method-i-valid_for_utc-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-valid_for_utc-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/tzinfo-0.3.12/tzinfo/timezone_period.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">valid_for_utc?</span>(<span class="ruby-identifier">utc</span>)
+  <span class="ruby-identifier">utc_after_start?</span>(<span class="ruby-identifier">utc</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">utc_before_end?</span>(<span class="ruby-identifier">utc</span>) 
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-zone_identifier">
+            
+              <b>zone_identifier</b>()
+            
+            <a href="../../classes/TZInfo/TimezonePeriod.html#method-i-zone_identifier" name="method-i-zone_identifier" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

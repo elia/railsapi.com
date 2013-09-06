@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActiveRecord::Dirty</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            ActiveRecord::Dirty 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/activerecord/lib/active_record/dirty_rb.html">activerecord/lib/active_record/dirty.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Track unsaved attribute changes.</p>
+
+<p>A newly instantiated object is unchanged:</p>
+
+<pre class="ruby"><span class="ruby-identifier">person</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">find_by_name</span>(<span class="ruby-string">&#39;uncle bob&#39;</span>)
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">changed?</span>       <span class="ruby-comment"># =&gt; false</span>
+</pre>
+
+<p>Change the name:</p>
+
+<pre class="ruby"><span class="ruby-identifier">person</span>.<span class="ruby-identifier">name</span> = <span class="ruby-string">&#39;Bob&#39;</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">changed?</span>       <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name_changed?</span>  <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name_was</span>       <span class="ruby-comment"># =&gt; &#39;uncle bob&#39;</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name_change</span>    <span class="ruby-comment"># =&gt; [&#39;uncle bob&#39;, &#39;Bob&#39;]</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name</span> = <span class="ruby-string">&#39;Bill&#39;</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name_change</span>    <span class="ruby-comment"># =&gt; [&#39;uncle bob&#39;, &#39;Bill&#39;]</span>
+</pre>
+
+<p>Save the changes:</p>
+
+<pre class="ruby"><span class="ruby-identifier">person</span>.<span class="ruby-identifier">save</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">changed?</span>       <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name_changed?</span>  <span class="ruby-comment"># =&gt; false</span>
+</pre>
+
+<p>Assigning the same value leaves the attribute unchanged:</p>
+
+<pre class="ruby"><span class="ruby-identifier">person</span>.<span class="ruby-identifier">name</span> = <span class="ruby-string">&#39;Bill&#39;</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name_changed?</span>  <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name_change</span>    <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+
+<p>Which attributes have changed?</p>
+
+<pre class="ruby"><span class="ruby-identifier">person</span>.<span class="ruby-identifier">name</span> = <span class="ruby-string">&#39;bob&#39;</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">changed</span>        <span class="ruby-comment"># =&gt; [&#39;name&#39;]</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">changes</span>        <span class="ruby-comment"># =&gt; { &#39;name&#39; =&gt; [&#39;Bill&#39;, &#39;bob&#39;] }</span>
+</pre>
+
+<p>Before modifying an attribute in-place:</p>
+
+<pre class="ruby"><span class="ruby-identifier">person</span>.<span class="ruby-identifier">name_will_change!</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;by&#39;</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name_change</span>    <span class="ruby-comment"># =&gt; [&#39;uncle bob&#39;, &#39;uncle bobby&#39;]</span>
+</pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="Dirty/ClassMethods.html">ActiveRecord::Dirty::ClassMethods</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-changed">changed</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-changed-3F">changed?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-changes">changes</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-included">included</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">DIRTY_SUFFIXES</td>
+            <td>=</td>
+            <td class="attr-value">[&#39;_changed?&#39;, &#39;_change&#39;, &#39;_will_change!&#39;, &#39;_was&#39;]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-included">
+            
+              <b>included</b>(base)
+            
+            <a href="../../classes/ActiveRecord/Dirty.html#method-c-included" name="method-c-included" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-included_source')" id="l_method-c-included_source">show</a>
+                
+              </p>
+              <div id="method-c-included_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/dirty.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">included</span>(<span class="ruby-identifier">base</span>)
+  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">attribute_method_suffix</span> *<span class="ruby-constant">DIRTY_SUFFIXES</span>
+  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">alias_method_chain</span> <span class="ruby-value">:write_attribute</span>, <span class="ruby-value">:dirty</span>
+  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">alias_method_chain</span> <span class="ruby-value">:save</span>,            <span class="ruby-value">:dirty</span>
+  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">alias_method_chain</span> <span class="ruby-value">:save!</span>,           <span class="ruby-value">:dirty</span>
+  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">alias_method_chain</span> <span class="ruby-value">:update</span>,          <span class="ruby-value">:dirty</span>
+  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">alias_method_chain</span> <span class="ruby-value">:reload</span>,          <span class="ruby-value">:dirty</span>
+
+  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">class_attribute</span> <span class="ruby-value">:partial_updates</span>
+  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">partial_updates</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:extend</span>, <span class="ruby-constant">ClassMethods</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-changed">
+            
+              <b>changed</b>()
+            
+            <a href="../../classes/ActiveRecord/Dirty.html#method-i-changed" name="method-i-changed" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>List of attributes with unsaved changes.</p>
+
+<pre class="ruby"><span class="ruby-identifier">person</span>.<span class="ruby-identifier">changed</span> <span class="ruby-comment"># =&gt; []</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name</span> = <span class="ruby-string">&#39;bob&#39;</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">changed</span> <span class="ruby-comment"># =&gt; [&#39;name&#39;]</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-changed_source')" id="l_method-i-changed_source">show</a>
+                
+              </p>
+              <div id="method-i-changed_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/dirty.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">changed</span>
+  <span class="ruby-identifier">changed_attributes</span>.<span class="ruby-identifier">keys</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-changed-3F">
+            
+              <b>changed?</b>()
+            
+            <a href="../../classes/ActiveRecord/Dirty.html#method-i-changed-3F" name="method-i-changed-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Do any attributes have unsaved changes?</p>
+
+<pre class="ruby"><span class="ruby-identifier">person</span>.<span class="ruby-identifier">changed?</span> <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name</span> = <span class="ruby-string">&#39;bob&#39;</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">changed?</span> <span class="ruby-comment"># =&gt; true</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-changed-3F_source')" id="l_method-i-changed-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-changed-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/dirty.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">changed?</span>
+  <span class="ruby-operator">!</span><span class="ruby-identifier">changed_attributes</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-changes">
+            
+              <b>changes</b>()
+            
+            <a href="../../classes/ActiveRecord/Dirty.html#method-i-changes" name="method-i-changes" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Map of changed attrs =&gt; [original value, new value].</p>
+
+<pre class="ruby"><span class="ruby-identifier">person</span>.<span class="ruby-identifier">changes</span> <span class="ruby-comment"># =&gt; {}</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name</span> = <span class="ruby-string">&#39;bob&#39;</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">changes</span> <span class="ruby-comment"># =&gt; { &#39;name&#39; =&gt; [&#39;bill&#39;, &#39;bob&#39;] }</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-changes_source')" id="l_method-i-changes_source">show</a>
+                
+              </p>
+              <div id="method-i-changes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/dirty.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">changes</span>
+  <span class="ruby-identifier">changed</span>.<span class="ruby-identifier">inject</span>({}) { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>, <span class="ruby-identifier">attr</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">attr</span>] = <span class="ruby-identifier">attribute_change</span>(<span class="ruby-identifier">attr</span>); <span class="ruby-identifier">h</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

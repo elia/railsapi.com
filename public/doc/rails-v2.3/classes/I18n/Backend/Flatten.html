@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>I18n::Backend::Flatten</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            I18n::Backend::Flatten 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/activesupport/lib/active_support/vendor/i18n-0_4_1/i18n/backend/flatten_rb.html">activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/flatten.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>This module contains several helpers to assist flattening translations. You
+may want to flatten translations for:</p>
+
+<pre>1) speed up lookups, as in the Memoize backend;
+2) In case you want to store translations in a data store, as in ActiveRecord backend;</pre>
+
+<p>You can check both backends above for some examples. This module also keeps
+all links in a hash so they can be properly resolved when flattened.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-flatten_keys">flatten_keys</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-flatten_translations">flatten_translations</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-links">links</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-normalize_flat_keys">normalize_flat_keys</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-normalize_flat_keys">normalize_flat_keys</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-resolve_link">resolve_link</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-store_link">store_link</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">SEPARATOR_ESCAPE_CHAR</td>
+            <td>=</td>
+            <td class="attr-value">&quot;\001&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">FLATTEN_SEPARATOR</td>
+            <td>=</td>
+            <td class="attr-value">&quot;.&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-normalize_flat_keys">
+            
+              <b>normalize_flat_keys</b>(locale, key, scope, separator)
+            
+            <a href="../../../classes/I18n/Backend/Flatten.html#method-c-normalize_flat_keys" name="method-c-normalize_flat_keys" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>normalize_keys the flatten way. This method is significantly faster and
+creates way less objects than the one at <a
+href="../../I18n.html#method-c-normalize_keys">I18n.normalize_keys</a>. It
+also handles escaping the translation keys.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-normalize_flat_keys_source')" id="l_method-c-normalize_flat_keys_source">show</a>
+                
+              </p>
+              <div id="method-c-normalize_flat_keys_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/flatten.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">normalize_flat_keys</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">scope</span>, <span class="ruby-identifier">separator</span>)
+  <span class="ruby-identifier">keys</span> = [<span class="ruby-identifier">scope</span>, <span class="ruby-identifier">key</span>].<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">compact</span>
+  <span class="ruby-identifier">separator</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">default_separator</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">separator</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">FLATTEN_SEPARATOR</span>
+    <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">map!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-node">&quot;#{FLATTEN_SEPARATOR}#{separator}&quot;</span>,
+        <span class="ruby-node">&quot;#{SEPARATOR_ESCAPE_CHAR}#{FLATTEN_SEPARATOR}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;.&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-flatten_keys">
+            
+              <b>flatten_keys</b>(hash, escape, prev_key=nil, &amp;block)
+            
+            <a href="../../../classes/I18n/Backend/Flatten.html#method-i-flatten_keys" name="method-i-flatten_keys" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="Flatten.html">Flatten</a> keys for nested Hashes by chaining up
+keys:</p>
+
+<pre class="ruby"><span class="ruby-operator">&gt;&gt;</span> { <span class="ruby-string">&quot;a&quot;</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&quot;b&quot;</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&quot;c&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;d&quot;</span>, <span class="ruby-string">&quot;e&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;f&quot;</span> }, <span class="ruby-string">&quot;g&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;h&quot;</span> }, <span class="ruby-string">&quot;i&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;j&quot;</span>}.<span class="ruby-identifier">wind</span>
+=<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&quot;a.b.c&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;d&quot;</span>, <span class="ruby-string">&quot;a.b.e&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;f&quot;</span>, <span class="ruby-string">&quot;a.g&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;h&quot;</span>, <span class="ruby-string">&quot;i&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;j&quot;</span> }
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-flatten_keys_source')" id="l_method-i-flatten_keys_source">show</a>
+                
+              </p>
+              <div id="method-i-flatten_keys_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/flatten.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">flatten_keys</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">escape</span>, <span class="ruby-identifier">prev_key</span>=<span class="ruby-keyword">nil</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-identifier">escape_default_separator</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">escape</span>
+    <span class="ruby-identifier">curr_key</span> = [<span class="ruby-identifier">prev_key</span>, <span class="ruby-identifier">key</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">FLATTEN_SEPARATOR</span>).<span class="ruby-identifier">to_sym</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">curr_key</span>, <span class="ruby-identifier">value</span>
+    <span class="ruby-identifier">flatten_keys</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">escape</span>, <span class="ruby-identifier">curr_key</span>, &amp;<span class="ruby-identifier">block</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-flatten_translations">
+            
+              <b>flatten_translations</b>(locale, data, escape, subtree)
+            
+            <a href="../../../classes/I18n/Backend/Flatten.html#method-i-flatten_translations" name="method-i-flatten_translations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Receives a hash of translations (where the key is a locale and the value is
+another hash) and return a hash with all translations flattened.</p>
+
+<p>Nested hashes are included in the flattened hash just if subtree is true
+and Symbols are automatically stored as links.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-flatten_translations_source')" id="l_method-i-flatten_translations_source">show</a>
+                
+              </p>
+              <div id="method-i-flatten_translations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/flatten.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">flatten_translations</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">escape</span>, <span class="ruby-identifier">subtree</span>)
+  <span class="ruby-identifier">hash</span> = {}
+  <span class="ruby-identifier">flatten_keys</span>(<span class="ruby-identifier">data</span>, <span class="ruby-identifier">escape</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">subtree</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">store_link</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+      <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-links">
+            
+              <b>links</b>()
+            
+            <a href="../../../classes/I18n/Backend/Flatten.html#method-i-links" name="method-i-links" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Store flattened links.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-links_source')" id="l_method-i-links_source">show</a>
+                
+              </p>
+              <div id="method-i-links_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/flatten.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">links</span>
+  <span class="ruby-ivar">@links</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>,<span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>] = {} }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-normalize_flat_keys">
+            
+              <b>normalize_flat_keys</b>(locale, key, scope, separator)
+            
+            <a href="../../../classes/I18n/Backend/Flatten.html#method-i-normalize_flat_keys" name="method-i-normalize_flat_keys" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Shortcut to <a
+href="Flatten.html#method-c-normalize_flat_keys">::normalize_flat_keys</a>
+and then resolve_links.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-normalize_flat_keys_source')" id="l_method-i-normalize_flat_keys_source">show</a>
+                
+              </p>
+              <div id="method-i-normalize_flat_keys_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/flatten.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">normalize_flat_keys</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">scope</span>, <span class="ruby-identifier">separator</span>)
+  <span class="ruby-identifier">key</span> = <span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Backend</span><span class="ruby-operator">::</span><span class="ruby-constant">Flatten</span>.<span class="ruby-identifier">normalize_flat_keys</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">scope</span>, <span class="ruby-identifier">separator</span>)
+  <span class="ruby-identifier">resolve_link</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Protected methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-resolve_link">
+            
+              <b>resolve_link</b>(locale, key)
+            
+            <a href="../../../classes/I18n/Backend/Flatten.html#method-i-resolve_link" name="method-i-resolve_link" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-resolve_link_source')" id="l_method-i-resolve_link_source">show</a>
+                
+              </p>
+              <div id="method-i-resolve_link_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/flatten.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">resolve_link</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">key</span>, <span class="ruby-identifier">locale</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-identifier">links</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">links</span>[<span class="ruby-identifier">locale</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">links</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">links</span>[<span class="ruby-identifier">key</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">link</span> = <span class="ruby-identifier">find_link</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">store_link</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">key</span>.<span class="ruby-identifier">gsub</span>(*<span class="ruby-identifier">link</span>))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">key</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-store_link">
+            
+              <b>store_link</b>(locale, key, link)
+            
+            <a href="../../../classes/I18n/Backend/Flatten.html#method-i-store_link" name="method-i-store_link" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-store_link_source')" id="l_method-i-store_link_source">show</a>
+                
+              </p>
+              <div id="method-i-store_link_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/flatten.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">store_link</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">link</span>)
+  <span class="ruby-identifier">links</span>[<span class="ruby-identifier">locale</span>.<span class="ruby-identifier">to_sym</span>][<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">link</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>cache.rb</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            cache.rb
+        </h1>
+        <ul class="files">
+            <li>activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cache.rb</li>
+            <li>Last modified: 2013-09-06 16:46:51 +0200</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>This module allows you to easily cache all responses from the backend -
+thus speeding up the <a
+href="../../../../../../../../classes/I18n.html">I18n</a> aspects of your
+application quite a bit.</p>
+
+<p>To enable caching you can simply include the Cache module to the Simple
+backend - or whatever other backend you are using:</p>
+
+<pre>I18n::Backend::Simple.send(:include, I18n::Backend::Cache)</pre>
+
+<p>You will also need to set a cache store implementation that you want to
+use:</p>
+
+<pre>I18n.cache_store = ActiveSupport::Cache.lookup_store(:memory_store)</pre>
+
+<p>You can use any cache implementation you want that provides the same API as
+<a
+href="../../../../../../../../classes/ActiveSupport/Cache.html">ActiveSupport::Cache</a>
+(only the methods fetch and write are being used).</p>
+
+<p>The cache_key implementation assumes that you only pass values to <a
+href="../../../../../../../../classes/I18n.html#method-c-translate">I18n.translate</a>
+that return a valid key from hash (see <a
+href="http://www.ruby-doc.org/core/classes/Object.html#M000337">www.ruby-doc.org/core/classes/Object.html#M000337</a>).</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="../../../../../../../../classes/I18n.html">I18n</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="../../../../../../../../classes/I18n/Backend.html">I18n::Backend</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="../../../../../../../../classes/I18n/Backend/Cache.html">I18n::Backend::Cache</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1084 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActiveRecord::Errors</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            ActiveRecord::Errors 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/activerecord/lib/active_record/validations_rb.html">activerecord/lib/active_record/validations.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Active Record validation is reported to and from this object, which is used
+by <a href="Base.html#method-i-save">ActiveRecord::Base#save</a> to
+determine whether the object is in a valid state to be saved. See usage
+example in <a href="Validations.html">Validations</a>.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-5B-5D">[]</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add">add</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_on_blank">add_on_blank</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_on_empty">add_on_empty</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_to_base">add_to_base</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-clear">clear</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-count">count</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-default_error_messages">default_error_messages</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-each">each</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-each_error">each_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-each_full">each_full</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-empty-3F">empty?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-full_messages">full_messages</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-generate_message">generate_message</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-invalid-3F">invalid?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-length">length</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-on">on</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-on_base">on_base</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-size">size</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to_xml">to_xml</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../Enumerable.html">
+              Enumerable
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-default_error_messages">
+            
+              <b>default_error_messages</b>()
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-c-default_error_messages" name="method-c-default_error_messages" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-default_error_messages_source')" id="l_method-c-default_error_messages_source">show</a>
+                
+              </p>
+              <div id="method-c-default_error_messages_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">default_error_messages</span>
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecation</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-string">&quot;ActiveRecord::Errors.default_error_messages has been deprecated. Please use I18n.translate(&#39;activerecord.errors.messages&#39;).&quot;</span>)
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">translate</span> <span class="ruby-string">&#39;activerecord.errors.messages&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-5B-5D">
+            
+              <b>[]</b>(attribute)
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-5B-5D" name="method-i-5B-5D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add">
+            
+              <b>add</b>(attribute, message = nil, options = {})
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-add" name="method-i-add" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Adds an error message (<code>messsage</code>) to the
+<code>attribute</code>, which will be returned on a call to
+<code>on(attribute)</code> for the same attribute and ensure that this
+error object returns false when asked if <code>empty?</code>. More than one
+error can be added to the same <code>attribute</code> in which case an
+array will be returned on a call to <code>on(attribute)</code>. If no
+<code>messsage</code> is supplied, :invalid is assumed. If
+<code>message</code> is a <a href="../Symbol.html">Symbol</a>, it will be
+translated, using the appropriate scope (see translate_error).</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_source')" id="l_method-i-add_source">show</a>
+                
+              </p>
+              <div id="method-i-add_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add</span>(<span class="ruby-identifier">attribute</span>, <span class="ruby-identifier">message</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:message</span>] = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:default</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:default</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+  <span class="ruby-identifier">error</span>, <span class="ruby-identifier">message</span> = <span class="ruby-identifier">message</span>, <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">message</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Error</span>)
+
+  <span class="ruby-ivar">@errors</span>[<span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">to_s</span>] <span class="ruby-operator">||=</span> []
+  <span class="ruby-ivar">@errors</span>[<span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">to_s</span>] <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">error</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@base</span>, <span class="ruby-identifier">attribute</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_on_blank">
+            
+              <b>add_on_blank</b>(attributes, custom_message = nil)
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-add_on_blank" name="method-i-add_on_blank" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Will add an error message to each of the attributes in
+<code>attributes</code> that is blank (using <a
+href="../Object.html#method-i-blank-3F">Object#blank?</a>).</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_on_blank_source')" id="l_method-i-add_on_blank_source">show</a>
+                
+              </p>
+              <div id="method-i-add_on_blank_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add_on_blank</span>(<span class="ruby-identifier">attributes</span>, <span class="ruby-identifier">custom_message</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">attr</span> <span class="ruby-keyword">in</span> [<span class="ruby-identifier">attributes</span>].<span class="ruby-identifier">flatten</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">attr</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">?</span> <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">attr</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">:</span> <span class="ruby-ivar">@base</span>[<span class="ruby-identifier">attr</span>.<span class="ruby-identifier">to_s</span>]
+    <span class="ruby-identifier">add</span>(<span class="ruby-identifier">attr</span>, <span class="ruby-value">:blank</span>, <span class="ruby-value">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">custom_message</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">blank?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_on_empty">
+            
+              <b>add_on_empty</b>(attributes, custom_message = nil)
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-add_on_empty" name="method-i-add_on_empty" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Will add an error message to each of the attributes in
+<code>attributes</code> that is empty.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_on_empty_source')" id="l_method-i-add_on_empty_source">show</a>
+                
+              </p>
+              <div id="method-i-add_on_empty_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add_on_empty</span>(<span class="ruby-identifier">attributes</span>, <span class="ruby-identifier">custom_message</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">attr</span> <span class="ruby-keyword">in</span> [<span class="ruby-identifier">attributes</span>].<span class="ruby-identifier">flatten</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">attr</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">?</span> <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">attr</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">:</span> <span class="ruby-ivar">@base</span>[<span class="ruby-identifier">attr</span>.<span class="ruby-identifier">to_s</span>]
+    <span class="ruby-identifier">is_empty</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:empty?</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">add</span>(<span class="ruby-identifier">attr</span>, <span class="ruby-value">:empty</span>, <span class="ruby-value">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">custom_message</span>) <span class="ruby-keyword">unless</span> <span class="ruby-operator">!</span><span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">is_empty</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_to_base">
+            
+              <b>add_to_base</b>(msg)
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-add_to_base" name="method-i-add_to_base" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Adds an error to the base object instead of any particular attribute. This
+is used to report errors that don&#39;t tie to any specific attribute, but
+rather to the object as a whole. These error messages don&#39;t get
+prepended with any field name when iterating with <code>each_full</code>,
+so they should be complete sentences.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_to_base_source')" id="l_method-i-add_to_base_source">show</a>
+                
+              </p>
+              <div id="method-i-add_to_base_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add_to_base</span>(<span class="ruby-identifier">msg</span>)
+  <span class="ruby-identifier">add</span>(<span class="ruby-value">:base</span>, <span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-clear">
+            
+              <b>clear</b>()
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-clear" name="method-i-clear" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Removes all errors that have been added.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-clear_source')" id="l_method-i-clear_source">show</a>
+                
+              </p>
+              <div id="method-i-clear_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 297</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">clear</span>
+  <span class="ruby-ivar">@errors</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">OrderedHash</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-count">
+            
+              <b>count</b>()
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-count" name="method-i-count" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-each">
+            
+              <b>each</b>()
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-each" name="method-i-each" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Yields each attribute and associated message per error added.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Company</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">validates_presence_of</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">email</span>
+  <span class="ruby-identifier">validates_length_of</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-keyword">in</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">30</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">company</span> = <span class="ruby-constant">Company</span>.<span class="ruby-identifier">create</span>(:<span class="ruby-identifier">address</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;123 First St.&#39;</span>)
+<span class="ruby-identifier">company</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">attr</span>,<span class="ruby-identifier">msg</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{attr} - #{msg}&quot;</span> }
+<span class="ruby-comment"># =&gt; name - is too short (minimum is 5 characters)</span>
+<span class="ruby-comment">#    name - can&#39;t be blank</span>
+<span class="ruby-comment">#    address - can&#39;t be blank</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-each_source')" id="l_method-i-each_source">show</a>
+                
+              </p>
+              <div id="method-i-each_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 238</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">each</span>
+  <span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">each_key</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@errors</span>[<span class="ruby-identifier">attr</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">error</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">attr</span>, <span class="ruby-identifier">error</span>.<span class="ruby-identifier">message</span> } }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-each_error">
+            
+              <b>each_error</b>()
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-each_error" name="method-i-each_error" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Yields each attribute and associated error per error added.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Company</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">validates_presence_of</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">email</span>
+  <span class="ruby-identifier">validates_length_of</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-keyword">in</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">30</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">company</span> = <span class="ruby-constant">Company</span>.<span class="ruby-identifier">create</span>(:<span class="ruby-identifier">address</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;123 First St.&#39;</span>)
+<span class="ruby-identifier">company</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">each_error</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">attr</span>,<span class="ruby-identifier">err</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{attr} - #{err.type}&quot;</span> }
+<span class="ruby-comment"># =&gt; name - :too_short</span>
+<span class="ruby-comment">#    name - :blank</span>
+<span class="ruby-comment">#    address - :blank</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-each_error_source')" id="l_method-i-each_error_source">show</a>
+                
+              </p>
+              <div id="method-i-each_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 254</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">each_error</span>
+  <span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">each_key</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@errors</span>[<span class="ruby-identifier">attr</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">error</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">attr</span>, <span class="ruby-identifier">error</span> } }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-each_full">
+            
+              <b>each_full</b>()
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-each_full" name="method-i-each_full" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Yields each full error message added. So
+<code>Person.errors.add(&quot;first_name&quot;, &quot;can&#39;t be
+empty&quot;)</code> will be returned through iteration as “First name
+can&#39;t be empty”.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Company</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">validates_presence_of</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">email</span>
+  <span class="ruby-identifier">validates_length_of</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-keyword">in</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">30</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">company</span> = <span class="ruby-constant">Company</span>.<span class="ruby-identifier">create</span>(:<span class="ruby-identifier">address</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;123 First St.&#39;</span>)
+<span class="ruby-identifier">company</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">each_full</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">msg</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">msg</span> }
+<span class="ruby-comment"># =&gt; Name is too short (minimum is 5 characters)</span>
+<span class="ruby-comment">#    Name can&#39;t be blank</span>
+<span class="ruby-comment">#    Address can&#39;t be blank</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-each_full_source')" id="l_method-i-each_full_source">show</a>
+                
+              </p>
+              <div id="method-i-each_full_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">each_full</span>
+  <span class="ruby-identifier">full_messages</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">msg</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">msg</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-empty-3F">
+            
+              <b>empty?</b>()
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-empty-3F" name="method-i-empty-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns true if no errors have been added.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-empty-3F_source')" id="l_method-i-empty-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-empty-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 292</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">empty?</span>
+  <span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-full_messages">
+            
+              <b>full_messages</b>(options = {})
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-full_messages" name="method-i-full_messages" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns all the full error messages in an array.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Company</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">validates_presence_of</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">email</span>
+  <span class="ruby-identifier">validates_length_of</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-keyword">in</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">30</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">company</span> = <span class="ruby-constant">Company</span>.<span class="ruby-identifier">create</span>(:<span class="ruby-identifier">address</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;123 First St.&#39;</span>)
+<span class="ruby-identifier">company</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">full_messages</span> <span class="ruby-comment"># =&gt;</span>
+  [<span class="ruby-string">&quot;Name is too short (minimum is 5 characters)&quot;</span>, <span class="ruby-string">&quot;Name can&#39;t be blank&quot;</span>, <span class="ruby-string">&quot;Address can&#39;t be blank&quot;</span>]
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-full_messages_source')" id="l_method-i-full_messages_source">show</a>
+                
+              </p>
+              <div id="method-i-full_messages_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 285</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">full_messages</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">inject</span>([]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">full_messages</span>, <span class="ruby-identifier">errors</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">full_messages</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">error</span><span class="ruby-operator">|</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">full_message</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-generate_message">
+            
+              <b>generate_message</b>(attribute, message = :invalid, options = {})
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-generate_message" name="method-i-generate_message" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-generate_message_source')" id="l_method-i-generate_message_source">show</a>
+                
+              </p>
+              <div id="method-i-generate_message_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 335</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">generate_message</span>(<span class="ruby-identifier">attribute</span>, <span class="ruby-identifier">message</span> = <span class="ruby-value">:invalid</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@base</span>, <span class="ruby-identifier">attribute</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span>).<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-invalid-3F">
+            
+              <b>invalid?</b>(attribute)
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-invalid-3F" name="method-i-invalid-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns true if the specified <code>attribute</code> has errors associated
+with it.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Company</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">validates_presence_of</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">email</span>
+  <span class="ruby-identifier">validates_length_of</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-keyword">in</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">30</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">company</span> = <span class="ruby-constant">Company</span>.<span class="ruby-identifier">create</span>(:<span class="ruby-identifier">address</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;123 First St.&#39;</span>)
+<span class="ruby-identifier">company</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">invalid?</span>(:<span class="ruby-identifier">name</span>)      <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-identifier">company</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">invalid?</span>(:<span class="ruby-identifier">address</span>)   <span class="ruby-comment"># =&gt; false</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-invalid-3F_source')" id="l_method-i-invalid-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-invalid-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">invalid?</span>(<span class="ruby-identifier">attribute</span>)
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@errors</span>[<span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">to_s</span>].<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-length">
+            
+              <b>length</b>()
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-length" name="method-i-length" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-on">
+            
+              <b>on</b>(attribute)
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-on" name="method-i-on" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns <code>nil</code>, if no errors are associated with the specified
+<code>attribute</code>. Returns the error message, if one error is
+associated with the specified <code>attribute</code>. Returns an array of
+error messages, if more than one error is associated with the specified
+<code>attribute</code>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Company</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">validates_presence_of</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">email</span>
+  <span class="ruby-identifier">validates_length_of</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-keyword">in</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">30</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">company</span> = <span class="ruby-constant">Company</span>.<span class="ruby-identifier">create</span>(:<span class="ruby-identifier">address</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;123 First St.&#39;</span>)
+<span class="ruby-identifier">company</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">on</span>(:<span class="ruby-identifier">name</span>)      <span class="ruby-comment"># =&gt; [&quot;is too short (minimum is 5 characters)&quot;, &quot;can&#39;t be blank&quot;]</span>
+<span class="ruby-identifier">company</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">on</span>(:<span class="ruby-identifier">email</span>)     <span class="ruby-comment"># =&gt; &quot;can&#39;t be blank&quot;</span>
+<span class="ruby-identifier">company</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">on</span>(:<span class="ruby-identifier">address</span>)   <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Errors.html#method-i-5B-5D">[]</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-on_source')" id="l_method-i-on_source">show</a>
+                
+              </p>
+              <div id="method-i-on_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 212</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">on</span>(<span class="ruby-identifier">attribute</span>)
+  <span class="ruby-identifier">attribute</span> = <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">attribute</span>)
+  <span class="ruby-identifier">errors</span> = <span class="ruby-ivar">@errors</span>[<span class="ruby-identifier">attribute</span>].<span class="ruby-identifier">map</span>(&amp;<span class="ruby-value">:to_s</span>)
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-number">1</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">errors</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-on_base">
+            
+              <b>on_base</b>()
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-on_base" name="method-i-on_base" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns errors assigned to the base object through <code>add_to_base</code>
+according to the normal rules of <code>on(attribute)</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-on_base_source')" id="l_method-i-on_base_source">show</a>
+                
+              </p>
+              <div id="method-i-on_base_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">on_base</span>
+  <span class="ruby-identifier">on</span>(<span class="ruby-value">:base</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-size">
+            
+              <b>size</b>()
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-size" name="method-i-size" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the total number of errors added. Two errors added to the same
+attribute will be counted as such.</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Errors.html#method-i-count">count</a>, <a href="Errors.html#method-i-length">length</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-size_source')" id="l_method-i-size_source">show</a>
+                
+              </p>
+              <div id="method-i-size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 302</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">size</span>
+  <span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-number">0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">error_count</span>, <span class="ruby-identifier">attribute</span><span class="ruby-operator">|</span> <span class="ruby-identifier">error_count</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">size</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_xml">
+            
+              <b>to_xml</b>(options={})
+            
+            <a href="../../classes/ActiveRecord/Errors.html#method-i-to_xml" name="method-i-to_xml" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns an XML representation of this error object.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Company</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">validates_presence_of</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">email</span>
+  <span class="ruby-identifier">validates_length_of</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-keyword">in</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">30</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">company</span> = <span class="ruby-constant">Company</span>.<span class="ruby-identifier">create</span>(:<span class="ruby-identifier">address</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;123 First St.&#39;</span>)
+<span class="ruby-identifier">company</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">to_xml</span>
+<span class="ruby-comment"># =&gt;  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="ruby-comment">#     &lt;errors&gt;</span>
+<span class="ruby-comment">#       &lt;error&gt;Name is too short (minimum is 5 characters)&lt;/error&gt;</span>
+<span class="ruby-comment">#       &lt;error&gt;Name can&#39;t be blank&lt;/error&gt;</span>
+<span class="ruby-comment">#       &lt;error&gt;Address can&#39;t be blank&lt;/error&gt;</span>
+<span class="ruby-comment">#     &lt;/errors&gt;</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_xml_source')" id="l_method-i-to_xml_source">show</a>
+                
+              </p>
+              <div id="method-i-to_xml_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/validations.rb, line 324</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_xml</span>(<span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:root</span>] <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;errors&quot;</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:indent</span>] <span class="ruby-operator">||=</span> <span class="ruby-number">2</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:builder</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">Builder</span><span class="ruby-operator">::</span><span class="ruby-constant">XmlMarkup</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:indent</span>])
+
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:builder</span>].<span class="ruby-identifier">instruct!</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:skip_instruct</span>)
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:builder</span>].<span class="ruby-identifier">errors</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">full_messages</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">msg</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">msg</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

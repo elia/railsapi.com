@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActiveSupport::XmlMini_Nokogiri::Conversions::Node</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            ActiveSupport::XmlMini_Nokogiri::Conversions::Node 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/activesupport/lib/active_support/xml_mini/nokogiri_rb.html">activesupport/lib/active_support/xml_mini/nokogiri.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to_hash">to_hash</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">CONTENT_ROOT</td>
+            <td>=</td>
+            <td class="attr-value">&#39;__content__&#39;.freeze</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-to_hash">
+            
+              <b>to_hash</b>(hash = {})
+            
+            <a href="../../../../classes/ActiveSupport/XmlMini_Nokogiri/Conversions/Node.html#method-i-to_hash" name="method-i-to_hash" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Convert XML document to hash</p>
+<dl class="rdoc-list note-list"><dt>hash
+<dd>
+<p><a href="../../../Hash.html">Hash</a> to merge the converted element into.</p>
+</dd></dl>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_hash_source')" id="l_method-i-to_hash_source">show</a>
+                
+              </p>
+              <div id="method-i-to_hash_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/xml_mini/nokogiri.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_hash</span>(<span class="ruby-identifier">hash</span> = {})
+  <span class="ruby-identifier">node_hash</span> = {}
+
+  <span class="ruby-comment"># Insert node hash into parent hash correctly.</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">name</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">node_hash</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>  <span class="ruby-keyword">then</span> <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">name</span>] = [<span class="ruby-identifier">hash</span>[<span class="ruby-identifier">name</span>], <span class="ruby-identifier">node_hash</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-keyword">nil</span>   <span class="ruby-keyword">then</span> <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">node_hash</span>
+    <span class="ruby-keyword">else</span> <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Unexpected error during hash insertion!&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Handle child elements</span>
+  <span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">element?</span>
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">to_hash</span>(<span class="ruby-identifier">node_hash</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">text?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">cdata?</span>
+      <span class="ruby-identifier">node_hash</span>[<span class="ruby-constant">CONTENT_ROOT</span>] <span class="ruby-operator">||=</span> <span class="ruby-string">&#39;&#39;</span>
+      <span class="ruby-identifier">node_hash</span>[<span class="ruby-constant">CONTENT_ROOT</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">content</span>
+     <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Remove content node if it is blank and there are child tags</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">node_hash</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">node_hash</span>[<span class="ruby-constant">CONTENT_ROOT</span>].<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">node_hash</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-constant">CONTENT_ROOT</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Handle attributes</span>
+  <span class="ruby-identifier">attribute_nodes</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">node_hash</span>[<span class="ruby-identifier">a</span>.<span class="ruby-identifier">node_name</span>] = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">value</span> }
+
+  <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

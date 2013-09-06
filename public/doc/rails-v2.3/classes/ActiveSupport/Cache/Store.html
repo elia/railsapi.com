@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActiveSupport::Cache::Store</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            ActiveSupport::Cache::Store 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/activesupport/lib/active_support/cache_rb.html">activesupport/lib/active_support/cache.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>An abstract cache store class. There are multiple cache store
+implementations, each having its own additional features. See the classes
+under the <a href="../Cache.html">ActiveSupport::Cache</a> module, e.g. <a
+href="MemCacheStore.html">ActiveSupport::Cache::MemCacheStore</a>. <a
+href="MemCacheStore.html">MemCacheStore</a> is currently the most popular
+cache store for large production websites.</p>
+
+<p><a href="Store.html">ActiveSupport::Cache::Store</a> is meant for caching
+strings. Some cache store implementations, like <a
+href="MemoryStore.html">MemoryStore</a>, are able to cache arbitrary Ruby
+objects, but don&#39;t count on every cache store to be able to do that.</p>
+
+<pre class="ruby"><span class="ruby-identifier">cache</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Cache</span><span class="ruby-operator">::</span><span class="ruby-constant">MemoryStore</span>.<span class="ruby-identifier">new</span>
+
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&quot;city&quot;</span>)   <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;city&quot;</span>, <span class="ruby-string">&quot;Duckburgh&quot;</span>)
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&quot;city&quot;</span>)   <span class="ruby-comment"># =&gt; &quot;Duckburgh&quot;</span>
+</pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-decrement">decrement</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-delete">delete</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-delete_matched">delete_matched</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-exist-3F">exist?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-fetch">fetch</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-increment">increment</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-mute">mute</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-read">read</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-silence-21">silence!</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-write">write</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>logger_off</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>logger_off?</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>silence</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>silence?</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-decrement">
+            
+              <b>decrement</b>(key, amount = 1)
+            
+            <a href="../../../classes/ActiveSupport/Cache/Store.html#method-i-decrement" name="method-i-decrement" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-decrement_source')" id="l_method-i-decrement_source">show</a>
+                
+              </p>
+              <div id="method-i-decrement_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/cache.rb, line 225</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">decrement</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">amount</span> = <span class="ruby-number">1</span>)
+  <span class="ruby-identifier">log</span>(<span class="ruby-string">&quot;decrementing&quot;</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">amount</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span> = <span class="ruby-identifier">read</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">write</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">num</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">amount</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-delete">
+            
+              <b>delete</b>(key, options = nil)
+            
+            <a href="../../../classes/ActiveSupport/Cache/Store.html#method-i-delete" name="method-i-delete" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-delete_source')" id="l_method-i-delete_source">show</a>
+                
+              </p>
+              <div id="method-i-delete_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/cache.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">delete</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">log</span>(<span class="ruby-string">&quot;delete&quot;</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-delete_matched">
+            
+              <b>delete_matched</b>(matcher, options = nil)
+            
+            <a href="../../../classes/ActiveSupport/Cache/Store.html#method-i-delete_matched" name="method-i-delete_matched" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-delete_matched_source')" id="l_method-i-delete_matched_source">show</a>
+                
+              </p>
+              <div id="method-i-delete_matched_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/cache.rb, line 208</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">delete_matched</span>(<span class="ruby-identifier">matcher</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">log</span>(<span class="ruby-string">&quot;delete matched&quot;</span>, <span class="ruby-identifier">matcher</span>.<span class="ruby-identifier">inspect</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-exist-3F">
+            
+              <b>exist?</b>(key, options = nil)
+            
+            <a href="../../../classes/ActiveSupport/Cache/Store.html#method-i-exist-3F" name="method-i-exist-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-exist-3F_source')" id="l_method-i-exist-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-exist-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/cache.rb, line 212</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">exist?</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">log</span>(<span class="ruby-string">&quot;exist?&quot;</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-fetch">
+            
+              <b>fetch</b>(key, options = {})
+            
+            <a href="../../../classes/ActiveSupport/Cache/Store.html#method-i-fetch" name="method-i-fetch" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Fetches data from the cache, using the given key. If there is data in the
+cache with the given key, then that data is returned.</p>
+
+<p>If there is no such data in the cache (a cache miss occurred), then then
+nil will be returned. However, if a block has been passed, then that block
+will be run in the event of a cache miss. The return value of the block
+will be written to the cache under the given cache key, and that return
+value will be returned.</p>
+
+<pre class="ruby"><span class="ruby-identifier">cache</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;today&quot;</span>, <span class="ruby-string">&quot;Monday&quot;</span>)
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;today&quot;</span>)  <span class="ruby-comment"># =&gt; &quot;Monday&quot;</span>
+
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;city&quot;</span>)   <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;city&quot;</span>) <span class="ruby-keyword">do</span>
+  <span class="ruby-string">&quot;Duckburgh&quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;city&quot;</span>)   <span class="ruby-comment"># =&gt; &quot;Duckburgh&quot;</span>
+</pre>
+
+<p>You may also specify additional options via the <code>options</code>
+argument. Setting <code>:force =&gt; true</code> will force a cache miss:</p>
+
+<pre class="ruby"><span class="ruby-identifier">cache</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;today&quot;</span>, <span class="ruby-string">&quot;Monday&quot;</span>)
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;today&quot;</span>, :<span class="ruby-identifier">force</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)  <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+
+<p>Other options will be handled by the specific cache store implementation.
+Internally, <a href="Store.html#method-i-fetch">fetch</a> calls <a
+href="Store.html#method-i-read">read</a>, and calls <a
+href="Store.html#method-i-write">write</a> on a cache miss.
+<code>options</code> will be passed to the <a
+href="Store.html#method-i-read">read</a> and <a
+href="Store.html#method-i-write">write</a> calls.</p>
+
+<p>For example, MemCacheStore&#39;s <a
+href="Store.html#method-i-write">write</a> method supports the
+<code>:expires_in</code> option, which tells the memcached server to
+automatically expire the cache item after a certain period. We can use this
+option with <a href="Store.html#method-i-fetch">fetch</a> too:</p>
+
+<pre class="ruby"><span class="ruby-identifier">cache</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Cache</span><span class="ruby-operator">::</span><span class="ruby-constant">MemCacheStore</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;foo&quot;</span>, :<span class="ruby-identifier">force</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, :<span class="ruby-identifier">expires_in</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>.<span class="ruby-identifier">seconds</span>) <span class="ruby-keyword">do</span>
+  <span class="ruby-string">&quot;bar&quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;foo&quot;</span>)  <span class="ruby-comment"># =&gt; &quot;bar&quot;</span>
+<span class="ruby-identifier">sleep</span>(<span class="ruby-value">6</span>)
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;foo&quot;</span>)  <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-fetch_source')" id="l_method-i-fetch_source">show</a>
+                
+              </p>
+              <div id="method-i-fetch_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/cache.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fetch</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@logger_off</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>[<span class="ruby-value">:force</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span> = <span class="ruby-identifier">read</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-ivar">@logger_off</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">log</span>(<span class="ruby-string">&quot;hit&quot;</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-ivar">@logger_off</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">log</span>(<span class="ruby-string">&quot;miss&quot;</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+
+    <span class="ruby-identifier">value</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">ms</span> = <span class="ruby-constant">Benchmark</span>.<span class="ruby-identifier">ms</span> { <span class="ruby-identifier">value</span> = <span class="ruby-keyword">yield</span> }
+
+    <span class="ruby-ivar">@logger_off</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">write</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-ivar">@logger_off</span> = <span class="ruby-keyword">false</span>
+
+    <span class="ruby-identifier">log</span>(<span class="ruby-string">&#39;write (will save %.2fms)&#39;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">ms</span>, <span class="ruby-identifier">key</span>, <span class="ruby-keyword">nil</span>)
+
+    <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-increment">
+            
+              <b>increment</b>(key, amount = 1)
+            
+            <a href="../../../classes/ActiveSupport/Cache/Store.html#method-i-increment" name="method-i-increment" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-increment_source')" id="l_method-i-increment_source">show</a>
+                
+              </p>
+              <div id="method-i-increment_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/cache.rb, line 216</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">increment</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">amount</span> = <span class="ruby-number">1</span>)
+  <span class="ruby-identifier">log</span>(<span class="ruby-string">&quot;incrementing&quot;</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">amount</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span> = <span class="ruby-identifier">read</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">write</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">num</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">amount</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mute">
+            
+              <b>mute</b>()
+            
+            <a href="../../../classes/ActiveSupport/Cache/Store.html#method-i-mute" name="method-i-mute" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mute_source')" id="l_method-i-mute_source">show</a>
+                
+              </p>
+              <div id="method-i-mute_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/cache.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mute</span>
+  <span class="ruby-identifier">previous_silence</span>, <span class="ruby-ivar">@silence</span> = <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@silence</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@silence</span>, <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-ivar">@silence</span> = <span class="ruby-identifier">previous_silence</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-read">
+            
+              <b>read</b>(key, options = nil)
+            
+            <a href="../../../classes/ActiveSupport/Cache/Store.html#method-i-read" name="method-i-read" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Fetches data from the cache, using the given key. If there is data in the
+cache with the given key, then that data is returned. Otherwise, nil is
+returned.</p>
+
+<p>You may also specify additional options via the <code>options</code>
+argument. The specific cache store implementation will decide what to do
+with <code>options</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-read_source')" id="l_method-i-read_source">show</a>
+                
+              </p>
+              <div id="method-i-read_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/cache.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">read</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">log</span>(<span class="ruby-string">&quot;read&quot;</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-silence-21">
+            
+              <b>silence!</b>()
+            
+            <a href="../../../classes/ActiveSupport/Cache/Store.html#method-i-silence-21" name="method-i-silence-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-silence-21_source')" id="l_method-i-silence-21_source">show</a>
+                
+              </p>
+              <div id="method-i-silence-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/cache.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">silence!</span>
+  <span class="ruby-ivar">@silence</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write">
+            
+              <b>write</b>(key, value, options = nil)
+            
+            <a href="../../../classes/ActiveSupport/Cache/Store.html#method-i-write" name="method-i-write" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Writes the given value to the cache, with the given key.</p>
+
+<p>You may also specify additional options via the <code>options</code>
+argument. The specific cache store implementation will decide what to do
+with <code>options</code>.</p>
+
+<p>For example, <a href="MemCacheStore.html">MemCacheStore</a> supports the
+<code>:expires_in</code> option, which tells the memcached server to
+automatically expire the cache item after a certain period:</p>
+
+<pre class="ruby"><span class="ruby-identifier">cache</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Cache</span><span class="ruby-operator">::</span><span class="ruby-constant">MemCacheStore</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;foo&quot;</span>, <span class="ruby-string">&quot;bar&quot;</span>, :<span class="ruby-identifier">expires_in</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>.<span class="ruby-identifier">seconds</span>)
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&quot;foo&quot;</span>)  <span class="ruby-comment"># =&gt; &quot;bar&quot;</span>
+<span class="ruby-identifier">sleep</span>(<span class="ruby-value">6</span>)
+<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&quot;foo&quot;</span>)  <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_source')" id="l_method-i-write_source">show</a>
+                
+              </p>
+              <div id="method-i-write_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/cache.rb, line 200</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">log</span>(<span class="ruby-string">&quot;write&quot;</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

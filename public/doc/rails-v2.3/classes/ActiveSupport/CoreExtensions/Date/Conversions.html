@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActiveSupport::CoreExtensions::Date::Conversions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            ActiveSupport::CoreExtensions::Date::Conversions 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/activesupport/lib/active_support/core_ext/date/conversions_rb.html">activesupport/lib/active_support/core_ext/date/conversions.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Converting dates to formatted strings, times, and datetimes.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-readable_inspect">readable_inspect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to_date">to_date</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-to_datetime">to_datetime</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-to_formatted_s">to_formatted_s</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-to_time">to_time</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>X</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-xmlschema">xmlschema</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">DATE_FORMATS</td>
+            <td>=</td>
+            <td class="attr-value">{
+:short        =&gt; &quot;%e %b&quot;,
+:long         =&gt; &quot;%B %e, %Y&quot;,
+:db           =&gt; &quot;%Y-%m-%d&quot;,
+:number       =&gt; &quot;%Y%m%d&quot;,
+:long_ordinal =&gt; lambda { |date| date.strftime(&quot;%B #{date.day.ordinalize}, %Y&quot;) }, # =&gt; &quot;April 25th, 2007&quot;
+:rfc822       =&gt; &quot;%e %b %Y&quot;
+}</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-readable_inspect">
+            
+              <b>readable_inspect</b>()
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/Date/Conversions.html#method-i-readable_inspect" name="method-i-readable_inspect" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Overrides the default inspect method with a human readable one, e.g., “Mon,
+21 Feb 2005”</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-readable_inspect_source')" id="l_method-i-readable_inspect_source">show</a>
+                
+              </p>
+              <div id="method-i-readable_inspect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/conversions.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">readable_inspect</span>
+  <span class="ruby-identifier">strftime</span>(<span class="ruby-string">&quot;%a, %d %b %Y&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_date">
+            
+              <b>to_date</b>()
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/Date/Conversions.html#method-i-to_date" name="method-i-to_date" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>A method to keep <a href="../Time.html">Time</a>, <a
+href="../Date.html">Date</a> and <a href="../DateTime.html">DateTime</a>
+instances interchangeable on conversions. In this case, it simply returns
+<code>self</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_date_source')" id="l_method-i-to_date_source">show</a>
+                
+              </p>
+              <div id="method-i-to_date_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/conversions.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_date</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_datetime">
+            
+              <b>to_datetime</b>()
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/Date/Conversions.html#method-i-to_datetime" name="method-i-to_datetime" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Converts a <a href="../Date.html">Date</a> instance to a <a
+href="../DateTime.html">DateTime</a>, where the time is set to the
+beginning of the day and UTC offset is set to 0.</p>
+
+<h4 id="method-i-to_datetime-label-Examples">Examples</h4>
+
+<pre class="ruby"><span class="ruby-identifier">date</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2007</span>, <span class="ruby-value">11</span>, <span class="ruby-value">10</span>)  <span class="ruby-comment"># =&gt; Sat, 10 Nov 2007</span>
+
+<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_datetime</span>               <span class="ruby-comment"># =&gt; Sat, 10 Nov 2007 00:00:00 0000</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_datetime_source')" id="l_method-i-to_datetime_source">show</a>
+                
+              </p>
+              <div id="method-i-to_datetime_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/conversions.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_datetime</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">civil</span>(<span class="ruby-identifier">year</span>, <span class="ruby-identifier">month</span>, <span class="ruby-identifier">day</span>, <span class="ruby-number">0</span>, <span class="ruby-number">0</span>, <span class="ruby-number">0</span>, <span class="ruby-number">0</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_formatted_s">
+            
+              <b>to_formatted_s</b>(format = :default)
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/Date/Conversions.html#method-i-to_formatted_s" name="method-i-to_formatted_s" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Convert to a formatted string. See <a
+href="Conversions.html#DATE_FORMATS">DATE_FORMATS</a> for predefined
+formats.</p>
+
+<p>This method is aliased to <code>to_s</code>.</p>
+
+<h4 id="method-i-to_formatted_s-label-Examples">Examples</h4>
+
+<pre class="ruby"><span class="ruby-identifier">date</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2007</span>, <span class="ruby-value">11</span>, <span class="ruby-value">10</span>)       <span class="ruby-comment"># =&gt; Sat, 10 Nov 2007</span>
+
+<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_formatted_s</span>(:<span class="ruby-identifier">db</span>)            <span class="ruby-comment"># =&gt; &quot;2007-11-10&quot;</span>
+<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_s</span>(:<span class="ruby-identifier">db</span>)                      <span class="ruby-comment"># =&gt; &quot;2007-11-10&quot;</span>
+
+<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_formatted_s</span>(:<span class="ruby-identifier">short</span>)         <span class="ruby-comment"># =&gt; &quot;10 Nov&quot;</span>
+<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_formatted_s</span>(:<span class="ruby-identifier">long</span>)          <span class="ruby-comment"># =&gt; &quot;November 10, 2007&quot;</span>
+<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_formatted_s</span>(:<span class="ruby-identifier">long_ordinal</span>)  <span class="ruby-comment"># =&gt; &quot;November 10th, 2007&quot;</span>
+<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_formatted_s</span>(:<span class="ruby-identifier">rfc822</span>)        <span class="ruby-comment"># =&gt; &quot;10 Nov 2007&quot;</span>
+</pre>
+
+<h2 id="method-i-to_formatted_s-label-Adding+your+own+time+formats+to+to_formatted_s">Adding your own time formats to <a href="Conversions.html#method-i-to_formatted_s">#to_formatted_s</a></h2>
+
+<p>You can add your own formats to the Date::DATE_FORMATS hash. Use the format
+name as the hash key and either a strftime string or Proc instance that
+takes a date argument as the value.</p>
+
+<pre class="ruby"><span class="ruby-comment"># config/initializers/time_formats.rb</span>
+<span class="ruby-constant">Date</span><span class="ruby-operator">::</span><span class="ruby-constant">DATE_FORMATS</span>[:<span class="ruby-identifier">month_and_year</span>] = <span class="ruby-string">&quot;%B %Y&quot;</span>
+<span class="ruby-constant">Date</span><span class="ruby-operator">::</span><span class="ruby-constant">DATE_FORMATS</span>[:<span class="ruby-identifier">short_ordinal</span>] = <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">date</span><span class="ruby-operator">|</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-node">&quot;%B #{date.day.ordinalize}&quot;</span>) }
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_formatted_s_source')" id="l_method-i-to_formatted_s_source">show</a>
+                
+              </p>
+              <div id="method-i-to_formatted_s_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/conversions.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_formatted_s</span>(<span class="ruby-identifier">format</span> = <span class="ruby-value">:default</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">formatter</span> = <span class="ruby-constant">DATE_FORMATS</span>[<span class="ruby-identifier">format</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">formatter</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+      <span class="ruby-identifier">formatter</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">strftime</span>(<span class="ruby-identifier">formatter</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">to_default_s</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_time">
+            
+              <b>to_time</b>(form = :local)
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/Date/Conversions.html#method-i-to_time" name="method-i-to_time" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Converts a <a href="../Date.html">Date</a> instance to a <a
+href="../Time.html">Time</a>, where the time is set to the beginning of the
+day. The timezone can be either :local or :utc (default :local).</p>
+
+<h4 id="method-i-to_time-label-Examples">Examples</h4>
+
+<pre class="ruby"><span class="ruby-identifier">date</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2007</span>, <span class="ruby-value">11</span>, <span class="ruby-value">10</span>)  <span class="ruby-comment"># =&gt; Sat, 10 Nov 2007</span>
+
+<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_time</span>                   <span class="ruby-comment"># =&gt; Sat Nov 10 00:00:00 0800 2007</span>
+<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_time</span>(:<span class="ruby-identifier">local</span>)           <span class="ruby-comment"># =&gt; Sat Nov 10 00:00:00 0800 2007</span>
+
+<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_time</span>(:<span class="ruby-identifier">utc</span>)             <span class="ruby-comment"># =&gt; Sat Nov 10 00:00:00 UTC 2007</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_time_source')" id="l_method-i-to_time_source">show</a>
+                
+              </p>
+              <div id="method-i-to_time_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/conversions.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_time</span>(<span class="ruby-identifier">form</span> = <span class="ruby-value">:local</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{form}_time&quot;</span>, <span class="ruby-identifier">year</span>, <span class="ruby-identifier">month</span>, <span class="ruby-identifier">day</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-xmlschema">
+            
+              <b>xmlschema</b>()
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/Date/Conversions.html#method-i-xmlschema" name="method-i-xmlschema" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-xmlschema_source')" id="l_method-i-xmlschema_source">show</a>
+                
+              </p>
+              <div id="method-i-xmlschema_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/conversions.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">xmlschema</span>
+  <span class="ruby-identifier">to_time</span>.<span class="ruby-identifier">xmlschema</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

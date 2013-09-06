@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>I18n::Backend::Gettext</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            I18n::Backend::Gettext 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/activesupport/lib/active_support/vendor/i18n-0_4_1/i18n/backend/gettext_rb.html">activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/gettext.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Gettext/PoData.html">I18n::Backend::Gettext::PoData</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-load_po">load_po</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-normalize">normalize</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-normalize_pluralization">normalize_pluralization</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-parse">parse</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Protected methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-load_po">
+            
+              <b>load_po</b>(filename)
+            
+            <a href="../../../classes/I18n/Backend/Gettext.html#method-i-load_po" name="method-i-load_po" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-load_po_source')" id="l_method-i-load_po_source">show</a>
+                
+              </p>
+              <div id="method-i-load_po_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/gettext.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">load_po</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">locale</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-string">&#39;.po&#39;</span>).<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">normalize</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">filename</span>))
+  { <span class="ruby-identifier">locale</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">data</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-normalize">
+            
+              <b>normalize</b>(locale, data)
+            
+            <a href="../../../classes/I18n/Backend/Gettext.html#method-i-normalize" name="method-i-normalize" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-normalize_source')" id="l_method-i-normalize_source">show</a>
+                
+              </p>
+              <div id="method-i-normalize_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/gettext.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">normalize</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">data</span>)
+  <span class="ruby-identifier">data</span>.<span class="ruby-identifier">inject</span>({}) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">result</span>, (<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span> = <span class="ruby-identifier">normalize_pluralization</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">index</span>(<span class="ruby-string">&quot;\0000&quot;</span>)
+
+      <span class="ruby-identifier">parts</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;|&#39;</span>).<span class="ruby-identifier">reverse</span>
+      <span class="ruby-identifier">normalized</span> = <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">inject</span>({}) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">normalized</span>, <span class="ruby-identifier">part</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">normalized</span> = { <span class="ruby-identifier">part</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">normalized</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">normalized</span> }
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># deep_merge by Stefan Rusterholz, see http://www.ruby-forum.com/topic/142809</span>
+      <span class="ruby-identifier">merger</span> = <span class="ruby-identifier">proc</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">v1</span>, <span class="ruby-identifier">v2</span><span class="ruby-operator">|</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">v1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">v2</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">v1</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">v2</span>, &amp;<span class="ruby-identifier">merger</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">v2</span> }
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">normalized</span>, &amp;<span class="ruby-identifier">merger</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-normalize_pluralization">
+            
+              <b>normalize_pluralization</b>(locale, key, value)
+            
+            <a href="../../../classes/I18n/Backend/Gettext.html#method-i-normalize_pluralization" name="method-i-normalize_pluralization" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-normalize_pluralization_source')" id="l_method-i-normalize_pluralization_source">show</a>
+                
+              </p>
+              <div id="method-i-normalize_pluralization_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/gettext.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">normalize_pluralization</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-comment"># FIXME po_parser includes \000 chars that can not be turned into Symbols</span>
+  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;\0000&quot;</span>, <span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Gettext</span><span class="ruby-operator">::</span><span class="ruby-constant">PLURAL_SEPARATOR</span>).<span class="ruby-identifier">split</span>(<span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Gettext</span><span class="ruby-operator">::</span><span class="ruby-constant">PLURAL_SEPARATOR</span>).<span class="ruby-identifier">first</span>
+
+  <span class="ruby-identifier">keys</span> = <span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Gettext</span>.<span class="ruby-identifier">plural_keys</span>(<span class="ruby-identifier">locale</span>)
+  <span class="ruby-identifier">values</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\0000&quot;</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;invalid number of plurals: #{values.size}, keys: #{keys.inspect}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">values</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">size</span>
+
+  <span class="ruby-identifier">result</span> = {}
+  <span class="ruby-identifier">values</span>.<span class="ruby-identifier">each_with_index</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">value</span>, <span class="ruby-identifier">ix</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span>[<span class="ruby-identifier">keys</span>[<span class="ruby-identifier">ix</span>]] = <span class="ruby-identifier">value</span> }
+  [<span class="ruby-identifier">key</span>, <span class="ruby-identifier">result</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-parse">
+            
+              <b>parse</b>(filename)
+            
+            <a href="../../../classes/I18n/Backend/Gettext.html#method-i-parse" name="method-i-parse" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-parse_source')" id="l_method-i-parse_source">show</a>
+                
+              </p>
+              <div id="method-i-parse_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/gettext.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">parse</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-constant">GetText</span><span class="ruby-operator">::</span><span class="ruby-constant">PoParser</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">filename</span>), <span class="ruby-constant">PoData</span>.<span class="ruby-identifier">new</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

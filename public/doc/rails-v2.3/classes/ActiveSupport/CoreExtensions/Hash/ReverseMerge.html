@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActiveSupport::CoreExtensions::Hash::ReverseMerge</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            ActiveSupport::CoreExtensions::Hash::ReverseMerge 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/activesupport/lib/active_support/core_ext/hash/reverse_merge_rb.html">activesupport/lib/active_support/core_ext/hash/reverse_merge.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Allows for reverse merging two hashes where the keys in the calling hash
+take precedence over those in the <code>other_hash</code>. This is
+particularly useful for initializing an option hash with default values:</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">reverse_merge!</span> :<span class="ruby-identifier">size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">25</span>, :<span class="ruby-identifier">velocity</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Using <code>merge</code>, the above example would look as follows:</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>(<span class="ruby-identifier">options</span> = {})
+  { :<span class="ruby-identifier">size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">25</span>, :<span class="ruby-identifier">velocity</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span> }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The default <code>:size</code> and <code>:velocity</code> are only set if
+the <code>options</code> hash passed in doesn&#39;t already have the
+respective key.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-reverse_merge">reverse_merge</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-reverse_merge-21">reverse_merge!</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-reverse_update">reverse_update</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-reverse_merge">
+            
+              <b>reverse_merge</b>(other_hash)
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/Hash/ReverseMerge.html#method-i-reverse_merge" name="method-i-reverse_merge" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Performs the opposite of <code>merge</code>, with the keys and values from
+the first hash taking precedence over the second.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-reverse_merge_source')" id="l_method-i-reverse_merge_source">show</a>
+                
+              </p>
+              <div id="method-i-reverse_merge_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/hash/reverse_merge.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">reverse_merge</span>(<span class="ruby-identifier">other_hash</span>)
+  <span class="ruby-identifier">other_hash</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reverse_merge-21">
+            
+              <b>reverse_merge!</b>(other_hash)
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/Hash/ReverseMerge.html#method-i-reverse_merge-21" name="method-i-reverse_merge-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Performs the opposite of <code>merge</code>, with the keys and values from
+the first hash taking precedence over the second. Modifies the receiver in
+place.</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="ReverseMerge.html#method-i-reverse_update">reverse_update</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-reverse_merge-21_source')" id="l_method-i-reverse_merge-21_source">show</a>
+                
+              </p>
+              <div id="method-i-reverse_merge-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/hash/reverse_merge.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">reverse_merge!</span>(<span class="ruby-identifier">other_hash</span>)
+  <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">reverse_merge</span>(<span class="ruby-identifier">other_hash</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reverse_update">
+            
+              <b>reverse_update</b>(other_hash)
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/Hash/ReverseMerge.html#method-i-reverse_update" name="method-i-reverse_update" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>I18n::Backend::ActiveRecord::Implementation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            I18n::Backend::ActiveRecord::Implementation 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/activesupport/lib/active_support/vendor/i18n-0_4_1/i18n/backend/active_record_rb.html">activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/active_record.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-available_locales">available_locales</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-expand_keys">expand_keys</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-lookup">lookup</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-store_translations">store_translations</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../Base.html">
+              I18n::Backend::Base
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="../Flatten.html">
+              I18n::Backend::Flatten
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-available_locales">
+            
+              <b>available_locales</b>()
+            
+            <a href="../../../../classes/I18n/Backend/ActiveRecord/Implementation.html#method-i-available_locales" name="method-i-available_locales" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-available_locales_source')" id="l_method-i-available_locales_source">show</a>
+                
+              </p>
+              <div id="method-i-available_locales_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/active_record.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">available_locales</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Translation</span>.<span class="ruby-identifier">available_locales</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-operator">::</span><span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">StatementInvalid</span>
+    []
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-store_translations">
+            
+              <b>store_translations</b>(locale, data, options = {})
+            
+            <a href="../../../../classes/I18n/Backend/ActiveRecord/Implementation.html#method-i-store_translations" name="method-i-store_translations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-store_translations_source')" id="l_method-i-store_translations_source">show</a>
+                
+              </p>
+              <div id="method-i-store_translations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/active_record.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">store_translations</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">escape</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:escape</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">flatten_translations</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">escape</span>, <span class="ruby-keyword">false</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Translation</span>.<span class="ruby-identifier">locale</span>(<span class="ruby-identifier">locale</span>).<span class="ruby-identifier">lookup</span>(<span class="ruby-identifier">expand_keys</span>(<span class="ruby-identifier">key</span>)).<span class="ruby-identifier">delete_all</span>
+    <span class="ruby-constant">Translation</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:locale</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">:key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Protected methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-expand_keys">
+            
+              <b>expand_keys</b>(key)
+            
+            <a href="../../../../classes/I18n/Backend/ActiveRecord/Implementation.html#method-i-expand_keys" name="method-i-expand_keys" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>For a key :&#39;foo.bar.baz&#39; return [&#39;foo&#39;, &#39;foo.bar&#39;,
+&#39;foo.bar.baz&#39;]</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-expand_keys_source')" id="l_method-i-expand_keys_source">show</a>
+                
+              </p>
+              <div id="method-i-expand_keys_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/active_record.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">expand_keys</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-constant">FLATTEN_SEPARATOR</span>).<span class="ruby-identifier">inject</span>([]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">keys</span>, <span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">keys</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">last</span>, <span class="ruby-identifier">key</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">FLATTEN_SEPARATOR</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-lookup">
+            
+              <b>lookup</b>(locale, key, scope = [], options = {})
+            
+            <a href="../../../../classes/I18n/Backend/ActiveRecord/Implementation.html#method-i-lookup" name="method-i-lookup" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-lookup_source')" id="l_method-i-lookup_source">show</a>
+                
+              </p>
+              <div id="method-i-lookup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/active_record.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">lookup</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">scope</span> = [], <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">normalize_flat_keys</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">scope</span>, <span class="ruby-identifier">options</span>[<span class="ruby-value">:separator</span>])
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">Translation</span>.<span class="ruby-identifier">locale</span>(<span class="ruby-identifier">locale</span>).<span class="ruby-identifier">lookup</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">all</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">chop_range</span> = (<span class="ruby-identifier">key</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-constant">FLATTEN_SEPARATOR</span>.<span class="ruby-identifier">size</span>)<span class="ruby-operator">..</span><span class="ruby-number">-1</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">result</span>.<span class="ruby-identifier">inject</span>({}) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span>, <span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">r</span>.<span class="ruby-identifier">key</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-identifier">chop_range</span>)] = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">value</span>
+      <span class="ruby-identifier">hash</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">deep_symbolize_keys</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

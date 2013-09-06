@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActiveRecord::AttributeMethods::ClassMethods</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            ActiveRecord::AttributeMethods::ClassMethods 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/activerecord/lib/active_record/attribute_methods_rb.html">activerecord/lib/active_record/attribute_methods.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Declare and check for suffixed attribute methods.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-attribute_method_suffix">attribute_method_suffix</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-cache_attribute-3F">cache_attribute?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cache_attributes">cache_attributes</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cached_attributes">cached_attributes</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-define_attribute_methods">define_attribute_methods</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-define_read_methods">define_read_methods</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-generated_methods-3F">generated_methods?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-instance_method_already_implemented-3F">instance_method_already_implemented?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-match_attribute_method-3F">match_attribute_method?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-attribute_method_suffix">
+            
+              <b>attribute_method_suffix</b>(*suffixes)
+            
+            <a href="../../../classes/ActiveRecord/AttributeMethods/ClassMethods.html#method-i-attribute_method_suffix" name="method-i-attribute_method_suffix" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Declares a method available for all attributes with the given suffix. Uses
+<code>method_missing</code> and <code>respond_to?</code> to rewrite the
+method</p>
+
+<pre>#{attr}#{suffix}(*args, &amp;block)</pre>
+
+<p>to</p>
+
+<pre>attribute#{suffix}(#{attr}, *args, &amp;block)</pre>
+
+<p>An <code>attribute#{suffix}</code> instance method must exist and accept at
+least the <code>attr</code> argument.</p>
+
+<p>For example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Person</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">attribute_method_suffix</span> <span class="ruby-string">&#39;_changed?&#39;</span>
+
+  <span class="ruby-identifier">private</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">attribute_changed?</span>(<span class="ruby-identifier">attr</span>)
+      <span class="ruby-operator">...</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">person</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">1</span>)
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name_changed?</span>    <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name</span> = <span class="ruby-string">&#39;Hubert&#39;</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name_changed?</span>    <span class="ruby-comment"># =&gt; true</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-attribute_method_suffix_source')" id="l_method-i-attribute_method_suffix_source">show</a>
+                
+              </p>
+              <div id="method-i-attribute_method_suffix_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">attribute_method_suffix</span>(*<span class="ruby-identifier">suffixes</span>)
+  <span class="ruby-identifier">attribute_method_suffixes</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">suffixes</span>
+  <span class="ruby-identifier">rebuild_attribute_method_regexp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cache_attribute-3F">
+            
+              <b>cache_attribute?</b>(attr_name)
+            
+            <a href="../../../classes/ActiveRecord/AttributeMethods/ClassMethods.html#method-i-cache_attribute-3F" name="method-i-cache_attribute-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns <code>true</code> if the provided attribute is being cached.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cache_attribute-3F_source')" id="l_method-i-cache_attribute-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-cache_attribute-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cache_attribute?</span>(<span class="ruby-identifier">attr_name</span>)
+  <span class="ruby-identifier">cached_attributes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">attr_name</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cache_attributes">
+            
+              <b>cache_attributes</b>(*attribute_names)
+            
+            <a href="../../../classes/ActiveRecord/AttributeMethods/ClassMethods.html#method-i-cache_attributes" name="method-i-cache_attributes" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><code>cache_attributes</code> allows you to declare which converted
+attribute values should be cached. Usually caching only pays off for
+attributes with expensive conversion methods, like time related columns
+(e.g. <code>created_at</code>, <code>updated_at</code>).</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cache_attributes_source')" id="l_method-i-cache_attributes_source">show</a>
+                
+              </p>
+              <div id="method-i-cache_attributes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cache_attributes</span>(*<span class="ruby-identifier">attribute_names</span>)
+  <span class="ruby-identifier">attribute_names</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cached_attributes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">to_s</span>}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cached_attributes">
+            
+              <b>cached_attributes</b>()
+            
+            <a href="../../../classes/ActiveRecord/AttributeMethods/ClassMethods.html#method-i-cached_attributes" name="method-i-cached_attributes" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the attributes which are cached. By default time related columns
+with datatype <code>:datetime, :timestamp, :time, :date</code> are cached.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cached_attributes_source')" id="l_method-i-cached_attributes_source">show</a>
+                
+              </p>
+              <div id="method-i-cached_attributes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cached_attributes</span>
+  <span class="ruby-ivar">@cached_attributes</span> <span class="ruby-operator">||=</span>
+    <span class="ruby-identifier">columns</span>.<span class="ruby-identifier">select</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">attribute_types_cached_by_default</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">c</span>.<span class="ruby-identifier">type</span>)}.<span class="ruby-identifier">map</span>(&amp;<span class="ruby-value">:name</span>).<span class="ruby-identifier">to_set</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-define_attribute_methods">
+            
+              <b>define_attribute_methods</b>()
+            
+            <a href="../../../classes/ActiveRecord/AttributeMethods/ClassMethods.html#method-i-define_attribute_methods" name="method-i-define_attribute_methods" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Generates all the attribute related methods for columns in the database
+accessors, mutators and query methods.</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="ClassMethods.html#method-i-define_read_methods">define_read_methods</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-define_attribute_methods_source')" id="l_method-i-define_attribute_methods_source">show</a>
+                
+              </p>
+              <div id="method-i-define_attribute_methods_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">define_attribute_methods</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">generated_methods?</span>
+  <span class="ruby-identifier">columns_hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">column</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">instance_method_already_implemented?</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">serialized_attributes</span>[<span class="ruby-identifier">name</span>]
+        <span class="ruby-identifier">define_read_method_for_serialized_attribute</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">create_time_zone_conversion_attribute?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column</span>)
+        <span class="ruby-identifier">define_read_method_for_time_zone_conversion</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">define_read_method</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">column</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">instance_method_already_implemented?</span>(<span class="ruby-node">&quot;#{name}=&quot;</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">serialized_attributes</span>[<span class="ruby-identifier">name</span>]
+        <span class="ruby-identifier">define_write_method_for_serialized_attribute</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">create_time_zone_conversion_attribute?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column</span>)
+        <span class="ruby-identifier">define_write_method_for_time_zone_conversion</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-keyword">else</span>  
+        <span class="ruby-identifier">define_write_method</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">instance_method_already_implemented?</span>(<span class="ruby-node">&quot;#{name}?&quot;</span>)
+      <span class="ruby-identifier">define_question_method</span>(<span class="ruby-identifier">name</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-define_read_methods">
+            
+              <b>define_read_methods</b>()
+            
+            <a href="../../../classes/ActiveRecord/AttributeMethods/ClassMethods.html#method-i-define_read_methods" name="method-i-define_read_methods" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-generated_methods-3F">
+            
+              <b>generated_methods?</b>()
+            
+            <a href="../../../classes/ActiveRecord/AttributeMethods/ClassMethods.html#method-i-generated_methods-3F" name="method-i-generated_methods-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-generated_methods-3F_source')" id="l_method-i-generated_methods-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-generated_methods-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">generated_methods?</span>
+  <span class="ruby-operator">!</span><span class="ruby-identifier">generated_methods</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-instance_method_already_implemented-3F">
+            
+              <b>instance_method_already_implemented?</b>(method_name)
+            
+            <a href="../../../classes/ActiveRecord/AttributeMethods/ClassMethods.html#method-i-instance_method_already_implemented-3F" name="method-i-instance_method_already_implemented-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Checks whether the method is defined in the model or any of its subclasses
+that also derive from Active Record. Raises <a
+href="../DangerousAttributeError.html">DangerousAttributeError</a> if the
+method is defined by Active Record though.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-instance_method_already_implemented-3F_source')" id="l_method-i-instance_method_already_implemented-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-instance_method_already_implemented-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">instance_method_already_implemented?</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">method_name</span> = <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">method_name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^id(=$|\?$|$)/</span>
+  <span class="ruby-ivar">@_defined_class_methods</span>         <span class="ruby-operator">||=</span> <span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">first</span>(<span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">index</span>(<span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>)).<span class="ruby-identifier">sum</span>([]) { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">public_instance_methods</span>(<span class="ruby-keyword">false</span>) <span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">private_instance_methods</span>(<span class="ruby-keyword">false</span>) <span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">protected_instance_methods</span>(<span class="ruby-keyword">false</span>) }.<span class="ruby-identifier">map</span>(&amp;<span class="ruby-value">:to_s</span>).<span class="ruby-identifier">to_set</span>
+  <span class="ruby-identifier">@@_defined_activerecord_methods</span> <span class="ruby-operator">||=</span> (<span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">public_instance_methods</span>(<span class="ruby-keyword">false</span>) <span class="ruby-operator">|</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">private_instance_methods</span>(<span class="ruby-keyword">false</span>) <span class="ruby-operator">|</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">protected_instance_methods</span>(<span class="ruby-keyword">false</span>)).<span class="ruby-identifier">map</span>(&amp;<span class="ruby-value">:to_s</span>).<span class="ruby-identifier">to_set</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">DangerousAttributeError</span>, <span class="ruby-node">&quot;#{method_name} is defined by ActiveRecord&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">@@_defined_activerecord_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-ivar">@_defined_class_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">method_name</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-match_attribute_method-3F">
+            
+              <b>match_attribute_method?</b>(method_name)
+            
+            <a href="../../../classes/ActiveRecord/AttributeMethods/ClassMethods.html#method-i-match_attribute_method-3F" name="method-i-match_attribute_method-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns MatchData if method_name is an attribute method.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-match_attribute_method-3F_source')" id="l_method-i-match_attribute_method-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-match_attribute_method-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">match_attribute_method?</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">rebuild_attribute_method_regexp</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-identifier">@@attribute_method_regexp</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">@@attribute_method_regexp</span>
+  <span class="ruby-identifier">@@attribute_method_regexp</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">method_name</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

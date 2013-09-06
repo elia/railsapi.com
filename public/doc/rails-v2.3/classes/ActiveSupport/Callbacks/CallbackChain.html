@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActiveSupport::Callbacks::CallbackChain</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            ActiveSupport::Callbacks::CallbackChain 
+            
+                <span class="parent">&lt; 
+                    
+                    Array
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/activesupport/lib/active_support/callbacks_rb.html">activesupport/lib/active_support/callbacks.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-build">build</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-delete">delete</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-find">find</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-replace_or_append-21">replace_or_append!</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-run">run</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-build">
+            
+              <b>build</b>(kind, *methods, &amp;block)
+            
+            <a href="../../../classes/ActiveSupport/Callbacks/CallbackChain.html#method-c-build" name="method-c-build" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-build_source')" id="l_method-c-build_source">show</a>
+                
+              </p>
+              <div id="method-c-build_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/callbacks.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">kind</span>, *<span class="ruby-identifier">methods</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">methods</span>, <span class="ruby-identifier">options</span> = <span class="ruby-identifier">extract_options</span>(*<span class="ruby-identifier">methods</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">map!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span> <span class="ruby-constant">Callback</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">kind</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">options</span>) }
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">methods</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-delete">
+            
+              <b>delete</b>(callback)
+            
+            <a href="../../../classes/ActiveSupport/Callbacks/CallbackChain.html#method-i-delete" name="method-i-delete" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-delete_source')" id="l_method-i-delete_source">show</a>
+                
+              </p>
+              <div id="method-i-delete_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/callbacks.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">delete</span>(<span class="ruby-identifier">callback</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">callback</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Callback</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">callback</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">callback</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-find">
+            
+              <b>find</b>(callback, &amp;block)
+            
+            <a href="../../../classes/ActiveSupport/Callbacks/CallbackChain.html#method-i-find" name="method-i-find" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-find_source')" id="l_method-i-find_source">show</a>
+                
+              </p>
+              <div id="method-i-find_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/callbacks.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">find</span>(<span class="ruby-identifier">callback</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">callback</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">block_given?</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">c</span>)) }.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-replace_or_append-21">
+            
+              <b>replace_or_append!</b>(chain)
+            
+            <a href="../../../classes/ActiveSupport/Callbacks/CallbackChain.html#method-i-replace_or_append-21" name="method-i-replace_or_append-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>TODO: Decompose into more Array like behavior</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-replace_or_append-21_source')" id="l_method-i-replace_or_append-21_source">show</a>
+                
+              </p>
+              <div id="method-i-replace_or_append-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/callbacks.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">replace_or_append!</span>(<span class="ruby-identifier">chain</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span> = <span class="ruby-identifier">index</span>(<span class="ruby-identifier">chain</span>)
+    <span class="ruby-keyword">self</span>[<span class="ruby-identifier">index</span>] = <span class="ruby-identifier">chain</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">chain</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-run">
+            
+              <b>run</b>(object, options = {}, &amp;terminator)
+            
+            <a href="../../../classes/ActiveSupport/Callbacks/CallbackChain.html#method-i-run" name="method-i-run" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-run_source')" id="l_method-i-run_source">show</a>
+                
+              </p>
+              <div id="method-i-run_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/callbacks.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">run</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">options</span> = {}, &amp;<span class="ruby-identifier">terminator</span>)
+  <span class="ruby-identifier">enumerator</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:enumerator</span>] <span class="ruby-operator">||</span> <span class="ruby-value">:each</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">send</span>(<span class="ruby-identifier">enumerator</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">callback</span><span class="ruby-operator">|</span> <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">object</span>) }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">send</span>(<span class="ruby-identifier">enumerator</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">callback</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">object</span>)
+      <span class="ruby-keyword">break</span> <span class="ruby-identifier">result</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">terminator</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">result</span>, <span class="ruby-identifier">object</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

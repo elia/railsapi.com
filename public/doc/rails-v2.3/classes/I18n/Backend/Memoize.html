@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>I18n::Backend::Memoize</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            I18n::Backend::Memoize 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/activesupport/lib/active_support/vendor/i18n-0_4_1/i18n/backend/memoize_rb.html">activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/memoize.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-available_locales">available_locales</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-lookup">lookup</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-memoized_lookup">memoized_lookup</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-reload-21">reload!</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-reset_memoizations-21">reset_memoizations!</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-store_translations">store_translations</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-available_locales">
+            
+              <b>available_locales</b>()
+            
+            <a href="../../../classes/I18n/Backend/Memoize.html#method-i-available_locales" name="method-i-available_locales" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-available_locales_source')" id="l_method-i-available_locales_source">show</a>
+                
+              </p>
+              <div id="method-i-available_locales_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/memoize.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">available_locales</span>
+  <span class="ruby-ivar">@memoized_locales</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reload-21">
+            
+              <b>reload!</b>()
+            
+            <a href="../../../classes/I18n/Backend/Memoize.html#method-i-reload-21" name="method-i-reload-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-reload-21_source')" id="l_method-i-reload-21_source">show</a>
+                
+              </p>
+              <div id="method-i-reload-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/memoize.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">reload!</span>
+  <span class="ruby-identifier">reset_memoizations!</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-store_translations">
+            
+              <b>store_translations</b>(locale, data, options = {})
+            
+            <a href="../../../classes/I18n/Backend/Memoize.html#method-i-store_translations" name="method-i-store_translations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-store_translations_source')" id="l_method-i-store_translations_source">show</a>
+                
+              </p>
+              <div id="method-i-store_translations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/memoize.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">store_translations</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">reset_memoizations!</span>(<span class="ruby-identifier">locale</span>)
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Protected methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-lookup">
+            
+              <b>lookup</b>(locale, key, scope = nil, options = {})
+            
+            <a href="../../../classes/I18n/Backend/Memoize.html#method-i-lookup" name="method-i-lookup" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-lookup_source')" id="l_method-i-lookup_source">show</a>
+                
+              </p>
+              <div id="method-i-lookup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/memoize.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">lookup</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">scope</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">flat_key</span>  = <span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Backend</span><span class="ruby-operator">::</span><span class="ruby-constant">Flatten</span>.<span class="ruby-identifier">normalize_flat_keys</span>(<span class="ruby-identifier">locale</span>,
+    <span class="ruby-identifier">key</span>, <span class="ruby-identifier">scope</span>, <span class="ruby-identifier">options</span>[<span class="ruby-value">:separator</span>]).<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-identifier">flat_hash</span> = <span class="ruby-identifier">memoized_lookup</span>[<span class="ruby-identifier">locale</span>.<span class="ruby-identifier">to_sym</span>]
+  <span class="ruby-identifier">flat_hash</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">flat_key</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">flat_hash</span>[<span class="ruby-identifier">flat_key</span>] <span class="ruby-operator">:</span> (<span class="ruby-identifier">flat_hash</span>[<span class="ruby-identifier">flat_key</span>] = <span class="ruby-keyword">super</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-memoized_lookup">
+            
+              <b>memoized_lookup</b>()
+            
+            <a href="../../../classes/I18n/Backend/Memoize.html#method-i-memoized_lookup" name="method-i-memoized_lookup" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-memoized_lookup_source')" id="l_method-i-memoized_lookup_source">show</a>
+                
+              </p>
+              <div id="method-i-memoized_lookup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/memoize.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">memoized_lookup</span>
+  <span class="ruby-ivar">@memoized_lookup</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>, <span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>] = {} }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reset_memoizations-21">
+            
+              <b>reset_memoizations!</b>(locale=nil)
+            
+            <a href="../../../classes/I18n/Backend/Memoize.html#method-i-reset_memoizations-21" name="method-i-reset_memoizations-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-reset_memoizations-21_source')" id="l_method-i-reset_memoizations-21_source">show</a>
+                
+              </p>
+              <div id="method-i-reset_memoizations-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/memoize.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">reset_memoizations!</span>(<span class="ruby-identifier">locale</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@memoized_locales</span> = <span class="ruby-keyword">nil</span>
+  (<span class="ruby-identifier">locale</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">memoized_lookup</span>[<span class="ruby-identifier">locale</span>.<span class="ruby-identifier">to_sym</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">memoized_lookup</span>).<span class="ruby-identifier">clear</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

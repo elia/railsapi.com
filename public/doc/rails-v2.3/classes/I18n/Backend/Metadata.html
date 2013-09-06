@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>I18n::Backend::Metadata</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            I18n::Backend::Metadata 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/activesupport/lib/active_support/vendor/i18n-0_4_1/i18n/backend/metadata_rb.html">activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/metadata.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-included">included</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-interpolate">interpolate</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-pluralize">pluralize</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-translate">translate</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-translation_metadata">translation_metadata</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-translation_metadata-3D">translation_metadata=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-with_metadata">with_metadata</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-included">
+            
+              <b>included</b>(base)
+            
+            <a href="../../../classes/I18n/Backend/Metadata.html#method-c-included" name="method-c-included" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-included_source')" id="l_method-c-included_source">show</a>
+                
+              </p>
+              <div id="method-c-included_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/metadata.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">included</span>(<span class="ruby-identifier">base</span>)
+  <span class="ruby-constant">Object</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">translation_metadata</span>
+      <span class="ruby-ivar">@translation_metadata</span> <span class="ruby-operator">||=</span> {}
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">translation_metadata=</span>(<span class="ruby-identifier">translation_metadata</span>)
+      <span class="ruby-ivar">@translation_metadata</span> = <span class="ruby-identifier">translation_metadata</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Object</span>.<span class="ruby-identifier">method_defined?</span>(<span class="ruby-value">:translation_metadata</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-translation_metadata">
+            
+              <b>translation_metadata</b>()
+            
+            <a href="../../../classes/I18n/Backend/Metadata.html#method-c-translation_metadata" name="method-c-translation_metadata" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-translation_metadata_source')" id="l_method-c-translation_metadata_source">show</a>
+                
+              </p>
+              <div id="method-c-translation_metadata_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/metadata.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">translation_metadata</span>
+  <span class="ruby-ivar">@translation_metadata</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-translation_metadata-3D">
+            
+              <b>translation_metadata=</b>(translation_metadata)
+            
+            <a href="../../../classes/I18n/Backend/Metadata.html#method-c-translation_metadata-3D" name="method-c-translation_metadata-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-translation_metadata-3D_source')" id="l_method-c-translation_metadata-3D_source">show</a>
+                
+              </p>
+              <div id="method-c-translation_metadata-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/metadata.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">translation_metadata=</span>(<span class="ruby-identifier">translation_metadata</span>)
+  <span class="ruby-ivar">@translation_metadata</span> = <span class="ruby-identifier">translation_metadata</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-interpolate">
+            
+              <b>interpolate</b>(locale, entry, values = {})
+            
+            <a href="../../../classes/I18n/Backend/Metadata.html#method-i-interpolate" name="method-i-interpolate" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-interpolate_source')" id="l_method-i-interpolate_source">show</a>
+                
+              </p>
+              <div id="method-i-interpolate_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/metadata.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">interpolate</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">entry</span>, <span class="ruby-identifier">values</span> = {})
+  <span class="ruby-identifier">metadata</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">translation_metadata</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:original</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">entry</span>)
+  <span class="ruby-identifier">with_metadata</span>(<span class="ruby-identifier">metadata</span>) { <span class="ruby-keyword">super</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-pluralize">
+            
+              <b>pluralize</b>(locale, entry, count)
+            
+            <a href="../../../classes/I18n/Backend/Metadata.html#method-i-pluralize" name="method-i-pluralize" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-pluralize_source')" id="l_method-i-pluralize_source">show</a>
+                
+              </p>
+              <div id="method-i-pluralize_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/metadata.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">pluralize</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">entry</span>, <span class="ruby-identifier">count</span>)
+  <span class="ruby-identifier">with_metadata</span>(<span class="ruby-value">:count</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">count</span>) { <span class="ruby-keyword">super</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-translate">
+            
+              <b>translate</b>(locale, key, options = {})
+            
+            <a href="../../../classes/I18n/Backend/Metadata.html#method-i-translate" name="method-i-translate" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-translate_source')" id="l_method-i-translate_source">show</a>
+                
+              </p>
+              <div id="method-i-translate_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/metadata.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">translate</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">metadata</span> = {
+    <span class="ruby-value">:locale</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">locale</span>,
+    <span class="ruby-value">:key</span>       =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">key</span>,
+    <span class="ruby-value">:scope</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:scope</span>],
+    <span class="ruby-value">:default</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:default</span>],
+    <span class="ruby-value">:separator</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:separator</span>],
+    <span class="ruby-value">:values</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-constant">Base</span><span class="ruby-operator">::</span><span class="ruby-constant">RESERVED_KEYS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>) }
+  }
+  <span class="ruby-identifier">with_metadata</span>(<span class="ruby-identifier">metadata</span>) { <span class="ruby-keyword">super</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Protected methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-with_metadata">
+            
+              <b>with_metadata</b>(metadata, &amp;block)
+            
+            <a href="../../../classes/I18n/Backend/Metadata.html#method-i-with_metadata" name="method-i-with_metadata" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-with_metadata_source')" id="l_method-i-with_metadata_source">show</a>
+                
+              </p>
+              <div id="method-i-with_metadata_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/metadata.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">with_metadata</span>(<span class="ruby-identifier">metadata</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">yield</span>
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">translation_metadata</span> = <span class="ruby-identifier">result</span>.<span class="ruby-identifier">translation_metadata</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">metadata</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

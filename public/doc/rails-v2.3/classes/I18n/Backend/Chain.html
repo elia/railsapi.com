@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>I18n::Backend::Chain</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            I18n::Backend::Chain 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/activesupport/lib/active_support/vendor/i18n-0_4_1/i18n/backend/chain_rb.html">activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/chain.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="../Backend.html">Backend</a> that chains multiple other backends
+and checks each of them when a translation needs to be looked up. This is
+useful when you want to use standard translations with a <a
+href="Simple.html">Simple</a> backend but store custom application
+translations in a database or other backends.</p>
+
+<p>To use the <a href="Chain.html">Chain</a> backend instantiate it and set it
+to the <a href="../../I18n.html">I18n</a> module. You can add chained
+backends through the initializer or backends accessor:</p>
+
+<pre># preserves the existing Simple backend set to I18n.backend
+I18n.backend = I18n::Backend::Chain.new(I18n::Backend::ActiveRecord.new, I18n.backend)</pre>
+
+<p>The implementation assumes that all backends added to the <a
+href="Chain.html">Chain</a> implement a lookup method with the same API as
+<a href="Simple.html">Simple</a> backend does.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-available_locales">available_locales</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-localize">localize</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-namespace_lookup-3F">namespace_lookup?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-reload-21">reload!</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-store_translations">store_translations</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-translate">translate</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Base.html">
+              I18n::Backend::Base
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>backends</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(*backends)
+            
+            <a href="../../../classes/I18n/Backend/Chain.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/chain.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(*<span class="ruby-identifier">backends</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">backends</span> = <span class="ruby-identifier">backends</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-available_locales">
+            
+              <b>available_locales</b>()
+            
+            <a href="../../../classes/I18n/Backend/Chain.html#method-i-available_locales" name="method-i-available_locales" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-available_locales_source')" id="l_method-i-available_locales_source">show</a>
+                
+              </p>
+              <div id="method-i-available_locales_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/chain.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">available_locales</span>
+  <span class="ruby-identifier">backends</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">backend</span><span class="ruby-operator">|</span> <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">available_locales</span> }.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">uniq</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-localize">
+            
+              <b>localize</b>(locale, object, format = :default, options = {})
+            
+            <a href="../../../classes/I18n/Backend/Chain.html#method-i-localize" name="method-i-localize" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-localize_source')" id="l_method-i-localize_source">show</a>
+                
+              </p>
+              <div id="method-i-localize_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/chain.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">localize</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">object</span>, <span class="ruby-identifier">format</span> = <span class="ruby-value">:default</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">backends</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">backend</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">localize</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">object</span>, <span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span>) <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">MissingTranslationData</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">raise</span>(<span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">MissingTranslationData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reload-21">
+            
+              <b>reload!</b>()
+            
+            <a href="../../../classes/I18n/Backend/Chain.html#method-i-reload-21" name="method-i-reload-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-reload-21_source')" id="l_method-i-reload-21_source">show</a>
+                
+              </p>
+              <div id="method-i-reload-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/chain.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">reload!</span>
+  <span class="ruby-identifier">backends</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">backend</span><span class="ruby-operator">|</span> <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">reload!</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-store_translations">
+            
+              <b>store_translations</b>(locale, data, options = {})
+            
+            <a href="../../../classes/I18n/Backend/Chain.html#method-i-store_translations" name="method-i-store_translations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-store_translations_source')" id="l_method-i-store_translations_source">show</a>
+                
+              </p>
+              <div id="method-i-store_translations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/chain.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">store_translations</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">backends</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">store_translations</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">options</span> = {})
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-translate">
+            
+              <b>translate</b>(locale, key, options = {})
+            
+            <a href="../../../classes/I18n/Backend/Chain.html#method-i-translate" name="method-i-translate" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-translate_source')" id="l_method-i-translate_source">show</a>
+                
+              </p>
+              <div id="method-i-translate_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/chain.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">translate</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">translate</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">k</span>, <span class="ruby-identifier">options</span>) } <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+
+  <span class="ruby-identifier">default</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:default</span>)
+  <span class="ruby-identifier">namespace</span> = {}
+  <span class="ruby-identifier">backends</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">backend</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">options</span>.<span class="ruby-identifier">update</span>(<span class="ruby-value">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">default</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">default</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">backend</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">backends</span>.<span class="ruby-identifier">last</span>
+      <span class="ruby-identifier">translation</span> = <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">translate</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">namespace_lookup?</span>(<span class="ruby-identifier">translation</span>, <span class="ruby-identifier">options</span>)
+        <span class="ruby-identifier">namespace</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">translation</span>)
+      <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">translation</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">translation</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">MissingTranslationData</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">namespace</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">namespace</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">raise</span>(<span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">MissingTranslationData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Protected methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-namespace_lookup-3F">
+            
+              <b>namespace_lookup?</b>(result, options)
+            
+            <a href="../../../classes/I18n/Backend/Chain.html#method-i-namespace_lookup-3F" name="method-i-namespace_lookup-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-namespace_lookup-3F_source')" id="l_method-i-namespace_lookup-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-namespace_lookup-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/chain.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">namespace_lookup?</span>(<span class="ruby-identifier">result</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-keyword">and</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:count</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

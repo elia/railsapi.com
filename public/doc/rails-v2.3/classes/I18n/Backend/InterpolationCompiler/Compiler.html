@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>I18n::Backend::InterpolationCompiler::Compiler</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            I18n::Backend::InterpolationCompiler::Compiler 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/activesupport/lib/active_support/vendor/i18n-0_4_1/i18n/backend/interpolation_compiler_rb.html">activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-compile_if_an_interpolation">compile_if_an_interpolation</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-compile_interpolation_token">compile_interpolation_token</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-compiled_interpolation_body">compiled_interpolation_body</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-direct_key">direct_key</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-escape_key_sym">escape_key_sym</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-escape_plain_str">escape_plain_str</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-handle_interpolation_token">handle_interpolation_token</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-interpolate_key">interpolate_key</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-interpolate_or_raise_missing">interpolate_or_raise_missing</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-interpolated_str-3F">interpolated_str?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-missing_key">missing_key</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-nil_key">nil_key</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-reserved_key">reserved_key</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-tokenize">tokenize</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">TOKENIZER</td>
+            <td>=</td>
+            <td class="attr-value">/(%%\{[^\}]+\}|%\{[^\}]+\})/</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">INTERPOLATION_SYNTAX_PATTERN</td>
+            <td>=</td>
+            <td class="attr-value">/(%)?(%\{([^\}]+)\})/</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-compile_if_an_interpolation">
+            
+              <b>compile_if_an_interpolation</b>(string)
+            
+            <a href="../../../../classes/I18n/Backend/InterpolationCompiler/Compiler.html#method-i-compile_if_an_interpolation" name="method-i-compile_if_an_interpolation" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-compile_if_an_interpolation_source')" id="l_method-i-compile_if_an_interpolation_source">show</a>
+                
+              </p>
+              <div id="method-i-compile_if_an_interpolation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb, line 26</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">compile_if_an_interpolation</span>(<span class="ruby-identifier">string</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">interpolated_str?</span>(<span class="ruby-identifier">string</span>)
+            <span class="ruby-identifier">string</span>.<span class="ruby-identifier">instance_eval</span> <span class="ruby-string">&quot;              def i18n_interpolate(v = {})
+                &quot;#{compiled_interpolation_body(string)}&quot;
+              end
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span>
+          <span class="ruby-keyword">end</span>
+
+          <span class="ruby-identifier">string</span>
+        <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-interpolated_str-3F">
+            
+              <b>interpolated_str?</b>(str)
+            
+            <a href="../../../../classes/I18n/Backend/InterpolationCompiler/Compiler.html#method-i-interpolated_str-3F" name="method-i-interpolated_str-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-interpolated_str-3F_source')" id="l_method-i-interpolated_str-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-interpolated_str-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">interpolated_str?</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">str</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">INTERPOLATION_SYNTAX_PATTERN</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Protected methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-compile_interpolation_token">
+            
+              <b>compile_interpolation_token</b>(key)
+            
+            <a href="../../../../classes/I18n/Backend/InterpolationCompiler/Compiler.html#method-i-compile_interpolation_token" name="method-i-compile_interpolation_token" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-compile_interpolation_token_source')" id="l_method-i-compile_interpolation_token_source">show</a>
+                
+              </p>
+              <div id="method-i-compile_interpolation_token_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">compile_interpolation_token</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-node">&quot;\#{#{interpolate_or_raise_missing(key)}}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-compiled_interpolation_body">
+            
+              <b>compiled_interpolation_body</b>(str)
+            
+            <a href="../../../../classes/I18n/Backend/InterpolationCompiler/Compiler.html#method-i-compiled_interpolation_body" name="method-i-compiled_interpolation_body" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-compiled_interpolation_body_source')" id="l_method-i-compiled_interpolation_body_source">show</a>
+                
+              </p>
+              <div id="method-i-compiled_interpolation_body_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">compiled_interpolation_body</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">tokenize</span>(<span class="ruby-identifier">str</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">token</span><span class="ruby-operator">|</span>
+    (<span class="ruby-identifier">matchdata</span> = <span class="ruby-identifier">token</span>.<span class="ruby-identifier">match</span>(<span class="ruby-constant">INTERPOLATION_SYNTAX_PATTERN</span>)) <span class="ruby-operator">?</span> <span class="ruby-identifier">handle_interpolation_token</span>(<span class="ruby-identifier">token</span>, <span class="ruby-identifier">matchdata</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">escape_plain_str</span>(<span class="ruby-identifier">token</span>)
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-direct_key">
+            
+              <b>direct_key</b>(key)
+            
+            <a href="../../../../classes/I18n/Backend/InterpolationCompiler/Compiler.html#method-i-direct_key" name="method-i-direct_key" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-direct_key_source')" id="l_method-i-direct_key_source">show</a>
+                
+              </p>
+              <div id="method-i-direct_key_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">direct_key</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-node">&quot;((t = v[#{key}]) &amp;&amp; t.respond_to?(:call) ? t.call : t)&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-escape_key_sym">
+            
+              <b>escape_key_sym</b>(key)
+            
+            <a href="../../../../classes/I18n/Backend/InterpolationCompiler/Compiler.html#method-i-escape_key_sym" name="method-i-escape_key_sym" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-escape_key_sym_source')" id="l_method-i-escape_key_sym_source">show</a>
+                
+              </p>
+              <div id="method-i-escape_key_sym_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">escape_key_sym</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-comment"># rely on Ruby to do all the hard work :)</span>
+  <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>.<span class="ruby-identifier">inspect</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-escape_plain_str">
+            
+              <b>escape_plain_str</b>(str)
+            
+            <a href="../../../../classes/I18n/Backend/InterpolationCompiler/Compiler.html#method-i-escape_plain_str" name="method-i-escape_plain_str" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-escape_plain_str_source')" id="l_method-i-escape_plain_str_source">show</a>
+                
+              </p>
+              <div id="method-i-escape_plain_str_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">escape_plain_str</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-node">/&quot;|\|#/</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;\\#{x}&quot;</span>}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-handle_interpolation_token">
+            
+              <b>handle_interpolation_token</b>(interpolation, matchdata)
+            
+            <a href="../../../../classes/I18n/Backend/InterpolationCompiler/Compiler.html#method-i-handle_interpolation_token" name="method-i-handle_interpolation_token" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-handle_interpolation_token_source')" id="l_method-i-handle_interpolation_token_source">show</a>
+                
+              </p>
+              <div id="method-i-handle_interpolation_token_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">handle_interpolation_token</span>(<span class="ruby-identifier">interpolation</span>, <span class="ruby-identifier">matchdata</span>)
+  <span class="ruby-identifier">escaped</span>, <span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">key</span> = <span class="ruby-identifier">matchdata</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-number">1</span>, <span class="ruby-number">2</span>, <span class="ruby-number">3</span>)
+  <span class="ruby-identifier">escaped</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">compile_interpolation_token</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-interpolate_key">
+            
+              <b>interpolate_key</b>(key)
+            
+            <a href="../../../../classes/I18n/Backend/InterpolationCompiler/Compiler.html#method-i-interpolate_key" name="method-i-interpolate_key" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-interpolate_key_source')" id="l_method-i-interpolate_key_source">show</a>
+                
+              </p>
+              <div id="method-i-interpolate_key_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">interpolate_key</span>(<span class="ruby-identifier">key</span>)
+  [<span class="ruby-identifier">direct_key</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">nil_key</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">missing_key</span>(<span class="ruby-identifier">key</span>)].<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;||&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-interpolate_or_raise_missing">
+            
+              <b>interpolate_or_raise_missing</b>(key)
+            
+            <a href="../../../../classes/I18n/Backend/InterpolationCompiler/Compiler.html#method-i-interpolate_or_raise_missing" name="method-i-interpolate_or_raise_missing" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-interpolate_or_raise_missing_source')" id="l_method-i-interpolate_or_raise_missing_source">show</a>
+                
+              </p>
+              <div id="method-i-interpolate_or_raise_missing_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">interpolate_or_raise_missing</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">escaped_key</span> = <span class="ruby-identifier">escape_key_sym</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-constant">Base</span><span class="ruby-operator">::</span><span class="ruby-constant">RESERVED_KEYS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">reserved_key</span>(<span class="ruby-identifier">escaped_key</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">interpolate_key</span>(<span class="ruby-identifier">escaped_key</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-missing_key">
+            
+              <b>missing_key</b>(key)
+            
+            <a href="../../../../classes/I18n/Backend/InterpolationCompiler/Compiler.html#method-i-missing_key" name="method-i-missing_key" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-missing_key_source')" id="l_method-i-missing_key_source">show</a>
+                
+              </p>
+              <div id="method-i-missing_key_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">missing_key</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-node">&quot;raise(MissingInterpolationArgument.new(#{key}, self))&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-nil_key">
+            
+              <b>nil_key</b>(key)
+            
+            <a href="../../../../classes/I18n/Backend/InterpolationCompiler/Compiler.html#method-i-nil_key" name="method-i-nil_key" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-nil_key_source')" id="l_method-i-nil_key_source">show</a>
+                
+              </p>
+              <div id="method-i-nil_key_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">nil_key</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-node">&quot;(v.has_key?(#{key}) &amp;&amp; &#39;&#39;)&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reserved_key">
+            
+              <b>reserved_key</b>(key)
+            
+            <a href="../../../../classes/I18n/Backend/InterpolationCompiler/Compiler.html#method-i-reserved_key" name="method-i-reserved_key" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-reserved_key_source')" id="l_method-i-reserved_key_source">show</a>
+                
+              </p>
+              <div id="method-i-reserved_key_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">reserved_key</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-node">&quot;raise(ReservedInterpolationKey.new(#{key}, self))&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tokenize">
+            
+              <b>tokenize</b>(str)
+            
+            <a href="../../../../classes/I18n/Backend/InterpolationCompiler/Compiler.html#method-i-tokenize" name="method-i-tokenize" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>tokenize(“foo %{bar} baz %%{buz}”) # =&gt; [“foo ”, “%{bar}”, “ baz ”,
+“%%{buz}”]</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tokenize_source')" id="l_method-i-tokenize_source">show</a>
+                
+              </p>
+              <div id="method-i-tokenize_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/interpolation_compiler.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tokenize</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">split</span>(<span class="ruby-constant">TOKENIZER</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

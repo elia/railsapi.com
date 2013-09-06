@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActionController::Routing::Optimisation::PositionalArguments</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            ActionController::Routing::Optimisation::PositionalArguments 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="Optimiser.html">ActionController::Routing::Optimisation::Optimiser</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/actionpack/lib/action_controller/routing/optimisations_rb.html">actionpack/lib/action_controller/routing/optimisations.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Given a route</p>
+
+<pre>map.person &#39;/people/:id&#39;</pre>
+
+<p>If the user calls <code>person_url(@person)</code>, we can simply return a
+string like “/people/#{@person.to_param}” rather than triggering the
+expensive logic in <code>url_for</code>.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-generation_code">generation_code</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-guard_conditions">guard_conditions</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-generation_code">
+            
+              <b>generation_code</b>()
+            
+            <a href="../../../../classes/ActionController/Routing/Optimisation/PositionalArguments.html#method-i-generation_code" name="method-i-generation_code" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-generation_code_source')" id="l_method-i-generation_code_source">show</a>
+                
+              </p>
+              <div id="method-i-generation_code_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/optimisations.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">generation_code</span>
+  <span class="ruby-identifier">elements</span> = []
+  <span class="ruby-identifier">idx</span> = <span class="ruby-number">0</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">kind</span> <span class="ruby-operator">==</span> <span class="ruby-value">:url</span>
+    <span class="ruby-identifier">elements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;#{request.protocol}&#39;</span>
+    <span class="ruby-identifier">elements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;#{request.host_with_port}&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">elements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;#{ActionController::Base.relative_url_root if ActionController::Base.relative_url_root}&#39;</span>
+
+  <span class="ruby-comment"># The last entry in &lt;tt&gt;route.segments&lt;/tt&gt; appears to *always* be a</span>
+  <span class="ruby-comment"># &#39;divider segment&#39; for &#39;/&#39; but we have assertions to ensure that</span>
+  <span class="ruby-comment"># we don&#39;t include the trailing slashes, so skip them.</span>
+  (<span class="ruby-identifier">route</span>.<span class="ruby-identifier">segments</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-number">1</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">route</span>.<span class="ruby-identifier">segments</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">route</span>.<span class="ruby-identifier">segments</span>[<span class="ruby-number">0</span><span class="ruby-operator">..</span><span class="ruby-number">-2</span>]).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">segment</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">DynamicSegment</span>)
+      <span class="ruby-identifier">elements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">interpolation_chunk</span>(<span class="ruby-node">&quot;args[#{idx}].to_param&quot;</span>)
+      <span class="ruby-identifier">idx</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">elements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">interpolation_chunk</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-node">%Q(&quot;#{elements * &#39;&#39;}&quot;)</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-guard_conditions">
+            
+              <b>guard_conditions</b>()
+            
+            <a href="../../../../classes/ActionController/Routing/Optimisation/PositionalArguments.html#method-i-guard_conditions" name="method-i-guard_conditions" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-guard_conditions_source')" id="l_method-i-guard_conditions_source">show</a>
+                
+              </p>
+              <div id="method-i-guard_conditions_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/optimisations.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">guard_conditions</span>
+  <span class="ruby-identifier">number_of_arguments</span> = <span class="ruby-identifier">route</span>.<span class="ruby-identifier">required_segment_keys</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-comment"># if they&#39;re using foo_url(:id=&gt;2) it&#39;s one</span>
+  <span class="ruby-comment"># argument, but we don&#39;t want to generate /foos/id2</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">number_of_arguments</span> <span class="ruby-operator">==</span> <span class="ruby-number">1</span>
+    [<span class="ruby-string">&quot;args.size == 1&quot;</span>, <span class="ruby-string">&quot;!args.first.is_a?(Hash)&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    [<span class="ruby-node">&quot;args.size == #{number_of_arguments}&quot;</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

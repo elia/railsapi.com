@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>I18n::Backend::Cldr</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            I18n::Backend::Cldr 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/activesupport/lib/active_support/vendor/i18n-0_4_1/i18n/backend/cldr_rb.html">activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-detect_type">detect_type</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-format_currency">format_currency</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-format_date">format_date</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-format_datetime">format_datetime</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-format_decimal">format_decimal</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-format_integer">format_integer</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-format_percent">format_percent</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-format_time">format_time</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-formatter">formatter</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-localize">localize</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-lookup_currency">lookup_currency</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-lookup_format">lookup_format</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-lookup_format_data">lookup_format_data</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-raise_unspecified_currency-21">raise_unspecified_currency!</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_unspecified_format_type-21">raise_unspecified_format_type!</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            ::Cldr::Format
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-format_currency">
+            
+              <b>format_currency</b>(locale, object, format = :default, options = {})
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-format_currency" name="method-i-format_currency" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-format_currency_source')" id="l_method-i-format_currency_source">show</a>
+                
+              </p>
+              <div id="method-i-format_currency_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">format_currency</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">object</span>, <span class="ruby-identifier">format</span> = <span class="ruby-value">:default</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-value">:currency</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">lookup_currency</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">options</span>[<span class="ruby-value">:currency</span>], <span class="ruby-identifier">object</span>)) <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:currency</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+  <span class="ruby-identifier">formatter</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-value">:currency</span>, <span class="ruby-identifier">format</span>).<span class="ruby-identifier">apply</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-format_date">
+            
+              <b>format_date</b>(locale, object, format = :default, options = {})
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-format_date" name="method-i-format_date" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-format_date_source')" id="l_method-i-format_date_source">show</a>
+                
+              </p>
+              <div id="method-i-format_date_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">format_date</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">object</span>, <span class="ruby-identifier">format</span> = <span class="ruby-value">:default</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">formatter</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-value">:date</span>, <span class="ruby-identifier">format</span>).<span class="ruby-identifier">apply</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-format_datetime">
+            
+              <b>format_datetime</b>(locale, object, format = :default, options = {})
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-format_datetime" name="method-i-format_datetime" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-format_datetime_source')" id="l_method-i-format_datetime_source">show</a>
+                
+              </p>
+              <div id="method-i-format_datetime_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">format_datetime</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">object</span>, <span class="ruby-identifier">format</span> = <span class="ruby-value">:default</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">key</span>  = <span class="ruby-value">:&quot;calendars.gregorian.formats.datetime.#{format}.pattern&quot;</span>
+  <span class="ruby-identifier">date</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">l</span>(<span class="ruby-identifier">object</span>, <span class="ruby-value">:format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:date_format</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">format</span>, <span class="ruby-value">:locale</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">locale</span>, <span class="ruby-value">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:date</span>)
+  <span class="ruby-identifier">time</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">l</span>(<span class="ruby-identifier">object</span>, <span class="ruby-value">:format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:time_format</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">format</span>, <span class="ruby-value">:locale</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">locale</span>, <span class="ruby-value">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:time</span>)
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-identifier">key</span>, <span class="ruby-value">:date</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date</span>, <span class="ruby-value">:time</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">time</span>, <span class="ruby-value">:locale</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">locale</span>, <span class="ruby-value">:raise</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-format_decimal">
+            
+              <b>format_decimal</b>(locale, object, format = :default, options = {})
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-format_decimal" name="method-i-format_decimal" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-format_decimal_source')" id="l_method-i-format_decimal_source">show</a>
+                
+              </p>
+              <div id="method-i-format_decimal_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">format_decimal</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">object</span>, <span class="ruby-identifier">format</span> = <span class="ruby-value">:default</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">formatter</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-value">:decimal</span>, <span class="ruby-identifier">format</span>).<span class="ruby-identifier">apply</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-format_integer">
+            
+              <b>format_integer</b>(locale, object, format = :default, options = {})
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-format_integer" name="method-i-format_integer" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-format_integer_source')" id="l_method-i-format_integer_source">show</a>
+                
+              </p>
+              <div id="method-i-format_integer_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">format_integer</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">object</span>, <span class="ruby-identifier">format</span> = <span class="ruby-value">:default</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">format_object</span>(<span class="ruby-identifier">number</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:precision</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-format_percent">
+            
+              <b>format_percent</b>(locale, object, format = :default, options = {})
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-format_percent" name="method-i-format_percent" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-format_percent_source')" id="l_method-i-format_percent_source">show</a>
+                
+              </p>
+              <div id="method-i-format_percent_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">format_percent</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">object</span>, <span class="ruby-identifier">format</span> = <span class="ruby-value">:default</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">formatter</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-value">:percent</span>, <span class="ruby-identifier">format</span>).<span class="ruby-identifier">apply</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-format_time">
+            
+              <b>format_time</b>(locale, object, format = :default, options = {})
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-format_time" name="method-i-format_time" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-format_time_source')" id="l_method-i-format_time_source">show</a>
+                
+              </p>
+              <div id="method-i-format_time_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">format_time</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">object</span>, <span class="ruby-identifier">format</span> = <span class="ruby-value">:default</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">formatter</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-value">:time</span>, <span class="ruby-identifier">format</span>).<span class="ruby-identifier">apply</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-localize">
+            
+              <b>localize</b>(locale, object, format = :default, options = {})
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-localize" name="method-i-localize" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-localize_source')" id="l_method-i-localize_source">show</a>
+                
+              </p>
+              <div id="method-i-localize_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">localize</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">object</span>, <span class="ruby-identifier">format</span> = <span class="ruby-value">:default</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:as</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">detect_type</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">send</span>(<span class="ruby-value">:&quot;format_#{options[:as]}&quot;</span>, <span class="ruby-identifier">locale</span>, <span class="ruby-identifier">object</span>, <span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Protected methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-detect_type">
+            
+              <b>detect_type</b>(object, options)
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-detect_type" name="method-i-detect_type" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-detect_type_source')" id="l_method-i-detect_type_source">show</a>
+                
+              </p>
+              <div id="method-i-detect_type_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">detect_type</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:currency</span>) <span class="ruby-operator">?</span> <span class="ruby-value">:currency</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">case</span> <span class="ruby-identifier">object</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>
+    <span class="ruby-value">:decimal</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">Date</span>, <span class="ruby-operator">::</span><span class="ruby-constant">DateTime</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise_unspecified_format_type!</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-formatter">
+            
+              <b>formatter</b>(locale, type, format)
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-formatter" name="method-i-formatter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-formatter_source')" id="l_method-i-formatter_source">show</a>
+                
+              </p>
+              <div id="method-i-formatter_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">formatter</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">format</span>)
+  (<span class="ruby-ivar">@formatters</span> <span class="ruby-operator">||=</span> {})[<span class="ruby-value">:&quot;#{locale}.#{type}.#{format}&quot;</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">format</span> = <span class="ruby-identifier">lookup_format</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">format</span>)
+    <span class="ruby-identifier">data</span>   = <span class="ruby-identifier">lookup_format_data</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">type</span>)
+    <span class="ruby-operator">::</span><span class="ruby-constant">Cldr</span><span class="ruby-operator">::</span><span class="ruby-constant">Format</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">camelize</span>).<span class="ruby-identifier">new</span>(<span class="ruby-identifier">format</span>, <span class="ruby-identifier">data</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-lookup_currency">
+            
+              <b>lookup_currency</b>(locale, currency, count)
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-lookup_currency" name="method-i-lookup_currency" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-lookup_currency_source')" id="l_method-i-lookup_currency_source">show</a>
+                
+              </p>
+              <div id="method-i-lookup_currency_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">lookup_currency</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">currency</span>, <span class="ruby-identifier">count</span>)
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-value">:&quot;currencies.#{currency}&quot;</span>, <span class="ruby-value">:locale</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">locale</span>, <span class="ruby-value">:count</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">count</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-lookup_format">
+            
+              <b>lookup_format</b>(locale, type, format)
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-lookup_format" name="method-i-lookup_format" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-lookup_format_source')" id="l_method-i-lookup_format_source">show</a>
+                
+              </p>
+              <div id="method-i-lookup_format_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">lookup_format</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">format</span>)
+  <span class="ruby-identifier">key</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:date</span>, <span class="ruby-value">:time</span>, <span class="ruby-value">:datetime</span>
+    <span class="ruby-value">:&quot;calendars.gregorian.formats.#{type}.#{format}.pattern&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-value">:&quot;numbers.formats.#{type}.patterns.#{format || :default}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-identifier">key</span>, <span class="ruby-value">:locale</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">locale</span>, <span class="ruby-value">:raise</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-lookup_format_data">
+            
+              <b>lookup_format_data</b>(locale, type)
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-lookup_format_data" name="method-i-lookup_format_data" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-lookup_format_data_source')" id="l_method-i-lookup_format_data_source">show</a>
+                
+              </p>
+              <div id="method-i-lookup_format_data_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">lookup_format_data</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">type</span>)
+  <span class="ruby-identifier">key</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:date</span>, <span class="ruby-value">:time</span>, <span class="ruby-value">:datetime</span>
+    <span class="ruby-value">:&#39;calendars.gregorian&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-value">:&#39;numbers.symbols&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-identifier">key</span>, <span class="ruby-value">:locale</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">locale</span>, <span class="ruby-value">:raise</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_unspecified_currency-21">
+            
+              <b>raise_unspecified_currency!</b>()
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-raise_unspecified_currency-21" name="method-i-raise_unspecified_currency-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-raise_unspecified_currency-21_source')" id="l_method-i-raise_unspecified_currency-21_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_unspecified_currency-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">raise_unspecified_currency!</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;You have to specify a currency, e.g. :currency =&gt; &#39;EUR&#39;.&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_unspecified_format_type-21">
+            
+              <b>raise_unspecified_format_type!</b>()
+            
+            <a href="../../../classes/I18n/Backend/Cldr.html#method-i-raise_unspecified_format_type-21" name="method-i-raise_unspecified_format_type-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-raise_unspecified_format_type-21_source')" id="l_method-i-raise_unspecified_format_type-21_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_unspecified_format_type-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/i18n-0.4.1/i18n/backend/cldr.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">raise_unspecified_format_type!</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;You have to specify a format type, e.g. :as =&gt; :number.&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

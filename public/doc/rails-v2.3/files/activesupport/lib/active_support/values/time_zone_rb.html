@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>time_zone.rb</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            time_zone.rb
+        </h1>
+        <ul class="files">
+            <li>activesupport/lib/active_support/values/time_zone.rb</li>
+            <li>Last modified: 2013-09-06 16:46:51 +0200</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>The TimeZone class serves as a wrapper around <a
+href="../../../../../classes/TZInfo/Timezone.html">TZInfo::Timezone</a>
+instances. It allows us to do the following:</p>
+<ul><li>
+<p>Limit the set of zones provided by <a
+href="../../../../../classes/TZInfo.html">TZInfo</a> to a meaningful subset
+of 142 zones.</p>
+</li><li>
+<p>Retrieve and display zones with a friendlier name (e.g., “Eastern <a
+href="../../../../../classes/Time.html">Time</a> (US &amp; Canada)” instead
+of “America/New_York”).</p>
+</li><li>
+<p>Lazily load <a
+href="../../../../../classes/TZInfo/Timezone.html">TZInfo::Timezone</a>
+instances only when they&#39;re needed.</p>
+</li><li>
+<p>Create <a
+href="../../../../../classes/ActiveSupport/TimeWithZone.html">ActiveSupport::TimeWithZone</a>
+instances via TimeZone&#39;s <code>local</code>, <code>parse</code>,
+<code>at</code> and <code>now</code> methods.</p>
+</li></ul>
+
+<p>If you set <code>config.time_zone</code> in the <a
+href="../../../../../classes/Rails.html">Rails</a> Initializer, you can
+access this TimeZone object via <code>Time.zone</code>:</p>
+
+<pre class="ruby"><span class="ruby-comment"># environment.rb:</span>
+<span class="ruby-constant">Rails</span><span class="ruby-operator">::</span><span class="ruby-constant">Initializer</span>.<span class="ruby-identifier">run</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">config</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">time_zone</span> = <span class="ruby-string">&quot;Eastern Time (US &amp; Canada)&quot;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>       <span class="ruby-comment"># =&gt; #&lt;TimeZone:0x514834...&gt;</span>
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">name</span>  <span class="ruby-comment"># =&gt; &quot;Eastern Time (US &amp; Canada)&quot;</span>
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">now</span>   <span class="ruby-comment"># =&gt; Sun, 18 May 2008 14:30:44 EDT -04:00</span>
+</pre>
+
+<p>The version of <a href="../../../../../classes/TZInfo.html">TZInfo</a>
+bundled with Active Support only includes the definitions necessary to
+support the zones defined by the TimeZone class. If you need to use zones
+that aren&#39;t defined by TimeZone, you&#39;ll need to install the <a
+href="../../../../../classes/TZInfo.html">TZInfo</a> gem (if a recent
+version of the gem is installed locally, this will be used instead of the
+bundled version.)</p>
+
+    </div>
+  
+
+
+  
+    <!-- File only: requires -->
+    <div class="sectiontitle">Required Files</div>
+    <ul>
+      
+        <li>tzinfo</li>
+      
+    </ul>
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="../../../../../classes/ActiveSupport.html">ActiveSupport</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="../../../../../classes/ActiveSupport/TimeZone.html">ActiveSupport::TimeZone</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

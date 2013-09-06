@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActionController::Routing::Optimisation::Optimiser</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            ActionController::Routing::Optimisation::Optimiser 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/actionpack/lib/action_controller/routing/optimisations_rb.html">actionpack/lib/action_controller/routing/optimisations.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-applicable-3F">applicable?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-generation_code">generation_code</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-guard_conditions">guard_conditions</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-source_code">source_code</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">GLOBAL_GUARD_CONDITIONS</td>
+            <td>=</td>
+            <td class="attr-value">[
+&quot;(!defined?(default_url_options) || default_url_options.blank?)&quot;,
+&quot;(!defined?(controller.default_url_options) || controller.default_url_options.blank?)&quot;,
+&quot;defined?(request)&quot;,
+&quot;request&quot;
+]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>kind</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>route</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(route, kind)
+            
+            <a href="../../../../classes/ActionController/Routing/Optimisation/Optimiser.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/optimisations.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">route</span>, <span class="ruby-identifier">kind</span>)
+  <span class="ruby-ivar">@route</span> = <span class="ruby-identifier">route</span>
+  <span class="ruby-ivar">@kind</span>  = <span class="ruby-identifier">kind</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-applicable-3F">
+            
+              <b>applicable?</b>()
+            
+            <a href="../../../../classes/ActionController/Routing/Optimisation/Optimiser.html#method-i-applicable-3F" name="method-i-applicable-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Temporarily disabled <code>:url</code> optimisation pending proper solution
+to Issues around request.host etc.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-applicable-3F_source')" id="l_method-i-applicable-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-applicable-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/optimisations.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">applicable?</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-generation_code">
+            
+              <b>generation_code</b>()
+            
+            <a href="../../../../classes/ActionController/Routing/Optimisation/Optimiser.html#method-i-generation_code" name="method-i-generation_code" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-generation_code_source')" id="l_method-i-generation_code_source">show</a>
+                
+              </p>
+              <div id="method-i-generation_code_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/optimisations.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">generation_code</span>
+  <span class="ruby-string">&#39;nil&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-guard_conditions">
+            
+              <b>guard_conditions</b>()
+            
+            <a href="../../../../classes/ActionController/Routing/Optimisation/Optimiser.html#method-i-guard_conditions" name="method-i-guard_conditions" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-guard_conditions_source')" id="l_method-i-guard_conditions_source">show</a>
+                
+              </p>
+              <div id="method-i-guard_conditions_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/optimisations.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">guard_conditions</span>
+  [<span class="ruby-string">&quot;false&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-source_code">
+            
+              <b>source_code</b>()
+            
+            <a href="../../../../classes/ActionController/Routing/Optimisation/Optimiser.html#method-i-source_code" name="method-i-source_code" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-source_code_source')" id="l_method-i-source_code_source">show</a>
+                
+              </p>
+              <div id="method-i-source_code_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/optimisations.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">source_code</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">applicable?</span>
+    <span class="ruby-identifier">guard_condition</span> = (<span class="ruby-constant">GLOBAL_GUARD_CONDITIONS</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">guard_conditions</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &amp;&amp; &quot;</span>)
+    <span class="ruby-node">&quot;return #{generation_code} if #{guard_condition}\n&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

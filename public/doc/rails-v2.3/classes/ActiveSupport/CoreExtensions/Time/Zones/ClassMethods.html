@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActiveSupport::CoreExtensions::Time::Zones::ClassMethods</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            ActiveSupport::CoreExtensions::Time::Zones::ClassMethods 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../../files/activesupport/lib/active_support/core_ext/time/zones_rb.html">activesupport/lib/active_support/core_ext/time/zones.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-current">current</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-use_zone">use_zone</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>Z</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-zone">zone</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-zone-3D">zone=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>zone_default</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-current">
+            
+              <b>current</b>()
+            
+            <a href="../../../../../classes/ActiveSupport/CoreExtensions/Time/Zones/ClassMethods.html#method-i-current" name="method-i-current" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns <code>Time.zone.now</code> when <code>config.time_zone</code> is
+set, otherwise just returns <code>Time.now</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-current_source')" id="l_method-i-current_source">show</a>
+                
+              </p>
+              <div id="method-i-current_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/zones.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">current</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone_default</span> <span class="ruby-operator">?</span> <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">:</span> <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-use_zone">
+            
+              <b>use_zone</b>(time_zone)
+            
+            <a href="../../../../../classes/ActiveSupport/CoreExtensions/Time/Zones/ClassMethods.html#method-i-use_zone" name="method-i-use_zone" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Allows override of <code>Time.zone</code> locally inside supplied block;
+resets <code>Time.zone</code> to existing value when done.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-use_zone_source')" id="l_method-i-use_zone_source">show</a>
+                
+              </p>
+              <div id="method-i-use_zone_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/zones.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">use_zone</span>(<span class="ruby-identifier">time_zone</span>)
+  <span class="ruby-identifier">old_zone</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>, <span class="ruby-identifier">get_zone</span>(<span class="ruby-identifier">time_zone</span>)
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span> = <span class="ruby-identifier">old_zone</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-zone">
+            
+              <b>zone</b>()
+            
+            <a href="../../../../../classes/ActiveSupport/CoreExtensions/Time/Zones/ClassMethods.html#method-i-zone" name="method-i-zone" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the <a href="../../../TimeZone.html">TimeZone</a> for the current
+request, if this has been set (via Time.zone=).  If <code>Time.zone</code>
+has not been set for the current request, returns the <a
+href="../../../TimeZone.html">TimeZone</a> specified in
+<code>config.time_zone</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-zone_source')" id="l_method-i-zone_source">show</a>
+                
+              </p>
+              <div id="method-i-zone_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/zones.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">zone</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:time_zone</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">zone_default</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-zone-3D">
+            
+              <b>zone=</b>(time_zone)
+            
+            <a href="../../../../../classes/ActiveSupport/CoreExtensions/Time/Zones/ClassMethods.html#method-i-zone-3D" name="method-i-zone-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets <code>Time.zone</code> to a <a
+href="../../../TimeZone.html">TimeZone</a> object for the current
+request/thread.</p>
+
+<p>This method accepts any of the following:</p>
+<ul><li>
+<p>A <a href="../../../../Rails.html">Rails</a> <a
+href="../../../TimeZone.html">TimeZone</a> object.</p>
+</li><li>
+<p>An identifier for a <a href="../../../../Rails.html">Rails</a> <a
+href="../../../TimeZone.html">TimeZone</a> object (e.g., “Eastern <a
+href="../../Time.html">Time</a> (US &amp; Canada)”, <code>-5.hours</code>).</p>
+</li><li>
+<p>A <a href="../../../../TZInfo/Timezone.html">TZInfo::Timezone</a> object.</p>
+</li><li>
+<p>An identifier for a <a
+href="../../../../TZInfo/Timezone.html">TZInfo::Timezone</a> object (e.g.,
+“America/New_York”).</p>
+</li></ul>
+
+<p>Here&#39;s an example of how you might set <code>Time.zone</code> on a per
+request basis – <code>current_user.time_zone</code> just needs to return a
+string identifying the user&#39;s preferred TimeZone:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">ApplicationController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">before_filter</span> :<span class="ruby-identifier">set_time_zone</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">set_time_zone</span>
+    <span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">time_zone</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-zone-3D_source')" id="l_method-i-zone-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-zone-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/zones.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">zone=</span>(<span class="ruby-identifier">time_zone</span>)
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:time_zone</span>] = <span class="ruby-identifier">get_zone</span>(<span class="ruby-identifier">time_zone</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

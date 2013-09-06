@@ -1,0 +1,1265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActionView::Helpers::AssetTagHelper</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            ActionView::Helpers::AssetTagHelper 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/actionpack/lib/action_view/helpers/asset_tag_helper_rb.html">actionpack/lib/action_view/helpers/asset_tag_helper.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>This module provides methods for generating <a
+href="../../HTML.html">HTML</a> that links views to assets such as images,
+javascripts, stylesheets, and feeds. These methods do not verify the assets
+exist before linking to them:</p>
+
+<pre class="ruby"><span class="ruby-identifier">image_tag</span>(<span class="ruby-string">&quot;rails.png&quot;</span>)
+<span class="ruby-comment"># =&gt; &lt;img alt=&quot;Rails src=&quot;/images/rails.png?1230601161&quot; /&gt;</span>
+<span class="ruby-identifier">stylesheet_link_tag</span>(<span class="ruby-string">&quot;application&quot;</span>)
+<span class="ruby-comment"># =&gt; &lt;link href=&quot;/stylesheets/application.css?1232285206&quot; media=&quot;screen&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</span>
+</pre>
+
+<h3 id="label-Using+asset+hosts">Using asset hosts</h3>
+
+<p>By default, <a href="../../Rails.html">Rails</a> links to these assets on
+the current host in the public folder, but you can direct <a
+href="../../Rails.html">Rails</a> to link to assets from a dedicated asset
+server by setting ActionController::Base.asset_host in the application
+configuration, typically in <code>config/environments/production.rb</code>.
+For example, you&#39;d define <code>assets.example.com</code> to be your
+asset host this way:</p>
+
+<pre>ActionController::Base.asset_host = &quot;assets.example.com&quot;</pre>
+
+<p><a href="../Helpers.html">Helpers</a> take that into account:</p>
+
+<pre class="ruby"><span class="ruby-identifier">image_tag</span>(<span class="ruby-string">&quot;rails.png&quot;</span>)
+<span class="ruby-comment"># =&gt; &lt;img alt=&quot;Rails&quot; src=&quot;http://assets.example.com/images/rails.png?1230601161&quot; /&gt;</span>
+<span class="ruby-identifier">stylesheet_link_tag</span>(<span class="ruby-string">&quot;application&quot;</span>)
+<span class="ruby-comment"># =&gt; &lt;link href=&quot;http://assets.example.com/stylesheets/application.css?1232285206&quot; media=&quot;screen&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</span>
+</pre>
+
+<p>Browsers typically open at most two simultaneous connections to a single
+host, which means your assets often have to wait for other assets to finish
+downloading. You can alleviate this by using a <code>%d</code> wildcard in
+the <code>asset_host</code>. For example, “assets%d.example.com”. If that
+wildcard is present <a href="../../Rails.html">Rails</a> distributes asset
+requests among the corresponding four hosts “assets0.example.com”, …,
+“assets3.example.com”. With this trick browsers will open eight
+simultaneous connections rather than two.</p>
+
+<pre class="ruby"><span class="ruby-identifier">image_tag</span>(<span class="ruby-string">&quot;rails.png&quot;</span>)
+<span class="ruby-comment"># =&gt; &lt;img alt=&quot;Rails&quot; src=&quot;http://assets0.example.com/images/rails.png?1230601161&quot; /&gt;</span>
+<span class="ruby-identifier">stylesheet_link_tag</span>(<span class="ruby-string">&quot;application&quot;</span>)
+<span class="ruby-comment"># =&gt; &lt;link href=&quot;http://assets2.example.com/stylesheets/application.css?1232285206&quot; media=&quot;screen&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</span>
+</pre>
+
+<p>To do this, you can either setup four actual hosts, or you can use wildcard
+DNS to CNAME the wildcard to a single asset host. You can read more about
+setting up your DNS CNAME records from your ISP.</p>
+
+<p>Note: This is purely a browser performance optimization and is not meant
+for server load balancing. See <a
+href="http://www.die.net/musings/page_load_time/">www.die.net/musings/page_load_time/</a>
+for background.</p>
+
+<p>Alternatively, you can exert more control over the asset host by setting
+<code>asset_host</code> to a proc like this:</p>
+
+<pre class="ruby"><span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">asset_host</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">source</span><span class="ruby-operator">|</span>
+  <span class="ruby-node">&quot;http://assets#{rand(2) + 1}.example.com&quot;</span>
+}
+<span class="ruby-identifier">image_tag</span>(<span class="ruby-string">&quot;rails.png&quot;</span>)
+<span class="ruby-comment"># =&gt; &lt;img alt=&quot;Rails&quot; src=&quot;http://assets0.example.com/images/rails.png?1230601161&quot; /&gt;</span>
+<span class="ruby-identifier">stylesheet_link_tag</span>(<span class="ruby-string">&quot;application&quot;</span>)
+<span class="ruby-comment"># =&gt; &lt;link href=&quot;http://assets1.example.com/stylesheets/application.css?1232285206&quot; media=&quot;screen&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</span>
+</pre>
+
+<p>The example above generates “<a
+href="http://assets1.example.com">assets1.example.com</a>” and “<a
+href="http://assets2.example.com">assets2.example.com</a>” randomly. This
+option is useful for example if you need fewer/more than four hosts, custom
+host names, etc.</p>
+
+<p>As you see the proc takes a <code>source</code> parameter. That&#39;s a
+string with the absolute path of the asset with any extensions and
+timestamps in place, for example “/images/rails.png?1230601161”.</p>
+
+<pre class="ruby"> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">asset_host</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">source</span><span class="ruby-operator">|</span>
+   <span class="ruby-keyword">if</span> <span class="ruby-identifier">source</span>.<span class="ruby-identifier">starts_with?</span>(<span class="ruby-string">&#39;/images&#39;</span>)
+     <span class="ruby-string">&quot;http://images.example.com&quot;</span>
+   <span class="ruby-keyword">else</span>
+     <span class="ruby-string">&quot;http://assets.example.com&quot;</span>
+   <span class="ruby-keyword">end</span>
+ }
+<span class="ruby-identifier">image_tag</span>(<span class="ruby-string">&quot;rails.png&quot;</span>)
+<span class="ruby-comment"># =&gt; &lt;img alt=&quot;Rails&quot; src=&quot;http://images.example.com/images/rails.png?1230601161&quot; /&gt;</span>
+<span class="ruby-identifier">stylesheet_link_tag</span>(<span class="ruby-string">&quot;application&quot;</span>)
+<span class="ruby-comment"># =&gt; &lt;link href=&quot;http://assets.example.com/stylesheets/application.css?1232285206&quot; media=&quot;screen&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</span>
+</pre>
+
+<p>Alternatively you may ask for a second parameter <code>request</code>. That
+one is particularly useful for serving assets from an SSL-protected page.
+The example proc below disables asset hosting for HTTPS connections, while
+still sending assets for plain HTTP requests from asset hosts. If you
+don&#39;t have SSL certificates for each of the asset hosts this technique
+allows you to avoid warnings in the client about mixed media.</p>
+
+<pre class="ruby"><span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">asset_host</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">source</span>, <span class="ruby-identifier">request</span><span class="ruby-operator">|</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">ssl?</span>
+    <span class="ruby-node">&quot;#{request.protocol}#{request.host_with_port}&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;#{request.protocol}assets.example.com&quot;</span>
+  <span class="ruby-keyword">end</span>
+}
+</pre>
+
+<p>You can also implement a custom asset host object that responds to
+<code>call</code> and takes either one or two parameters just like the
+proc.</p>
+
+<pre>config.action_controller.asset_host = AssetHostingWithMinimumSsl.new(
+  &quot;http://asset%d.example.com&quot;, &quot;https://asset1.example.com&quot;
+)</pre>
+
+<h3 id="label-Using+asset+timestamps">Using asset timestamps</h3>
+
+<p>By default, <a href="../../Rails.html">Rails</a> appends asset&#39;s
+timestamps to all asset paths. This allows you to set a cache-expiration
+date for the asset far into the future, but still be able to instantly
+invalidate it by simply updating the file (and hence updating the
+timestamp, which then updates the URL as the timestamp is part of that,
+which in turn busts the cache).</p>
+
+<p>It&#39;s the responsibility of the web server you use to set the far-future
+expiration date on cache assets that you need to take advantage of this
+feature. Here&#39;s an example for Apache:</p>
+
+<pre># Asset Expiration
+ExpiresActive On
+&lt;FilesMatch &quot;\.(ico|gif|jpe?g|png|js|css)$&quot;&gt;
+  ExpiresDefault &quot;access plus 1 year&quot;
+&lt;/FilesMatch&gt;</pre>
+
+<p>Also note that in order for this to work, all your application servers must
+return the same timestamps. This means that they must have their clocks
+synchronized. If one of them drifts out of sync, you&#39;ll see different
+timestamps at random and the cache won&#39;t work. In that case the browser
+will request the same assets over and over again even thought they
+didn&#39;t change. You can use something like Live HTTP Headers for Firefox
+to verify that the cache is indeed working.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-auto_discovery_link_tag">auto_discovery_link_tag</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-cache_asset_timestamps">cache_asset_timestamps</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-cache_asset_timestamps-3D">cache_asset_timestamps=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-image_path">image_path</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-image_tag">image_tag</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>J</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-javascript_include_tag">javascript_include_tag</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-javascript_path">javascript_path</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-path_to_image">path_to_image</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-path_to_javascript">path_to_javascript</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-path_to_stylesheet">path_to_stylesheet</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-register_javascript_expansion">register_javascript_expansion</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-register_javascript_include_default">register_javascript_include_default</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-register_stylesheet_expansion">register_stylesheet_expansion</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-stylesheet_link_tag">stylesheet_link_tag</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-stylesheet_path">stylesheet_path</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">ASSETS_DIR</td>
+            <td>=</td>
+            <td class="attr-value">defined?(Rails.public_path) ? Rails.public_path : &quot;public&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">JAVASCRIPTS_DIR</td>
+            <td>=</td>
+            <td class="attr-value">&quot;#{ASSETS_DIR}/javascripts&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">STYLESHEETS_DIR</td>
+            <td>=</td>
+            <td class="attr-value">&quot;#{ASSETS_DIR}/stylesheets&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">JAVASCRIPT_DEFAULT_SOURCES</td>
+            <td>=</td>
+            <td class="attr-value">[&#39;prototype&#39;, &#39;effects&#39;, &#39;dragdrop&#39;, &#39;controls&#39;].freeze unless const_defined?(:JAVASCRIPT_DEFAULT_SOURCES)</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-cache_asset_timestamps">
+            
+              <b>cache_asset_timestamps</b>()
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-c-cache_asset_timestamps" name="method-c-cache_asset_timestamps" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-cache_asset_timestamps_source')" id="l_method-c-cache_asset_timestamps_source">show</a>
+                
+              </p>
+              <div id="method-c-cache_asset_timestamps_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_view/helpers/asset_tag_helper.rb, line 508</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">cache_asset_timestamps</span>
+  <span class="ruby-identifier">@@cache_asset_timestamps</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-cache_asset_timestamps-3D">
+            
+              <b>cache_asset_timestamps=</b>(value)
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-c-cache_asset_timestamps-3D" name="method-c-cache_asset_timestamps-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>You can enable or disable the asset tag timestamps cache. With the cache
+enabled, the asset tag helper methods will make fewer expense file system
+calls. However this prevents you from modifying any asset files while the
+server is running.</p>
+
+<pre>ActionView::Helpers::AssetTagHelper.cache_asset_timestamps = false</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-cache_asset_timestamps-3D_source')" id="l_method-c-cache_asset_timestamps-3D_source">show</a>
+                
+              </p>
+              <div id="method-c-cache_asset_timestamps-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_view/helpers/asset_tag_helper.rb, line 518</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">cache_asset_timestamps=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">@@cache_asset_timestamps</span> = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-register_javascript_expansion">
+            
+              <b>register_javascript_expansion</b>(expansions)
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-c-register_javascript_expansion" name="method-c-register_javascript_expansion" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Register one or more javascript files to be included when
+<code>symbol</code> is passed to <code>javascript_include_tag</code>. This
+method is typically intended to be called from plugin initialization to
+register javascript files that the plugin installed in
+<code>public/javascripts</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">ActionView</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span><span class="ruby-operator">::</span><span class="ruby-constant">AssetTagHelper</span>.<span class="ruby-identifier">register_javascript_expansion</span> :<span class="ruby-identifier">monkey</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&quot;head&quot;</span>, <span class="ruby-string">&quot;body&quot;</span>, <span class="ruby-string">&quot;tail&quot;</span>]
+
+<span class="ruby-identifier">javascript_include_tag</span> :<span class="ruby-identifier">monkey</span> <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">script</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/javascript&quot;</span> <span class="ruby-identifier">src</span>=<span class="ruby-string">&quot;/javascripts/head.js&quot;</span><span class="ruby-operator">&gt;</span><span class="ruby-operator">&lt;</span><span class="ruby-regexp">/script&gt;
+  &lt;script type=&quot;text/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">body</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">tail</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+</span></pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-register_javascript_expansion_source')" id="l_method-c-register_javascript_expansion_source">show</a>
+                
+              </p>
+              <div id="method-c-register_javascript_expansion_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_view/helpers/asset_tag_helper.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">register_javascript_expansion</span>(<span class="ruby-identifier">expansions</span>)
+  <span class="ruby-identifier">@@javascript_expansions</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">expansions</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-register_javascript_include_default">
+            
+              <b>register_javascript_include_default</b>(*sources)
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-c-register_javascript_include_default" name="method-c-register_javascript_include_default" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Register one or more additional JavaScript files to be included when
+<code>javascript_include_tag :defaults</code> is called. This method is
+typically intended to be called from plugin initialization to register
+additional .js files that the plugin installed in
+<code>public/javascripts</code>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-register_javascript_include_default_source')" id="l_method-c-register_javascript_include_default_source">show</a>
+                
+              </p>
+              <div id="method-c-register_javascript_include_default_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_view/helpers/asset_tag_helper.rb, line 331</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">register_javascript_include_default</span>(*<span class="ruby-identifier">sources</span>)
+  <span class="ruby-identifier">@@javascript_expansions</span>[<span class="ruby-value">:defaults</span>].<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">sources</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-register_stylesheet_expansion">
+            
+              <b>register_stylesheet_expansion</b>(expansions)
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-c-register_stylesheet_expansion" name="method-c-register_stylesheet_expansion" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Register one or more stylesheet files to be included when
+<code>symbol</code> is passed to <code>stylesheet_link_tag</code>. This
+method is typically intended to be called from plugin initialization to
+register stylesheet files that the plugin installed in
+<code>public/stylesheets</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">ActionView</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span><span class="ruby-operator">::</span><span class="ruby-constant">AssetTagHelper</span>.<span class="ruby-identifier">register_stylesheet_expansion</span> :<span class="ruby-identifier">monkey</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&quot;head&quot;</span>, <span class="ruby-string">&quot;body&quot;</span>, <span class="ruby-string">&quot;tail&quot;</span>]
+
+<span class="ruby-identifier">stylesheet_link_tag</span> :<span class="ruby-identifier">monkey</span> <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/head.css&quot;</span>  <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/body.css&quot;</span>  <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/tail.css&quot;</span>  <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-register_stylesheet_expansion_source')" id="l_method-c-register_stylesheet_expansion_source">show</a>
+                
+              </p>
+              <div id="method-c-register_stylesheet_expansion_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_view/helpers/asset_tag_helper.rb, line 323</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">register_stylesheet_expansion</span>(<span class="ruby-identifier">expansions</span>)
+  <span class="ruby-identifier">@@stylesheet_expansions</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">expansions</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-auto_discovery_link_tag">
+            
+              <b>auto_discovery_link_tag</b>(type = :rss, url_options = {}, tag_options = {})
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-i-auto_discovery_link_tag" name="method-i-auto_discovery_link_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns a link tag that browsers and news readers can use to auto-detect an
+RSS or ATOM feed. The <code>type</code> can either be <code>:rss</code>
+(default) or <code>:atom</code>. Control the link options in url_for format
+using the <code>url_options</code>. You can modify the LINK tag itself in
+<code>tag_options</code>.</p>
+
+<h4 id="method-i-auto_discovery_link_tag-label-Options">Options</h4>
+<ul><li>
+<p><code>:rel</code>  - Specify the relation of this link, defaults to
+“alternate”</p>
+</li><li>
+<p><code>:type</code>  - Override the auto-generated mime type</p>
+</li><li>
+<p><code>:title</code>  - Specify the title of the link, defaults to the
+<code>type</code></p>
+</li></ul>
+
+<h4 id="method-i-auto_discovery_link_tag-label-Examples">Examples</h4>
+
+<pre class="ruby"><span class="ruby-identifier">auto_discovery_link_tag</span> <span class="ruby-comment"># =&gt;</span>
+   <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;alternate&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;application/rss+xml&quot;</span> <span class="ruby-identifier">title</span>=<span class="ruby-string">&quot;RSS&quot;</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;http://www.currenthost.com/controller/action&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">auto_discovery_link_tag</span>(:<span class="ruby-identifier">atom</span>) <span class="ruby-comment"># =&gt;</span>
+   <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;alternate&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;application/atom+xml&quot;</span> <span class="ruby-identifier">title</span>=<span class="ruby-string">&quot;ATOM&quot;</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;http://www.currenthost.com/controller/action&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">auto_discovery_link_tag</span>(:<span class="ruby-identifier">rss</span>, {:<span class="ruby-identifier">action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;feed&quot;</span>}) <span class="ruby-comment"># =&gt;</span>
+   <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;alternate&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;application/rss+xml&quot;</span> <span class="ruby-identifier">title</span>=<span class="ruby-string">&quot;RSS&quot;</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;http://www.currenthost.com/controller/feed&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">auto_discovery_link_tag</span>(:<span class="ruby-identifier">rss</span>, {:<span class="ruby-identifier">action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;feed&quot;</span>}, {:<span class="ruby-identifier">title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;My RSS&quot;</span>}) <span class="ruby-comment"># =&gt;</span>
+   <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;alternate&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;application/rss+xml&quot;</span> <span class="ruby-identifier">title</span>=<span class="ruby-string">&quot;My RSS&quot;</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;http://www.currenthost.com/controller/feed&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">auto_discovery_link_tag</span>(:<span class="ruby-identifier">rss</span>, {:<span class="ruby-identifier">controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;news&quot;</span>, :<span class="ruby-identifier">action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;feed&quot;</span>}) <span class="ruby-comment"># =&gt;</span>
+   <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;alternate&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;application/rss+xml&quot;</span> <span class="ruby-identifier">title</span>=<span class="ruby-string">&quot;RSS&quot;</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;http://www.currenthost.com/news/feed&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">auto_discovery_link_tag</span>(:<span class="ruby-identifier">rss</span>, <span class="ruby-string">&quot;http://www.example.com/feed.rss&quot;</span>, {:<span class="ruby-identifier">title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Example RSS&quot;</span>}) <span class="ruby-comment"># =&gt;</span>
+   <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;alternate&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;application/rss+xml&quot;</span> <span class="ruby-identifier">title</span>=<span class="ruby-string">&quot;Example RSS&quot;</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;http://www.example.com/feed&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-auto_discovery_link_tag_source')" id="l_method-i-auto_discovery_link_tag_source">show</a>
+                
+              </p>
+              <div id="method-i-auto_discovery_link_tag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_view/helpers/asset_tag_helper.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">auto_discovery_link_tag</span>(<span class="ruby-identifier">type</span> = <span class="ruby-value">:rss</span>, <span class="ruby-identifier">url_options</span> = {}, <span class="ruby-identifier">tag_options</span> = {})
+  <span class="ruby-identifier">tag</span>(
+    <span class="ruby-string">&quot;link&quot;</span>,
+    <span class="ruby-string">&quot;rel&quot;</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag_options</span>[<span class="ruby-value">:rel</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&quot;alternate&quot;</span>,
+    <span class="ruby-string">&quot;type&quot;</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag_options</span>[<span class="ruby-value">:type</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Mime</span><span class="ruby-operator">::</span><span class="ruby-constant">Type</span>.<span class="ruby-identifier">lookup_by_extension</span>(<span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-string">&quot;title&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag_options</span>[<span class="ruby-value">:title</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">upcase</span>,
+    <span class="ruby-string">&quot;href&quot;</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">url_options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">url_for</span>(<span class="ruby-identifier">url_options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:only_path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>)) <span class="ruby-operator">:</span> <span class="ruby-identifier">url_options</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-image_path">
+            
+              <b>image_path</b>(source)
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-i-image_path" name="method-i-image_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Computes the path to an image asset in the public images directory. Full
+paths from the document root will be passed through. Used internally by
+<code>image_tag</code> to build the image path.</p>
+
+<h4 id="method-i-image_path-label-Examples">Examples</h4>
+
+<pre class="ruby"><span class="ruby-identifier">image_path</span>(<span class="ruby-string">&quot;edit&quot;</span>)                                         <span class="ruby-comment"># =&gt; /images/edit</span>
+<span class="ruby-identifier">image_path</span>(<span class="ruby-string">&quot;edit.png&quot;</span>)                                     <span class="ruby-comment"># =&gt; /images/edit.png</span>
+<span class="ruby-identifier">image_path</span>(<span class="ruby-string">&quot;icons/edit.png&quot;</span>)                               <span class="ruby-comment"># =&gt; /images/icons/edit.png</span>
+<span class="ruby-identifier">image_path</span>(<span class="ruby-string">&quot;/icons/edit.png&quot;</span>)                              <span class="ruby-comment"># =&gt; /icons/edit.png</span>
+<span class="ruby-identifier">image_path</span>(<span class="ruby-string">&quot;http://www.railsapplication.com/img/edit.png&quot;</span>) <span class="ruby-comment"># =&gt; http://www.railsapplication.com/img/edit.png</span>
+</pre>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="AssetTagHelper.html#method-i-path_to_image">path_to_image</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-image_path_source')" id="l_method-i-image_path_source">show</a>
+                
+              </p>
+              <div id="method-i-image_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_view/helpers/asset_tag_helper.rb, line 452</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">image_path</span>(<span class="ruby-identifier">source</span>)
+  <span class="ruby-identifier">compute_public_path</span>(<span class="ruby-identifier">source</span>, <span class="ruby-string">&#39;images&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-image_tag">
+            
+              <b>image_tag</b>(source, options = {})
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-i-image_tag" name="method-i-image_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns an html image tag for the <code>source</code>. The
+<code>source</code> can be a full path or a file that exists in your public
+images directory.</p>
+
+<h4 id="method-i-image_tag-label-Options">Options</h4>
+
+<p>You can add <a href="../../HTML.html">HTML</a> attributes using the
+<code>options</code>. The <code>options</code> supports three additional
+keys for convenience and conformance:</p>
+<ul><li>
+<p><code>:alt</code>  - If no alt text is given, the file name part of the
+<code>source</code> is used (capitalized and without the extension)</p>
+</li><li>
+<p><code>:size</code> - Supplied as “{Width}x{Height}”, so “30x45” becomes
+width=“30” and height=“45”. <code>:size</code> will be ignored if the value
+is not in the correct format.</p>
+</li><li>
+<p><code>:mouseover</code> - Set an alternate image to be used when the
+onmouseover event is fired, and sets the original image to be replaced
+onmouseout. This can be used to implement an easy image toggle that fires
+on onmouseover.</p>
+</li></ul>
+
+<h4 id="method-i-image_tag-label-Examples">Examples</h4>
+
+<pre class="ruby"><span class="ruby-identifier">image_tag</span>(<span class="ruby-string">&quot;icon&quot;</span>)  <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">img</span> <span class="ruby-identifier">src</span>=<span class="ruby-string">&quot;/images/icon&quot;</span> <span class="ruby-identifier">alt</span>=<span class="ruby-string">&quot;Icon&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">image_tag</span>(<span class="ruby-string">&quot;icon.png&quot;</span>)  <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">img</span> <span class="ruby-identifier">src</span>=<span class="ruby-string">&quot;/images/icon.png&quot;</span> <span class="ruby-identifier">alt</span>=<span class="ruby-string">&quot;Icon&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">image_tag</span>(<span class="ruby-string">&quot;icon.png&quot;</span>, :<span class="ruby-identifier">size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;16x10&quot;</span>, :<span class="ruby-identifier">alt</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Edit Entry&quot;</span>)  <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">img</span> <span class="ruby-identifier">src</span>=<span class="ruby-string">&quot;/images/icon.png&quot;</span> <span class="ruby-identifier">width</span>=<span class="ruby-string">&quot;16&quot;</span> <span class="ruby-identifier">height</span>=<span class="ruby-string">&quot;10&quot;</span> <span class="ruby-identifier">alt</span>=<span class="ruby-string">&quot;Edit Entry&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">image_tag</span>(<span class="ruby-string">&quot;/icons/icon.gif&quot;</span>, :<span class="ruby-identifier">size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;16x16&quot;</span>)  <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">img</span> <span class="ruby-identifier">src</span>=<span class="ruby-string">&quot;/icons/icon.gif&quot;</span> <span class="ruby-identifier">width</span>=<span class="ruby-string">&quot;16&quot;</span> <span class="ruby-identifier">height</span>=<span class="ruby-string">&quot;16&quot;</span> <span class="ruby-identifier">alt</span>=<span class="ruby-string">&quot;Icon&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">image_tag</span>(<span class="ruby-string">&quot;/icons/icon.gif&quot;</span>, :<span class="ruby-identifier">height</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;32&#39;</span>, :<span class="ruby-identifier">width</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;32&#39;</span>) <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">img</span> <span class="ruby-identifier">alt</span>=<span class="ruby-string">&quot;Icon&quot;</span> <span class="ruby-identifier">height</span>=<span class="ruby-string">&quot;32&quot;</span> <span class="ruby-identifier">src</span>=<span class="ruby-string">&quot;/icons/icon.gif&quot;</span> <span class="ruby-identifier">width</span>=<span class="ruby-string">&quot;32&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">image_tag</span>(<span class="ruby-string">&quot;/icons/icon.gif&quot;</span>, :<span class="ruby-keyword">class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;menu_icon&quot;</span>) <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">img</span> <span class="ruby-identifier">alt</span>=<span class="ruby-string">&quot;Icon&quot;</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;menu_icon&quot;</span> <span class="ruby-identifier">src</span>=<span class="ruby-string">&quot;/icons/icon.gif&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">image_tag</span>(<span class="ruby-string">&quot;mouse.png&quot;</span>, :<span class="ruby-identifier">mouseover</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;/images/mouse_over.png&quot;</span>) <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">img</span> <span class="ruby-identifier">src</span>=<span class="ruby-string">&quot;/images/mouse.png&quot;</span> <span class="ruby-identifier">onmouseover</span>=<span class="ruby-string">&quot;this.src=&#39;/images/mouse_over.png&#39;&quot;</span> <span class="ruby-identifier">onmouseout</span>=<span class="ruby-string">&quot;this.src=&#39;/images/mouse.png&#39;&quot;</span> <span class="ruby-identifier">alt</span>=<span class="ruby-string">&quot;Mouse&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">image_tag</span>(<span class="ruby-string">&quot;mouse.png&quot;</span>, :<span class="ruby-identifier">mouseover</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">image_path</span>(<span class="ruby-string">&quot;mouse_over.png&quot;</span>)) <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">img</span> <span class="ruby-identifier">src</span>=<span class="ruby-string">&quot;/images/mouse.png&quot;</span> <span class="ruby-identifier">onmouseover</span>=<span class="ruby-string">&quot;this.src=&#39;/images/mouse_over.png&#39;&quot;</span> <span class="ruby-identifier">onmouseout</span>=<span class="ruby-string">&quot;this.src=&#39;/images/mouse.png&#39;&quot;</span> <span class="ruby-identifier">alt</span>=<span class="ruby-string">&quot;Mouse&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-image_tag_source')" id="l_method-i-image_tag_source">show</a>
+                
+              </p>
+              <div id="method-i-image_tag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_view/helpers/asset_tag_helper.rb, line 490</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">image_tag</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">symbolize_keys!</span>
+
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:src</span>] = <span class="ruby-identifier">path_to_image</span>(<span class="ruby-identifier">source</span>)
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:alt</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:src</span>], <span class="ruby-string">&#39;.*&#39;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;.&#39;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">capitalize</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">size</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:size</span>)
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:width</span>], <span class="ruby-identifier">options</span>[<span class="ruby-value">:height</span>] = <span class="ruby-identifier">size</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;x&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r{^\d+x\d+$}</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mouseover</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:mouseover</span>)
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:onmouseover</span>] = <span class="ruby-node">&quot;this.src=&#39;#{image_path(mouseover)}&#39;&quot;</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:onmouseout</span>]  = <span class="ruby-node">&quot;this.src=&#39;#{image_path(options[:src])}&#39;&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">tag</span>(<span class="ruby-string">&quot;img&quot;</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-javascript_include_tag">
+            
+              <b>javascript_include_tag</b>(*sources)
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-i-javascript_include_tag" name="method-i-javascript_include_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns an html script tag for each of the <code>sources</code> provided.
+You can pass in the filename (.js extension is optional) of javascript
+files that exist in your public/javascripts directory for inclusion into
+the current page or you can pass the full path relative to your document
+root. To include the Prototype and Scriptaculous javascript libraries in
+your application, pass <code>:defaults</code> as the source. When using
+<code>:defaults</code>, if an application.js file exists in your public
+javascripts directory, it will be included as well. You can modify the html
+attributes of the script tag by passing a hash as the last argument.</p>
+
+<h4 id="method-i-javascript_include_tag-label-Examples">Examples</h4>
+
+<pre class="ruby"><span class="ruby-identifier">javascript_include_tag</span> <span class="ruby-string">&quot;xmlhr&quot;</span> <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">script</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/javascript&quot;</span> <span class="ruby-identifier">src</span>=<span class="ruby-string">&quot;/javascripts/xmlhr.js&quot;</span><span class="ruby-operator">&gt;</span><span class="ruby-operator">&lt;</span><span class="ruby-node">/script&gt;
+
+javascript_include_tag &quot;xmlhr.js&quot; # =&gt;
+  &lt;script type=&quot;text/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">xmlhr</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+
+javascript_include_tag &quot;</span><span class="ruby-identifier">common</span>.<span class="ruby-identifier">javascript</span><span class="ruby-string">&quot;, &quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">elsewhere</span><span class="ruby-operator">/</span><span class="ruby-identifier">cools</span><span class="ruby-node">&quot; # =&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">common</span>.<span class="ruby-identifier">javascript</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">elsewhere</span><span class="ruby-operator">/</span><span class="ruby-identifier">cools</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+
+javascript_include_tag &quot;</span><span class="ruby-identifier">http</span><span class="ruby-operator">:</span><span class="ruby-regexp">//</span><span class="ruby-identifier">www</span>.<span class="ruby-identifier">railsapplication</span>.<span class="ruby-identifier">com</span><span class="ruby-operator">/</span><span class="ruby-identifier">xmlhr</span><span class="ruby-node">&quot; # =&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-identifier">http</span><span class="ruby-operator">:</span><span class="ruby-regexp">//</span><span class="ruby-identifier">www</span>.<span class="ruby-identifier">railsapplication</span>.<span class="ruby-identifier">com</span><span class="ruby-operator">/</span><span class="ruby-identifier">xmlhr</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+
+javascript_include_tag &quot;</span><span class="ruby-identifier">http</span><span class="ruby-operator">:</span><span class="ruby-regexp">//</span><span class="ruby-identifier">www</span>.<span class="ruby-identifier">railsapplication</span>.<span class="ruby-identifier">com</span><span class="ruby-operator">/</span><span class="ruby-identifier">xmlhr</span>.<span class="ruby-identifier">js</span><span class="ruby-node">&quot; # =&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-identifier">http</span><span class="ruby-operator">:</span><span class="ruby-regexp">//</span><span class="ruby-identifier">www</span>.<span class="ruby-identifier">railsapplication</span>.<span class="ruby-identifier">com</span><span class="ruby-operator">/</span><span class="ruby-identifier">xmlhr</span>.<span class="ruby-identifier">js</span><span class="ruby-node">&quot;&gt;&lt;/script&gt;
+
+javascript_include_tag :defaults # =&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">prototype</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">effects</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+  ...
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">application</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+</span></pre>
+<ul><li>
+<h1 id="method-i-javascript_include_tag-label-The+application.js+file+is+only+referenced+if+it+exists">The application.js file is only referenced if it exists</h1>
+</li></ul>
+
+<p>Though it&#39;s not really recommended practice, if you need to extend the
+default JavaScript set for any reason (e.g., you&#39;re going to be using a
+certain .js file in every action), then take a look at the <a
+href="AssetTagHelper.html#method-c-register_javascript_include_default">::register_javascript_include_default</a>
+method.</p>
+
+<p>You can also include all javascripts in the javascripts directory using
+<code>:all</code> as the source:</p>
+
+<pre class="ruby"><span class="ruby-identifier">javascript_include_tag</span> :<span class="ruby-identifier">all</span> <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">script</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/javascript&quot;</span> <span class="ruby-identifier">src</span>=<span class="ruby-string">&quot;/javascripts/prototype.js&quot;</span><span class="ruby-operator">&gt;</span><span class="ruby-operator">&lt;</span><span class="ruby-regexp">/script&gt;
+  &lt;script type=&quot;text/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">effects</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+  ...
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">application</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">shop</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">checkout</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+</span></pre>
+
+<p>Note that the default javascript files will be included first. So Prototype
+and Scriptaculous are available to all subsequently included files.</p>
+
+<p>If you want <a href="../../Rails.html">Rails</a> to search in all the
+subdirectories under javascripts, you should explicitly set
+<code>:recursive</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">javascript_include_tag</span> :<span class="ruby-identifier">all</span>, :<span class="ruby-identifier">recursive</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+</pre>
+
+<h2 id="method-i-javascript_include_tag-label-Caching+multiple+javascripts+into+one">Caching multiple javascripts into one</h2>
+
+<p>You can also cache multiple javascripts into one file, which requires less
+HTTP connections to download and can better be compressed by gzip (leading
+to faster transfers). Caching will only happen if
+ActionController::Base.perform_caching is set to <code>true</code> (which
+is the case by default for the <a href="../../Rails.html">Rails</a>
+production environment, but not for the development environment).</p>
+
+<h4 id="method-i-javascript_include_tag-label-Examples">Examples</h4>
+
+<pre class="ruby"><span class="ruby-identifier">javascript_include_tag</span> :<span class="ruby-identifier">all</span>, :<span class="ruby-identifier">cache</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span> <span class="ruby-comment"># when ActionController::Base.perform_caching is false =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">script</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/javascript&quot;</span> <span class="ruby-identifier">src</span>=<span class="ruby-string">&quot;/javascripts/prototype.js&quot;</span><span class="ruby-operator">&gt;</span><span class="ruby-operator">&lt;</span><span class="ruby-regexp">/script&gt;
+  &lt;script type=&quot;text/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">effects</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+  ...
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">application</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">shop</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">checkout</span>.<span class="ruby-identifier">js</span><span class="ruby-node">&quot;&gt;&lt;/script&gt;
+
+javascript_include_tag :all, :cache =&gt; true # when ActionController::Base.perform_caching is true =&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">all</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+
+javascript_include_tag &quot;</span><span class="ruby-identifier">prototype</span><span class="ruby-string">&quot;, &quot;</span><span class="ruby-identifier">cart</span><span class="ruby-string">&quot;, &quot;</span><span class="ruby-identifier">checkout</span><span class="ruby-string">&quot;, :cache =&gt; &quot;</span><span class="ruby-identifier">shop</span><span class="ruby-node">&quot; # when ActionController::Base.perform_caching is false =&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">prototype</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">cart</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">checkout</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+
+javascript_include_tag &quot;</span><span class="ruby-identifier">prototype</span><span class="ruby-string">&quot;, &quot;</span><span class="ruby-identifier">cart</span><span class="ruby-string">&quot;, &quot;</span><span class="ruby-identifier">checkout</span><span class="ruby-string">&quot;, :cache =&gt; &quot;</span><span class="ruby-identifier">shop</span><span class="ruby-node">&quot; # when ActionController::Base.perform_caching is true =&gt;
+  &lt;script type=&quot;</span><span class="ruby-identifier">text</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascript</span><span class="ruby-string">&quot; src=&quot;</span><span class="ruby-operator">/</span><span class="ruby-identifier">javascripts</span><span class="ruby-operator">/</span><span class="ruby-identifier">shop</span>.<span class="ruby-identifier">js</span><span class="ruby-string">&quot;&gt;&lt;/script&gt;
+</span></pre>
+
+<p>The <code>:recursive</code> option is also available for caching:</p>
+
+<pre class="ruby"><span class="ruby-identifier">javascript_include_tag</span> :<span class="ruby-identifier">all</span>, :<span class="ruby-identifier">cache</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, :<span class="ruby-identifier">recursive</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-javascript_include_tag_source')" id="l_method-i-javascript_include_tag_source">show</a>
+                
+              </p>
+              <div id="method-i-javascript_include_tag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_view/helpers/asset_tag_helper.rb, line 274</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">javascript_include_tag</span>(*<span class="ruby-identifier">sources</span>)
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">sources</span>.<span class="ruby-identifier">extract_options!</span>.<span class="ruby-identifier">stringify_keys</span>
+  <span class="ruby-identifier">concat</span>  = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;concat&quot;</span>)
+  <span class="ruby-identifier">cache</span>   = <span class="ruby-identifier">concat</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;cache&quot;</span>)
+  <span class="ruby-identifier">recursive</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;recursive&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">concat</span> <span class="ruby-operator">||</span> (<span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">perform_caching</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">cache</span>)
+    <span class="ruby-identifier">joined_javascript_name</span> = (<span class="ruby-identifier">cache</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;all&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">cache</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;.js&quot;</span>
+    <span class="ruby-identifier">joined_javascript_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">joined_javascript_name</span>[<span class="ruby-node">/^#{File::SEPARATOR}/</span>] <span class="ruby-operator">?</span> <span class="ruby-constant">ASSETS_DIR</span> <span class="ruby-operator">:</span> <span class="ruby-constant">JAVASCRIPTS_DIR</span>, <span class="ruby-identifier">joined_javascript_name</span>)
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">perform_caching</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">joined_javascript_path</span>)
+      <span class="ruby-identifier">write_asset_file_contents</span>(<span class="ruby-identifier">joined_javascript_path</span>, <span class="ruby-identifier">compute_javascript_paths</span>(<span class="ruby-identifier">sources</span>, <span class="ruby-identifier">recursive</span>))
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">javascript_src_tag</span>(<span class="ruby-identifier">joined_javascript_name</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">expand_javascript_sources</span>(<span class="ruby-identifier">sources</span>, <span class="ruby-identifier">recursive</span>).<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">source</span><span class="ruby-operator">|</span> <span class="ruby-identifier">javascript_src_tag</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">options</span>) }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>).<span class="ruby-identifier">html_safe</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-javascript_path">
+            
+              <b>javascript_path</b>(source)
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-i-javascript_path" name="method-i-javascript_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Computes the path to a javascript asset in the public javascripts
+directory. If the <code>source</code> filename has no extension, .js will
+be appended. Full paths from the document root will be passed through. Used
+internally by <a
+href="AssetTagHelper.html#method-i-javascript_include_tag">#javascript_include_tag</a>
+to build the script path.</p>
+
+<h4 id="method-i-javascript_path-label-Examples">Examples</h4>
+
+<pre class="ruby"><span class="ruby-identifier">javascript_path</span> <span class="ruby-string">&quot;xmlhr&quot;</span> <span class="ruby-comment"># =&gt; /javascripts/xmlhr.js</span>
+<span class="ruby-identifier">javascript_path</span> <span class="ruby-string">&quot;dir/xmlhr.js&quot;</span> <span class="ruby-comment"># =&gt; /javascripts/dir/xmlhr.js</span>
+<span class="ruby-identifier">javascript_path</span> <span class="ruby-string">&quot;/dir/xmlhr&quot;</span> <span class="ruby-comment"># =&gt; /dir/xmlhr.js</span>
+<span class="ruby-identifier">javascript_path</span> <span class="ruby-string">&quot;http://www.railsapplication.com/js/xmlhr&quot;</span> <span class="ruby-comment"># =&gt; http://www.railsapplication.com/js/xmlhr.js</span>
+<span class="ruby-identifier">javascript_path</span> <span class="ruby-string">&quot;http://www.railsapplication.com/js/xmlhr.js&quot;</span> <span class="ruby-comment"># =&gt; http://www.railsapplication.com/js/xmlhr.js</span>
+</pre>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="AssetTagHelper.html#method-i-path_to_javascript">path_to_javascript</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-javascript_path_source')" id="l_method-i-javascript_path_source">show</a>
+                
+              </p>
+              <div id="method-i-javascript_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_view/helpers/asset_tag_helper.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">javascript_path</span>(<span class="ruby-identifier">source</span>)
+  <span class="ruby-identifier">compute_public_path</span>(<span class="ruby-identifier">source</span>, <span class="ruby-string">&#39;javascripts&#39;</span>, <span class="ruby-string">&#39;js&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-path_to_image">
+            
+              <b>path_to_image</b>(source)
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-i-path_to_image" name="method-i-path_to_image" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-path_to_javascript">
+            
+              <b>path_to_javascript</b>(source)
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-i-path_to_javascript" name="method-i-path_to_javascript" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-path_to_stylesheet">
+            
+              <b>path_to_stylesheet</b>(source)
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-i-path_to_stylesheet" name="method-i-path_to_stylesheet" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-stylesheet_link_tag">
+            
+              <b>stylesheet_link_tag</b>(*sources)
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-i-stylesheet_link_tag" name="method-i-stylesheet_link_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns a stylesheet link tag for the sources specified as arguments. If
+you don&#39;t specify an extension, <code>.css</code> will be appended
+automatically. You can modify the link attributes by passing a hash as the
+last argument.</p>
+
+<h4 id="method-i-stylesheet_link_tag-label-Examples">Examples</h4>
+
+<pre class="ruby"><span class="ruby-identifier">stylesheet_link_tag</span> <span class="ruby-string">&quot;style&quot;</span> <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/style.css&quot;</span> <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+
+<span class="ruby-identifier">stylesheet_link_tag</span> <span class="ruby-string">&quot;style.css&quot;</span> <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/style.css&quot;</span> <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+
+<span class="ruby-identifier">stylesheet_link_tag</span> <span class="ruby-string">&quot;http://www.railsapplication.com/style.css&quot;</span> <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;http://www.railsapplication.com/style.css&quot;</span> <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+
+<span class="ruby-identifier">stylesheet_link_tag</span> <span class="ruby-string">&quot;style&quot;</span>, :<span class="ruby-identifier">media</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;all&quot;</span> <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/style.css&quot;</span> <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;all&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+
+<span class="ruby-identifier">stylesheet_link_tag</span> <span class="ruby-string">&quot;style&quot;</span>, :<span class="ruby-identifier">media</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;print&quot;</span> <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/style.css&quot;</span> <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;print&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+
+<span class="ruby-identifier">stylesheet_link_tag</span> <span class="ruby-string">&quot;random.styles&quot;</span>, <span class="ruby-string">&quot;/css/stylish&quot;</span> <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/random.styles&quot;</span> <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/css/stylish.css&quot;</span> <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+</pre>
+
+<p>You can also include all styles in the stylesheets directory using
+<code>:all</code> as the source:</p>
+
+<pre class="ruby"><span class="ruby-identifier">stylesheet_link_tag</span> :<span class="ruby-identifier">all</span> <span class="ruby-comment"># =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/style1.css&quot;</span>  <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/styleB.css&quot;</span>  <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/styleX2.css&quot;</span> <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+</pre>
+
+<p>If you want <a href="../../Rails.html">Rails</a> to search in all the
+subdirectories under stylesheets, you should explicitly set
+<code>:recursive</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">stylesheet_link_tag</span> :<span class="ruby-identifier">all</span>, :<span class="ruby-identifier">recursive</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+</pre>
+
+<h2 id="method-i-stylesheet_link_tag-label-Caching+multiple+stylesheets+into+one">Caching multiple stylesheets into one</h2>
+
+<p>You can also cache multiple stylesheets into one file, which requires less
+HTTP connections and can better be compressed by gzip (leading to faster
+transfers). Caching will only happen if
+ActionController::Base.perform_caching is set to true (which is the case by
+default for the <a href="../../Rails.html">Rails</a> production
+environment, but not for the development environment). Examples:</p>
+
+<h4 id="method-i-stylesheet_link_tag-label-Examples">Examples</h4>
+
+<pre class="ruby"><span class="ruby-identifier">stylesheet_link_tag</span> :<span class="ruby-identifier">all</span>, :<span class="ruby-identifier">cache</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span> <span class="ruby-comment"># when ActionController::Base.perform_caching is false =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/style1.css&quot;</span>  <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/styleB.css&quot;</span>  <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/styleX2.css&quot;</span> <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+
+<span class="ruby-identifier">stylesheet_link_tag</span> :<span class="ruby-identifier">all</span>, :<span class="ruby-identifier">cache</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span> <span class="ruby-comment"># when ActionController::Base.perform_caching is true =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/all.css&quot;</span>  <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+
+<span class="ruby-identifier">stylesheet_link_tag</span> <span class="ruby-string">&quot;shop&quot;</span>, <span class="ruby-string">&quot;cart&quot;</span>, <span class="ruby-string">&quot;checkout&quot;</span>, :<span class="ruby-identifier">cache</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;payment&quot;</span> <span class="ruby-comment"># when ActionController::Base.perform_caching is false =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/shop.css&quot;</span>  <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/cart.css&quot;</span>  <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/checkout.css&quot;</span> <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+
+<span class="ruby-identifier">stylesheet_link_tag</span> <span class="ruby-string">&quot;shop&quot;</span>, <span class="ruby-string">&quot;cart&quot;</span>, <span class="ruby-string">&quot;checkout&quot;</span>, :<span class="ruby-identifier">cache</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;payment&quot;</span> <span class="ruby-comment"># when ActionController::Base.perform_caching is true =&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">link</span> <span class="ruby-identifier">href</span>=<span class="ruby-string">&quot;/stylesheets/payment.css&quot;</span>  <span class="ruby-identifier">media</span>=<span class="ruby-string">&quot;screen&quot;</span> <span class="ruby-identifier">rel</span>=<span class="ruby-string">&quot;stylesheet&quot;</span> <span class="ruby-identifier">type</span>=<span class="ruby-string">&quot;text/css&quot;</span> <span class="ruby-operator">/</span><span class="ruby-operator">&gt;</span>
+</pre>
+
+<p>The <code>:recursive</code> option is also available for caching:</p>
+
+<pre class="ruby"><span class="ruby-identifier">stylesheet_link_tag</span> :<span class="ruby-identifier">all</span>, :<span class="ruby-identifier">cache</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, :<span class="ruby-identifier">recursive</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+</pre>
+
+<p>To force concatenation (even in development mode) set <code>:concat</code>
+to true. This is useful if you have too many stylesheets for IE to load.</p>
+
+<pre class="ruby"><span class="ruby-identifier">stylesheet_link_tag</span> :<span class="ruby-identifier">all</span>, :<span class="ruby-identifier">concat</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-stylesheet_link_tag_source')" id="l_method-i-stylesheet_link_tag_source">show</a>
+                
+              </p>
+              <div id="method-i-stylesheet_link_tag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_view/helpers/asset_tag_helper.rb, line 423</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">stylesheet_link_tag</span>(*<span class="ruby-identifier">sources</span>)
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">sources</span>.<span class="ruby-identifier">extract_options!</span>.<span class="ruby-identifier">stringify_keys</span>
+  <span class="ruby-identifier">concat</span>  = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;concat&quot;</span>)
+  <span class="ruby-identifier">cache</span>   = <span class="ruby-identifier">concat</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;cache&quot;</span>)
+  <span class="ruby-identifier">recursive</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;recursive&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">concat</span> <span class="ruby-operator">||</span> (<span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">perform_caching</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">cache</span>)
+    <span class="ruby-identifier">joined_stylesheet_name</span> = (<span class="ruby-identifier">cache</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;all&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">cache</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;.css&quot;</span>
+    <span class="ruby-identifier">joined_stylesheet_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">joined_stylesheet_name</span>[<span class="ruby-node">/^#{File::SEPARATOR}/</span>] <span class="ruby-operator">?</span> <span class="ruby-constant">ASSETS_DIR</span> <span class="ruby-operator">:</span> <span class="ruby-constant">STYLESHEETS_DIR</span>, <span class="ruby-identifier">joined_stylesheet_name</span>)
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">perform_caching</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">joined_stylesheet_path</span>)
+      <span class="ruby-identifier">write_asset_file_contents</span>(<span class="ruby-identifier">joined_stylesheet_path</span>, <span class="ruby-identifier">compute_stylesheet_paths</span>(<span class="ruby-identifier">sources</span>, <span class="ruby-identifier">recursive</span>))
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">stylesheet_tag</span>(<span class="ruby-identifier">joined_stylesheet_name</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">expand_stylesheet_sources</span>(<span class="ruby-identifier">sources</span>, <span class="ruby-identifier">recursive</span>).<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">source</span><span class="ruby-operator">|</span> <span class="ruby-identifier">stylesheet_tag</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">options</span>) }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>).<span class="ruby-identifier">html_safe</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-stylesheet_path">
+            
+              <b>stylesheet_path</b>(source)
+            
+            <a href="../../../classes/ActionView/Helpers/AssetTagHelper.html#method-i-stylesheet_path" name="method-i-stylesheet_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Computes the path to a stylesheet asset in the public stylesheets
+directory. If the <code>source</code> filename has no extension,
+<code>.css</code> will be appended. Full paths from the document root will
+be passed through. Used internally by <code>stylesheet_link_tag</code> to
+build the stylesheet path.</p>
+
+<h4 id="method-i-stylesheet_path-label-Examples">Examples</h4>
+
+<pre class="ruby"><span class="ruby-identifier">stylesheet_path</span> <span class="ruby-string">&quot;style&quot;</span> <span class="ruby-comment"># =&gt; /stylesheets/style.css</span>
+<span class="ruby-identifier">stylesheet_path</span> <span class="ruby-string">&quot;dir/style.css&quot;</span> <span class="ruby-comment"># =&gt; /stylesheets/dir/style.css</span>
+<span class="ruby-identifier">stylesheet_path</span> <span class="ruby-string">&quot;/dir/style.css&quot;</span> <span class="ruby-comment"># =&gt; /dir/style.css</span>
+<span class="ruby-identifier">stylesheet_path</span> <span class="ruby-string">&quot;http://www.railsapplication.com/css/style&quot;</span> <span class="ruby-comment"># =&gt; http://www.railsapplication.com/css/style.css</span>
+<span class="ruby-identifier">stylesheet_path</span> <span class="ruby-string">&quot;http://www.railsapplication.com/css/style.js&quot;</span> <span class="ruby-comment"># =&gt; http://www.railsapplication.com/css/style.css</span>
+</pre>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="AssetTagHelper.html#method-i-path_to_stylesheet">path_to_stylesheet</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-stylesheet_path_source')" id="l_method-i-stylesheet_path_source">show</a>
+                
+              </p>
+              <div id="method-i-stylesheet_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_view/helpers/asset_tag_helper.rb, line 350</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">stylesheet_path</span>(<span class="ruby-identifier">source</span>)
+  <span class="ruby-identifier">compute_public_path</span>(<span class="ruby-identifier">source</span>, <span class="ruby-string">&#39;stylesheets&#39;</span>, <span class="ruby-string">&#39;css&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

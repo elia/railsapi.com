@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActiveSupport::CoreExtensions::Array::Grouping</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            ActiveSupport::CoreExtensions::Array::Grouping 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/activesupport/lib/active_support/core_ext/array/grouping_rb.html">activesupport/lib/active_support/core_ext/array/grouping.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-in_groups">in_groups</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-in_groups_of">in_groups_of</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-split">split</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-in_groups">
+            
+              <b>in_groups</b>(number, fill_with = nil)
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/Array/Grouping.html#method-i-in_groups" name="method-i-in_groups" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Splits or iterates over the array in <code>number</code> of groups, padding
+any remaining slots with <code>fill_with</code> unless it is
+<code>false</code>.</p>
+
+<pre class="ruby"><span class="ruby-node">%w(1 2 3 4 5 6 7 8 9 10)</span>.<span class="ruby-identifier">in_groups</span>(<span class="ruby-value">3</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">group</span>}
+[<span class="ruby-string">&quot;1&quot;</span>, <span class="ruby-string">&quot;2&quot;</span>, <span class="ruby-string">&quot;3&quot;</span>, <span class="ruby-string">&quot;4&quot;</span>]
+[<span class="ruby-string">&quot;5&quot;</span>, <span class="ruby-string">&quot;6&quot;</span>, <span class="ruby-string">&quot;7&quot;</span>, <span class="ruby-keyword">nil</span>]
+[<span class="ruby-string">&quot;8&quot;</span>, <span class="ruby-string">&quot;9&quot;</span>, <span class="ruby-string">&quot;10&quot;</span>, <span class="ruby-keyword">nil</span>]
+
+<span class="ruby-node">%w(1 2 3 4 5 6 7)</span>.<span class="ruby-identifier">in_groups</span>(<span class="ruby-value">3</span>, <span class="ruby-string">&#39;&amp;nbsp;&#39;</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">group</span>}
+[<span class="ruby-string">&quot;1&quot;</span>, <span class="ruby-string">&quot;2&quot;</span>, <span class="ruby-string">&quot;3&quot;</span>]
+[<span class="ruby-string">&quot;4&quot;</span>, <span class="ruby-string">&quot;5&quot;</span>, <span class="ruby-string">&quot;&amp;nbsp;&quot;</span>]
+[<span class="ruby-string">&quot;6&quot;</span>, <span class="ruby-string">&quot;7&quot;</span>, <span class="ruby-string">&quot;&amp;nbsp;&quot;</span>]
+
+<span class="ruby-node">%w(1 2 3 4 5 6 7)</span>.<span class="ruby-identifier">in_groups</span>(<span class="ruby-value">3</span>, <span class="ruby-keyword">false</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">group</span>}
+[<span class="ruby-string">&quot;1&quot;</span>, <span class="ruby-string">&quot;2&quot;</span>, <span class="ruby-string">&quot;3&quot;</span>]
+[<span class="ruby-string">&quot;4&quot;</span>, <span class="ruby-string">&quot;5&quot;</span>]
+[<span class="ruby-string">&quot;6&quot;</span>, <span class="ruby-string">&quot;7&quot;</span>]
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-in_groups_source')" id="l_method-i-in_groups_source">show</a>
+                
+              </p>
+              <div id="method-i-in_groups_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/array/grouping.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">in_groups</span>(<span class="ruby-identifier">number</span>, <span class="ruby-identifier">fill_with</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment"># size / number gives minor group size;</span>
+  <span class="ruby-comment"># size % number gives how many objects need extra accomodation;</span>
+  <span class="ruby-comment"># each group hold either division or division + 1 items.</span>
+  <span class="ruby-identifier">division</span> = <span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">number</span>
+  <span class="ruby-identifier">modulo</span> = <span class="ruby-identifier">size</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">number</span>
+
+  <span class="ruby-comment"># create a new array avoiding dup</span>
+  <span class="ruby-identifier">groups</span> = []
+  <span class="ruby-identifier">start</span> = <span class="ruby-number">0</span>
+
+  <span class="ruby-identifier">number</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">length</span> = <span class="ruby-identifier">division</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">modulo</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">modulo</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">?</span> <span class="ruby-number">1</span> <span class="ruby-operator">:</span> <span class="ruby-number">0</span>)
+    <span class="ruby-identifier">padding</span> = <span class="ruby-identifier">fill_with</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">&amp;&amp;</span>
+      <span class="ruby-identifier">modulo</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">division</span> <span class="ruby-operator">?</span> <span class="ruby-number">1</span> <span class="ruby-operator">:</span> <span class="ruby-number">0</span>
+    <span class="ruby-identifier">groups</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">slice</span>(<span class="ruby-identifier">start</span>, <span class="ruby-identifier">length</span>).<span class="ruby-identifier">concat</span>([<span class="ruby-identifier">fill_with</span>] * <span class="ruby-identifier">padding</span>)
+    <span class="ruby-identifier">start</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">g</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">g</span>) }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">groups</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-in_groups_of">
+            
+              <b>in_groups_of</b>(number, fill_with = nil)
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/Array/Grouping.html#method-i-in_groups_of" name="method-i-in_groups_of" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Splits or iterates over the array in groups of size <code>number</code>,
+padding any remaining slots with <code>fill_with</code> unless it is
+<code>false</code>.</p>
+
+<pre class="ruby"><span class="ruby-node">%w(1 2 3 4 5 6 7)</span>.<span class="ruby-identifier">in_groups_of</span>(<span class="ruby-value">3</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">group</span>}
+[<span class="ruby-string">&quot;1&quot;</span>, <span class="ruby-string">&quot;2&quot;</span>, <span class="ruby-string">&quot;3&quot;</span>]
+[<span class="ruby-string">&quot;4&quot;</span>, <span class="ruby-string">&quot;5&quot;</span>, <span class="ruby-string">&quot;6&quot;</span>]
+[<span class="ruby-string">&quot;7&quot;</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>]
+
+<span class="ruby-node">%w(1 2 3)</span>.<span class="ruby-identifier">in_groups_of</span>(<span class="ruby-value">2</span>, <span class="ruby-string">&#39;&amp;nbsp;&#39;</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">group</span>}
+[<span class="ruby-string">&quot;1&quot;</span>, <span class="ruby-string">&quot;2&quot;</span>]
+[<span class="ruby-string">&quot;3&quot;</span>, <span class="ruby-string">&quot;&amp;nbsp;&quot;</span>]
+
+<span class="ruby-node">%w(1 2 3)</span>.<span class="ruby-identifier">in_groups_of</span>(<span class="ruby-value">2</span>, <span class="ruby-keyword">false</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">group</span>}
+[<span class="ruby-string">&quot;1&quot;</span>, <span class="ruby-string">&quot;2&quot;</span>]
+[<span class="ruby-string">&quot;3&quot;</span>]
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-in_groups_of_source')" id="l_method-i-in_groups_of_source">show</a>
+                
+              </p>
+              <div id="method-i-in_groups_of_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/array/grouping.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">in_groups_of</span>(<span class="ruby-identifier">number</span>, <span class="ruby-identifier">fill_with</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">fill_with</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">collection</span> = <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># size % number gives how many extra we have;</span>
+    <span class="ruby-comment"># subtracting from number gives how many to add;</span>
+    <span class="ruby-comment"># modulo number ensures we don&#39;t add group of just fill.</span>
+    <span class="ruby-identifier">padding</span> = (<span class="ruby-identifier">number</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">number</span>) <span class="ruby-operator">%</span> <span class="ruby-identifier">number</span>
+    <span class="ruby-identifier">collection</span> = <span class="ruby-identifier">dup</span>.<span class="ruby-identifier">concat</span>([<span class="ruby-identifier">fill_with</span>] * <span class="ruby-identifier">padding</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">each_slice</span>(<span class="ruby-identifier">number</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">slice</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">slice</span>) }
+  <span class="ruby-keyword">else</span>
+    [].<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">groups</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">each_slice</span>(<span class="ruby-identifier">number</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span> <span class="ruby-identifier">groups</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">group</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-split">
+            
+              <b>split</b>(value = nil)
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/Array/Grouping.html#method-i-split" name="method-i-split" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Divides the array into one or more subarrays based on a delimiting
+<code>value</code> or the result of an optional block.</p>
+
+<pre class="ruby">[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>].<span class="ruby-identifier">split</span>(<span class="ruby-value">3</span>)                <span class="ruby-comment"># =&gt; [[1, 2], [4, 5]]</span>
+(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">split</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">3</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> }   <span class="ruby-comment"># =&gt; [[1, 2], [4, 5], [7, 8], [10]]</span>
+</pre>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-split_source')" id="l_method-i-split_source">show</a>
+                
+              </p>
+              <div id="method-i-split_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/array/grouping.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">split</span>(<span class="ruby-identifier">value</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">using_block</span> = <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-identifier">inject</span>([[]]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">results</span>, <span class="ruby-identifier">element</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">using_block</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">element</span>)) <span class="ruby-operator">||</span> (<span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">element</span>)
+      <span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> []
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">results</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">element</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">results</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

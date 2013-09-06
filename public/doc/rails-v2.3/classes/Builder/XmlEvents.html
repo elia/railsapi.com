@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Builder::XmlEvents</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Builder::XmlEvents 
+            
+                <span class="parent">&lt; 
+                    
+                    XmlMarkup
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/activesupport/lib/active_support/vendor/builder-2_1_2/builder/xmlevents_rb.html">activesupport/lib/active_support/vendor/builder-2.1.2/builder/xmlevents.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Create a series of SAX-like XML events (e.g. start_tag, end_tag) from the
+markup code.  XmlEvent objects are used in a way similar to <a
+href="XmlMarkup.html">XmlMarkup</a> objects, except that a series of events
+are generated and passed to a handler rather than generating
+character-based markup.</p>
+
+<p>Usage:</p>
+
+<pre>xe = Builder::XmlEvents.new(handler)
+xe.title(&quot;HI&quot;)    # Sends start_tag/end_tag/text messages to the handler.</pre>
+
+<p>Indentation may also be selected by providing value for the indentation
+size and initial indentation level.</p>
+
+<pre>xe = Builder::XmlEvents.new(handler, indent_size, initial_indent_level)</pre>
+
+<h2 id="label-XML+Event+Handler">XML Event Handler</h2>
+
+<p>The handler object must expect the following events.</p>
+<dl class="rdoc-list label-list"><dt><code>start_tag(tag, attrs)</code>
+<dd>
+<p>Announces that a new tag has been found.  <code>tag</code> is the name of
+the tag and <code>attrs</code> is a hash of attributes for the tag.</p>
+</dd><dt><code>end_tag(tag)</code>
+<dd>
+<p>Announces that an end tag for <code>tag</code> has been found.</p>
+</dd><dt><code>text(text)</code>
+<dd>
+<p>Announces that a string of characters (<code>text</code>) has been found. A
+series of characters may be broken up into more than one <code>text</code>
+call, so the client cannot assume that a single callback contains all the
+text data.</p>
+</dd></dl>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-_end_tag">_end_tag</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-_start_tag">_start_tag</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-text-21">text!</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-_end_tag">
+            
+              <b>_end_tag</b>(sym)
+            
+            <a href="../../classes/Builder/XmlEvents.html#method-i-_end_tag" name="method-i-_end_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_end_tag_source')" id="l_method-i-_end_tag_source">show</a>
+                
+              </p>
+              <div id="method-i-_end_tag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/builder-2.1.2/builder/xmlevents.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_end_tag</span>(<span class="ruby-identifier">sym</span>)
+  <span class="ruby-ivar">@target</span>.<span class="ruby-identifier">end_tag</span>(<span class="ruby-identifier">sym</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-_start_tag">
+            
+              <b>_start_tag</b>(sym, attrs, end_too=false)
+            
+            <a href="../../classes/Builder/XmlEvents.html#method-i-_start_tag" name="method-i-_start_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_start_tag_source')" id="l_method-i-_start_tag_source">show</a>
+                
+              </p>
+              <div id="method-i-_start_tag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/builder-2.1.2/builder/xmlevents.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_start_tag</span>(<span class="ruby-identifier">sym</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">end_too</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-ivar">@target</span>.<span class="ruby-identifier">start_tag</span>(<span class="ruby-identifier">sym</span>, <span class="ruby-identifier">attrs</span>)
+  <span class="ruby-identifier">_end_tag</span>(<span class="ruby-identifier">sym</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">end_too</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-text-21">
+            
+              <b>text!</b>(text)
+            
+            <a href="../../classes/Builder/XmlEvents.html#method-i-text-21" name="method-i-text-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-text-21_source')" id="l_method-i-text-21_source">show</a>
+                
+              </p>
+              <div id="method-i-text-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/vendor/builder-2.1.2/builder/xmlevents.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">text!</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-ivar">@target</span>.<span class="ruby-identifier">text</span>(<span class="ruby-identifier">text</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

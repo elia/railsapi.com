@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActionController::Filters::ClassMethods</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            ActionController::Filters::ClassMethods 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/actionpack/lib/action_controller/filters_rb.html">actionpack/lib/action_controller/filters.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="../Filters.html">Filters</a> enable controllers to run shared pre-
+and post-processing code for its actions. These filters can be used to do
+authentication, caching, or auditing before the intended action is
+performed. Or to do localization or output compression after the action has
+been performed. <a href="../Filters.html">Filters</a> have access to the
+request, response, and all the instance variables set by other filters in
+the chain or by the action (in the case of after filters).</p>
+
+<h2 id="label-Filter+inheritance">Filter inheritance</h2>
+
+<p>Controller inheritance hierarchies share filters downwards, but subclasses
+can also add or skip filters without affecting the superclass. For example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">BankController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">before_filter</span> :<span class="ruby-identifier">audit</span>
+
+  <span class="ruby-identifier">private</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">audit</span>
+      <span class="ruby-comment"># record the action and parameters in an audit log</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">VaultController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">BankController</span>
+  <span class="ruby-identifier">before_filter</span> :<span class="ruby-identifier">verify_credentials</span>
+
+  <span class="ruby-identifier">private</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_credentials</span>
+      <span class="ruby-comment"># make sure the user is allowed into the vault</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Now any actions performed on the BankController will have the audit method
+called before. On the VaultController, first the audit method is called,
+then the verify_credentials method. If the audit method renders or
+redirects, then verify_credentials and the intended action are never
+called.</p>
+
+<h2 id="label-Filter+types">Filter types</h2>
+
+<p>A filter can take one of three forms: method reference (symbol), external
+class, or inline method (proc). The first is the most common and works by
+referencing a protected or private method somewhere in the inheritance
+hierarchy of the controller by use of a symbol. In the bank example above,
+both BankController and VaultController use this form.</p>
+
+<p>Using an external class makes for more easily reused generic filters, such
+as output compression. External filter classes are implemented by having a
+static <code>filter</code> method on any class and then passing this class
+to the filter method. Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">OutputCompressionFilter</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">filter</span>(<span class="ruby-identifier">controller</span>)
+    <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">compress</span>(<span class="ruby-identifier">controller</span>.<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">NewspaperController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">after_filter</span> <span class="ruby-constant">OutputCompressionFilter</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The filter method is passed the controller instance and is hence granted
+access to all aspects of the controller and can manipulate them as it sees
+fit.</p>
+
+<p>The inline method (using a proc) can be used to quickly do something small
+that doesn&#39;t require a lot of explanation. Or just as a quick test. It
+works like this:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">WeblogController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">before_filter</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">controller</span><span class="ruby-operator">|</span> <span class="ruby-identifier">head</span>(<span class="ruby-value">400</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;stop_action&quot;</span>] }
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>As you can see, the block expects to be passed the controller after it has
+assigned the request to the internal variables. This means that the block
+has access to both the request and response objects complete with
+convenience methods for params, session, template, and assigns. Note: The
+inline method doesn&#39;t strictly have to be a block; any object that
+responds to call and returns 1 or -1 on arity will do (such as a Proc or an
+Method object).</p>
+
+<p>Please note that around_filters function a little differently than the
+normal before and after filters with regard to filter types. Please see the
+section dedicated to around_filters below.</p>
+
+<h2 id="label-Filter+chain+ordering">Filter chain ordering</h2>
+
+<p>Using <code>before_filter</code> and <code>after_filter</code> appends the
+specified filters to the existing chain. That&#39;s usually just fine, but
+some times you care more about the order in which the filters are executed.
+When that&#39;s the case, you can use <code>prepend_before_filter</code>
+and <code>prepend_after_filter</code>. <a
+href="../Filters.html">Filters</a> added by these methods will be put at
+the beginning of their respective chain and executed before the rest. For
+example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">ShoppingController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">before_filter</span> :<span class="ruby-identifier">verify_open_shop</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">CheckoutController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ShoppingController</span>
+  <span class="ruby-identifier">prepend_before_filter</span> :<span class="ruby-identifier">ensure_items_in_cart</span>, :<span class="ruby-identifier">ensure_items_in_stock</span>
+</pre>
+
+<p>The filter chain for the CheckoutController is now
+<code>:ensure_items_in_cart, :ensure_items_in_stock,</code>
+<code>:verify_open_shop</code>. So if either of the ensure filters renders
+or redirects, we&#39;ll never get around to see if the shop is open or not.</p>
+
+<p>You may pass multiple filter arguments of each type as well as a filter
+block. If a block is given, it is treated as the last argument.</p>
+
+<h2 id="label-Around+filters">Around filters</h2>
+
+<p>Around filters wrap an action, executing code both before and after. They
+may be declared as method references, blocks, or objects responding to
+<code>filter</code> or to both <code>before</code> and <code>after</code>.</p>
+
+<p>To use a method as an <code>around_filter</code>, pass a symbol naming the
+Ruby method. Yield (or <code>block.call</code>) within the method to run
+the action.</p>
+
+<pre class="ruby"><span class="ruby-identifier">around_filter</span> :<span class="ruby-identifier">catch_exceptions</span>
+
+<span class="ruby-identifier">private</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">catch_exceptions</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">exception</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;Caught exception! #{exception}&quot;</span>
+    <span class="ruby-identifier">raise</span>
+  <span class="ruby-keyword">end</span>
+</pre>
+
+<p>To use a block as an <code>around_filter</code>, pass a block taking as
+args both the controller and the action block. You can&#39;t call yield
+directly from an <code>around_filter</code> block; explicitly call the
+action block instead:</p>
+
+<pre class="ruby"><span class="ruby-identifier">around_filter</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">controller</span>, <span class="ruby-identifier">action</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;before #{controller.action_name}&quot;</span>
+  <span class="ruby-identifier">action</span>.<span class="ruby-identifier">call</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;after #{controller.action_name}&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>To use a filter object with <code>around_filter</code>, pass an object
+responding to <code>:filter</code> or both <code>:before</code> and
+<code>:after</code>. With a filter method, yield to the block as above:</p>
+
+<pre class="ruby"><span class="ruby-identifier">around_filter</span> <span class="ruby-constant">BenchmarkingFilter</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">BenchmarkingFilter</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">filter</span>(<span class="ruby-identifier">controller</span>, &amp;<span class="ruby-identifier">block</span>)
+    <span class="ruby-constant">Benchmark</span>.<span class="ruby-identifier">measure</span>(&amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>With <code>before</code> and <code>after</code> methods:</p>
+
+<pre class="ruby"><span class="ruby-identifier">around_filter</span> <span class="ruby-constant">Authorizer</span>.<span class="ruby-identifier">new</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Authorizer</span>
+  <span class="ruby-comment"># This will run before the action. Redirecting aborts the action.</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">before</span>(<span class="ruby-identifier">controller</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">authorized?</span>
+      <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">login_url</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># This will run after the action if and only if before did not render or redirect.</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">after</span>(<span class="ruby-identifier">controller</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>If the filter has <code>before</code> and <code>after</code> methods, the
+<code>before</code> method will be called before the action. If
+<code>before</code> renders or redirects, the filter chain is halted and
+<code>after</code> will not be run. See Filter Chain Halting below for an
+example.</p>
+
+<h2 id="label-Filter+chain+skipping">Filter chain skipping</h2>
+
+<p>Declaring a filter on a base class conveniently applies to its subclasses,
+but sometimes a subclass should skip some of its superclass&#39; filters:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">ApplicationController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">before_filter</span> :<span class="ruby-identifier">authenticate</span>
+  <span class="ruby-identifier">around_filter</span> :<span class="ruby-identifier">catch_exceptions</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">WeblogController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationController</span>
+  <span class="ruby-comment"># Will run the :authenticate and :catch_exceptions filters.</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">SignupController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationController</span>
+  <span class="ruby-comment"># Skip :authenticate, run :catch_exceptions.</span>
+  <span class="ruby-identifier">skip_before_filter</span> :<span class="ruby-identifier">authenticate</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">ProjectsController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationController</span>
+  <span class="ruby-comment"># Skip :catch_exceptions, run :authenticate.</span>
+  <span class="ruby-identifier">skip_filter</span> :<span class="ruby-identifier">catch_exceptions</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">ClientsController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationController</span>
+  <span class="ruby-comment"># Skip :catch_exceptions and :authenticate unless action is index.</span>
+  <span class="ruby-identifier">skip_filter</span> :<span class="ruby-identifier">catch_exceptions</span>, :<span class="ruby-identifier">authenticate</span>, :<span class="ruby-identifier">except</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">index</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h2 id="label-Filter+conditions">Filter conditions</h2>
+
+<p><a href="../Filters.html">Filters</a> may be limited to specific actions by
+declaring the actions to include or exclude. Both options accept single
+actions (<code>:only =&gt; :index</code>) or arrays of actions
+(<code>:except =&gt; [:foo, :bar]</code>).</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Journal</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-comment"># Require authentication for edit and delete.</span>
+  <span class="ruby-identifier">before_filter</span> :<span class="ruby-identifier">authorize</span>, :<span class="ruby-identifier">only</span> =<span class="ruby-operator">&gt;</span> [:<span class="ruby-identifier">edit</span>, :<span class="ruby-identifier">delete</span>]
+
+  <span class="ruby-comment"># Passing options to a filter with a block.</span>
+  <span class="ruby-identifier">around_filter</span>(:<span class="ruby-identifier">except</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">index</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">controller</span>, <span class="ruby-identifier">action_block</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">results</span> = <span class="ruby-constant">Profiler</span>.<span class="ruby-identifier">run</span>(&amp;<span class="ruby-identifier">action_block</span>)
+    <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">response</span>.<span class="ruby-identifier">sub!</span> <span class="ruby-string">&quot;&lt;/body&gt;&quot;</span>, <span class="ruby-node">&quot;#{results}&lt;/body&gt;&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">private</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">authorize</span>
+      <span class="ruby-comment"># Redirect to login unless authenticated.</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h2 id="label-Filter+Chain+Halting">Filter Chain Halting</h2>
+
+<p><code>before_filter</code> and <code>around_filter</code> may halt the
+request before a controller action is run. This is useful, for example, to
+deny access to unauthenticated users or to redirect from HTTP to HTTPS.
+Simply call render or redirect. After filters will not be executed if the
+filter  chain is halted.</p>
+
+<p>Around filters halt the request unless the action block is called. Given
+these filters</p>
+
+<pre>after_filter :after
+around_filter :around
+before_filter :before</pre>
+
+<p>The filter chain will look like:</p>
+
+<pre>...
+. \
+.  #around (code before yield)
+.  .  \
+.  .  #before (actual filter code is run)
+.  .  .  \
+.  .  .  execute controller action
+.  .  .  /
+.  .  ...
+.  .  /
+.  #around (code after yield)
+. /
+#after (actual filter code is run, unless the around filter does not yield)</pre>
+
+<p>If <code>around</code> returns before yielding, <code>after</code> will
+still not be run. The <code>before</code> filter and controller action will
+not be run. If <code>before</code> renders or redirects, the second half of
+<code>around</code> and will still run but <code>after</code> and the
+action will not. If <code>around</code> fails to yield, <code>after</code>
+will not be run.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-after_filter">after_filter</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-append_after_filter">append_after_filter</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-append_around_filter">append_around_filter</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-append_before_filter">append_before_filter</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-around_filter">around_filter</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-before_filter">before_filter</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-filter_chain">filter_chain</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-prepend_after_filter">prepend_after_filter</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-prepend_around_filter">prepend_around_filter</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-prepend_before_filter">prepend_before_filter</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-skip_after_filter">skip_after_filter</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-skip_before_filter">skip_before_filter</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-skip_filter">skip_filter</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-after_filter">
+            
+              <b>after_filter</b>(*filters, &amp;block)
+            
+            <a href="../../../classes/ActionController/Filters/ClassMethods.html#method-i-after_filter" name="method-i-after_filter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Shorthand for <a
+href="ClassMethods.html#method-i-append_after_filter">#append_after_filter</a>
+since it&#39;s the most common.</p>
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-append_after_filter">
+            
+              <b>append_after_filter</b>(*filters, &amp;block)
+            
+            <a href="../../../classes/ActionController/Filters/ClassMethods.html#method-i-append_after_filter" name="method-i-append_after_filter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The passed <code>filters</code> will be appended to the array of filters
+that run <em>after</em> actions on this controller are performed.</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="ClassMethods.html#method-i-after_filter">after_filter</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-append_after_filter_source')" id="l_method-i-append_after_filter_source">show</a>
+                
+              </p>
+              <div id="method-i-append_after_filter_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/filters.rb, line 498</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">append_after_filter</span>(*<span class="ruby-identifier">filters</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">filter_chain</span>.<span class="ruby-identifier">append_filter_to_chain</span>(<span class="ruby-identifier">filters</span>, <span class="ruby-value">:after</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-append_around_filter">
+            
+              <b>append_around_filter</b>(*filters, &amp;block)
+            
+            <a href="../../../classes/ActionController/Filters/ClassMethods.html#method-i-append_around_filter" name="method-i-append_around_filter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>If you <code>append_around_filter A.new, B.new</code>, the filter chain
+looks like</p>
+
+<pre>B#before
+  A#before
+    # run the action
+  A#after
+B#after</pre>
+
+<p>With around filters which yield to the action block, <code>before</code>
+and <code>after</code> are the code before and after the yield.</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="ClassMethods.html#method-i-around_filter">around_filter</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-append_around_filter_source')" id="l_method-i-append_around_filter_source">show</a>
+                
+              </p>
+              <div id="method-i-append_around_filter_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/filters.rb, line 521</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">append_around_filter</span>(*<span class="ruby-identifier">filters</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">filter_chain</span>.<span class="ruby-identifier">append_filter_to_chain</span>(<span class="ruby-identifier">filters</span>, <span class="ruby-value">:around</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-append_before_filter">
+            
+              <b>append_before_filter</b>(*filters, &amp;block)
+            
+            <a href="../../../classes/ActionController/Filters/ClassMethods.html#method-i-append_before_filter" name="method-i-append_before_filter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The passed <code>filters</code> will be appended to the <a
+href="ClassMethods.html#method-i-filter_chain">#filter_chain</a> and will
+execute before the action on this controller is performed.</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="ClassMethods.html#method-i-before_filter">before_filter</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-append_before_filter_source')" id="l_method-i-append_before_filter_source">show</a>
+                
+              </p>
+              <div id="method-i-append_before_filter_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/filters.rb, line 483</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">append_before_filter</span>(*<span class="ruby-identifier">filters</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">filter_chain</span>.<span class="ruby-identifier">append_filter_to_chain</span>(<span class="ruby-identifier">filters</span>, <span class="ruby-value">:before</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-around_filter">
+            
+              <b>around_filter</b>(*filters, &amp;block)
+            
+            <a href="../../../classes/ActionController/Filters/ClassMethods.html#method-i-around_filter" name="method-i-around_filter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Shorthand for <code>append_around_filter</code> since it&#39;s the most
+common.</p>
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-before_filter">
+            
+              <b>before_filter</b>(*filters, &amp;block)
+            
+            <a href="../../../classes/ActionController/Filters/ClassMethods.html#method-i-before_filter" name="method-i-before_filter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Shorthand for <a
+href="ClassMethods.html#method-i-append_before_filter">#append_before_filter</a>
+since it&#39;s the most common.</p>
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-filter_chain">
+            
+              <b>filter_chain</b>()
+            
+            <a href="../../../classes/ActionController/Filters/ClassMethods.html#method-i-filter_chain" name="method-i-filter_chain" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns an array of Filter objects for this controller.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-filter_chain_source')" id="l_method-i-filter_chain_source">show</a>
+                
+              </p>
+              <div id="method-i-filter_chain_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/filters.rb, line 573</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">filter_chain</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">chain</span> = <span class="ruby-identifier">read_inheritable_attribute</span>(<span class="ruby-string">&#39;filter_chain&#39;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">chain</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">write_inheritable_attribute</span>(<span class="ruby-string">&#39;filter_chain&#39;</span>, <span class="ruby-constant">FilterChain</span>.<span class="ruby-identifier">new</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">filter_chain</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prepend_after_filter">
+            
+              <b>prepend_after_filter</b>(*filters, &amp;block)
+            
+            <a href="../../../classes/ActionController/Filters/ClassMethods.html#method-i-prepend_after_filter" name="method-i-prepend_after_filter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The passed <code>filters</code> will be prepended to the array of filters
+that run <em>after</em> actions on this controller are performed.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-prepend_after_filter_source')" id="l_method-i-prepend_after_filter_source">show</a>
+                
+              </p>
+              <div id="method-i-prepend_after_filter_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/filters.rb, line 504</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">prepend_after_filter</span>(*<span class="ruby-identifier">filters</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">filter_chain</span>.<span class="ruby-identifier">prepend_filter_to_chain</span>(<span class="ruby-identifier">filters</span>, <span class="ruby-value">:after</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prepend_around_filter">
+            
+              <b>prepend_around_filter</b>(*filters, &amp;block)
+            
+            <a href="../../../classes/ActionController/Filters/ClassMethods.html#method-i-prepend_around_filter" name="method-i-prepend_around_filter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>If you <code>prepend_around_filter A.new, B.new</code>, the filter chain
+looks like:</p>
+
+<pre>A#before
+  B#before
+    # run the action
+  B#after
+A#after</pre>
+
+<p>With around filters which yield to the action block, <code>before</code>
+and <code>after</code> are the code before and after the yield.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-prepend_around_filter_source')" id="l_method-i-prepend_around_filter_source">show</a>
+                
+              </p>
+              <div id="method-i-prepend_around_filter_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/filters.rb, line 535</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">prepend_around_filter</span>(*<span class="ruby-identifier">filters</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">filter_chain</span>.<span class="ruby-identifier">prepend_filter_to_chain</span>(<span class="ruby-identifier">filters</span>, <span class="ruby-value">:around</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prepend_before_filter">
+            
+              <b>prepend_before_filter</b>(*filters, &amp;block)
+            
+            <a href="../../../classes/ActionController/Filters/ClassMethods.html#method-i-prepend_before_filter" name="method-i-prepend_before_filter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The passed <code>filters</code> will be prepended to the <a
+href="ClassMethods.html#method-i-filter_chain">#filter_chain</a> and will
+execute before the action on this controller is performed.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-prepend_before_filter_source')" id="l_method-i-prepend_before_filter_source">show</a>
+                
+              </p>
+              <div id="method-i-prepend_before_filter_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/filters.rb, line 489</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">prepend_before_filter</span>(*<span class="ruby-identifier">filters</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">filter_chain</span>.<span class="ruby-identifier">prepend_filter_to_chain</span>(<span class="ruby-identifier">filters</span>, <span class="ruby-value">:before</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-skip_after_filter">
+            
+              <b>skip_after_filter</b>(*filters)
+            
+            <a href="../../../classes/ActionController/Filters/ClassMethods.html#method-i-skip_after_filter" name="method-i-skip_after_filter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Removes the specified filters from the <code>after</code> filter chain.
+Note that this only works for skipping method-reference filters, not procs.
+This is especially useful for managing the chain in inheritance hierarchies
+where only one out of many sub-controllers need a different hierarchy.</p>
+
+<p>You can control the actions to skip the filter for with the
+<code>:only</code> and <code>:except</code> options, just like when you
+apply the filters.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-skip_after_filter_source')" id="l_method-i-skip_after_filter_source">show</a>
+                
+              </p>
+              <div id="method-i-skip_after_filter_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/filters.rb, line 558</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">skip_after_filter</span>(*<span class="ruby-identifier">filters</span>)
+  <span class="ruby-identifier">filter_chain</span>.<span class="ruby-identifier">skip_filter_in_chain</span>(*<span class="ruby-identifier">filters</span>, &amp;<span class="ruby-value">:after?</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-skip_before_filter">
+            
+              <b>skip_before_filter</b>(*filters)
+            
+            <a href="../../../classes/ActionController/Filters/ClassMethods.html#method-i-skip_before_filter" name="method-i-skip_before_filter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Removes the specified filters from the <code>before</code> filter chain.
+Note that this only works for skipping method-reference filters, not procs.
+This is especially useful for managing the chain in inheritance hierarchies
+where only one out of many sub-controllers need a different hierarchy.</p>
+
+<p>You can control the actions to skip the filter for with the
+<code>:only</code> and <code>:except</code> options, just like when you
+apply the filters.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-skip_before_filter_source')" id="l_method-i-skip_before_filter_source">show</a>
+                
+              </p>
+              <div id="method-i-skip_before_filter_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/filters.rb, line 548</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">skip_before_filter</span>(*<span class="ruby-identifier">filters</span>)
+  <span class="ruby-identifier">filter_chain</span>.<span class="ruby-identifier">skip_filter_in_chain</span>(*<span class="ruby-identifier">filters</span>, &amp;<span class="ruby-value">:before?</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-skip_filter">
+            
+              <b>skip_filter</b>(*filters)
+            
+            <a href="../../../classes/ActionController/Filters/ClassMethods.html#method-i-skip_filter" name="method-i-skip_filter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Removes the specified filters from the filter chain. This only works for
+method reference (symbol) filters, not procs. This method is different from
+<a
+href="ClassMethods.html#method-i-skip_after_filter">#skip_after_filter</a>
+and <a
+href="ClassMethods.html#method-i-skip_before_filter">#skip_before_filter</a>
+in that it will match any before, after or yielding around filter.</p>
+
+<p>You can control the actions to skip the filter for with the
+<code>:only</code> and <code>:except</code> options, just like when you
+apply the filters.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-skip_filter_source')" id="l_method-i-skip_filter_source">show</a>
+                
+              </p>
+              <div id="method-i-skip_filter_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/filters.rb, line 568</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">skip_filter</span>(*<span class="ruby-identifier">filters</span>)
+  <span class="ruby-identifier">filter_chain</span>.<span class="ruby-identifier">skip_filter_in_chain</span>(*<span class="ruby-identifier">filters</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

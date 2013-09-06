@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActionController::Dispatcher</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            ActionController::Dispatcher 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/actionpack/lib/action_controller/dispatcher_rb.html">actionpack/lib/action_controller/dispatcher.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Dispatches requests to the appropriate controller and takes care of
+reloading the app after each request when Dependencies.load? is true.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-_call">_call</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-call">call</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-cleanup_application">cleanup_application</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-define_dispatcher_callbacks">define_dispatcher_callbacks</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-dispatch">dispatch</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-dispatch">dispatch</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-dispatch_cgi">dispatch_cgi</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-flush_logger">flush_logger</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-reload_application">reload_application</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-run_prepare_callbacks">run_prepare_callbacks</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-to_prepare">to_prepare</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../ActiveSupport/Callbacks.html">
+              ActiveSupport::Callbacks
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-cleanup_application">
+            
+              <b>cleanup_application</b>()
+            
+            <a href="../../classes/ActionController/Dispatcher.html#method-c-cleanup_application" name="method-c-cleanup_application" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-cleanup_application_source')" id="l_method-c-cleanup_application_source">show</a>
+                
+              </p>
+              <div id="method-c-cleanup_application_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/dispatcher.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cleanup_application</span>
+  <span class="ruby-comment"># Cleanup the application before processing the current request.</span>
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">reset_subclasses</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">ActiveRecord</span>)
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Dependencies</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">clear_reloadable_connections!</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">ActiveRecord</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-define_dispatcher_callbacks">
+            
+              <b>define_dispatcher_callbacks</b>(cache_classes)
+            
+            <a href="../../classes/ActionController/Dispatcher.html#method-c-define_dispatcher_callbacks" name="method-c-define_dispatcher_callbacks" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-define_dispatcher_callbacks_source')" id="l_method-c-define_dispatcher_callbacks_source">show</a>
+                
+              </p>
+              <div id="method-c-define_dispatcher_callbacks_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/dispatcher.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">define_dispatcher_callbacks</span>(<span class="ruby-identifier">cache_classes</span>)
+  <span class="ruby-identifier">@@cache_classes</span> = <span class="ruby-identifier">cache_classes</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cache_classes</span>
+    <span class="ruby-constant">ActionView</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span><span class="ruby-operator">::</span><span class="ruby-constant">AssetTagHelper</span>.<span class="ruby-identifier">cache_asset_timestamps</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">ActiveRecord</span>)
+    <span class="ruby-identifier">to_prepare</span>(<span class="ruby-value">:activerecord_instantiate_observers</span>) { <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">instantiate_observers</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">after_dispatch</span> <span class="ruby-value">:flush_logger</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Base</span>.<span class="ruby-identifier">logger</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Base</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:flush</span>)
+
+  <span class="ruby-identifier">to_prepare</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">reload!</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-dispatch">
+            
+              <b>dispatch</b>(cgi = nil, session_options = CgiRequest::DEFAULT_SESSION_OPTIONS, output = $stdout)
+            
+            <a href="../../classes/ActionController/Dispatcher.html#method-c-dispatch" name="method-c-dispatch" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>DEPRECATE: Remove <a href="../CGI.html">CGI</a> support</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-dispatch_source')" id="l_method-c-dispatch_source">show</a>
+                
+              </p>
+              <div id="method-c-dispatch_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/dispatcher.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">dispatch</span>(<span class="ruby-identifier">cgi</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">session_options</span> = <span class="ruby-constant">CgiRequest</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_SESSION_OPTIONS</span>, <span class="ruby-identifier">output</span> = <span class="ruby-identifier">$stdout</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">output</span>).<span class="ruby-identifier">dispatch_cgi</span>(<span class="ruby-identifier">cgi</span>, <span class="ruby-identifier">session_options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(output = $stdout, request = nil, response = nil)
+            
+            <a href="../../classes/ActionController/Dispatcher.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>DEPRECATE: Remove arguments, since they are only used by <a
+href="../CGI.html">CGI</a></p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/dispatcher.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">output</span> = <span class="ruby-identifier">$stdout</span>, <span class="ruby-identifier">request</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">response</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@output</span> = <span class="ruby-identifier">output</span>
+  <span class="ruby-identifier">build_middleware_stack</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">@@cache_classes</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-reload_application">
+            
+              <b>reload_application</b>()
+            
+            <a href="../../classes/ActionController/Dispatcher.html#method-c-reload_application" name="method-c-reload_application" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-reload_application_source')" id="l_method-c-reload_application_source">show</a>
+                
+              </p>
+              <div id="method-c-reload_application_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/dispatcher.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">reload_application</span>
+  <span class="ruby-comment"># Run prepare callbacks before every request in development mode</span>
+  <span class="ruby-identifier">run_prepare_callbacks</span>
+
+  <span class="ruby-constant">Routing</span><span class="ruby-operator">::</span><span class="ruby-constant">Routes</span>.<span class="ruby-identifier">reload</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-run_prepare_callbacks">
+            
+              <b>run_prepare_callbacks</b>()
+            
+            <a href="../../classes/ActionController/Dispatcher.html#method-c-run_prepare_callbacks" name="method-c-run_prepare_callbacks" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-run_prepare_callbacks_source')" id="l_method-c-run_prepare_callbacks_source">show</a>
+                
+              </p>
+              <div id="method-c-run_prepare_callbacks_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/dispatcher.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">run_prepare_callbacks</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">Rails</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>
+    <span class="ruby-identifier">logger</span> = <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">logger</span> = <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">$stderr</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">logger</span>).<span class="ruby-identifier">send</span> <span class="ruby-value">:run_callbacks</span>, <span class="ruby-value">:prepare_dispatch</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-to_prepare">
+            
+              <b>to_prepare</b>(identifier = nil, &amp;block)
+            
+            <a href="../../classes/ActionController/Dispatcher.html#method-c-to_prepare" name="method-c-to_prepare" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Add a preparation callback. Preparation callbacks are run before every
+request in development mode, and before the first request in production
+mode.</p>
+
+<p>An optional identifier may be supplied for the callback. If provided, <a
+href="Dispatcher.html#method-c-to_prepare">::to_prepare</a> may be called
+again with the same identifier to replace the existing callback. Passing an
+identifier is a suggested practice if the code adding a preparation block
+may be reloaded.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-to_prepare_source')" id="l_method-c-to_prepare_source">show</a>
+                
+              </p>
+              <div id="method-c-to_prepare_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/dispatcher.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_prepare</span>(<span class="ruby-identifier">identifier</span> = <span class="ruby-keyword">nil</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@prepare_dispatch_callbacks</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Callbacks</span><span class="ruby-operator">::</span><span class="ruby-constant">CallbackChain</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">callback</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Callbacks</span><span class="ruby-operator">::</span><span class="ruby-constant">Callback</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:prepare_dispatch</span>, <span class="ruby-identifier">block</span>, <span class="ruby-value">:identifier</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">identifier</span>)
+  <span class="ruby-ivar">@prepare_dispatch_callbacks</span>.<span class="ruby-identifier">replace_or_append!</span>(<span class="ruby-identifier">callback</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-_call">
+            
+              <b>_call</b>(env)
+            
+            <a href="../../classes/ActionController/Dispatcher.html#method-i-_call" name="method-i-_call" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_call_source')" id="l_method-i-_call_source">show</a>
+                
+              </p>
+              <div id="method-i-_call_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/dispatcher.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_call</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-ivar">@env</span> = <span class="ruby-identifier">env</span>
+  <span class="ruby-identifier">dispatch</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-call">
+            
+              <b>call</b>(env)
+            
+            <a href="../../classes/ActionController/Dispatcher.html#method-i-call" name="method-i-call" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-call_source')" id="l_method-i-call_source">show</a>
+                
+              </p>
+              <div id="method-i-call_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/dispatcher.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">call</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">@@cache_classes</span>
+    <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Reloader</span>.<span class="ruby-identifier">run</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-comment"># When class reloading is turned on, we will want to rebuild the</span>
+      <span class="ruby-comment"># middleware stack every time we process a request. If we don&#39;t</span>
+      <span class="ruby-comment"># rebuild the middleware stack, then the stack may contain references</span>
+      <span class="ruby-comment"># to old classes metal classes, which will b0rk class reloading.</span>
+      <span class="ruby-identifier">build_middleware_stack</span>
+      <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-dispatch">
+            
+              <b>dispatch</b>()
+            
+            <a href="../../classes/ActionController/Dispatcher.html#method-i-dispatch" name="method-i-dispatch" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-dispatch_source')" id="l_method-i-dispatch_source">show</a>
+                
+              </p>
+              <div id="method-i-dispatch_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/dispatcher.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">dispatch</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">run_callbacks</span> <span class="ruby-value">:before_dispatch</span>
+    <span class="ruby-constant">Routing</span><span class="ruby-operator">::</span><span class="ruby-constant">Routes</span>.<span class="ruby-identifier">call</span>(<span class="ruby-ivar">@env</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">exception</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">controller</span> <span class="ruby-operator">||=</span> (<span class="ruby-operator">::</span><span class="ruby-constant">ApplicationController</span> <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Base</span>)
+      <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">call_with_exception</span>(<span class="ruby-ivar">@env</span>, <span class="ruby-identifier">exception</span>).<span class="ruby-identifier">to_a</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">exception</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">run_callbacks</span> <span class="ruby-value">:after_dispatch</span>, <span class="ruby-value">:enumerator</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:reverse_each</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-dispatch_cgi">
+            
+              <b>dispatch_cgi</b>(cgi, session_options)
+            
+            <a href="../../classes/ActionController/Dispatcher.html#method-i-dispatch_cgi" name="method-i-dispatch_cgi" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>DEPRECATE: Remove <a href="../CGI.html">CGI</a> support</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-dispatch_cgi_source')" id="l_method-i-dispatch_cgi_source">show</a>
+                
+              </p>
+              <div id="method-i-dispatch_cgi_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/dispatcher.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">dispatch_cgi</span>(<span class="ruby-identifier">cgi</span>, <span class="ruby-identifier">session_options</span>)
+  <span class="ruby-constant">CGIHandler</span>.<span class="ruby-identifier">dispatch_cgi</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">cgi</span>, <span class="ruby-ivar">@output</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-flush_logger">
+            
+              <b>flush_logger</b>()
+            
+            <a href="../../classes/ActionController/Dispatcher.html#method-i-flush_logger" name="method-i-flush_logger" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-flush_logger_source')" id="l_method-i-flush_logger_source">show</a>
+                
+              </p>
+              <div id="method-i-flush_logger_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/dispatcher.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">flush_logger</span>
+  <span class="ruby-constant">Base</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">flush</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

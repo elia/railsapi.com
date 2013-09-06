@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActiveSupport::CoreExtensions::String::Multibyte</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            ActiveSupport::CoreExtensions::String::Multibyte 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/activesupport/lib/active_support/core_ext/string/multibyte_rb.html">activesupport/lib/active_support/core_ext/string/multibyte.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Implements multibyte methods for easier access to multibyte characters in a
+<a href="../String.html">String</a> instance.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-chars">chars</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-is_utf8-3F">is_utf8?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-mb_chars">mb_chars</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-chars">
+            
+              <b>chars</b>()
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/String/Multibyte.html#method-i-chars" name="method-i-chars" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-chars_source')" id="l_method-i-chars_source">show</a>
+                
+              </p>
+              <div id="method-i-chars_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/multibyte.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">chars</span>
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecation</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-string">&#39;String#chars has been deprecated in favor of String#mb_chars.&#39;</span>, <span class="ruby-identifier">caller</span>)
+  <span class="ruby-identifier">mb_chars</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-is_utf8-3F">
+            
+              <b>is_utf8?</b>()
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/String/Multibyte.html#method-i-is_utf8-3F" name="method-i-is_utf8-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns true if the string has UTF-8 semantics (a <a
+href="../String.html">String</a> used for purely byte resources is unlikely
+to have them), returns false otherwise.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-is_utf8-3F_source')" id="l_method-i-is_utf8-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-is_utf8-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/multibyte.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">is_utf8?</span>
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Multibyte</span><span class="ruby-operator">::</span><span class="ruby-constant">Chars</span>.<span class="ruby-identifier">consumes?</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mb_chars">
+            
+              <b>mb_chars</b>()
+            
+            <a href="../../../../classes/ActiveSupport/CoreExtensions/String/Multibyte.html#method-i-mb_chars" name="method-i-mb_chars" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h2 id="method-i-mb_chars-label-Multibyte+proxy"><a href="Multibyte.html">Multibyte</a> proxy</h2>
+
+<p><code>mb_chars</code> is a multibyte safe proxy for string methods.</p>
+
+<p>In Ruby 1.8 and older it creates and returns an instance of the <a
+href="../../Multibyte/Chars.html">ActiveSupport::Multibyte::Chars</a> class
+which encapsulates the original string. A Unicode safe version of all the
+<a href="../String.html">String</a> methods are defined on this proxy
+class. If the proxy class doesn&#39;t respond to a certain method, it&#39;s
+forwarded to the encapsuled string.</p>
+
+<pre class="ruby"><span class="ruby-identifier">name</span> = <span class="ruby-string">&#39;Claus Müller&#39;</span>
+<span class="ruby-identifier">name</span>.<span class="ruby-identifier">reverse</span>  <span class="ruby-comment">#=&gt; &quot;rell??M sualC&quot;</span>
+<span class="ruby-identifier">name</span>.<span class="ruby-identifier">length</span>   <span class="ruby-comment">#=&gt; 13</span>
+
+<span class="ruby-identifier">name</span>.<span class="ruby-identifier">mb_chars</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">to_s</span>   <span class="ruby-comment">#=&gt; &quot;rellüM sualC&quot;</span>
+<span class="ruby-identifier">name</span>.<span class="ruby-identifier">mb_chars</span>.<span class="ruby-identifier">length</span>         <span class="ruby-comment">#=&gt; 12</span>
+</pre>
+
+<p>In Ruby 1.9 and newer <code>mb_chars</code> returns <code>self</code>
+because <a href="../String.html">String</a> is (mostly) encoding aware.
+This means that it becomes easy to run one version of your code on multiple
+Ruby versions.</p>
+
+<h2 id="method-i-mb_chars-label-Method+chaining">Method chaining</h2>
+
+<p>All the methods on the Chars proxy which normally return a string will
+return a Chars object. This allows method chaining on the result of any of
+these methods.</p>
+
+<pre class="ruby"><span class="ruby-identifier">name</span>.<span class="ruby-identifier">mb_chars</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">length</span> <span class="ruby-comment">#=&gt; 12</span>
+</pre>
+
+<h2 id="method-i-mb_chars-label-Interoperability+and+configuration">Interoperability and configuration</h2>
+
+<p>The Chars object tries to be as interchangeable with <a
+href="../String.html">String</a> objects as possible: sorting and comparing
+between <a href="../String.html">String</a> and Char work like expected.
+The bang! methods change the internal string representation in the Chars
+object. Interoperability problems can be resolved easily with a
+<code>to_s</code> call.</p>
+
+<p>For more information about the methods defined on the Chars proxy see <a
+href="../../Multibyte/Chars.html">ActiveSupport::Multibyte::Chars</a>. For
+information about how to change the default <a
+href="Multibyte.html">Multibyte</a> behaviour see <a
+href="../../Multibyte.html">ActiveSupport::Multibyte</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mb_chars_source')" id="l_method-i-mb_chars_source">show</a>
+                
+              </p>
+              <div id="method-i-mb_chars_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/multibyte.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mb_chars</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Multibyte</span>.<span class="ruby-identifier">proxy_class</span>.<span class="ruby-identifier">wants?</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Multibyte</span>.<span class="ruby-identifier">proxy_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

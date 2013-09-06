@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActionController::Routing::RouteSet::Mapper</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            ActionController::Routing::RouteSet::Mapper 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/actionpack/lib/action_controller/routing/route_set_rb.html">actionpack/lib/action_controller/routing/route_set.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="Mapper.html">Mapper</a> instances are used to build routes. The
+object passed to the draw block in config/routes.rb is a <a
+href="Mapper.html">Mapper</a> instance.</p>
+
+<p><a href="Mapper.html">Mapper</a> instances have relatively few instance
+methods, in order to avoid clashes with named routes.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-connect">connect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-namespace">namespace</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-root">root</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../../Resources.html">
+              ActionController::Resources
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-connect">
+            
+              <b>connect</b>(path, options = {})
+            
+            <a href="../../../../classes/ActionController/Routing/RouteSet/Mapper.html#method-i-connect" name="method-i-connect" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Create an unnamed route with the provided <code>path</code> and
+<code>options</code>. See <a
+href="../../Routing.html">ActionController::Routing</a> for an introduction
+to routes.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-connect_source')" id="l_method-i-connect_source">show</a>
+                
+              </p>
+              <div id="method-i-connect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/route_set.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">connect</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@set</span>.<span class="ruby-identifier">add_route</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-namespace">
+            
+              <b>namespace</b>(name, options = {}, &amp;block)
+            
+            <a href="../../../../classes/ActionController/Routing/RouteSet/Mapper.html#method-i-namespace" name="method-i-namespace" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Enables the use of resources in a module by setting the name_prefix,
+path_prefix, and namespace for the model. Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">map</span>.<span class="ruby-identifier">namespace</span>(:<span class="ruby-identifier">admin</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">admin</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">admin</span>.<span class="ruby-identifier">resources</span> :<span class="ruby-identifier">products</span>,
+    :<span class="ruby-identifier">has_many</span> =<span class="ruby-operator">&gt;</span> [ :<span class="ruby-identifier">tags</span>, :<span class="ruby-identifier">images</span>, :<span class="ruby-identifier">variants</span> ]
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>This will create <code>admin_products_url</code> pointing to
+“admin/products”, which will look for an Admin::ProductsController.
+It&#39;ll also create <code>admin_product_tags_url</code> pointing to
+“admin/products/#{product_id}/tags”, which will look for
+Admin::TagsController.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-namespace_source')" id="l_method-i-namespace_source">show</a>
+                
+              </p>
+              <div id="method-i-namespace_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/route_set.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">namespace</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {}, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:namespace</span>]
+    <span class="ruby-identifier">with_options</span>({<span class="ruby-value">:path_prefix</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{options.delete(:path_prefix)}/#{name}&quot;</span>, <span class="ruby-value">:name_prefix</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{options.delete(:name_prefix)}#{name}_&quot;</span>, <span class="ruby-value">:namespace</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{options.delete(:namespace)}#{name}/&quot;</span> }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>), &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">with_options</span>({<span class="ruby-value">:path_prefix</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-value">:name_prefix</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{name}_&quot;</span>, <span class="ruby-value">:namespace</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{name}/&quot;</span> }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>), &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-root">
+            
+              <b>root</b>(options = {})
+            
+            <a href="../../../../classes/ActionController/Routing/RouteSet/Mapper.html#method-i-root" name="method-i-root" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Creates a named route called “root” for matching the root level request.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-root_source')" id="l_method-i-root_source">show</a>
+                
+              </p>
+              <div id="method-i-root_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/routing/route_set.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">root</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">source_route</span> = <span class="ruby-ivar">@set</span>.<span class="ruby-identifier">named_routes</span>.<span class="ruby-identifier">routes</span>[<span class="ruby-identifier">options</span>]
+      <span class="ruby-identifier">options</span> = <span class="ruby-identifier">source_route</span>.<span class="ruby-identifier">defaults</span>.<span class="ruby-identifier">merge</span>({ <span class="ruby-value">:conditions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">source_route</span>.<span class="ruby-identifier">conditions</span> })
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">named_route</span>(<span class="ruby-string">&quot;root&quot;</span>, <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    
